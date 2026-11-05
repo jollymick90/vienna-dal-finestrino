@@ -3,7 +3,7 @@
   import 'leaflet/dist/leaflet.css';
   import { createRouteMap } from '../lib/route-map.js';
 
-  let { selected = 0, position = null, simulated = false } = $props();
+  let { selected = 0, position = null, simulated = false, locating = false, onlocate = () => {} } = $props();
   let container;
   let controller = $state.raw(null);
   let online = $state(true);
@@ -24,11 +24,17 @@
   $effect(() => { controller?.select(selected); });
   $effect(() => { controller?.position(position, simulated); });
   $effect(() => { controller?.online(online); });
+  function locate() {
+    controller?.center();
+    if (!position) onlocate();
+  }
 </script>
 
 <section class="route-map" aria-label="Mappa del percorso in tram">
   <div class="map-heading"><h2>Il percorso in tram</h2><button class="text-button" onclick={() => controller?.fit()}>Intero percorso</button></div>
   <div class="map-canvas" bind:this={container}></div>
+  <button class="secondary locate" onclick={locate}>{simulated ? 'Centra simulazione' : 'La mia posizione'}</button>
+  {#if !position && !simulated}<p class="map-note" role="status">{locating ? 'Cerco la tua posizione GPS…' : 'Tocca «La mia posizione» e consenti l’accesso al GPS.'}</p>{/if}
   <div class="map-legend"><span><i class="red"></i>44 · Schottentor</span><span><i class="blue"></i>1 · Reumannplatz</span></div>
   {#if !online}<p class="map-note" role="status">Offline: tracciati e fermate disponibili.</p>
   {:else if tileError}<p class="map-note" role="status">Sfondo non disponibile. Tracciati e fermate restano visibili.</p>
@@ -41,6 +47,8 @@
   h2 { font-size: 18px; letter-spacing: -.3px; }
   .map-heading button { margin: 0; font-size: 12px; flex-shrink: 0; }
   .map-canvas { height: 320px; width: 100%; border-radius: 12px; background: #eaf2f6; isolation: isolate; z-index: 0; }
+  .locate { margin-top: 10px; }
+  .map-canvas :global(.position-label) { color: #fff; background: #007aaf; border-color: #007aaf; font-weight: 700; }
   .map-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 11px; padding-top: 10px; }
   .map-legend span { display: flex; align-items: center; gap: 6px; }
   i { width: 18px; height: 4px; border-radius: 2px; }

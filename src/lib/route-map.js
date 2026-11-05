@@ -6,6 +6,8 @@ const colors = ["#c83732", "#152d40"];
 
 export function createRouteMap(container, onTileError) {
   const map = L.map(container, { scrollWheelZoom: false, zoomControl: false });
+  // Above stop icons (600), below tooltips/popups (650/700).
+  map.createPane("tourPosition").style.zIndex = "625";
   const bounds = L.latLngBounds(paths.flat());
   L.control
     .zoom({ zoomInTitle: "Ingrandisci", zoomOutTitle: "Riduci" })
@@ -82,7 +84,15 @@ export function createRouteMap(container, onTileError) {
 
   let positionMarker;
   let accuracyCircle;
+  let following = true;
+  let firstFix = true;
+  map.on("dragstart", () => { following = false; });
+  function center() {
+    following = true;
+    if (positionMarker) map.setView(positionMarker.getLatLng(), Math.max(map.getZoom(), 16), {animate: false});
+  }
   function fit() {
+    following = false;
     map.fitBounds(bounds, { padding: [28, 28], animate: false });
   }
   fit();
@@ -116,28 +126,32 @@ export function createRouteMap(container, onTileError) {
           interactive: false,
         }).addTo(map);
         positionMarker = L.circleMarker(latlng, {
-          radius: 8,
+          radius: 10,
+          pane: "tourPosition",
           color: "#fff",
           weight: 3,
           fillColor: "#007aaf",
           fillOpacity: 1,
           className: "tour-position",
         }).addTo(map);
-        positionMarker.bindTooltip("");
+        positionMarker.bindTooltip("", {permanent: true, direction: "top", offset: [0, -12], className: "position-label"});
       }
       positionMarker
         .setLatLng(latlng)
         .setTooltipContent(
-          simulated ? "Posizione simulata" : "La tua posizione",
+          simulated ? "Posizione simulata" : "Sei qui",
         )
         .bringToFront();
       accuracyCircle.setLatLng(latlng).setRadius(position.accuracy);
+      if (firstFix) { following = true; firstFix = false; }
+      if (following) center();
     },
     online(online) {
       if (online && !map.hasLayer(tiles)) tiles.addTo(map);
       if (!online && map.hasLayer(tiles)) map.removeLayer(tiles);
     },
     fit,
+    center,
     destroy() {
       resize.disconnect();
       map.remove();

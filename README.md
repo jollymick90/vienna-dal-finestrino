@@ -47,7 +47,7 @@ Per installare: usa la voce di installazione del browser su Android; in Safari s
 
 La mappa Leaflet mostra le otto polilinee GTFS: tram **44 in rosso** e **1 in blu**, con la tratta corrente più spessa. Tocca i punti numerati per leggere le fermate; il simbolo **⇄** indica il cambio a Schottentor. Il tratto tratteggiato collega le due fermate del cambio, non rappresenta un binario. Puoi spostare e ingrandire la mappa; **Intero percorso** ripristina la vista completa.
 
-Il punto azzurro segue la posizione GPS valida o la simulazione. Viene rimosso quando il GPS viene disattivato, il fix è impreciso/scaduto o si esce dalla simulazione. La mappa non apre un secondo watch GPS.
+Premi **La mia posizione** sotto la mappa e consenti il GPS: il punto azzurro **Sei qui** viene mostrato sopra le fermate e la mappa si centra su di te, anche fuori dal tracciato. La vista segue i nuovi fix; trascinare la mappa o premere **Intero percorso** interrompe il centraggio automatico. **La mia posizione** lo riattiva. In simulazione il pulsante diventa **Centra simulazione** e il punto è indicato come simulato. Viene rimosso quando il GPS viene disattivato, il fix è impreciso/scaduto o si esce dalla simulazione. La mappa non apre un secondo watch GPS.
 
 Leaflet, tracciati e fermate sono inclusi nella cache dell’app e restano utilizzabili offline. Lo **sfondo stradale OpenStreetMap richiede una connessione** ed è escluso dal precaricamento; il badge **Pronta offline** riguarda l’app, i percorsi e gli audio. Le tessere sono richieste direttamente a OpenStreetMap per l’area visualizzata, secondo la sua [policy](https://operations.osmfoundation.org/policies/tiles/); i fix GPS non vengono inviati dal codice dell’app.
 

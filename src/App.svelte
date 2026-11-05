@@ -174,7 +174,7 @@
     <details><summary>Leggi la trascrizione</summary><p class="transcript">{leg.transcript}</p></details>
   </section>
 
-  <RouteMap selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} />
+  <RouteMap selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} locating={mode === 'gps'} onlocate={() => startGPS()} />
 
   <section class="manual" aria-label="Controlli manuali">
     <label for="leg">Scegli la tratta</label>

@@ -50,9 +50,11 @@ test("simulation moves the map marker and exiting removes it", async ({
   await page.getByRole("button", { name: "Simula giro", exact: true }).click();
   const marker = page.locator("path.tour-position");
   await expect(marker).toHaveCount(1);
-  const before = await marker.getAttribute("d");
+  const track = page.locator("path.tram-leg-0");
+  const before = await track.getAttribute("d");
   await page.getByRole("button", { name: "Avanza simulazione" }).click();
-  await expect(marker).not.toHaveAttribute("d", before);
+  await expect(track).not.toHaveAttribute("d", before);
+  await expect(marker).toBeVisible();
   await page.getByRole("button", { name: "Esci dalla simulazione" }).click();
   await expect(marker).toHaveCount(0);
 });
@@ -111,4 +113,58 @@ test("GPS map marker rejects inaccurate fixes and expires from fix timestamp", a
   await expect(marker).toHaveCount(1);
   await page.getByRole("button", { name: "Disattiva GPS" }).click();
   await expect(marker).toHaveCount(0);
+});
+
+test('locate button requests GPS and keeps an off-route position visible', async ({page, context}) => {
+  await context.grantPermissions(['geolocation']);
+  await context.setGeolocation({latitude: 48.23, longitude: 16.39, accuracy: 10});
+  await page.goto('/');
+  await page.getByRole('button', {name: 'La mia posizione', exact: true}).click();
+  await expect(page.getByText('Sei qui', {exact: true})).toBeVisible();
+  const marker = page.locator('path.tour-position');
+  const visibleWithinMap = () => marker.evaluate(node => {
+    const point = node.getBoundingClientRect();
+    const map = node.closest('.leaflet-container').getBoundingClientRect();
+    return point.width > 0 && point.left >= map.left && point.right <= map.right && point.top >= map.top && point.bottom <= map.bottom;
+  });
+  await expect.poll(visibleWithinMap).toBe(true);
+  await context.setGeolocation({latitude: 48.24, longitude: 16.40, accuracy: 10});
+  await expect.poll(visibleWithinMap).toBe(true);
+  await page.getByRole('button', {name: 'Intero percorso'}).click();
+  await page.getByRole('button', {name: 'La mia posizione', exact: true}).click();
+  await expect.poll(visibleWithinMap).toBe(true);
+});
+
+test('GPS position is drawn above a stop marker at the same coordinates', async ({page, context}) => {
+  await context.grantPermissions(['geolocation']);
+  await context.setGeolocation({latitude: 48.21461692, longitude: 16.33519869, accuracy: 10});
+  await page.goto('/');
+  await page.getByRole('button', {name: 'Inizia il tour'}).click();
+  const marker = page.locator('path.tour-position');
+  await expect(marker).toHaveCount(1);
+  await marker.scrollIntoViewIfNeeded();
+  await expect.poll(() => marker.evaluate(node => {
+    const rect = node.getBoundingClientRect();
+    return document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)?.classList.contains('tour-position');
+  })).toBe(true);
+});
+
+test('overview remains selected across a temporary inaccurate GPS fix', async ({page}) => {
+  await page.addInitScript(() => {
+    navigator.geolocation.watchPosition = feed => { window.feedMapGPS = feed; return 1; };
+    navigator.geolocation.clearWatch = () => {};
+  });
+  await page.goto('/');
+  await page.getByRole('button', {name: 'La mia posizione', exact: true}).click();
+  const feed = accuracy => page.evaluate(accuracy => window.feedMapGPS({coords: {latitude: 48.21496008, longitude: 16.33749478, accuracy}, timestamp: Date.now()}), accuracy);
+  await feed(5);
+  await expect(page.getByText('Sei qui', {exact: true})).toBeVisible();
+  await page.getByRole('button', {name: 'Intero percorso'}).click();
+  const track = page.locator('path.tram-leg-0');
+  const overview = await track.getAttribute('d');
+  await feed(60);
+  await expect(page.locator('path.tour-position')).toHaveCount(0);
+  await feed(5);
+  await expect(page.locator('path.tour-position')).toHaveCount(1);
+  await expect(track).toHaveAttribute('d', overview);
 });
