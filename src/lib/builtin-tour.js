@@ -1,3 +1,4 @@
+import ringSource from "../../vienna-tram-astra/vienna-ring-tour.json" with { type: "json" };
 import stories from "./tour.json" with { type: "json" };
 import { paths } from "./route-data.js";
 import { toRuntimeTour } from "./tour-package.js";
@@ -28,3 +29,28 @@ export const builtinTour = toRuntimeTour(
   builtinPackage,
   (name) => `/audio/${name}`,
 );
+
+// Keep the supplied source intact. Chapters become GPS/audio guide legs.
+export const ringPackage = {
+  version: 1,
+  id: ringSource.id,
+  title: "Vienna Ring Tour",
+  description: ringSource.title,
+  serviceDate: ringSource.serviceDate,
+  scheduledMinutesOnBoard: ringSource.scheduledMinutesOnBoard,
+  approach: ringSource.approach,
+  attribution: `${ringSource.source.name}, ${ringSource.source.license}.`,
+  legs: ringSource.legs.flatMap((section, sectionIndex) => section.chapters.map((chapter, chapterIndex) => ({
+    line: section.line,
+    direction: section.direction,
+    from: chapter.fromStop,
+    to: chapter.toStop,
+    title: chapter.title,
+    transcript: chapter.transcript,
+    path: chapter.path,
+    transferBefore: sectionIndex > 0 && chapterIndex === 0,
+    audio: null,
+  }))),
+};
+export const ringTour = toRuntimeTour(ringPackage, () => null);
+export const builtinTours = [builtinTour, ringTour];

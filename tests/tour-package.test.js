@@ -125,16 +125,6 @@ test("duration distinguishes seconds from minutes instead of inflating short tra
   assert.equal(audioDurationLabel(200), "3 min 20 s");
   assert.equal(audioDurationLabel(3660), "1 h 1 min");
 });
-test("exported AI template contains portable filenames and reusable valid geometry", async () => {
-  const { exportManifest } = await import("../src/lib/ai-kit.js");
-  const { builtinTour } = await import("../src/lib/builtin-tour.js");
-  const exported = exportManifest(builtinTour);
-  assert.equal(exported.id, "vienna-original-copia");
-  assert.equal(validateTour(exported).legs.length, 8);
-  assert.equal(exported.legs[0].audio, "01.mp3");
-  assert.equal(exported.legs[4].line, "1");
-  assert.equal(exported.legs[4].transferBefore, true);
-});
 
 test("a transfer does not trigger at the incoming terminal when outgoing geometry overlaps it", () => {
   const paths = [
@@ -153,4 +143,15 @@ test("a transfer does not trigger at the incoming terminal when outgoing geometr
     null,
   );
   assert.equal(matcher.matchLeg({ latitude: 48.2014, longitude: 16.3 }, 0), 1);
+});
+
+test('Ring source becomes the second bundled tour with faithful chapters and transfers', async()=>{
+  const {builtinTours,ringTour}=await import('../src/lib/builtin-tour.js');
+  assert.deepEqual(builtinTours.map(t=>t.id),['vienna-original','vienna-ring-1-2']);
+  assert.equal(ringTour.legs.length,8);
+  assert.deepEqual(ringTour.groups.map(g=>g.line),['1','2','1']);
+  assert.deepEqual(ringTour.groups.map(g=>g.start),[0,3,6]);
+  assert.equal(ringTour.legs.at(-1).to,'Schottentor');
+  assert.equal(ringTour.scheduledMinutesOnBoard,26);
+  assert.ok(ringTour.legs.every(l=>l.audio===null&&l.transcript&&l.path.length>1));
 });

@@ -1,0 +1,723 @@
+{
+  "id": "vienna-ring-1-2",
+  "title": "Il giro del Ring",
+  "serviceDate": "2026-11-05",
+  "scheduledMinutesOnBoard": 26.0,
+  "coordinateOrder": "latitude, longitude",
+  "source": {
+    "name": "Stadt Wien – Wiener Linien",
+    "license": "CC BY 4.0",
+    "url": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+  },
+  "approach": {
+    "line": "44",
+    "direction": "Schottentor",
+    "fromStop": "Yppengasse",
+    "toStop": "Schottentor"
+  },
+  "legs": [
+    {
+      "line": "1",
+      "direction": "Reumannplatz",
+      "stops": [
+        {
+          "name": "Schottentor",
+          "latitude": 48.21375495,
+          "longitude": 16.36178882,
+          "id": "at:49:1184:0:5"
+        },
+        {
+          "name": "Rathausplatz/Burgtheater",
+          "latitude": 48.21070801,
+          "longitude": 16.36061203,
+          "id": "at:49:192:0:2"
+        },
+        {
+          "name": "Parlament/Volkstheater",
+          "latitude": 48.20670899,
+          "longitude": 16.35991134,
+          "id": "at:49:246:0:5"
+        },
+        {
+          "name": "Burgring",
+          "latitude": 48.20408672,
+          "longitude": 16.36336986,
+          "id": "at:49:190:0:2"
+        },
+        {
+          "name": "Oper/Karlsplatz",
+          "latitude": 48.20242228,
+          "longitude": 16.36891246,
+          "id": "at:49:975:0:4"
+        }
+      ],
+      "scheduledMinutes": 8.0,
+      "chapters": [
+        {
+          "title": "Due facciate, due ruoli",
+          "fromStop": "Schottentor",
+          "toStop": "Parlament/Volkstheater",
+          "transcript": "Appena partiti da Schottentor, lasciamo alle spalle l’Università. Alla fermata Rathausplatz guardate da entrambe le parti: verso l’interno del Ring c’è il Burgtheater, verso l’esterno si apre la piazza del Municipio. Le guglie che vedete appartengono al Rathaus.",
+          "path": [
+            [
+              48.21375495,
+              16.36178882
+            ],
+            [
+              48.2136606,
+              16.36164931
+            ],
+            [
+              48.21359212,
+              16.36154879
+            ],
+            [
+              48.2135152,
+              16.36148088
+            ],
+            [
+              48.21340722,
+              16.3614409
+            ],
+            [
+              48.21120408,
+              16.36079888
+            ],
+            [
+              48.21070801,
+              16.36061203
+            ],
+            [
+              48.20963009,
+              16.36033589
+            ],
+            [
+              48.20847847,
+              16.35998348
+            ],
+            [
+              48.20801199,
+              16.35985583
+            ],
+            [
+              48.20733568,
+              16.35963484
+            ],
+            [
+              48.20719302,
+              16.35956531
+            ],
+            [
+              48.2071216,
+              16.35954034
+            ],
+            [
+              48.20705502,
+              16.35954393
+            ],
+            [
+              48.20699671,
+              16.35957232
+            ],
+            [
+              48.20694792,
+              16.35962388
+            ],
+            [
+              48.20691451,
+              16.35966314
+            ],
+            [
+              48.20670899,
+              16.35991134
+            ]
+          ]
+        },
+        {
+          "title": "Atena e i musei gemelli",
+          "fromStop": "Parlament/Volkstheater",
+          "toStop": "Burgring",
+          "transcript": "Cercate le colonne del Parlamento e la fontana di Atena davanti all’ingresso. Poco più avanti, dal lato esterno del Ring, due grandi musei si fronteggiano. Uno custodisce opere d’arte, l’altro racconta la storia naturale. In mezzo c’è Maria-Theresien-Platz.",
+          "path": [
+            [
+              48.20670899,
+              16.35991134
+            ],
+            [
+              48.20651011,
+              16.36019988
+            ],
+            [
+              48.2063751,
+              16.36037388
+            ],
+            [
+              48.20514282,
+              16.36202382
+            ],
+            [
+              48.20408672,
+              16.36336986
+            ]
+          ]
+        },
+        {
+          "title": "Verso l’Opera",
+          "fromStop": "Burgring",
+          "toStop": "Oper/Karlsplatz",
+          "transcript": "Dal lato interno del Ring si apre il Burggarten, accanto al complesso imperiale della Hofburg. Tra poco arriviamo all’Opera di Stato. Guardate le arcate della facciata e preparatevi a scendere a Oper, Karlsplatz, dove cambiamo sul tram due.",
+          "path": [
+            [
+              48.20408672,
+              16.36336986
+            ],
+            [
+              48.2036912,
+              16.36394424
+            ],
+            [
+              48.20356972,
+              16.36411501
+            ],
+            [
+              48.20354691,
+              16.36415453
+            ],
+            [
+              48.20352051,
+              16.36420897
+            ],
+            [
+              48.20349117,
+              16.36428371
+            ],
+            [
+              48.2034619,
+              16.36438944
+            ],
+            [
+              48.20315422,
+              16.36578093
+            ],
+            [
+              48.20242228,
+              16.36891246
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "2",
+      "direction": "Friedrich-Engels-Platz",
+      "stops": [
+        {
+          "name": "Oper/Karlsplatz",
+          "latitude": 48.20242228,
+          "longitude": 16.36891246,
+          "id": "at:49:975:0:4"
+        },
+        {
+          "name": "Schwarzenbergplatz",
+          "latitude": 48.20169183,
+          "longitude": 16.37485931,
+          "id": "at:49:1193:0:5"
+        },
+        {
+          "name": "Weihburggasse",
+          "latitude": 48.20421245,
+          "longitude": 16.37758121,
+          "id": "at:49:1460:0:2"
+        },
+        {
+          "name": "Stubentor U",
+          "latitude": 48.20684669,
+          "longitude": 16.38026717,
+          "id": "at:49:245:0:4"
+        },
+        {
+          "name": "Julius-Raab-Platz",
+          "latitude": 48.21049848,
+          "longitude": 16.38276448,
+          "id": "at:49:619:0:3"
+        },
+        {
+          "name": "Schwedenplatz",
+          "latitude": 48.2117975,
+          "longitude": 16.37772494,
+          "id": "at:49:1198:0:2"
+        }
+      ],
+      "scheduledMinutes": 9.0,
+      "chapters": [
+        {
+          "title": "Dall’Opera alla piazza",
+          "fromStop": "Oper/Karlsplatz",
+          "toStop": "Schwarzenbergplatz",
+          "transcript": "Lasciamo l’Opera e prendiamo il lato orientale del Ring. A Schwarzenbergplatz guardate lungo la piazza: in fondo, dietro la statua equestre, si apre la prospettiva verso la fontana. Restate a bordo. La prossima parte del giro costeggia lo Stadtpark.",
+          "path": [
+            [
+              48.20242228,
+              16.36891246
+            ],
+            [
+              48.20156728,
+              16.3728354
+            ],
+            [
+              48.2014194,
+              16.37350797
+            ],
+            [
+              48.20141359,
+              16.37355504
+            ],
+            [
+              48.20141119,
+              16.37363257
+            ],
+            [
+              48.2014197,
+              16.37372357
+            ],
+            [
+              48.20146251,
+              16.37390584
+            ],
+            [
+              48.20153561,
+              16.37417776
+            ],
+            [
+              48.20165638,
+              16.37466024
+            ],
+            [
+              48.20169183,
+              16.37485931
+            ]
+          ]
+        },
+        {
+          "title": "Il verde del Ring",
+          "fromStop": "Schwarzenbergplatz",
+          "toStop": "Stubentor U",
+          "transcript": "Tra Schwarzenbergplatz e Stubentor il Ring costeggia lo Stadtpark. Il parco ospita il celebre monumento dorato a Johann Strauss figlio. Da qui, dietro gli alberi e lungo il viale, vedrete come cambia il panorama quando il Ring passa dai palazzi a un giardino.",
+          "path": [
+            [
+              48.20169183,
+              16.37485931
+            ],
+            [
+              48.20173008,
+              16.37493234
+            ],
+            [
+              48.20177523,
+              16.37503744
+            ],
+            [
+              48.2018906,
+              16.37516932
+            ],
+            [
+              48.20219817,
+              16.37547977
+            ],
+            [
+              48.2038792,
+              16.37720292
+            ],
+            [
+              48.20421245,
+              16.37758121
+            ],
+            [
+              48.20428698,
+              16.37761642
+            ],
+            [
+              48.2043881,
+              16.37772511
+            ],
+            [
+              48.20449012,
+              16.37782294
+            ],
+            [
+              48.2055006,
+              16.37885834
+            ],
+            [
+              48.2064142,
+              16.37978792
+            ],
+            [
+              48.20659991,
+              16.37998608
+            ],
+            [
+              48.20684669,
+              16.38026717
+            ]
+          ]
+        },
+        {
+          "title": "Dai palazzi al canale",
+          "fromStop": "Stubentor U",
+          "toStop": "Schwedenplatz",
+          "transcript": "A Stubentor, vicino al museo di arti applicate, lasciamo il tratto dello Stadtpark. Verso Julius-Raab-Platz si apre il Donaukanal, con l’Urania vicino all’acqua. Scendete alla fermata successiva, Schwedenplatz: qui passiamo di nuovo al tram uno.",
+          "path": [
+            [
+              48.20684669,
+              16.38026717
+            ],
+            [
+              48.20814921,
+              16.38156586
+            ],
+            [
+              48.20854929,
+              16.38198052
+            ],
+            [
+              48.20878408,
+              16.38221579
+            ],
+            [
+              48.20883629,
+              16.38226044
+            ],
+            [
+              48.20887969,
+              16.38229161
+            ],
+            [
+              48.20896721,
+              16.38233392
+            ],
+            [
+              48.20901211,
+              16.38234686
+            ],
+            [
+              48.21049848,
+              16.38276448
+            ],
+            [
+              48.21064838,
+              16.38278227
+            ],
+            [
+              48.21075733,
+              16.38280652
+            ],
+            [
+              48.2108391,
+              16.38277239
+            ],
+            [
+              48.21097242,
+              16.38268849
+            ],
+            [
+              48.21102378,
+              16.38264734
+            ],
+            [
+              48.21106508,
+              16.38261042
+            ],
+            [
+              48.211108,
+              16.38256452
+            ],
+            [
+              48.21114727,
+              16.3825134
+            ],
+            [
+              48.21119008,
+              16.38244504
+            ],
+            [
+              48.2112309,
+              16.38235853
+            ],
+            [
+              48.21126658,
+              16.38224858
+            ],
+            [
+              48.2112907,
+              16.38208122
+            ],
+            [
+              48.21131902,
+              16.38129466
+            ],
+            [
+              48.21139947,
+              16.37985933
+            ],
+            [
+              48.21145521,
+              16.37905309
+            ],
+            [
+              48.21148358,
+              16.37887478
+            ],
+            [
+              48.21150603,
+              16.37875647
+            ],
+            [
+              48.21160061,
+              16.37829474
+            ],
+            [
+              48.21161749,
+              16.37826231
+            ],
+            [
+              48.21169112,
+              16.37807653
+            ],
+            [
+              48.2117168,
+              16.3779805
+            ],
+            [
+              48.2117975,
+              16.37772494
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "1",
+      "direction": "Reumannplatz",
+      "stops": [
+        {
+          "name": "Schwedenplatz",
+          "latitude": 48.2117137,
+          "longitude": 16.37782375,
+          "id": "at:49:1198:0:8"
+        },
+        {
+          "name": "Salztorbrücke",
+          "latitude": 48.21373699,
+          "longitude": 16.37424846,
+          "id": "at:49:1145:0:2"
+        },
+        {
+          "name": "Schottenring",
+          "latitude": 48.2170112,
+          "longitude": 16.37088876,
+          "id": "at:49:1182:0:7"
+        },
+        {
+          "name": "Börse",
+          "latitude": 48.21561655,
+          "longitude": 16.36590311,
+          "id": "at:49:195:0:3"
+        },
+        {
+          "name": "Schottentor",
+          "latitude": 48.21375495,
+          "longitude": 16.36178882,
+          "id": "at:49:1184:0:5"
+        }
+      ],
+      "scheduledMinutes": 9.0,
+      "chapters": [
+        {
+          "title": "Lungo il Donaukanal",
+          "fromStop": "Schwedenplatz",
+          "toStop": "Börse",
+          "transcript": "Il tram segue il Donaukanal, il ramo del Danubio che costeggia il centro. Cercate l’acqua tra gli alberi e gli attraversamenti. Lasciato il canale, ritroviamo gli edifici monumentali del Ring. Il prossimo è quello della vecchia Borsa.",
+          "path": [
+            [
+              48.2117137,
+              16.37782375
+            ],
+            [
+              48.21183108,
+              16.37717436
+            ],
+            [
+              48.2118849,
+              16.37693028
+            ],
+            [
+              48.21195032,
+              16.37668244
+            ],
+            [
+              48.21199163,
+              16.37654994
+            ],
+            [
+              48.21206113,
+              16.37634072
+            ],
+            [
+              48.21219318,
+              16.37601948
+            ],
+            [
+              48.21243239,
+              16.37555928
+            ],
+            [
+              48.2126938,
+              16.37509476
+            ],
+            [
+              48.21274738,
+              16.37501562
+            ],
+            [
+              48.21279622,
+              16.37495776
+            ],
+            [
+              48.21286399,
+              16.37489731
+            ],
+            [
+              48.21292409,
+              16.37485913
+            ],
+            [
+              48.21298478,
+              16.37483074
+            ],
+            [
+              48.21318113,
+              16.3747525
+            ],
+            [
+              48.21325619,
+              16.37470273
+            ],
+            [
+              48.21340668,
+              16.37455433
+            ],
+            [
+              48.21373699,
+              16.37424846
+            ],
+            [
+              48.21385838,
+              16.37407607
+            ],
+            [
+              48.21396212,
+              16.3739751
+            ],
+            [
+              48.21409159,
+              16.37386838
+            ],
+            [
+              48.21430391,
+              16.37371611
+            ],
+            [
+              48.21443051,
+              16.37360939
+            ],
+            [
+              48.21447337,
+              16.37357669
+            ],
+            [
+              48.21515983,
+              16.37284951
+            ],
+            [
+              48.21627191,
+              16.37166256
+            ],
+            [
+              48.2166022,
+              16.37126263
+            ],
+            [
+              48.2170112,
+              16.37088876
+            ],
+            [
+              48.21738458,
+              16.37044023
+            ],
+            [
+              48.21743551,
+              16.37037609
+            ],
+            [
+              48.21747879,
+              16.37024376
+            ],
+            [
+              48.21748669,
+              16.37016157
+            ],
+            [
+              48.21744527,
+              16.36995478
+            ],
+            [
+              48.21676232,
+              16.36846241
+            ],
+            [
+              48.21561655,
+              16.36590311
+            ]
+          ]
+        },
+        {
+          "title": "L’anello si chiude",
+          "fromStop": "Börse",
+          "toStop": "Schottentor",
+          "transcript": "Lasciamo la vecchia Borsa e torniamo verso l’Università. Se riuscite a scorgerle, le due guglie della Votivkirche annunciano Schottentor. È la stessa fermata da cui siamo partiti: da qui potete riprendere il quarantaquattro verso Yppengasse.",
+          "path": [
+            [
+              48.21561655,
+              16.36590311
+            ],
+            [
+              48.21520951,
+              16.36509633
+            ],
+            [
+              48.21489909,
+              16.36444191
+            ],
+            [
+              48.21454442,
+              16.36365067
+            ],
+            [
+              48.2141882,
+              16.36279422
+            ],
+            [
+              48.21405999,
+              16.36252104
+            ],
+            [
+              48.21375495,
+              16.36178882
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

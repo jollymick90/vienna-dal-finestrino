@@ -99,7 +99,7 @@ export class TourPlayer {
       void this.play(index, false, true);
   }
   async play(index, resume = false, automatic = false) {
-    if (!this.tour[index]) return;
+    if (!this.tour[index]?.audio) return;
     const token = ++this.generation;
     this.automatic = automatic;
     if (!resume || this.state.active !== index) {

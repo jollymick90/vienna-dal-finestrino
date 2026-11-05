@@ -1,3 +1,5 @@
+> Piano storico: importazione e archivio locale successivamente rimossi su richiesta dell’utente. Il catalogo attuale comprende due tour inclusi nella build.
+
 # Libreria di percorsi e audio
 
 > Esecuzione inline con superpowers:executing-plans; descrizione richiesta dall'utente: aggiungere nuovi percorsi di tram e relativi audio generati esternamente con AI.

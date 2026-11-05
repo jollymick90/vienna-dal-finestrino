@@ -1,96 +1,79 @@
 # Vienna dal finestrino
 
-PWA mobile in italiano, Svelte 5 + Vite, senza backend, con libreria di percorsi importabili. Il giro incluso contiene otto racconti (circa 3 minuti di audio su 3,7 km) per **Yppengasse → Schottentor (tram 44) → Oper, Karlsplatz (tram 1)**.
+PWA mobile in italiano, Svelte 5 + Vite, senza backend. **Due tour inclusi nella build**, selezionabili da «Percorso da ascoltare». Non ci sono importazione, download di pacchetti, eliminazione di tour o archivio personale nel browser.
 
-A Schottentor cambia sul **tram 1 in direzione Reumannplatz**. Scendi a **Oper, Karlsplatz**. Percorsi e destinazioni sono quelli del servizio programmato per il **5 novembre 2026** forniti nel kit; l’app non consulta variazioni del servizio in tempo reale.
+| Tour | Percorso | Contenuti |
+| --- | --- | --- |
+| Dal mercato all’Opera | 44 da Yppengasse a Schottentor, poi 1 verso Reumannplatz fino a Oper, Karlsplatz | 8 racconti, circa 3 minuti di MP3, mappa e GPS |
+| Vienna Ring Tour | Schottentor → Oper/Karlsplatz (1), → Schwedenplatz (2 verso Friedrich-Engels-Platz), → Schottentor (1 verso Reumannplatz) | 8 racconti in testo, mappa e GPS; **MP3 non forniti** |
 
-## Avvio
+Il Ring conserva geometrie e testi del file `vienna-tram-astra/vienna-ring-tour.json`. Il file indica **26 minuti a bordo**, esclusi attese e cambi, per il servizio del 5 novembre 2026. L’avvicinamento da Yppengasse sul 44 è mostrato come indicazione separata; non viene aggiunto alla geometria dell’anello. Non è una verifica del servizio in tempo reale né una durata giornaliera.
 
-Serve Node.js 22.12+ (verificato con 22.20.0).
+## Avvio e pubblicazione
+
+Node.js 22.12+ (verificato con 22.20.0):
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Per provare anche il service worker e l’offline, usa la build di produzione:
+Per provare il service worker e l’offline:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-Apri `http://localhost:4173`. Su telefono usa l’URL **HTTPS** pubblicato: un indirizzo HTTP della rete locale non abilita GPS e service worker. Il server di sviluppo non registra il service worker.
+Apri `http://localhost:4173`. Su telefono usa un URL HTTPS: HTTP su rete locale non abilita GPS e service worker. In sviluppo il service worker non viene registrato.
 
-## Pubblicare su Vercel
+Vercel: Root Directory alla radice del repository, preset **Vite**, installazione `npm ci`, build `npm run build`, output **dist**, Node.js 22.x o successivo compatibile. Nessuna variabile d’ambiente o chiave API. La pubblicazione presume la radice del dominio; il deploy è lasciato al proprietario.
 
-Importa questo repository, usando la sua **radice** come Root Directory:
+## Uso
 
-- Framework preset: **Vite**
-- Install command: `npm ci`
-- Build command: `npm run build`
-- Output directory: **dist**
-- Node.js: **22.x** o successivo compatibile
+1. Scegli uno dei due tour. Entrambi sono già disponibili, senza caricare file.
+2. Tocca **Inizia il tour** a bordo, oppure **La mia posizione** sotto la mappa, e consenti il GPS.
+3. Il punto azzurro **Sei qui** appare sopra le fermate; la mappa si centra sulla posizione. Trascinare la mappa o premere **Intero percorso** interrompe il centraggio; **La mia posizione** lo riattiva.
+4. Il GPS aggiorna la tratta. Nel tour originale avvia l’MP3; nel Ring mostra il racconto in testo, con trascrizione già aperta e avviso che gli audio non sono ancora disponibili.
+5. Puoi scegliere una tratta manualmente. **Risincronizza GPS da questa tratta** riparte dalla selezione dopo un buco di segnale.
 
-Non servono variabili d’ambiente, chiavi API o backend. Il deploy è lasciato al proprietario. La configurazione attuale presume pubblicazione alla radice del dominio.
+Il cambio tour ferma GPS, simulazione e audio, poi riparte dalla prima tratta. La selezione e il progresso restano solo in memoria: alla ricarica si torna al tour originale. Il catalogo non dipende da IndexedDB o localStorage. Eventuali vecchi dati importati da una versione precedente non vengono letti né cancellati.
 
-## Prima di salire: prova rapida
+Tieni **pagina in primo piano e schermo acceso**. Installazione: menu del browser su Android; Condividi → Aggiungi alla schermata Home in Safari su iPhone.
 
-1. Apri l’URL HTTPS online e attendi **Pronta offline**: sono in cache app, dati e tutti gli otto audio (circa 1 MB).
-2. Premi **Simula giro**. Il tour percorre le polilinee senza chiedere la posizione; **Avanza simulazione** passa al punto seguente e ferma l’avanzamento temporizzato. Alla fermata di Schottentor il racconto della linea 1 attende la partenza. Se avanzi più velocemente dei racconti, quello in corso finisce e il successivo parte soltanto se ancora pertinente.
-3. Esci dalla simulazione, attiva la modalità aereo, ricarica la pagina e prova **Ascolta**, **Pausa**, **Riascolta** e un’altra tratta. Verifica anche il volume e l’uscita audio del telefono.
-4. Torna online, scegli la prima tratta e, una volta sul 44, premi **Inizia il tour** o **Risincronizza GPS da questa tratta**. Consenti la posizione. Se compare **Tocca per ascoltare**, premi il pulsante.
+## Mappa, GPS e audio
 
-Per installare: usa la voce di installazione del browser su Android; in Safari su iPhone, Condividi → Aggiungi alla schermata Home. Tieni **pagina in primo piano e schermo acceso**: il browser può sospendere GPS o audio in background. La disponibilità dell’installazione dipende dal browser.
+- Leaflet mostra le geometrie del tour selezionato, con tratta corrente più spessa, fermate cliccabili e cambi tratteggiati. Nel Ring le sezioni sono 1 → 2 → 1.
+- Il matcher considera solo la tratta attesa e quella successiva. Margini: corridoio 40 m, almeno 35 m dalla partenza e 18 m prima dell’arrivo; fix fino a 45 m di accuratezza e 15 s di età. Ai cambi vengono esclusi anche i 35 m attorno alla fermata d’arrivo precedente.
+- La posizione non viene trasmessa dall’app. Il punto viene rimosso quando il GPS è spento, il fix scade o è impreciso. Il watch viene cancellato anche all’uscita dalla pagina.
+- Il tour originale usa un unico player. La tappa viene segnata come ascoltata solo dopo l’avvio riuscito; `play()` rifiutato mostra **Tocca per ascoltare**. Un audio già iniziato finisce prima di avviare quello successivo, se la posizione è ancora pertinente.
+- Il Ring ha `audio: null`: nessuna richiesta verso MP3 inesistenti, nessun ascolto fittizio e nessun audio del tour originale riutilizzato per testi diversi.
 
-## Aggiungere nuovi percorsi e audio generati dall’AI
+## Offline e prova prima di salire
 
-Il giro incluso è breve. Puoi aggiungere altri percorsi senza modificare codice o ripubblicare l’app, e selezionarli dal menu **Percorso da ascoltare**. La durata mostrata è quella effettiva degli MP3: non comprende viaggio, attese o soste.
+Il service worker precarica app, entrambi i tour (dati nel bundle), icone e gli otto MP3 originali. **Pronta offline** appare solo dopo la verifica di tutti gli asset in cache. Le richieste Range degli MP3 ricevono risposte 206 o 416 dai file completi.
 
-1. Apri **Aggiungi un percorso**. Scarica **modello JSON** e **prompt per AI**. Il modello esporta le geometrie del percorso selezionato; il prompt chiede linea, direzione, fermate e durata desiderata.
-2. Dai all’AI il modello e **il tracciato reale del nuovo tram**, ad esempio da GTFS/GPX/GeoJSON, con fonte e licenza. Chiedi racconti più estesi con durata compatibile con ciascuna tratta. Non basta cambiare il numero della linea sul tracciato del modello.
-3. Genera un MP3 per ogni racconto, con il nome indicato nel JSON. Puoi usare il servizio AI/TTS che preferisci: l’app non richiede API o account.
-4. Nel campo **File del percorso e audio MP3**, seleziona insieme il JSON e tutti gli MP3. L’app verifica geometrie, file mancanti e riproducibilità prima del salvataggio.
-5. Il nuovo percorso viene selezionato automaticamente: prova **Simula giro**, ascolta un audio, attendi **Pronta offline** e prova la ricarica in modalità aereo.
+Lo sfondo OpenStreetMap richiede connessione ed è escluso dal precaricamento: offline restano geometrie, fermate e racconti. Le tessere vengono richieste direttamente per l’area visualizzata, secondo la [policy OpenStreetMap](https://operations.osmfoundation.org/policies/tiles/).
 
-Copie del kit sono disponibili anche nel repository: [modello JSON](docs/modello-percorso.json) e [prompt per l’AI](docs/PROMPT_NUOVO_PERCORSO.txt). Il modello usa le geometrie reali del giro incluso come esempio di formato, non costituisce un nuovo itinerario giornaliero.
+Prova rapida:
 
-### Formato dei percorsi
+1. Apri online e attendi **Pronta offline**.
+2. Scegli **Vienna Ring Tour** e prova **Simula giro**. **Avanza simulazione** passa al punto seguente e interrompe l’avanzamento temporizzato. Il giro termina a Schottentor.
+3. Attiva modalità aereo, ricarica e seleziona di nuovo il Ring: mappa del percorso e testi devono funzionare.
+4. Scegli il tour originale e prova un MP3, pausa e riascolto anche offline.
 
-Il JSON contiene `version: 1`, `id` univoco (minuscole, numeri, trattini), `title`, `description`, `attribution` (fonte/licenza dei tracciati), e `legs` in ordine di viaggio. Ogni tratta contiene:
+La cache offline non è un archivio personale: se il browser cancella i dati del sito occorre riaprire online. Restano da verificare sul telefono reale accuratezza GPS nel tram, politiche audio Safari/iOS, installazione e sospensione in background.
 
-- `line`: numero o nome del tram, come stringa; `direction`: destinazione esposta dal tram.
-- `from`, `to`: fermate iniziale e finale; `title`, `transcript`: racconto completo in italiano.
-- `audio`: nome locale del file, ad esempio `ring-01.mp3`; nessun URL o percorso di cartelle.
-- `path`: punti `[latitudine, longitudine]` nel senso di marcia. GeoJSON usa invece l’ordine inverso: convertirlo prima dell’importazione.
-- `transferBefore: true`: se si deve cambiare mezzo prima della tratta. Anche un cambio di linea/direzione viene evidenziato automaticamente. Ai cambi il GPS esclude inoltre i 35 metri attorno alla fermata d’arrivo del tram precedente, per non anticipare il nuovo racconto quando i tracciati si sovrappongono.
+## Modificare i tour nel repository
 
-Sono supportate da 1 a 500 tratte, non solo otto. Ogni geometria deve essere più lunga di 53 metri per consentire i margini del matcher. Limiti per importazione: 250 MB di audio, JSON di 10 MB, massimo 100.000 punti totali. Un identificativo già presente viene rifiutato: usa un nuovo `id` per una nuova versione. Il contenuto importato viene visualizzato come testo, mai HTML.
+`src/lib/builtin-tour.js` definisce il catalogo:
 
-### Salvataggio e offline
+- Il tour originale usa `src/lib/tour.json`, `src/lib/route-data.js` e `public/audio/01.mp3` … `08.mp3`.
+- Il Ring legge direttamente `vienna-tram-astra/vienna-ring-tour.json`, convertendo i capitoli delle tre sezioni in otto tratte GPS e conservando i due cambi di mezzo.
 
-I percorsi importati e gli MP3 sono salvati insieme in **IndexedDB sul dispositivo**, separatamente dalla cache versionata dell’app. Non vengono caricati su server e non si sincronizzano con altri telefoni o browser. L’ultima selezione viene ripristinata alla riapertura. La riproduzione usa Blob locali, disponibili offline.
+Per aggiungere gli audio del Ring, inserire gli MP3 nel repository, assegnare i relativi percorsi e durate al Ring in `builtin-tour.js`, quindi ricostruire e pubblicare l’app. Non associare gli otto MP3 originali ai testi del Ring: sono racconti diversi.
 
-Un’importazione fallita lascia intatta la libreria. **Elimina questo percorso** richiede conferma e rimuove solo il tour selezionato e i suoi audio; il giro incluso rimane sempre disponibile. Conserva i JSON e gli MP3 originali: cancellazione dei dati del sito, navigazione privata o pulizia dello spazio del browser possono eliminare l’archivio. Per usare il giro su un altro telefono, importa lì gli stessi file.
-
-## Mappa del percorso
-
-La mappa Leaflet mostra le polilinee del percorso selezionato e i cambi di mezzo, con la tratta corrente più spessa. Nel giro incluso: tram **44 in rosso** e **1 in blu**. Tocca i punti numerati per leggere le fermate; il simbolo **⇄** indica il cambio a Schottentor. Il tratto tratteggiato collega le due fermate del cambio, non rappresenta un binario. Puoi spostare e ingrandire la mappa; **Intero percorso** ripristina la vista completa.
-
-Premi **La mia posizione** sotto la mappa e consenti il GPS: il punto azzurro **Sei qui** viene mostrato sopra le fermate e la mappa si centra su di te, anche fuori dal tracciato. La vista segue i nuovi fix; trascinare la mappa o premere **Intero percorso** interrompe il centraggio automatico. **La mia posizione** lo riattiva. In simulazione il pulsante diventa **Centra simulazione** e il punto è indicato come simulato. Viene rimosso quando il GPS viene disattivato, il fix è impreciso/scaduto o si esce dalla simulazione. La mappa non apre un secondo watch GPS.
-
-Leaflet, tracciati e fermate sono inclusi nella cache dell’app e restano utilizzabili offline. Lo **sfondo stradale OpenStreetMap richiede una connessione** ed è escluso dal precaricamento; il badge **Pronta offline** riguarda l’app, i percorsi e gli audio. Le tessere sono richieste direttamente a OpenStreetMap per l’area visualizzata, secondo la sua [policy](https://operations.osmfoundation.org/policies/tiles/); i fix GPS non vengono inviati dal codice dell’app.
-
-## Comportamento
-
-- `src/lib/tour.json` mantiene ordine, testi e collegamenti `/audio/01.mp3` … `/audio/08.mp3` del kit; `src/lib/route-data.js` mantiene le otto polilinee originali. La build controlla numero, associazione e identità dei file MP3 rispetto agli originali.
-- Il matcher proietta solo sulla tratta attesa o immediatamente successiva: corridoio **40 m**, almeno **35 m** dopo la partenza e **18 m** prima dell’arrivo. Accetta accuratezza fino a **45 m** e fix di età massima **15 s**. Il cursore non torna indietro automaticamente.
-- Un unico elemento audio è preparato nello stesso gesto che avvia il GPS. Una tratta risulta ascoltata solo dopo che `play()` è riuscito. Un rifiuto rende disponibile il pulsante esplicito; nessuna sovrapposizione o ripetizione automatica. Richieste audio ancora in attesa vengono invalidate quando cambia la posizione; i racconti già iniziati finiscono.
-- A fine racconto viene rivalutata la posizione più recente e la sua età. Un fix assente, impreciso, vecchio o fuori percorso impedisce l’avvio automatico successivo.
-- Scegliere una tratta disattiva il GPS e passa al manuale. **Risincronizza GPS da questa tratta** riparte dalla selezione, anche dopo un lungo buco di segnale. Disattivazione, uscita dalla pagina e smontaggio dell’app rimuovono il watch. Posizione e cronologia di ascolto rimangono in memoria nel browser; si azzerano alla ricarica. Percorsi importati e ultima selezione vengono invece conservati localmente.
-- Il service worker viene generato dalla build con tutti i file effettivi di `dist`, inclusi i dati incorporati nel bundle. **Pronta offline** compare solo dopo una verifica di presenza di ogni asset nella cache attiva; la verifica si ripete al ritorno sulla pagina e periodicamente. Le richieste Range ricevono risposte **206**, oppure **416** se non valide, dai file MP3 completi in cache. Se il browser elimina la cache, l’offline non è più garantito.
-
-Il kit originale resta in `vienna-tram-astra/`; la versione precedente è conservata in `legacy/`. I file JavaScript originali nella radice non vengono caricati dalla SPA.
+La build controlla entrambi i tour e l’esistenza degli audio dichiarati. Il kit originale è conservato in `vienna-tram-astra/`; la precedente versione statica è in `legacy/`.
 
 ## Verifiche
 
@@ -99,33 +82,15 @@ npm test
 npm run check
 npm run build
 npx playwright install chromium
-npm run test:e2e
+PLAYWRIGHT_PORT=4174 npm run test:e2e
 ```
 
-Verificati in Chromium desktop con viewport mobile:
-
-- Giro simulato su tutte le otto tratte incluse e attesa al cambio.
-- Importazione di un percorso da dieci tratte, riproduzione degli MP3 importati, selezione persistente e ricarica offline; cambio e rimozione del percorso.
-- Errori di importazione (audio mancante, MP3 corrotto, coordinate non valide, ID duplicato), download del kit AI e testo importato non eseguibile.
-- Mappa Leaflet con le due linee, selezione evidenziata, popup delle fermate, indicatore della simulazione e percorsi accessibili dopo ricarica offline.
-- Preparazione audio nel gesto utente; GPS controllato per qualità, risincronizzazione e cancellazione del watch.
-- Riproduzione degli MP3 reali, player unico, pausa, riascolto e trascrizione.
-- Rifiuto del permesso GPS e di `play()`, con fallback manuale.
-- Ricarica con rete disattivata, Range per tutti gli MP3 e riproduzione reale di tutte le otto tracce offline.
-- Rimozione di un audio dalla cache: il badge **Pronta offline** scompare.
-
-Se la porta 4173 è già occupata, esegui `PLAYWRIGHT_PORT=4174 npm run test:e2e`.
-
-I test unitari coprono inoltre margini e monotonia del matcher, coda pertinente, fine audio, fix scaduti e risoluzioni tardive di `play()`. Per i casi di rifiuto e ritardo usano un doppio del media element; i test browser usano audio reali, sostituendo soltanto gli errori e i fix GPS da simulare.
-
-**Da verificare sul telefono reale:** accuratezza GPS dentro il tram, politiche audio di Safari/iOS, installazione sulla schermata Home e comportamento a schermo bloccato. Il test browser non sostituisce queste prove.
+La porta alternativa evita conflitti con un’anteprima già aperta sulla 4173. I test browser verificano entrambi i tour anche con IndexedDB/localStorage disabilitati, assenza dei controlli di importazione/download, mappa e simulazione Ring, testi e MP3 offline, GPS e cleanup, fallback audio e selezione manuale. I test unitari coprono matcher, player, Range, conversione del file Ring e nessuna riproduzione per racconti senza audio.
 
 ## Dati e attribuzione
 
-Geometrie: **Stadt Wien – Wiener Linien, CC BY 4.0**. Il kit indica il feed aggiornato al 2 novembre 2026 con servizio programmato per il 5 novembre 2026; questa implementazione conserva le geometrie fornite.
+**Stadt Wien – Wiener Linien, CC BY 4.0**. Geometrie e indicazioni di servizio sono quelle fornite nei file del progetto per il 5 novembre 2026.
 
 - [Feed GTFS ufficiale](https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip)
 - [Licenza CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - [Fermata iniziale Yppengasse](https://maps.app.goo.gl/Nv9JNx2GC2qAgXto8)
-
-Riferimenti tecnici: [Svelte](https://svelte.dev/docs), [Service Worker e cache](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers), [gestione di play()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play).

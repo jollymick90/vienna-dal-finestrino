@@ -208,3 +208,12 @@ test("buffered automatic start is abandoned if the last fix expires before play 
   assert.deepEqual(player.snapshot().listened, []);
   assert.equal(player.snapshot().phase, "idle");
 });
+
+test('text-only tour never attempts playback or marks a story heard', async () => {
+  const audio = new AudioDouble();
+  const player = new TourPlayer(audio,()=>{},()=>100000,{tour:[{audio:null}]});
+  player.feed(fix(0));await flush();await player.play(0);
+  assert.equal(audio.src,'');assert.equal(audio.paused,true);
+  assert.deepEqual(player.snapshot().listened,[]);
+  assert.equal(player.snapshot().phase,'idle');
+});

@@ -16,3 +16,17 @@ for (const [i, leg] of tour.entries()) {
   );
 }
 console.log("Verificati: 8 tratte, 8 polilinee, 8 MP3 originali.");
+
+// Both bundled tours must be usable without importing data into browser storage.
+const {builtinTours} = await import('../src/lib/builtin-tour.js');
+assert.equal(builtinTours.length, 2);
+for (const tour of builtinTours) {
+  assert.ok(tour.legs.length > 0);
+  for (const leg of tour.legs) {
+    assert.ok(leg.title && leg.transcript && leg.from && leg.to);
+    assert.ok(leg.path.length >= 2);
+    assert.ok(leg.path.every(point => point.length === 2 && point.every(Number.isFinite)));
+    if (leg.audio) assert.ok((await stat(`public${leg.audio}`)).size > 1000);
+  }
+}
+console.log('Verificati entrambi i tour inclusi: originale con MP3, Ring con testi e geometrie.');

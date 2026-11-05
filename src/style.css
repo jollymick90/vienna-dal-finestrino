@@ -459,3 +459,5 @@ audio {
     font-size: 25px;
   }
 }
+
+.tour-info { font-size: 13px; color: #607280; margin: 0 0 12px; }
