@@ -86,7 +86,7 @@ export function createRouteMatcher(paths, transferStarts = []) {
       longitude: segment.startLon + (segment.x * fraction) / longitudeScale,
     };
   }
-  return { matchLeg, pointAt, trackLength };
+  return { matchLeg, pointAt, trackLength, project: (coords, index) => project(coords, tracks[index]) };
 }
 
 export const defaultMatcher = createRouteMatcher(defaultPaths);

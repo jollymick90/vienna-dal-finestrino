@@ -19,11 +19,11 @@ const range = (await readFile("src/lib/range.js", "utf8")).replace(
 );
 const worker = await readFile("src/service-worker.js", "utf8");
 hash.update(range).update(worker);
-const assets = ["/", ...files.map((f) => f.slice(4))];
+const assets = ["/", ...files.filter(f => !f.startsWith("dist/audio/") || f.endsWith("/poi-manifest.json")).map((f) => f.slice(4))];
 await writeFile(
   "dist/sw.js",
   `const CACHE_NAME = 'vienna-tour-${hash.digest("hex").slice(0, 16)}';\nconst ASSETS = ${JSON.stringify(assets)};\n${range}\n${worker}`,
 );
 console.log(
-  `Service worker: ${assets.length} asset da precaricare, inclusi 8 MP3.`,
+  `Service worker: ${assets.length} asset per app e testi; audio scaricabili su richiesta.`,
 );

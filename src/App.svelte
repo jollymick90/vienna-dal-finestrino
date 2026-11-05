@@ -1,242 +1,225 @@
 <script>
-  import { onMount } from 'svelte';
-  import RouteMap from './components/RouteMap.svelte';
-  import TourLibrary from './components/TourLibrary.svelte';
-  import { builtinTour, builtinTours } from './lib/builtin-tour.js';
-  import { audioDurationLabel, lineColors } from './lib/tour-package.js';
-  import { TourPlayer } from './lib/player.js';
+  import { onMount, tick } from 'svelte';
+  import PoiMap from './components/PoiMap.svelte';
+  import { loadCatalog } from './lib/catalog.js';
+  import { paths } from './lib/route-data.js';
   import { createRouteMatcher, validFix } from './lib/route.js';
+  import { createProximity, distanceMeters } from './lib/proximity.js';
+  import { PoiPlayer } from './lib/poi-player.js';
   import { monitorOffline } from './lib/offline.js';
+  import { downloadRoute, verifyRoute } from './lib/route-offline.js';
 
+  let catalog = $state.raw(null);
+  let loadError = $state('');
+  let selectedId = $state(null);
+  let routeId = $state('yppengasse-albertina');
+  let showRoutes = $state(false);
+  let showList = $state(false);
+  let query = $state('');
+  let proposal = $state.raw(null);
+  let position = $state(null);
+  let mode = $state('manual');
+  let locationMessage = $state('Esplora i luoghi sulla mappa. Il GPS è facoltativo.');
+  let online = $state(true);
+  let tileError = $state(false);
+  let centerRequest = $state(0);
+  let offline = $state({ ready: false, error: false });
+  let downloaded = $state(null);
+  let downloading = $state(false);
+  let downloadProgress = $state({ complete: 0, total: 0 });
+  let downloadError = $state('');
+  let reader = $state('');
+  let sheetBody = $state();
   let audio;
   let player;
-  let activeTour = $state.raw(builtinTour);
-  const tour = $derived(activeTour.legs);
-  let matcher = createRouteMatcher(builtinTour.paths, builtinTour.groups.slice(1).map(group=>group.start));
-  const library = builtinTours;
-  const hasTourAudio = $derived(tour.some(leg=>Boolean(leg.audio)));
-  const durationLabel = $derived(audioDurationLabel(tour.reduce((sum,leg)=>sum+(leg.durationSeconds || 0),0)));
-  const distanceLabel = $derived.by(() => {const routes=createRouteMatcher(activeTour.paths);return (activeTour.paths.reduce((sum,_,index)=>sum+routes.trackLength(index),0)/1000).toLocaleString('it-IT',{maximumFractionDigits:1});});
-  let state = $state({selected: 0, cursor: 0, active: null, phase: 'idle', listened: [], elapsed: 0, duration: 0});
-  let mode = $state('manual');
-  let mapPosition = $state(null);
-  let started = $state(false);
-  let locationMessage = $state('Sali sul 44, poi avvia il GPS.');
-  let offline = $state({ready: false, error: false});
-  let watchId = null;
-  let simulationTimer;
-  let simulationStep = $state(0);
-  let simulationDone = $state(false);
-  let lastFixTime = 0;
-  const leg = $derived(tour[state.selected]);
-  const audible = $derived(tour[state.active ?? state.selected]);
-  const isBusy = $derived(state.phase === 'playing' || state.phase === 'loading');
-  const progress = $derived(state.duration ? state.elapsed / state.duration * 100 : 0);
+  let proximity;
+  let state = $state({ active: null, phase: 'idle', track: null, heardIds: [], elapsed: 0, duration: 0, storageError: false });
+  let watchId = null, sourceGeneration = 0, lastFix = null, lastAccepted = 0, simulationTimer;
+  let simulationPoints = $state.raw([]);
+  let simulationIndex = $state(0);
+  let alive = false;
+  const selected = $derived(catalog?.places.find(p => p.id === selectedId));
+  const route = $derived(catalog?.routes.find(r => r.id === routeId) ?? catalog?.routes[0]);
+  const visiblePlaces = $derived(catalog?.places.filter(p => (!routeId || p.routeIds.includes(routeId)) && p.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))) ?? []);
+  const busy = $derived(['playing', 'loading'].includes(state.phase));
+  const duration = $derived(state.duration || state.track?.durationSeconds || 0);
   const clock = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
-
-  function stopSource() {
-    if (watchId !== null) navigator.geolocation.clearWatch(watchId);
-    watchId = null;
-    clearInterval(simulationTimer);
-    player?.stopTracking();
-    mode = 'manual';
-    mapPosition = null;
+  function distance(place) {
+    if (!position) return 'Distanza non disponibile';
+    const metres = distanceMeters(position, place.location);
+    return `Circa ${metres < 1000 ? `${Math.round(metres / 10) * 10} m` : `${(metres / 1000).toLocaleString('it-IT', {maximumFractionDigits: 1})} km`} in linea d’aria`;
   }
-  function startGPS(resync = false) {
-    stopSource();
-    if (resync) player.reset(state.selected);
-    if (hasTourAudio) player.prepare();
-    started = true;
-    if (!window.isSecureContext || !navigator.geolocation) {
-      locationMessage = 'Il GPS richiede HTTPS. Puoi ascoltare a mano.';
+  function dismiss() { proximity?.dismiss(); proposal = null; }
+  function openPlace(id, read = false) {
+    dismiss(); selectedId = id; showList = showRoutes = false; reader = read ? 'scopri' : '';
+    tick().then(() => { if (sheetBody) sheetBody.scrollTop = 0; });
+  }
+  function acceptFix(fix) {
+    if (Number.isFinite(fix?.timestamp) && fix.timestamp < lastAccepted && validFix(lastFix)) return;
+    if (!validFix(fix)) {
+      proximity?.clear();
+      position = null; proposal = null;
+      locationMessage = 'Posizione imprecisa o scaduta. Attendi un segnale migliore; puoi esplorare la mappa.';
       return;
     }
-    mode = 'gps';
-    lastFixTime = Date.now();
-    locationMessage = 'Cerco la posizione…';
-    watchId = navigator.geolocation.watchPosition(position => {
-      if (mode !== 'gps') return;
-      player.feed(position);
-      if (!validFix(position)) {
-        mapPosition = null;
-        locationMessage = 'Segnale impreciso. Aspetto una posizione migliore.';
-        return;
-      }
-      mapPosition = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-      lastFixTime = position.timestamp;
-      const matched = matcher.matchLeg(position.coords, state.cursor);
-      locationMessage = matched === null ? 'In attesa della partenza o del percorso.' : 'GPS agganciato al percorso';
-    }, error => {
-      if (mode !== 'gps') return;
-      player.stopTracking();
-      mapPosition = null;
-      if (error.code === 1) {
-        stopSource();
-        locationMessage = 'Posizione non autorizzata. Puoi ascoltare a mano.';
-      } else locationMessage = 'Segnale GPS assente. Puoi scegliere la tratta a mano.';
-    }, {enableHighAccuracy: true, maximumAge: 0, timeout: 15000});
+    lastAccepted = fix.timestamp; lastFix = fix;
+    position = { ...fix.coords };
+    proposal = proximity.feed(fix, { routeId, busy, heard: state.heardIds });
+    locationMessage = mode === 'simulation' ? 'Simulazione attiva' : `GPS attivo · precisione circa ${Math.round(fix.coords.accuracy)} m`;
   }
-  function selectLeg(index) {
+  function stopSource() {
+    sourceGeneration++;
+    if (watchId !== null) navigator.geolocation.clearWatch(watchId);
+    watchId = null; clearInterval(simulationTimer); simulationTimer = null;
+    lastFix = null; lastAccepted = 0; position = null; proposal = null; proximity?.clear(); mode = 'manual';
+  }
+  function startGPS() {
     stopSource();
-    player.reset(Number(index));
-    locationMessage = 'Ascolto manuale. Riparti da qui con il GPS quando vuoi.';
+    if (!navigator.geolocation || !window.isSecureContext) { locationMessage = 'GPS non disponibile. Apri l’app in HTTPS o esplora i pin.'; return; }
+    mode = 'gps'; locationMessage = 'Cerco la tua posizione…'; const generation = sourceGeneration;
+    watchId = navigator.geolocation.watchPosition(fix => { if (generation === sourceGeneration) acceptFix(fix); }, error => {
+      if (generation !== sourceGeneration) return;
+      stopSource(); locationMessage = error.code === 1 ? 'GPS negato. Puoi riattivarlo nelle impostazioni del browser o esplorare i pin.' : 'GPS non disponibile. Riprova o esplora i pin.';
+    }, { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 });
+    centerRequest++;
   }
-  function toggleAudio() {
-    if (isBusy) player.pause();
-    else if (state.phase === 'paused' || state.phase === 'blocked') player.resume();
-    else player.play(state.selected);
+  function recenter() { centerRequest++; if (mode === 'manual') startGPS(); }
+  function simulate() {
+    stopSource(); mode = 'simulation'; showRoutes = false;
+    const matcher = createRouteMatcher(paths);
+    simulationPoints = [catalog.places[0].location, ...paths.flatMap((_, i) => Array.from({length: Math.ceil(matcher.trackLength(i) / 100)}, (_, j) => matcher.pointAt(i, j * 100))), ...catalog.places.filter(p => ['memoriale','albertina','augustinerkirche'].includes(p.id)).map(p => p.location)];
+    simulationIndex = 0; centerRequest++; simulationFeed();
+    simulationTimer = setInterval(() => advanceSimulation(false), 4000);
   }
-  function feedSimulation() {
-    const index = Math.floor(simulationStep / 4);
-    const fraction = [0, 0.25, 0.65, 1][simulationStep % 4];
-    mapPosition = {...matcher.pointAt(index, matcher.trackLength(index) * fraction), accuracy: 5};
-    player.feed({coords: mapPosition, timestamp: Date.now()});
-    locationMessage = simulationStep % 4 === 0 && tour[index].transferBefore ? `Alla fermata di ${tour[index].from}` : `Simulazione · ${tour[index].segment}`;
-    if (simulationStep === tour.length * 4 - 1) {
-      clearInterval(simulationTimer);
-      simulationDone = true;
-      locationMessage = `Simulazione conclusa · ${tour.at(-1).to}`;
-    }
+  function simulationFeed() { acceptFix({ coords: { ...simulationPoints[simulationIndex], accuracy: 5 }, timestamp: Date.now() }); }
+  function advanceSimulation(manual = true) {
+    if (manual) { clearInterval(simulationTimer); simulationTimer = null; }
+    if (simulationIndex < simulationPoints.length - 1) { simulationIndex++; simulationFeed(); }
+    else { clearInterval(simulationTimer); locationMessage = 'Simulazione conclusa. Puoi ripartire o esplorare i pin.'; }
   }
-  function advanceSimulation(manual = false) {
-    if (manual) clearInterval(simulationTimer);
-    if (simulationStep < tour.length * 4 - 1) { simulationStep++; feedSimulation(); }
+  function changeRoute() {
+    dismiss(); downloaded = null; downloadError = ''; void checkDownload();
   }
-  function startSimulation() {
-    stopSource();
-    player.reset(0, true);
-    if (hasTourAudio) player.prepare();
-    mode = 'simulation';
-    simulationStep = 0;
-    simulationDone = false;
-    feedSimulation();
-    simulationTimer = setInterval(() => advanceSimulation(), 8000);
+  async function checkDownload() {
+    if (!catalog) return;
+    try { downloaded = await verifyRoute(catalog, routeId || catalog.routes[0].id); } catch { downloaded = null; }
   }
-  function applyTour(next) {
-    stopSource();
-    player?.dispose();
-    audio.removeAttribute('src'); audio.load();
-    activeTour = next;
-    matcher = createRouteMatcher(next.paths, next.groups.slice(1).map(group=>group.start));
-    player = new TourPlayer(audio, value => state = value, Date.now, {tour:next.legs,matcher});
-    state = player.snapshot();
-    started = false;
-    locationMessage = `Sali sul ${next.legs[0].lineNumber}, poi avvia il GPS.`;
+  async function download() {
+    downloading = true; downloadError = ''; downloaded = null;
+    try {
+      if (!offline.ready) throw new Error('L’app si sta preparando per l’offline. Attendi e riprova.');
+      downloaded = await downloadRoute(catalog, routeId || catalog.routes[0].id, progress => downloadProgress = progress);
+    } catch (error) { downloadError = error.message || 'Download non riuscito. Riprova con una connessione.'; }
+    finally { downloading = false; }
   }
-  function selectTour(id) {
-    const next=builtinTours.find(tour=>tour.id===id);
-    if(next) applyTour(next);
+  function listen(place, content) {
+    dismiss(); void player?.playContent(place, content);
+  }
+  async function initialize() {
+    loadError = '';
+    try {
+      const data = await loadCatalog();
+      if (!alive) return;
+      catalog = data;
+      proximity = createProximity({ places: data.places, paths });
+      let storage = null; try { storage = window.localStorage; } catch { /* Browser can disable storage entirely. */ }
+      player = new PoiPlayer(audio, data.places, value => { state = value; }, storage);
+      state = player.snapshot();
+      void checkDownload();
+    } catch (error) { if (alive) loadError = error.message; }
   }
   onMount(() => {
-    player = new TourPlayer(audio, value => state = value, Date.now, {tour:activeTour.legs,matcher});
-    const stopOffline = monitorOffline(value => offline = value);
-    const onExit = () => { stopSource(); player.pause(); };
-    window.addEventListener('pagehide', onExit);
-    const freshnessTimer = setInterval(() => {
-      if (mode === 'gps' && Date.now() - lastFixTime > 15000) {
-        mapPosition = null;
-        locationMessage = 'Segnale GPS assente. Puoi scegliere la tratta a mano.';
-      }
-    }, 5000);
-    return () => {
-      stopSource(); player.dispose(); stopOffline(); clearInterval(freshnessTimer);
-      window.removeEventListener('pagehide', onExit);
-    };
+    alive = true;
+    const connection = () => { online = navigator.onLine; void checkDownload(); };
+    connection(); window.addEventListener('online', connection); window.addEventListener('offline', connection);
+    const stopOffline = monitorOffline(value => { offline = value; });
+    void initialize();
+    const expiry = setInterval(() => {
+      if (lastFix && !validFix(lastFix)) { position = null; proposal = null; locationMessage = 'Segnale GPS scaduto. Attendi un nuovo rilevamento o esplora i pin.'; }
+    }, 1000);
+    return () => { alive = false; stopSource(); player?.dispose(); stopOffline(); clearInterval(expiry); window.removeEventListener('online', connection); window.removeEventListener('offline', connection); };
   });
 </script>
 
-<svelte:head><title>Vienna dal finestrino</title></svelte:head>
-<a class="skip" href="#player">Vai al player</a>
-<main>
-  <header>
-    <div class="topline">
-      <span class="city-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v12H5V6a2 2 0 0 1 2-2ZM8 1h8M12 1v3M8 18l-2 4m10-4 2 4M5 12h14M9 4v8"/><path d="M8 15h1m6 0h1"/></svg> Una città, tanti racconti</span>
-      <span class:ready={offline.ready} class="offline" role="status"><span class="dot"></span>{offline.ready ? 'Pronta offline' : offline.error ? 'Offline non disponibile' : 'Preparo l’offline…'}</span>
-    </div>
-    <h1>Vienna dal<br />finestrino</h1>
-    <p class="intro">{tour.length} racconti · {hasTourAudio ? `${durationLabel} di audio` : 'solo testo'} · {distanceLabel} km</p>
-  </header>
-
-  <TourLibrary tours={library} active={activeTour} onselect={selectTour} />
-
-  {#if activeTour.approach}
-    <p class="tour-info">Per raggiungere Schottentor: tram {activeTour.approach.line} da {activeTour.approach.fromStop}, direzione {activeTour.approach.direction}.</p>
-  {/if}
-  {#if activeTour.scheduledMinutesOnBoard}
-    <p class="tour-info">{activeTour.scheduledMinutesOnBoard} min previsti a bordo · attese e cambi esclusi.</p>
-  {/if}
-  <section class="journey" aria-label="Itinerario">
-    {#each activeTour.groups as group, index}
-      {#if index > 0}<div class="interchange"><span aria-hidden="true">⇄</span> A {group.from} cambia tram</div>{/if}
-      <div><span class="line-badge" style:background={lineColors[index % lineColors.length]}>{group.line}</span><span>Da {group.from}<strong>verso {group.direction}</strong><strong>Scendi a {group.to}</strong></span></div>
-    {/each}
-  </section>
-
-  <section class="start-area" aria-label="Posizione e avvio">
-    {#if mode === 'gps'}
-      <button class="primary" onclick={() => {stopSource(); locationMessage = 'GPS disattivato. I controlli manuali sono pronti.';}}>Disattiva GPS</button>
-    {:else if mode === 'simulation'}
-      <div class="simulation-controls">
-        <strong>Simulazione attiva</strong>
-        <button class="secondary" onclick={() => {stopSource(); player.reset(state.selected); locationMessage = 'Simulazione terminata. Scegli una tratta o avvia il GPS.';}}>Esci dalla simulazione</button>
-        <button class="primary" disabled={simulationDone} onclick={() => advanceSimulation(true)}>Avanza simulazione</button>
-      </div>
-    {:else}
-      <button class="primary start" onclick={() => startGPS()}><span aria-hidden="true">⌖</span>{started ? 'Attiva GPS' : 'Inizia il tour'}</button>
+<svelte:head><title>Vienna dal finestrino · Audioguida</title><meta name="description" content="28 luoghi di Vienna da scoprire sulla mappa, a piedi o in tram. Testi, fonti e audio da ascoltare quando vuoi." /></svelte:head>
+<a class="skip-link" href="#luoghi">Vai all’elenco dei luoghi</a>
+<audio bind:this={audio} preload="metadata"></audio>
+{#if catalog}
+  <main class:has-player={state.active !== null} class:has-overlay={Boolean(selected) || showRoutes || showList}>
+    <PoiMap places={catalog.places} {paths} selected={selectedId} {routeId} {position} simulated={mode === 'simulation'} {online} {centerRequest} onselect={openPlace} onTileError={value => tileError = value} />
+    <header class="app-header">
+      <div class="brand"><span class="brand-symbol" aria-hidden="true">V</span><div><h1>Vienna dal finestrino</h1><p>La città, un luogo alla volta</p></div></div>
+      <button class:active={showRoutes} class="route-button" aria-expanded={showRoutes} onclick={() => { showRoutes = !showRoutes; showList = false; }}>Percorsi e offline</button>
+    </header>
+    <nav class="map-controls" aria-label="Comandi mappa">
+      <button class="control" onclick={recenter} aria-label="Ricentra sulla mia posizione"><span aria-hidden="true">◎</span> Ricentra</button>
+      <button class:enabled={mode === 'gps'} class="control" onclick={() => { if (mode === 'gps') { stopSource(); locationMessage = 'GPS disattivato. Esplora i luoghi sulla mappa.'; } else startGPS(); }}>{mode === 'gps' ? 'Disattiva GPS' : 'Attiva GPS'}</button>
+      <button class="control" onclick={() => { showList = !showList; showRoutes = false; }} aria-expanded={showList}>Elenco luoghi <span class="count">{visiblePlaces.length}</span></button>
+    </nav>
+    <div class="map-status" aria-live="polite"><span class:live={mode === 'gps'} class="status-dot"></span>{locationMessage}</div>
+    {#if !online || tileError}<div class="network-note" role="status">{!online ? 'Offline · sfondo stradale non disponibile' : 'Sfondo stradale non disponibile. Pin e tracciato restano utilizzabili.'}</div>{/if}
+    {#if mode === 'simulation'}<div class="simulation-bar"><span>Simulazione · {simulationIndex + 1}/{simulationPoints.length}</span><button onclick={() => advanceSimulation()}>Avanza simulazione</button><button onclick={() => { stopSource(); locationMessage = 'Simulazione terminata. Esplora i pin o attiva il GPS.'; }}>Esci dalla simulazione</button></div>{/if}
+    {#if proposal}
+      <aside class="nearby" aria-label="Proposta di prossimità" aria-live="polite">
+        <div><p>{proposal.nearbyLabel ? 'Qui vicino' : 'Vicino a te'}</p><strong>{proposal.name}</strong></div>
+        <div class="nearby-actions">{#if proposal.contents.some(c => c.audio)}<button class="primary" disabled={busy} onclick={() => listen(proposal, proposal.contents.find(c => c.audio))}>Ascolta</button>{/if}<button class="secondary" onclick={() => { const id = proposal.id; dismiss(); openPlace(id, true); }}>Leggi</button><button class="icon-button" aria-label="Chiudi proposta" onclick={dismiss}>×</button></div>
+      </aside>
     {/if}
-    <p class="location" role="status">{locationMessage}</p>
-  </section>
-
-  <section id="player" class="player" aria-label="Player audio">
-    <div class="player-top"><span class="line-label">{leg.line}</span><span class="count">{state.selected + 1} / {tour.length}</span></div>
-    <p class="segment">{leg.segment}</p>
-    <h2>{leg.title}</h2>
-    {#if state.active !== null && state.active !== state.selected}
-      <p class="audio-note">Finisce prima: {audible.title}</p>
+    {#if showRoutes}
+      <section class="utility-panel" aria-label="Percorsi e offline">
+        <div class="panel-top"><h2>Il tuo percorso</h2><button class="icon-button" aria-label="Chiudi percorsi" onclick={() => showRoutes = false}>×</button></div>
+        <label for="route">Scegli un percorso</label><select id="route" bind:value={routeId} onchange={changeRoute} disabled={downloading}><option value="">Tutti i luoghi</option>{#each catalog.routes as r}<option value={r.id}>{r.title}</option>{/each}</select>
+        <h3>{route.title}</h3><p>{route.description}</p>
+        <details><summary>Come seguire il tragitto</summary><ol>{#each route.directions as direction}<li>{direction}</li>{/each}</ol><p class="small">{route.geometryNote}</p><a href={route.transportSource} target="_blank" rel="noreferrer">Controlla il servizio su Wiener Linien</a></details>
+        <div class="offline-section"><h3>Porta i racconti con te</h3><p>Scarica testi e audio disponibili. Le nuove voci saranno incluse dopo la loro preparazione.</p>
+          <button class="primary" disabled={downloading} onclick={download}>{downloading ? 'Download in corso…' : 'Scarica percorso offline'}</button>
+          {#if downloading}<progress max={downloadProgress.total || 1} value={downloadProgress.complete}></progress><p role="status">{downloadProgress.complete} di {downloadProgress.total} file verificati</p>{/if}
+          {#if downloaded?.ready && offline.ready}<p class="success" role="status">Percorso verificato offline · testi e {downloaded.audioCount} audio</p>{:else}<p class="small">{offline.ready ? 'App e testi pronti. Scarica il percorso per verificarne tutti i contenuti.' : offline.error ? 'Offline non disponibile. Riprova in HTTPS con una connessione.' : 'Preparazione dell’app per l’offline…'}</p>{/if}
+          {#if downloadError}<p class="error" role="alert">{downloadError}</p>{/if}
+          <p class="small">Mappa stradale: solo online. Offline restano pin, tracciato e contenuti scaricati. La memoria del browser può essere liberata dal dispositivo.</p>
+        </div>
+        <details><summary>Prova senza muoverti</summary><p>La simulazione invia una posizione ogni 4 secondi allo stesso sistema del GPS. Rispetta gli stessi intervalli tra proposte.</p><button class="secondary" onclick={simulate}>Simula percorso</button></details>
+      </section>
     {/if}
-    {#if state.phase === 'blocked'}
-      <p class="audio-note" role="status">Il browser aspetta un tuo tocco.</p>
-    {:else if state.phase === 'error'}
-      <p class="audio-note" role="alert">Audio non disponibile. Riprova quando sei online; la trascrizione è qui sotto.</p>
+    {#if showList}
+      <section class="utility-panel places-list" id="luoghi" aria-label="Elenco dei luoghi">
+        <div class="panel-top"><h2>Esplora Vienna</h2><button class="icon-button" aria-label="Chiudi elenco" onclick={() => showList = false}>×</button></div>
+        <label for="search">Cerca un luogo</label><input id="search" type="search" bind:value={query} placeholder="Nome del luogo" />
+        <ul>{#each visiblePlaces as place}<li><button onclick={() => openPlace(place.id)}><span>{place.name}<small>{place.category}{place.nearbyLabel ? ' · visita a piedi' : ''}</small></span><span aria-hidden="true">›</span></button></li>{/each}</ul>
+        {#if !visiblePlaces.length}<p>Nessun luogo trovato. Prova un altro nome.</p>{/if}
+      </section>
+    {:else}<a id="luoghi" class="accessible-list-link" href="#luoghi" onclick={() => showList = true}>Apri elenco dei luoghi</a>{/if}
+    {#if selected}
+      <aside class="place-panel" aria-label={`Scheda ${selected.name}`}>
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <div class="panel-top"><span class="category">{selected.category}</span><button class="icon-button" aria-label="Chiudi scheda" onclick={() => { selectedId = null; reader = ''; }}>×</button></div>
+        <div class="sheet-body" bind:this={sheetBody}>
+          <h2>{selected.name}</h2><p class="distance">{distance(selected)}</p><p class="intro">{selected.summary}</p>
+          <p class="access">{selected.nearbyLabel ? 'Qui vicino. ' : ''}{selected.access}</p>
+          <div class="content-list">
+            {#each selected.contents as content}
+              <article class="content-card">
+                <h3>{content.title}</h3>
+                <p class="content-meta">{content.audio ? `Audio · ${clock(content.durationSeconds)}` : 'Testo disponibile · audio da preparare'}</p>
+                {#if state.heardIds.includes(`${selected.id}:${content.id}`)}<p class="heard">Già ascoltato</p>{/if}
+                <div class="content-actions">{#if content.audio}<button class="primary" disabled={busy && state.track?.key !== `${selected.id}:${content.id}`} onclick={() => listen(selected, content)}>{state.heardIds.includes(`${selected.id}:${content.id}`) ? 'Riascolta' : 'Ascolta'}</button>{/if}<button class="secondary" aria-expanded={reader === content.id} onclick={() => reader = reader === content.id ? '' : content.id}>{reader === content.id ? 'Chiudi testo' : 'Leggi testo'}</button></div>
+                {#if reader === content.id}<p class="transcript">{content.text}</p>{/if}
+              </article>
+            {/each}
+          </div>
+          <details class="sources"><summary>Fonti e posizione del pin</summary><p class="small">Verifica editoriale: 5 novembre 2026. {selected.referenceNote ?? selected.location.kind}. {selected.entranceStatus}</p><ul>{#each selected.sources as source}<li><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>{/each}<li><a href={selected.location.source} target="_blank" rel="noreferrer">Posizione del luogo · OpenStreetMap</a></li>{#if selected.entrance}<li><a href={selected.entrance.source} target="_blank" rel="noreferrer">Ingresso mappato separatamente · OpenStreetMap</a></li>{/if}</ul></details>
+        </div>
+      </aside>
     {/if}
-    {#if leg.audio}
-    <div class="audio-progress"><progress max="100" value={progress} aria-label="Progresso audio"></progress><span>{clock(state.elapsed)} / {clock(state.duration)}</span></div>
-    <div class="playback-controls">
-      <button class="play" onclick={toggleAudio}><span aria-hidden="true">{isBusy ? 'Ⅱ' : '▶'}</span>{state.phase === 'blocked' ? 'Tocca per ascoltare' : isBusy ? 'Pausa' : state.phase === 'paused' ? 'Riprendi' : 'Ascolta'}</button>
-      <button class="replay" onclick={() => player.play(state.selected)}><span aria-hidden="true">↺</span>Riascolta</button>
-    </div>
-    {:else}
-      <p class="audio-note">Audio non ancora disponibili per questo tour.</p>
+    {#if state.active !== null}
+      <section class="player" aria-label="Player audio">
+        <div class="player-heading"><div><strong>{state.track?.placeName}</strong><p>{state.track?.title}</p></div><button class="icon-button" aria-label="Chiudi player" onclick={() => player.close()}>×</button></div>
+        {#if ['error','blocked'].includes(state.phase)}<p class="error" role="alert">{state.phase === 'blocked' ? 'Audio non avviato. Tocca Riprova audio o leggi il testo.' : 'Audio non disponibile. Controlla rete o download e riprova.'}</p>{/if}
+        <div class="player-controls"><button class="primary" onclick={() => { if (state.phase === 'playing') player.pause(); else void player.resume(); }}>{state.phase === 'playing' ? 'Pausa' : ['error','blocked'].includes(state.phase) ? 'Riprova audio' : state.phase === 'loading' ? 'Caricamento…' : 'Riprendi'}</button><label class="seek"><span class="sr-only">Avanzamento audio</span><input type="range" min="0" max={duration || 1} step="1" value={Math.min(state.elapsed, duration)} oninput={event => player.seek(Number(event.currentTarget.value))} /></label><span class="time">{clock(state.elapsed)} / {clock(duration)}</span></div>
+        {#if state.storageError}<p class="small">Cronologia disponibile solo in questa sessione: memoria locale non accessibile.</p>{/if}
+      </section>
     {/if}
-    {#key activeTour.id}
-      <details open={!leg.audio}><summary>Leggi la trascrizione</summary><p class="transcript">{leg.transcript}</p></details>
-    {/key}
-  </section>
-
-  {#key activeTour.id}
-  <RouteMap tour={activeTour} selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} locating={mode === 'gps'} onlocate={() => startGPS()} />
-  {/key}
-
-  <section class="manual" aria-label="Controlli manuali">
-    <label for="leg">Scegli la tratta</label>
-    <select id="leg" value={state.selected} onchange={event => selectLeg(event.currentTarget.value)}>
-      {#each tour as item, index}<option value={index}>{index + 1}. {item.segment}</option>{/each}
-    </select>
-    <button class="secondary resync" onclick={() => startGPS(true)}>Risincronizza GPS da questa tratta</button>
-  </section>
-
-  <section class="tour-progress" aria-label="Progresso tour">
-    <div class="progress-label"><span>Il vostro giro</span><span>{hasTourAudio ? `${state.listened.length} di ${tour.length} ascoltate` : `Tratta ${state.selected+1} di ${tour.length}`}</span></div>
-    <div class="stops" aria-hidden="true">
-      {#each tour as _, index}<span class:heard={state.listened.includes(index)} class:current={state.selected === index}>{index + 1}</span>{/each}
-    </div>
-  </section>
-
-  <footer>
-    <p>Tieni la pagina in primo piano<br />e lo schermo acceso.</p>
-    <p class="privacy">La posizione resta nel tuo browser.</p>
-    {#if mode !== 'simulation'}<button class="text-button" onclick={startSimulation}>Simula giro</button>{/if}
-    <small>{activeTour.title}</small>
-  </footer>
-  <audio bind:this={audio} preload="auto" aria-label="Audio del tour"></audio>
-</main>
+  </main>
+{:else}
+  <main class="loading"><h1>Vienna dal finestrino</h1>{#if loadError}<p role="alert">{loadError}</p><button class="primary" onclick={initialize}>Riprova catalogo</button>{:else}<p>Preparo la mappa e i racconti…</p>{/if}</main>
+{/if}

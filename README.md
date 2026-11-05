@@ -1,96 +1,107 @@
 # Vienna dal finestrino
 
-PWA mobile in italiano, Svelte 5 + Vite, senza backend. **Due tour inclusi nella build**, selezionabili da «Percorso da ascoltare». Non ci sono importazione, download di pacchetti, eliminazione di tour o archivio personale nel browser.
+Audioguida italiana per punti di interesse, Svelte 5 + Vite + Leaflet, senza backend. La mappa è la schermata principale: **28 luoghi e 56 testi** per il percorso **Da Yppengasse all’Albertina**. I luoghi si esplorano anche da lontano e senza GPS. Le voci dei nuovi contenuti vanno generate separatamente: non sono stati riutilizzati gli audio delle vecchie tratte.
 
-| Tour | Percorso | Contenuti |
-| --- | --- | --- |
-| Dal mercato all’Opera | 44 da Yppengasse a Schottentor, poi 1 verso Reumannplatz fino a Oper, Karlsplatz | 8 racconti, circa 3 minuti di MP3, mappa e GPS |
-| Vienna Ring Tour | Schottentor → Oper/Karlsplatz (1), → Schwedenplatz (2 verso Friedrich-Engels-Platz), → Schottentor (1 verso Reumannplatz) | 8 racconti in testo, mappa e GPS; **MP3 non forniti** |
+## Avvio
 
-Il Ring conserva geometrie e testi del file `vienna-tram-astra/vienna-ring-tour.json`. Il file indica **26 minuti a bordo**, esclusi attese e cambi, per il servizio del 5 novembre 2026. L’avvicinamento da Yppengasse sul 44 è mostrato come indicazione separata; non viene aggiunto alla geometria dell’anello. Non è una verifica del servizio in tempo reale né una durata giornaliera.
-
-## Avvio e pubblicazione
-
-Node.js 22.12+ (verificato con 22.20.0):
+Node.js 22.12+:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Per provare il service worker e l’offline:
+Per GPS e offline usare HTTPS, oppure localhost sul computer. In sviluppo il service worker è disabilitato. Per provare il download reale:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-Apri `http://localhost:4173`. Su telefono usa un URL HTTPS: HTTP su rete locale non abilita GPS e service worker. In sviluppo il service worker non viene registrato.
-
-Vercel: Root Directory alla radice del repository, preset **Vite**, installazione `npm ci`, build `npm run build`, output **dist**, Node.js 22.x o successivo compatibile. Nessuna variabile d’ambiente o chiave API. La pubblicazione presume la radice del dominio; il deploy è lasciato al proprietario.
+Aprire `http://localhost:4173`. Il deploy su Vercel rimane al proprietario: preset Vite, build `npm run build`, output `dist`, root del repository. L'app presume la radice del dominio. Nessuna chiave API deve essere configurata nel frontend o in Vercel per riprodurre gli asset.
 
 ## Uso
 
-1. Scegli uno dei due tour. Entrambi sono già disponibili, senza caricare file.
-2. Tocca **Inizia il tour** a bordo, oppure **La mia posizione** sotto la mappa, e consenti il GPS.
-3. Il punto azzurro **Sei qui** appare sopra le fermate; la mappa si centra sulla posizione. Trascinare la mappa o premere **Intero percorso** interrompe il centraggio; **La mia posizione** lo riattiva.
-4. Il GPS aggiorna la tratta. Nel tour originale avvia l’MP3; nel Ring mostra il racconto in testo, con trascrizione già aperta e avviso che gli audio non sono ancora disponibili.
-5. Puoi scegliere una tratta manualmente. **Risincronizza GPS da questa tratta** riparte dalla selezione dopo un buco di segnale.
+- Toccare un pin oppure aprire **Elenco luoghi**. Nelle aree dense, un tocco propone una scelta tra i luoghi vicini; ogni pin si apre anche con Invio o Spazio.
+- La scheda è inferiore e richiudibile su telefono, laterale su desktop. Il pin selezionato viene mantenuto nella parte libera della mappa. Testi lunghi, approfondimenti e fonti si aprono su richiesta.
+- **Attiva GPS** avvia `watchPosition`; **Ricentra** segue la posizione. Il GPS propone una sola scheda discreta, senza avviare audio. Se il contenuto ha un asset validato, compare **Ascolta**; altrimenti rimane **Leggi**.
+- Il player è indipendente dalla scheda: cambiare pin non lo interrompe. Include pausa, ripresa, avanzamento e chiusura. Durante la riproduzione non vengono presentati nuovi suggerimenti né sostituiti altri audio. Per cambiare contenuto si può chiudere il player o metterlo in pausa.
+- Gli ascolti avviati con successo vengono salvati localmente con ID del luogo e del contenuto; **Riascolta** rimane disponibile. Se la memoria è negata, la cronologia resta nella sessione e il player lo segnala.
+- In **Percorsi e offline → Prova senza muoverti → Simula percorso**, una posizione ogni quattro secondi attraversa avvicinamento, geometria GTFS e arrivo a piedi. **Avanza simulazione** passa al fix seguente e ferma l'avanzamento temporizzato. È lo stesso flusso del GPS, con gli stessi cooldown.
 
-Il cambio tour ferma GPS, simulazione e audio, poi riparte dalla prima tratta. La selezione e il progresso restano solo in memoria: alla ricarica si torna al tour originale. Il catalogo non dipende da IndexedDB o localStorage. Eventuali vecchi dati importati da una versione precedente non vengono letti né cancellati.
+## Catalogo, percorso e fonti
 
-Tieni **pagina in primo piano e schermo acceso**. Installazione: menu del browser su Android; Condividi → Aggiungi alla schermata Home in Safari su iPhone.
+`public/catalog.json` contiene ID stabili, categoria, posizione del luogo, ingresso opzionale separato, descrizione, accesso, fonti, due contenuti e appartenenze ai percorsi. Ogni testo ha le proprie fonti. “Scopri il luogo” comprende 70–100 parole; l'approfondimento 100–150. Date e contenuti non dipendono da ciò che è visibile dal finestrino o dalla posizione di chi ascolta.
 
-## Mappa, GPS e audio
+Il tragitto riusa gli otto tracciati del repository: 44 da Yppengasse a Schottentor, poi Ring verso Oper/Karlsplatz, con arrivo a piedi all'Albertina. I tracciati rappresentano il servizio programmato del **5 novembre 2026**, non informazioni in tempo reale. Il tratto finale a piedi e le deviazioni sono descritti nelle istruzioni; la linea colorata rappresenta solo i tratti in tram. Prima di partire controllare [Wiener Linien](https://www.wienerlinien.at/fahrplaene) o WienMobil.
 
-- Leaflet mostra le geometrie del tour selezionato, con tratta corrente più spessa, fermate cliccabili e cambi tratteggiati. Nel Ring le sezioni sono 1 → 2 → 1.
-- Il matcher considera solo la tratta attesa e quella successiva. Margini: corridoio 40 m, almeno 35 m dalla partenza e 18 m prima dell’arrivo; fix fino a 45 m di accuratezza e 15 s di età. Ai cambi vengono esclusi anche i 35 m attorno alla fermata d’arrivo precedente.
-- La posizione non viene trasmessa dall’app. Il punto viene rimosso quando il GPS è spento, il fix scade o è impreciso. Il watch viene cancellato anche all’uscita dalla pagina.
-- Il tour originale usa un unico player. La tappa viene segnata come ascoltata solo dopo l’avvio riuscito; `play()` rifiutato mostra **Tocca per ascoltare**. Un audio già iniziato finisce prima di avviare quello successivo, se la posizione è ancora pertinente.
-- Il Ring ha `audio: null`: nessuna richiesta verso MP3 inesistenti, nessun ascolto fittizio e nessun audio del tour originale riutilizzato per testi diversi.
+I dati dei due vecchi tour e gli otto MP3 sono conservati nei moduli originali e in `legacy/` e `vienna-tram-astra/`. Non sono collegati ai nuovi monumenti e non vengono scaricati come audio di questo percorso. I test precedenti dei matcher, del player e delle risposte Range sono conservati. I test browser sono stati adattati al nuovo comportamento con ascolto manuale.
 
-## Offline e prova prima di salire
+Coordinate da OpenStreetMap, con URL del singolo oggetto e snapshot di ricerca in `docs/research/`. Per aree estese è indicato un riferimento motivato: Alser Straße per il Gürtel, Heldenplatz per la Hofburg, centro cartografico per i parchi. Ingressi principali distinti documentati per **Josephinum e Theseustempel**; negli altri casi la scheda dichiara che il pin non certifica un ingresso.
 
-Il service worker precarica app, entrambi i tour (dati nel bundle), icone e gli otto MP3 originali. **Pronta offline** appare solo dopo la verifica di tutti gli asset in cache. Le richieste Range degli MP3 ricevono risposte 206 o 416 dai file completi.
+`routeContext` conserva distanza minima in linea d'aria e proiezione sul GTFS, calcolate dalle coordinate documentate. Per luoghi interni entro 250 m dal tracciato, `suggestion.location` è un punto calcolato sul percorso: serve a proporre **Qui vicino**, insieme alla prossimità effettiva al luogo. Non è un ingresso né una dichiarazione di visibilità. Distanze e metodo sono raccolti in [docs/research/route-distances.md](docs/research/route-distances.md).
 
-Lo sfondo OpenStreetMap richiede connessione ed è escluso dal precaricamento: offline restano geometrie, fermate e racconti. Le tessere vengono richieste direttamente per l’area visualizzata, secondo la [policy OpenStreetMap](https://operations.osmfoundation.org/policies/tiles/).
+Le fonti editoriali sono enti e istituzioni: Comune e turismo di Vienna, università, musei, Parlamento, Bundesgärten, Burghauptmannschaft, parrocchie e gestori. Il dettaglio della verifica e ciò che resta da controllare sono in [docs/research/editorial-report.md](docs/research/editorial-report.md).
 
-Prova rapida:
+Attribuzione: **coordinate © OpenStreetMap contributors, ODbL; tracciati © Stadt Wien – Wiener Linien, CC BY 4.0**. L'attribuzione cartografica rimane visibile sulla mappa anche con la scheda aperta.
 
-1. Apri online e attendi **Pronta offline**.
-2. Scegli **Vienna Ring Tour** e prova **Simula giro**. **Avanza simulazione** passa al punto seguente e interrompe l’avanzamento temporizzato. Il giro termina a Schottentor.
-3. Attiva modalità aereo, ricarica e seleziona di nuovo il Ring: mappa del percorso e testi devono funzionare.
-4. Scegli il tour originale e prova un MP3, pausa e riascolto anche offline.
+## Prossimità
 
-La cache offline non è un archivio personale: se il browser cancella i dati del sito occorre riaprire online. Restano da verificare sul telefono reale accuratezza GPS nel tram, politiche audio Safari/iOS, installazione e sospensione in background.
+`src/lib/proximity.js` è separato dal player. Configurazione tramite `proximityDefaults` o parametro `config` di `createProximity`:
 
-## Modificare i tour nel repository
+| Regola | Valore iniziale |
+| --- | --- |
+| Ingresso | 100 m |
+| Uscita | 170 m |
+| Intervallo minimo globale | 45 s |
+| Intervallo individuale dopo proposta/chiusura | 15 min, con uscita dall'area prima di una nuova proposta |
+| Fix valido | accuratezza ≤45 m; età ≤15 s; timestamp non futuro |
 
-`src/lib/builtin-tour.js` definisce il catalogo:
+I punti vicino al tracciato possono avere soglie proprie: 75/150 m. L'accuratezza riduce l'area utile di ingresso. Un nuovo avviso richiede l'uscita dalla soglia più ampia; un fix ritardato non fa arretrare quello corrente. La graduatoria considera distanza, percorso selezionato, pertinenza e contenuti già ascoltati. Le posizioni non sono inviate dall'app a un server; il provider della mappa riceve le richieste delle tessere visualizzate.
 
-- Il tour originale usa `src/lib/tour.json`, `src/lib/route-data.js` e `public/audio/01.mp3` … `08.mp3`.
-- Il Ring legge direttamente `vienna-tram-astra/vienna-ring-tour.json`, convertendo i capitoli delle tre sezioni in otto tratte GPS e conservando i due cambi di mezzo.
+Il modello supporta regole `suggestion.tram` con `pathIndex`, `fromMeters`, `toMeters`, `direction`. Usano proiezione e avanzamento sul tracciato, richiedono due fix recenti entro il corridoio di 45 m e uno spostamento maggiore dell'incertezza. Fermo, retromarcia, direzione incerta o GPS fuori corridoio non attivano queste regole. **Nessuna finestra direzionale o indicazione di lato è stata inventata nel primo catalogo**: le proposte iniziali sono geografiche e i luoghi restano autonomi.
 
-Per aggiungere gli audio del Ring, inserire gli MP3 nel repository, assegnare i relativi percorsi e durate al Ring in `builtin-tour.js`, quindi ricostruire e pubblicare l’app. Non associare gli otto MP3 originali ai testi del Ring: sono racconti diversi.
+## Audio Gemini TTS
 
-La build controlla entrambi i tour e l’esistenza degli audio dichiarati. Il kit originale è conservato in `vienna-tram-astra/`; la precedente versione statica è in `legacy/`.
+Nel repository esplorato non era presente un generatore Gemini locale riutilizzabile. È stato aggiunto `scripts/generate-poi-audio.js`, separato completamente dal runtime e senza nuove dipendenze. Usa l'[API Gemini TTS](https://ai.google.dev/gemini-api/docs/speech-generation).
 
-## Verifiche
+Il dry-run è predefinito e **non legge la chiave né fa chiamate API**:
+
+```sh
+npm run tts -- --place albertina --content scopri --dry-run
+```
+
+Per generare **un solo audio di prova**, impostare `GEMINI_API_KEY` nel proprio terminale ed eseguire personalmente:
+
+```sh
+npm run tts -- --place albertina --content scopri --generate
+```
+
+Sono obbligatori entrambi gli ID. `--content approfondimento` seleziona il secondo testo. Modello e voce si cambiano con `--model` e `--voice`; il default è `gemini-3.1-flash-tts-preview`, voce `Kore`. L'accesso al modello dipende dall'account Gemini. `--generate` autorizza la chiamata potenzialmente a pagamento; non è stato eseguito in questa modifica.
+
+Il comando crea WAV PCM, misura la durata e aggiorna `public/audio/poi-manifest.json` con hash del testo, dei byte e della configurazione. Un file invariato e integro viene riusato; modificare testo, voce o modello cambia il nome del file. `--force` richiede di rigenerare anche a parità di configurazione. Scritture di file e manifest avvengono tramite file temporanei; una risposta priva di audio non viene pubblicata.
+
+Dopo la generazione, ascoltare il campione per pronuncia e fedeltà, poi eseguire `npm run build`. La build controlla esistenza, hash, formato WAV e durata degli asset; il runtime espone **Ascolta** soltanto se il manifest corrisponde al testo. Nessun MP3 di una vecchia tratta è associato automaticamente a un POI.
+
+## Offline
+
+Il service worker precarica app, catalogo e manifest. Il pulsante **Scarica percorso offline** memorizza e verifica catalogo, manifest e soltanto gli audio dichiarati per il percorso. Mostra progresso, conteggio audio ed eventuale errore. La verifica confronta i byte tramite SHA-256 e rifiuta risposte HTML di fallback. Un nuovo download può riparare file vecchi o incompleti; la cache supporta richieste Range per avanzamento audio.
+
+**Percorso verificato offline** compare dopo la verifica del percorso e della shell. Con il catalogo iniziale segnala correttamente **0 audio**: i testi sono pronti, le voci devono essere generate. I file invariati già verificati vengono riusati anche senza rete. Se il browser libera la memoria, occorre scaricare di nuovo.
+
+Lo sfondo `tile.openstreetmap.org` è **solo online**, secondo la [policy del provider](https://operations.osmfoundation.org/policies/tiles/). Non sono implementati download o prefetch di tessere. Senza rete restano pin, geometrie, testi e audio scaricati. Lo stato dello sfondo è distinto dall'esito del download dei racconti.
+
+## Verifiche e prove sul posto
 
 ```sh
 npm test
 npm run check
 npm run build
-npx playwright install chromium
-PLAYWRIGHT_PORT=4174 npm run test:e2e
+PLAYWRIGHT_PORT=4185 npm run test:e2e -- --workers=2
 ```
 
-La porta alternativa evita conflitti con un’anteprima già aperta sulla 4173. I test browser verificano entrambi i tour anche con IndexedDB/localStorage disabilitati, assenza dei controlli di importazione/download, mappa e simulazione Ring, testi e MP3 offline, GPS e cleanup, fallback audio e selezione manuale. I test unitari coprono matcher, player, Range, conversione del file Ring e nessuna riproduzione per racconti senza audio.
+I test coprono schema e lunghezza dei testi, coerenza degli asset, fix obsoleti/imprecisi, ranking, isteresi, cooldown, direzione e corridoio, proposte ai luoghi e ai riferimenti sul tragitto, mancato autoplay, storia locale, riuso TTS e assenza di rete nel dry-run. Nel browser: esplorazione senza GPS, scelta dei pin sovrapposti, schede senza audio, permesso negato, simulazione, player continuo, errore di riproduzione, pausa/seek/riascolto, testi e audio scaricati dopo ricarica offline.
 
-## Dati e attribuzione
+La fixture audio dei test usa un MP3 esistente **soltanto nel contesto di test**, per verificare il player e la cache senza generare una voce a pagamento. Il catalogo di produzione resta privo di quell'associazione.
 
-**Stadt Wien – Wiener Linien, CC BY 4.0**. Geometrie e indicazioni di servizio sono quelle fornite nei file del progetto per il 5 novembre 2026.
-
-- [Feed GTFS ufficiale](https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip)
-- [Licenza CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- [Fermata iniziale Yppengasse](https://maps.app.goo.gl/Nv9JNx2GC2qAgXto8)
+Da verificare sul posto: cancelli e itinerari pedonali, ingressi accessibili, precisione GPS nel tram, soglie di prossimità, servizio effettivo e cambi, Safari/iOS, sospensione in background e qualità delle voci che verranno generate. Nessuna posizione del finestrino è stata certificata. Tenere la pagina in primo piano durante l'uso GPS.

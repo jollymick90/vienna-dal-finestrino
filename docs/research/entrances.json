@@ -1,0 +1,28 @@
+{
+  "28538646": [],
+  "28538680": [],
+  "9858714": [],
+  "8083399": [],
+  "8097595": [],
+  "9245795": [
+    {
+      "latitude": 48.2082993,
+      "longitude": 16.3617211,
+      "source": "https://www.openstreetmap.org/node/3305960740",
+      "tags": {
+        "entrance": "main"
+      }
+    }
+  ],
+  "91728120": [],
+  "10615515": [
+    {
+      "latitude": 48.2193593,
+      "longitude": 16.3566745,
+      "source": "https://www.openstreetmap.org/node/10227944416",
+      "tags": {
+        "entrance": "main"
+      }
+    }
+  ]
+}

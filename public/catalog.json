@@ -1,0 +1,1849 @@
+{
+  "version": 1,
+  "id": "vienna-poi",
+  "verifiedAt": "2026-11-05",
+  "attribution": "Coordinate © OpenStreetMap contributors, ODbL. Tracciati © Stadt Wien – Wiener Linien, CC BY 4.0.",
+  "routes": [
+    {
+      "id": "yppengasse-albertina",
+      "title": "Da Yppengasse all’Albertina",
+      "description": "Avvicinamento a piedi da Yppenplatz; tram 44 fino a Schottentor, Ring verso l’Opera, poi a piedi. Le deviazioni sono facoltative.",
+      "directions": [
+        "Prima di salire: Yppenplatz, Brunnenmarkt e Brunnenpassage a piedi.",
+        "44 verso Schottentor. Breitenfelder Kirche, Narrenturm e Josephinum richiedono deviazioni a piedi.",
+        "A Schottentor passare al Ring verso Oper/Karlsplatz: tracciato del tram 1 conservato dal dataset. Controllare fermata e servizio su WienMobil.",
+        "Dall’Opera proseguire a piedi verso Albertinaplatz e l’Albertina; Augustinerkirche è una deviazione verso Josefsplatz."
+      ],
+      "transportSource": "https://www.wienerlinien.at/fahrplaene",
+      "geometrySource": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip",
+      "geometryNote": "Tracciati GTFS già presenti nel repository; servizio programmato del 5 novembre 2026, non navigazione né verifica in tempo reale."
+    }
+  ],
+  "places": [
+    {
+      "id": "yppenplatz",
+      "name": "Yppenplatz",
+      "category": "Piazze",
+      "location": {
+        "latitude": 48.2135647,
+        "longitude": 16.3358379,
+        "source": "https://www.openstreetmap.org/way/1087845887",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Yppenplatz è una delle porte del Brunnenmarkt, nel sedicesimo distretto di Vienna.",
+      "access": "Avvicinamento a piedi prima di salire al 44 a Yppengasse. Il pin rappresenta la zona pedonale del mercato, non una fermata.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Stadt Wien · Brunnenmarkt e Yppenplatz",
+          "url": "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160"
+        },
+        {
+          "title": "WienTourismus · Yppenplatz",
+          "url": "https://www.wien.info/de/essen-trinken/maerkte/yppenplatz-lokalszene-366520"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Yppenplatz è una delle porte del Brunnenmarkt, nel sedicesimo distretto di Vienna. I padiglioni fissi del mercato e i locali della piazza collegano acquisti quotidiani e incontri di quartiere. È un buon punto per cominciare a conoscere una Vienna diversa da quella dei palazzi imperiali: fatta di cibo, lingue e relazioni. La piazza si può esplorare a piedi prima di raggiungere il tram. Il racconto rimane utile anche lontano, come introduzione alla vita urbana di Ottakring.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una piazza che vive di scambi",
+          "text": "Una piazza di mercato non serve soltanto a vendere. Mette in contatto persone che possono avere abitudini, provenienze e ritmi diversi, ma condividono lo stesso spazio. Yppenplatz permette di leggere questa funzione attraverso il rapporto con il Brunnenmarkt: la sequenza delle bancarelle incontra qui padiglioni permanenti e luoghi dove fermarsi. Il mercato originario di Yppenplatz venne unito amministrativamente al Brunnenmarkt nel 2009. Questa storia invita a pensare Vienna come una città costruita anche dalle attività di tutti i giorni. Per comprenderla non occorre cercare una facciata celebre: basta dedicare attenzione a come una piazza organizza gli scambi, le soste e la convivenza tra chi la attraversa.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160",
+            "https://www.wien.info/de/essen-trinken/maerkte/yppenplatz-lokalszene-366520"
+          ]
+        }
+      ],
+      "referenceNote": "Zona pedonale centrale di Yppenplatz: riferimento per una piazza estesa.",
+      "routeContext": {
+        "pathIndex": 0,
+        "distanceMeters": 125,
+        "nearestPosition": {
+          "latitude": 48.214657479067874,
+          "longitude": 16.335470071484316,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "brunnenmarkt",
+      "name": "Brunnenmarkt",
+      "category": "Mercati",
+      "location": {
+        "latitude": 48.2111346,
+        "longitude": 16.3359968,
+        "source": "https://www.openstreetmap.org/way/227055069",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Brunnenmarkt si sviluppa lungo Brunnengasse, tra la zona di Thaliastraße e Yppenplatz.",
+      "access": "Deviazione a piedi lungo Brunnengasse; il mercato si estende a sud di Yppenplatz e non coincide con il tragitto del 44.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Stadt Wien · Brunnenmarkt e Yppenplatz",
+          "url": "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160"
+        },
+        {
+          "title": "WienTourismus · Yppenplatz",
+          "url": "https://www.wien.info/de/essen-trinken/maerkte/yppenplatz-lokalszene-366520"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Brunnenmarkt si sviluppa lungo Brunnengasse, tra la zona di Thaliastraße e Yppenplatz. Il nome conserva il ricordo di un pozzo: il mercato nacque nel 1786 attorno a una fontana nella Thaliastraße. La sua forma è quella di una strada commerciale all’aperto, dove la spesa quotidiana accompagna la vita del quartiere. Per visitarlo occorre una passeggiata dedicata: il percorso in tram non ne percorre l’intera estensione. Il pin indica un riferimento nel mercato, non il suo unico accesso.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Dal pozzo alla strada del mercato",
+          "text": "La storia del Brunnenmarkt comincia da una risorsa concreta, l’acqua, e da un luogo di incontro nella città. Dal nucleo del 1786 il mercato si allargò verso Brunnengasse, assumendo quella forma allungata che lo distingue da una piazza chiusa. È interessante confrontarlo con i grandi edifici del Ring: entrambi organizzano la vita pubblica, ma con strumenti diversi. Qui sono la continuità dei banchi e la vicinanza delle attività a dare forma allo spazio. L’unione con il mercato di Yppenplatz, avvenuta nel 2009, collega idealmente strada e piazza. Un ascolto a distanza può diventare così una preparazione alla visita: non una lista di prodotti da cercare, ma una chiave per capire la struttura del quartiere.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/brunnenmarkt-yppenplatz-1160",
+            "https://www.wien.info/de/essen-trinken/maerkte/yppenplatz-lokalszene-366520"
+          ]
+        }
+      ],
+      "referenceNote": "Centro dell’area di mercato mappata su Brunnengasse; non copre tutta la sua estensione.",
+      "routeContext": {
+        "pathIndex": 0,
+        "distanceMeters": 392,
+        "nearestPosition": {
+          "latitude": 48.21461692,
+          "longitude": 16.33519869,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "brunnenpassage",
+      "name": "Brunnenpassage",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2136208,
+        "longitude": 16.3364643,
+        "source": "https://www.openstreetmap.org/way/28538646",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "La Brunnenpassage è uno spazio artistico ospitato in un’ex sala del mercato, a Brunnengasse 71.",
+      "access": "A piedi a Brunnengasse 71, sul margine di Yppenplatz. Verificare sul sito gli accessi e il programma.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Brunnenpassage · progetto artistico",
+          "url": "https://www.brunnenpassage.at/?showOptIn=1"
+        },
+        {
+          "title": "Brunnenpassage · pratiche transculturali",
+          "url": "https://www.brunnenpassage.at/diskurs/publikationen/kunstpraxis"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Brunnenpassage è uno spazio artistico ospitato in un’ex sala del mercato, a Brunnengasse 71. Dal 2007 sviluppa un progetto di arte transculturale: teatro, danza, musica, cinema e arti visive diventano occasioni di collaborazione. Non è soltanto un luogo dove assistere a qualcosa. Il suo lavoro mette in relazione artisti professionisti e persone della società civile, riconoscendo la pluralità della città come materia creativa. La visita richiede di raggiungere a piedi il mercato; il programma va consultato prima di entrare.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.brunnenpassage.at/?showOptIn=1"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Fare arte insieme",
+          "text": "Che cosa cambia quando le persone non sono soltanto pubblico, ma partecipano alla creazione di un’opera? È una delle domande che aiutano a capire la Brunnenpassage. Il progetto parla di co-creazione: artisti e partecipanti lavorano insieme, portando esperienze e linguaggi diversi. La collocazione in un’ex sala del mercato non è un dettaglio neutro. Avvicina la produzione culturale a uno spazio di incontro quotidiano, invece di separarla dietro una soglia monumentale. Il suo approccio transculturale invita a non trattare le culture come compartimenti immobili. Le considera relazioni in trasformazione. Anche senza assistere a un evento, conoscere questa esperienza aggiunge al viaggio una prospettiva sulla Vienna contemporanea e sui modi in cui la città costruisce partecipazione.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.brunnenpassage.at/?showOptIn=1",
+            "https://www.brunnenpassage.at/diskurs/publikationen/kunstpraxis"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 0,
+        "distanceMeters": 129,
+        "nearestPosition": {
+          "latitude": 48.21474930011159,
+          "longitude": 16.336084447811025,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "guertel",
+      "name": "Gürtel e archi della Stadtbahn",
+      "category": "Architettura",
+      "location": {
+        "latitude": 48.21680125,
+        "longitude": 16.34182615,
+        "source": "https://www.openstreetmap.org/way/32239306",
+        "kind": "centro cartografico della stazione Alser Straße"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Gürtel è una grande cintura di traffico, ma è anche uno dei luoghi in cui la ferrovia ha modellato il paesaggio di Vienna.",
+      "access": "Riferimento: stazione U6 Alser Straße, vicino all’attraversamento del Gürtel da parte del 44. Per osservare gli archi fermarsi a piedi in sicurezza.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Technisches Museum · Stadtbahn",
+          "url": "https://openaccesspublikationen.tmw.at/edition-tmw/content/pagetext/65118"
+        },
+        {
+          "title": "Wien Museum · Stadtbahn e trasformazione urbana",
+          "url": "https://magazin.wienmuseum.at/vom-boulevard-zum-europaplatz"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Gürtel è una grande cintura di traffico, ma è anche uno dei luoghi in cui la ferrovia ha modellato il paesaggio di Vienna. Gli archi della vecchia Stadtbahn e le stazioni progettate da Otto Wagner appartengono alla modernizzazione della città alla fine dell’Ottocento. La rete cominciò ad aprire nel 1898. Il riferimento scelto è la stazione di Alser Straße, vicina al passaggio del 44: un punto preciso per raccontare un sistema molto più esteso, senza confonderlo con un singolo monumento.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://openaccesspublikationen.tmw.at/edition-tmw/content/pagetext/65118"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una ferrovia diventa architettura urbana",
+          "text": "Un’infrastruttura può diventare un segno riconoscibile della città quando il progetto tiene insieme funzione e forma. Nel caso della Stadtbahn, Otto Wagner diede coerenza a stazioni, ponti e altri elementi della linea. Il ritmo degli archi sul Gürtel rende leggibile il passaggio della ferrovia anche dalla strada. Questa modernizzazione conteneva però una contraddizione: mentre il linguaggio architettonico guardava al futuro, il servizio iniziale utilizzava locomotive a vapore. I trasporti non trasformano soltanto i tempi di viaggio. Producono barriere, collegamenti e nuovi spazi sotto e accanto ai binari. Il punto di Alser Straße serve come riferimento per questa lettura urbana; non pretende di rappresentare l’intero Gürtel o di indicare da quale finestrino sia visibile ogni dettaglio.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://openaccesspublikationen.tmw.at/edition-tmw/content/pagetext/65118",
+            "https://magazin.wienmuseum.at/vom-boulevard-zum-europaplatz"
+          ]
+        }
+      ],
+      "referenceNote": "Centro della stazione Alser Straße: vicino al 44 e riconoscibile nel sistema degli archi del Gürtel.",
+      "routeContext": {
+        "pathIndex": 1,
+        "distanceMeters": 177,
+        "nearestPosition": {
+          "latitude": 48.21521101420694,
+          "longitude": 16.341924896635735,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "breitenfelder-kirche",
+      "name": "Breitenfelder Kirche",
+      "category": "Chiese",
+      "location": {
+        "latitude": 48.212128,
+        "longitude": 16.3402662,
+        "source": "https://www.openstreetmap.org/way/28538680",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "La Breitenfelder Kirche si trova a Uhlplatz, nel distretto di Josefstadt.",
+      "access": "Deviazione a piedi verso Uhlplatz, a sud del tragitto del 44. Non presentata come monumento direttamente sul tracciato.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Parrocchia di Breitenfeld · storia",
+          "url": "https://www.erzdioezese-wien.at/pfarre/14423401/pfarre/geschichte/wieallesbegann"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Breitenfelder Kirche si trova a Uhlplatz, nel distretto di Josefstadt. Il progetto di Alexander Wielemans appartiene alla stagione del tardo storicismo viennese, quando l’architettura riprendeva forme del passato per dare identità a una città in crescita. La storia della sua costruzione attraversa proposte, concorsi e revisioni: non fu un gesto isolato, ma il risultato di un percorso lungo. Per raggiungerla dal nostro itinerario occorre una deviazione a piedi. Il pin indica la chiesa, non un punto di osservazione dal tram.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.erzdioezese-wien.at/pfarre/14423401/pfarre/geschichte/wieallesbegann"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una chiesa per una città che cresce",
+          "text": "La nascita di una chiesa di quartiere racconta anche come una comunità immagina se stessa. La storia parrocchiale di Breitenfeld documenta un progetto maturato attraverso più tentativi, fino all’incarico assunto da Alexander Wielemans. L’architetto lavorò anche a importanti edifici civili: questo aiuta a collocare la chiesa nello stesso mondo professionale che stava trasformando Vienna. Lo storicismo non consisteva soltanto nel copiare uno stile antico. Sceglieva riferimenti capaci di esprimere solennità, continuità o prestigio, adattandoli a funzioni nuove. Una visita può quindi affiancare al racconto religioso una domanda urbana: quale ruolo assume un edificio riconoscibile nel tessuto di un quartiere? Per rispondere conviene dedicargli una passeggiata, invece di cercarlo durante un rapido passaggio sul 44.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.erzdioezese-wien.at/pfarre/14423401/pfarre/geschichte/wieallesbegann"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 0,
+        "distanceMeters": 333,
+        "nearestPosition": {
+          "latitude": 48.21511973,
+          "longitude": 16.34013942,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "altes-akh",
+      "name": "Altes AKH",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2165436,
+        "longitude": 16.3537539,
+        "source": "https://www.openstreetmap.org/relation/20875",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "L’Altes AKH è l’antico ospedale generale trasformato in campus dell’Università di Vienna.",
+      "access": "Qui vicino: entrare a piedi nel campus da uno degli accessi segnalati, per esempio dalla zona di Alser Straße. Il pin rappresenta il complesso, non un ingresso.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Università di Vienna · storia del campus",
+          "url": "https://www.univie.ac.at/en/about-us/opening-hours-and-locations/campus/history-of-the-campus"
+        },
+        {
+          "title": "Università di Vienna · dal vecchio ospedale al campus",
+          "url": "https://geschichte.univie.ac.at/de/artikel/campus-der-universitaet-wien"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "L’Altes AKH è l’antico ospedale generale trasformato in campus dell’Università di Vienna. Le corti e gli edifici permettono di raccontare un cambiamento d’uso su scala urbana: un luogo di cura è diventato uno spazio di studio e incontro. Il campus venne consegnato ai nuovi utenti nel 1998, dopo un ampio intervento di adattamento. Si trova all’interno di un complesso articolato e va raggiunto a piedi. La proposta “Qui vicino” segnala questa presenza senza suggerire che il cuore del campus sia sul bordo della strada.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.univie.ac.at/en/about-us/opening-hours-and-locations/campus/history-of-the-campus"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Dall’ospedale al campus",
+          "text": "Riutilizzare un grande complesso storico richiede di scegliere che cosa conservare e che cosa trasformare. Per l’antico ospedale viennese il passaggio all’università comportò analisi, un piano generale e lavori avviati nel 1993. Nel 1998 gli spazi furono affidati a istituti, attività e nuovi frequentatori. La continuità delle corti rende riconoscibile il complesso, mentre cambiano le pratiche che lo animano. È un esempio utile per leggere la città come un insieme di adattamenti, non soltanto di fondazioni e demolizioni. Anche i passaggi tra le corti hanno una dimensione di memoria: diversi accessi furono dedicati a figure della scienza e della cultura. Entrare nel campus permette di seguire questi strati con un ritmo diverso da quello del tram.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.univie.ac.at/en/about-us/opening-hours-and-locations/campus/history-of-the-campus",
+            "https://geschichte.univie.ac.at/de/artikel/campus-der-universitaet-wien"
+          ]
+        }
+      ],
+      "referenceNote": "Centro cartografico dell’antico complesso ospedaliero; per entrare seguire gli accessi del campus.",
+      "routeContext": {
+        "pathIndex": 3,
+        "distanceMeters": 192,
+        "nearestPosition": {
+          "latitude": 48.21482493380954,
+          "longitude": 16.353545039590617,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.21482493380954,
+          "longitude": 16.353545039590617,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "narrenturm",
+      "name": "Narrenturm",
+      "category": "Musei",
+      "location": {
+        "latitude": 48.2185827,
+        "longitude": 16.3531815,
+        "source": "https://www.openstreetmap.org/relation/58548",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Narrenturm è una torre dell’antico complesso ospedaliero, costruita nel 1784 per accogliere persone con malattie mentali.",
+      "access": "Qui vicino: deviazione a piedi dentro l’area dell’Altes AKH, Spitalgasse 2. La torre è arretrata rispetto al percorso. Collezione con preparati anatomici umani.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Naturhistorisches Museum · Narrenturm",
+          "url": "https://www.nhm.at/en/narrenturm"
+        },
+        {
+          "title": "Università di Vienna · storia del campus",
+          "url": "https://www.univie.ac.at/en/about-us/opening-hours-and-locations/campus/history-of-the-campus"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Narrenturm è una torre dell’antico complesso ospedaliero, costruita nel 1784 per accogliere persone con malattie mentali. Ospita una collezione di anatomia patologica collegata al Naturhistorisches Museum. La sua storia richiede rispetto: racconta il modo in cui una società ha cercato di organizzare la cura, ma anche la distanza tra pratiche del passato e sensibilità contemporanea. La torre non si trova direttamente sul tragitto del tram. Per raggiungerla bisogna entrare a piedi nell’area dell’Altes AKH e seguire le indicazioni locali.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.nhm.at/en/narrenturm"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "La cura e i suoi limiti storici",
+          "text": "Le parole usate in passato per definire la malattia mentale possono essere offensive per chi ascolta adesso. Il nome storico Narrenturm va quindi collocato nel suo tempo, senza trasformare le persone curate qui in una curiosità. La torre del 1784 appartiene alla storia delle istituzioni sanitarie. La collezione che vi è ospitata riguarda invece la documentazione e lo studio delle malattie attraverso preparati anatomici; entrò nel Naturhistorisches Museum nel 2012. Sono due storie connesse, ma non identiche. Tenerle distinte aiuta a leggere il luogo con attenzione. Per una visita è opportuno informarsi prima sulla natura degli oggetti esposti e sulle modalità d’accesso. Il racconto può essere ascoltato anche senza entrare e senza cercare immagini sensazionali.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.nhm.at/en/narrenturm",
+            "https://www.univie.ac.at/en/about-us/opening-hours-and-locations/campus/history-of-the-campus"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 3,
+        "distanceMeters": 414,
+        "nearestPosition": {
+          "latitude": 48.21488269216966,
+          "longitude": 16.35260363015881,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "josephinum",
+      "name": "Josephinum",
+      "category": "Musei",
+      "location": {
+        "latitude": 48.2193664,
+        "longitude": 16.3566862,
+        "source": "https://www.openstreetmap.org/way/10615515",
+        "kind": "centro cartografico"
+      },
+      "entrance": {
+        "latitude": 48.2193593,
+        "longitude": 16.3566745,
+        "source": "https://www.openstreetmap.org/node/10227944416",
+        "tags": {
+          "entrance": "main"
+        }
+      },
+      "entranceStatus": "Ingresso principale mappato in OSM; accessibilità da controllare sul posto.",
+      "summary": "Il Josephinum conserva una delle testimonianze più sorprendenti della formazione medica settecentesca: i modelli anatomici in cera commissionati da Giuseppe secondo.",
+      "access": "Deviazione a piedi a Währinger Straße 25, a nord del tragitto del 44. Ingresso principale distinto dal centro dell’edificio, secondo OSM.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Josephinum · modelli anatomici in cera",
+          "url": "https://www.josephinum.ac.at/en/collections/detail/wax-models/"
+        },
+        {
+          "title": "Josephinum · collezioni",
+          "url": "https://www.josephinum.ac.at/sammlungen/"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Josephinum conserva una delle testimonianze più sorprendenti della formazione medica settecentesca: i modelli anatomici in cera commissionati da Giuseppe secondo. L’istituzione nacque come accademia chirurgica nel 1785; le sue raccolte sono diventate strumenti per studiare la storia della medicina. I modelli furono realizzati a Firenze e trasportati fino a Vienna. Uniscono precisione didattica e capacità artistica, mostrando come la conoscenza del corpo potesse essere comunicata attraverso materiali costruiti. Il museo richiede una deviazione a piedi verso Währinger Straße.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.josephinum.ac.at/en/collections/detail/wax-models/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un corpo umano fatto di cera",
+          "text": "Per insegnare anatomia occorre rendere comprensibile una struttura complessa. Le cere del Josephinum affrontavano questo problema con figure e parti del corpo che potevano essere osservate, confrontate e spiegate. Giuseppe secondo ne ordinò complessivamente millecentonovantadue. Il viaggio da Firenze attraversò l’Italia settentrionale e le Alpi, proseguendo poi lungo il Danubio. Non erano semplici copie decorative: facevano parte di un sistema didattico con disegni e spiegazioni. La loro accessibilità al pubblico collegava la formazione dei chirurghi all’ideale illuminista di diffondere il sapere. Anche le forme artistiche avevano un ruolo, perché rendevano quei corpi artificiali leggibili e memorabili. Il Josephinum invita così a riflettere su una relazione ancora attuale: come rappresentare il corpo senza perdere il rispetto per la persona.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.josephinum.ac.at/en/collections/detail/wax-models/",
+            "https://www.josephinum.ac.at/sammlungen/"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 3,
+        "distanceMeters": 515,
+        "nearestPosition": {
+          "latitude": 48.21476518,
+          "longitude": 16.35585159,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "votivkirche",
+      "name": "Votivkirche",
+      "category": "Chiese",
+      "location": {
+        "latitude": 48.2154146,
+        "longitude": 16.3591656,
+        "source": "https://www.openstreetmap.org/way/9858714",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "La Votivkirche è una chiesa neogotica progettata da Heinrich von Ferstel.",
+      "access": "Visita a piedi nell’area del parco presso Schottentor; accessi alla chiesa da verificare sul posto. Nessun lato del finestrino indicato.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "WienTourismus · Votivkirche",
+          "url": "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/votivkirche-364730"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Votivkirche è una chiesa neogotica progettata da Heinrich von Ferstel. La sua origine è legata al fallito attentato contro Francesco Giuseppe: il fratello dell’imperatore promosse una raccolta di offerte come ringraziamento per la salvezza del sovrano. La consacrazione avvenne nel 1879, in occasione delle nozze d’argento della coppia imperiale. Il nome richiama proprio l’idea di un voto. Nel paesaggio vicino a Schottentor, la chiesa racconta come religione, memoria dinastica e trasformazione urbana potessero intrecciarsi nello stesso edificio monumentale.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/votivkirche-364730"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un voto tradotto in architettura",
+          "text": "Il linguaggio gotico della Votivkirche non indica una costruzione medievale. È una scelta dell’Ottocento, epoca in cui gli architetti utilizzavano stili storici per esprimere significati contemporanei. Le forme di una cattedrale potevano comunicare continuità e solennità, mentre il motivo della fondazione era legato alla vicenda politica della dinastia. Ferstel progettò un edificio a tre navate, con due torri, inserendolo nel grande rinnovamento della zona esterna alle antiche fortificazioni. La vicinanza con l’edificio principale dell’università permette un confronto interessante: lo stesso architetto adottò linguaggi diversi per istituzioni diverse. Il racconto della chiesa si può ascoltare senza vederne la facciata. La domanda centrale resta infatti come un evento personale venga trasformato in memoria pubblica attraverso l’architettura.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/votivkirche-364730"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 3,
+        "distanceMeters": 131,
+        "nearestPosition": {
+          "latitude": 48.21426279544571,
+          "longitude": 16.358825812655,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "universita-vienna",
+      "name": "Università di Vienna, edificio principale",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2131131,
+        "longitude": 16.3601557,
+        "source": "https://www.openstreetmap.org/relation/1441683",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "L’edificio principale dell’Università di Vienna si trova sul Ring, presso Schottentor.",
+      "access": "Universitätsring 1, presso Schottentor. Per il cortile e gli interni raggiungere a piedi gli accessi segnalati; il pin indica l’edificio.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Università di Vienna · edificio principale",
+          "url": "https://event.univie.ac.at/hauptgebaeude"
+        },
+        {
+          "title": "Università di Vienna · Arkadenhof",
+          "url": "https://event.univie.ac.at/fileadmin/user_upload/d_event/Dokumente/Fuehrungen/Folder_monuments.pdf"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "L’edificio principale dell’Università di Vienna si trova sul Ring, presso Schottentor. Heinrich von Ferstel lo progettò ispirandosi all’architettura del Rinascimento italiano; venne inaugurato nel 1884. È una sede rappresentativa della conoscenza nella città ottocentesca. Al suo interno l’Arkadenhof, il cortile porticato, mette in relazione gli ambienti e accoglie monumenti dedicati a figure del sapere. Non va confuso con il campus dell’Altes AKH: appartengono alla stessa università, ma sono luoghi diversi. Per visitare il cortile occorre lasciare il tram e raggiungere l’edificio a piedi.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://event.univie.ac.at/hauptgebaeude"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Il cortile come memoria della ricerca",
+          "text": "Un’università non comunica soltanto attraverso libri e lezioni. Anche la sua architettura racconta come desidera essere riconosciuta. Nel progetto di Ferstel, il cortile porticato è il centro che collega le diverse parti dell’edificio. I monumenti collocati nelle arcate trasformano questo spazio in una memoria istituzionale, dove alcune persone vengono rese visibili alle generazioni successive. È utile chiedersi come si forma una simile selezione e come cambia nel tempo. Il richiamo al Rinascimento italiano offre invece un’immagine di continuità con una lunga tradizione di studi. L’edificio del 1884 diventa così una dichiarazione pubblica sul ruolo della ricerca. Anche ascoltando da lontano, si può distinguere questa funzione simbolica dalla vita quotidiana che si svolge nelle aule e nei corridoi.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://event.univie.ac.at/hauptgebaeude",
+            "https://event.univie.ac.at/fileadmin/user_upload/d_event/Dokumente/Fuehrungen/Folder_monuments.pdf"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 4,
+        "distanceMeters": 87,
+        "nearestPosition": {
+          "latitude": 48.21296353718633,
+          "longitude": 16.36131160579263,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "rathaus",
+      "name": "Rathaus e Rathausplatz",
+      "category": "Piazze",
+      "location": {
+        "latitude": 48.2108418,
+        "longitude": 16.3573198,
+        "source": "https://www.openstreetmap.org/relation/11101",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Rathaus è il municipio monumentale di Vienna, costruito tra il 1872 e il 1883 su progetto di Friedrich von Schmidt.",
+      "access": "Dal Ring deviazione a piedi attraverso Rathausplatz e il parco. Il pin rappresenta il municipio; piazza e ingressi non coincidono con quel punto.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "WienTourismus · Rathaus",
+          "url": "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/rathaus-356252"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Rathaus è il municipio monumentale di Vienna, costruito tra il 1872 e il 1883 su progetto di Friedrich von Schmidt. Il linguaggio neogotico gli dà un carattere solenne, ma la sua funzione è civile: ospita istituzioni del governo cittadino. La piazza davanti al palazzo e il parco lo collegano al Ring. È un insieme da leggere distinguendo l’edificio amministrativo dallo spazio pubblico che lo precede. Il pin identifica il municipio; per raggiungerlo dal tram occorre un tratto a piedi.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/rathaus-356252"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "La città si dà un volto",
+          "text": "Perché un municipio dell’Ottocento dovrebbe ricordare un edificio gotico? La scelta di uno stile storico poteva richiamare una tradizione di autonomia e rappresentanza urbana. Nel Rathaus viennese, torri, corti e grandi sale costruiscono una presenza capace di confrontarsi con gli altri monumenti del Ring. Ma il rapporto con la città non si esaurisce nella facciata. Rathausplatz offre uno spazio dove la vita pubblica può assumere forme diverse, attraverso manifestazioni e incontri. Conviene quindi pensare il luogo come una sequenza: il viale, il parco, la piazza, il municipio. Questa lettura resta valida anche quando gli allestimenti temporanei cambiano. Per gli interni e le visite guidate è sempre necessario controllare le informazioni ufficiali, senza confondere l’accesso alla piazza con quello alle sedi istituzionali.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/sehen-erleben/sehenswuerdigkeiten-a-z/rathaus-356252"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 243,
+        "nearestPosition": {
+          "latitude": 48.210474135764734,
+          "longitude": 16.360552116433755,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "burgtheater",
+      "name": "Burgtheater",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2103125,
+        "longitude": 16.361481,
+        "source": "https://www.openstreetmap.org/way/8083399",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Burgtheater occupa un edificio del Ring inaugurato nel 1888, progettato da Gottfried Semper e Carl von Hasenauer.",
+      "access": "Universitätsring 2, di fronte al Rathaus. Ingresso principale sul Ring secondo il sito del teatro; verificare la modalità di visita.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Theatermuseum · trasferimento al Ring nel 1888",
+          "url": "https://250jahreburg.theatermuseum.at/1888-umzug-in-das-Haus-am-Ring/"
+        },
+        {
+          "title": "Burgtheater · accesso",
+          "url": "https://www.burgtheater.at/anreise"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Burgtheater occupa un edificio del Ring inaugurato nel 1888, progettato da Gottfried Semper e Carl von Hasenauer. Il nome conserva il legame storico con la corte, ma il teatro appartiene anche alla vita culturale pubblica di Vienna. La sua posizione di fronte al municipio mette a confronto due istituzioni: governo della città e rappresentazione sulla scena. È utile distinguerlo dall’Opera di Stato: qui il riferimento centrale è il teatro di parola. La scheda permette di conoscerlo anche senza assistere a uno spettacolo.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://250jahreburg.theatermuseum.at/1888-umzug-in-das-Haus-am-Ring/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una casa per la parola recitata",
+          "text": "Quando una compagnia si trasferisce in una nuova sede, cambia anche il rapporto con il pubblico. Il passaggio del Burgtheater al Ring, nel 1888, portò la tradizione del teatro di corte in un edificio monumentale della città trasformata. Il progetto di Semper e Hasenauer doveva dare una forma riconoscibile al prestigio della scena. La posizione sul viale permetteva al teatro di partecipare alla rappresentazione urbana delle grandi istituzioni, insieme a musei, università e municipio. Ma un teatro vive grazie a ciò che avviene tra interpreti e spettatori, non soltanto al suo involucro. Ascoltare la storia dell’edificio può preparare a questa distinzione: il monumento racconta una stagione architettonica, mentre ogni rappresentazione rinnova il significato del luogo. Per entrare valgono le modalità pubblicate dal teatro.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://250jahreburg.theatermuseum.at/1888-umzug-in-das-Haus-am-Ring/",
+            "https://www.burgtheater.at/anreise"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 71,
+        "nearestPosition": {
+          "latitude": 48.21041974212339,
+          "longitude": 16.36053818194871,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "volksgarten",
+      "name": "Volksgarten",
+      "category": "Parchi",
+      "location": {
+        "latitude": 48.2080504,
+        "longitude": 16.3617276,
+        "source": "https://www.openstreetmap.org/way/8063768",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Volksgarten venne aperto nel 1823 come giardino voluto dalla casa imperiale per la popolazione.",
+      "access": "Qui vicino: parco recintato, da raggiungere a piedi dagli accessi segnalati lungo il Ring e verso la Hofburg. Aperture e cancelli possono variare.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Bundesgärten · duecento anni del Volksgarten",
+          "url": "https://www.bundesgaerten.at/service/news/hofburggaerten/2023/volksgarten-jubilaeumsfuehrung.html"
+        },
+        {
+          "title": "Bundesgärten · storia del roseto",
+          "url": "https://www.bundesgaerten.at/service/freiwilliges-umweltjahr/2024-misar-lucia.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Volksgarten venne aperto nel 1823 come giardino voluto dalla casa imperiale per la popolazione. Si trova tra il paesaggio monumentale del Ring e il complesso della Hofburg. Il parco permette di leggere un passaggio importante: il verde diventa parte della vita pubblica della città. Il roseto, il Theseustempel e i monumenti sono elementi diversi dello stesso insieme. Il pin rappresenta il parco, non un cancello. Per entrarvi bisogna raggiungere a piedi un accesso aperto, rispettando le indicazioni sul posto.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/service/news/hofburggaerten/2023/volksgarten-jubilaeumsfuehrung.html"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un giardino pensato per il pubblico",
+          "text": "Un giardino storico non è soltanto una collezione di piante. È un progetto di percorsi, spazi aperti, punti di sosta e memorie. Nel Volksgarten la destinazione pubblica risale al 1823, mentre ampliamenti e trasformazioni hanno modificato l’insieme nel corso del tempo. Il lavoro dei Bundesgärten conserva questo paesaggio come patrimonio, tenendo insieme manutenzione quotidiana e conoscenza storica. È interessante confrontare il parco con il vicino Burggarten, che nacque invece come giardino privato dell’imperatore. La differenza riguarda il modo in cui lo spazio veniva condiviso. Per chi segue l’audioguida, il Volksgarten può diventare una deviazione autonoma: non è necessario visitare subito tutti i monumenti interni, né considerarli visibili dal tram solo perché il viale passa vicino.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/service/news/hofburggaerten/2023/volksgarten-jubilaeumsfuehrung.html",
+            "https://www.bundesgaerten.at/service/freiwilliges-umweltjahr/2024-misar-lucia.html"
+          ]
+        }
+      ],
+      "referenceNote": "Centro dell’area verde: riferimento descrittivo, non ingresso né posizione di un monumento specifico.",
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 136,
+        "nearestPosition": {
+          "latitude": 48.20826926920815,
+          "longitude": 16.35992623321326,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.20826926920815,
+          "longitude": 16.35992623321326,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "theseustempel",
+      "name": "Theseustempel",
+      "category": "Architettura",
+      "location": {
+        "latitude": 48.208411,
+        "longitude": 16.3616876,
+        "source": "https://www.openstreetmap.org/way/9245795",
+        "kind": "centro cartografico"
+      },
+      "entrance": {
+        "latitude": 48.2082993,
+        "longitude": 16.3617211,
+        "source": "https://www.openstreetmap.org/node/3305960740",
+        "tags": {
+          "entrance": "main"
+        }
+      },
+      "entranceStatus": "Ingresso principale mappato in OSM; accessibilità da controllare sul posto.",
+      "summary": "Il Theseustempel è un piccolo edificio neoclassico nel Volksgarten, costruito da Peter von Nobile tra il 1819 e il 1823.",
+      "access": "Qui vicino: dentro il Volksgarten. Entrare nel parco e seguire i percorsi verso il tempio; ingresso del tempio distinto dal pin dell’edificio.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Kunsthistorisches Museum · Theseustempel",
+          "url": "https://www.khm.at/fileadmin/content/KHM/Service/Tourismus/downloads/KHM_Infosheets_.pdf"
+        },
+        {
+          "title": "Burghauptmannschaft · Volksgarten",
+          "url": "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Volksgarten.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Theseustempel è un piccolo edificio neoclassico nel Volksgarten, costruito da Peter von Nobile tra il 1819 e il 1823. Il suo aspetto richiama un tempio greco, ma la funzione originaria era esporre un’opera moderna: il gruppo di Teseo e il centauro realizzato da Antonio Canova. La scultura venne poi trasferita al Kunsthistorisches Museum. Il tempio mostra così quanto il significato di un edificio possa cambiare insieme agli oggetti che ospita. Per raggiungerlo è necessaria una passeggiata all’interno del parco.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.khm.at/fileadmin/content/KHM/Service/Tourismus/downloads/KHM_Infosheets_.pdf"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un tempio costruito per una scultura",
+          "text": "Si potrebbe pensare che un edificio simile a un tempio sia sempre nato per il culto. Il Theseustempel invita a correggere questa impressione. Venne concepito come cornice per una scultura di Canova, traducendo l’ammirazione per l’antichità in un’esperienza espositiva dell’Ottocento. L’opera di Teseo contro il centauro e l’architettura dialogavano: il contenitore contribuiva a interpretare ciò che era custodito al suo interno. Dopo il trasferimento della scultura al Kunsthistorisches Museum, quel legame si trasformò. Il luogo continuò ad avere una funzione legata alle esposizioni, accogliendo anche arte contemporanea. La sua storia permette quindi di seguire due percorsi insieme: quello di un oggetto che cambia sede e quello di un edificio che trova nuovi usi senza perdere la propria identità.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.khm.at/fileadmin/content/KHM/Service/Tourismus/downloads/KHM_Infosheets_.pdf",
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Volksgarten.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 125,
+        "nearestPosition": {
+          "latitude": 48.20863599451605,
+          "longitude": 16.360031684455205,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.20863599451605,
+          "longitude": 16.360031684455205,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "sisi",
+      "name": "Monumento a Sisi nel Volksgarten",
+      "category": "Monumenti",
+      "location": {
+        "latitude": 48.2094156,
+        "longitude": 16.361842,
+        "source": "https://www.openstreetmap.org/node/394053168",
+        "kind": "monumento"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il monumento a Elisabeth, conosciuta come Sisi, si trova in una zona appartata del Volksgarten.",
+      "access": "Qui vicino: settore settentrionale del Volksgarten, vicino al Burgtheater. Entrare nel parco; il monumento è interno e non coincide con il marciapiede del Ring.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "WienTourismus · Volksgarten e monumento a Elisabeth",
+          "url": "https://www.wien.info/de/lebenswertes-wien/parks-gruenflaechen/volksgarten-955820"
+        },
+        {
+          "title": "Bundesgärten · storia del roseto",
+          "url": "https://www.bundesgaerten.at/service/freiwilliges-umweltjahr/2024-misar-lucia.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il monumento a Elisabeth, conosciuta come Sisi, si trova in una zona appartata del Volksgarten. L’insieme venne inaugurato nel 1907 e unisce architettura del paesaggio e scultura: Friedrich Ohmann progettò la sistemazione, mentre Hans Bitterlich realizzò la figura dell’imperatrice. Non è soltanto una statua isolata. Il percorso e lo spazio che la circondano partecipano alla costruzione del ricordo. Il luogo va cercato a piedi dentro il parco; la proposta di prossimità indica “Qui vicino” proprio per chiarire questa posizione arretrata.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/lebenswertes-wien/parks-gruenflaechen/volksgarten-955820"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Il ricordo di Elisabeth nel giardino",
+          "text": "Un monumento dedicato a una persona non racconta automaticamente tutta la sua vita. Mostra anche come chi lo commissiona desidera ricordarla. Nel caso di Elisabeth al Volksgarten, la figura e la sistemazione progettata da Ohmann costruiscono un luogo di raccoglimento, diverso dalla monumentalità più esposta del Ring. L’inaugurazione del 1907 appartiene a una fase in cui la memoria dinastica trovava espressione nello spazio pubblico. È utile distinguere questa immagine commemorativa dalla persona storica e dalle successive rappresentazioni popolari di Sisi. Il giardino offre una chiave di lettura particolare: il ricordo viene affidato a una sosta e a un avvicinamento graduale. La visita richiede quindi tempo e un percorso interno, senza presumere che il monumento sia riconoscibile durante il passaggio in tram.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/lebenswertes-wien/parks-gruenflaechen/volksgarten-955820",
+            "https://www.bundesgaerten.at/service/freiwilliges-umweltjahr/2024-misar-lucia.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 114,
+        "nearestPosition": {
+          "latitude": 48.209620633164455,
+          "longitude": 16.36033299609106,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.209620633164455,
+          "longitude": 16.36033299609106,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "parlamento",
+      "name": "Parlamento austriaco",
+      "category": "Istituzioni",
+      "location": {
+        "latitude": 48.208089,
+        "longitude": 16.3584467,
+        "source": "https://www.openstreetmap.org/relation/54286",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Parlamento austriaco è uno degli edifici simbolici del Ring.",
+      "access": "Sul Ring; per visitare l’edificio raggiungere a piedi gli accessi indicati dal Parlamento e verificare prenotazioni e controlli.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Parlamento austriaco · edificio",
+          "url": "https://www.parlament.gv.at/en/experience/the-building"
+        },
+        {
+          "title": "Bundesdenkmalamt · storia e restauro del Parlamento",
+          "url": "https://www.bda.gv.at/themen/ich-bin-denkmal/wiedereroeffnung-des-parlaments.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Parlamento austriaco è uno degli edifici simbolici del Ring. Theophil Hansen lo progettò utilizzando il linguaggio dell’architettura greca antica, legato all’idea di democrazia. Il palazzo venne costruito tra il 1871 e il 1883. La sua storia attraversa forme di governo e momenti politici molto diversi, perciò l’aspetto classico non va confuso con una continuità semplice e senza fratture. La visita all’interno richiede di informarsi presso il Parlamento. Il pin indica l’edificio, mentre la proposta serve soltanto a suggerirne il racconto.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.parlament.gv.at/en/experience/the-building"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Perché il Parlamento parla greco",
+          "text": "Gli edifici pubblici comunicano valori attraverso scelte formali. Per Hansen il riferimento alla Grecia era un modo di rendere visibile un ideale politico: il Parlamento doveva apparire come una casa della rappresentanza. Ma tra un ideale architettonico e la storia reale esiste sempre una distanza. Nel tempo questo palazzo è stato attraversato da trasformazioni istituzionali, conflitti e restauri. La sua conservazione ha richiesto anche l’adeguamento a esigenze tecniche contemporanee. Leggerlo significa quindi tenere insieme simbolo e uso: da una parte il linguaggio classico, dall’altra il lavoro concreto delle istituzioni. Ascoltare questa relazione può essere utile anche da lontano, prima di una visita. L’accesso pubblico segue procedure proprie e non coincide con la possibilità di avvicinarsi alla facciata lungo il Ring.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.parlament.gv.at/en/experience/the-building",
+            "https://www.bda.gv.at/themen/ich-bin-denkmal/wiedereroeffnung-des-parlaments.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 104,
+        "nearestPosition": {
+          "latitude": 48.20789032469852,
+          "longitude": 16.359816074835983,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "palais-epstein",
+      "name": "Palais Epstein",
+      "category": "Architettura",
+      "location": {
+        "latitude": 48.2065236,
+        "longitude": 16.3595174,
+        "source": "https://www.openstreetmap.org/way/91728120",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Palais Epstein fu costruito tra il 1868 e il 1871 per una famiglia di banchieri.",
+      "access": "Dr.-Karl-Renner-Ring 1, accanto al Parlamento. Per interni e visite consultare il Parlamento; la strada resta un punto di osservazione autonomo.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Parlamento austriaco · Palais Epstein",
+          "url": "https://www.parlament.gv.at/en/experience/the-building/palais-epstein"
+        },
+        {
+          "title": "Parlamento austriaco · usi del palazzo",
+          "url": "https://www.parlament.gv.at/en/experience/the-building/palais-epstein/index.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Palais Epstein fu costruito tra il 1868 e il 1871 per una famiglia di banchieri. Il progetto di Theophil Hansen e la direzione dei lavori affidata al giovane Otto Wagner ne fanno un incontro significativo tra due protagonisti dell’architettura viennese. Il palazzo univa residenza e attività economica, mostrando il ruolo della borghesia nella trasformazione del Ring. Nel corso del tempo ospitò istituzioni molto diverse; dal 2005 è utilizzato dal Parlamento. Il suo racconto aggiunge una storia privata al paesaggio degli edifici pubblici.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.parlament.gv.at/en/experience/the-building/palais-epstein"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una casa privata nella storia pubblica",
+          "text": "La distribuzione di un palazzo può rivelare l’organizzazione sociale di un’epoca. Nella residenza degli Epstein, gli spazi di rappresentanza esprimevano prestigio culturale e ricchezza, mentre altre parti dell’edificio rispondevano a funzioni economiche e di servizio. Gustav Epstein era anche un sostenitore delle arti. Dopo la crisi finanziaria del 1873, la storia della famiglia e quella dell’edificio presero strade diverse. Il palazzo divenne sede di uffici e istituzioni, fino agli usi parlamentari contemporanei. Questa successione permette di leggere il Ring oltre la sua immagine uniforme: dietro facciate monumentali si trovano cambiamenti di proprietà, crisi e adattamenti. La collaborazione tra Hansen e Wagner offre inoltre un collegamento tra lo storicismo ottocentesco e un architetto che avrebbe contribuito alla modernità viennese.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.parlament.gv.at/en/experience/the-building/palais-epstein",
+            "https://www.parlament.gv.at/en/experience/the-building/palais-epstein/index.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 5,
+        "distanceMeters": 36,
+        "nearestPosition": {
+          "latitude": 48.2067246786428,
+          "longitude": 16.359892393322582,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "naturhistorisches-museum",
+      "name": "Naturhistorisches Museum",
+      "category": "Musei",
+      "location": {
+        "latitude": 48.2052686,
+        "longitude": 16.3597531,
+        "source": "https://www.openstreetmap.org/relation/11187",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Naturhistorisches Museum occupa uno dei due grandi edifici affacciati su Maria-Theresien-Platz.",
+      "access": "Deviazione a piedi su Maria-Theresien-Platz. Il pin indica il museo; ingresso e percorso accessibile vanno verificati nelle informazioni ufficiali.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Naturhistorisches Museum · architettura",
+          "url": "https://www.nhm-wien.ac.at/en/museum/history__architecture/architecture"
+        },
+        {
+          "title": "Naturhistorisches Museum · storia",
+          "url": "https://nhm-wien.ac.at/en/press_/about_the_museum/history"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Naturhistorisches Museum occupa uno dei due grandi edifici affacciati su Maria-Theresien-Platz. Progettato da Gottfried Semper e Carl Hasenauer, aprì al pubblico nel 1889. Il palazzo apparteneva al disegno di un grande foro imperiale, realizzato soltanto in parte. Il suo compito era dare una sede alle collezioni naturalistiche e alla ricerca. La monumentalità dell’architettura rendeva visibile il prestigio attribuito al sapere scientifico. Per raggiungere il museo dal Ring occorre una breve deviazione a piedi attraverso l’area della piazza.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.nhm-wien.ac.at/en/museum/history__architecture/architecture"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "La natura entra nel museo pubblico",
+          "text": "Una collezione cambia significato quando passa da raccolta di corte a istituzione aperta al pubblico. Nella storia del Naturhistorisches Museum, la crescita degli oggetti e delle attività di ricerca richiese un edificio adeguato. Il progetto ottocentesco rispondeva sia al desiderio di rappresentazione imperiale sia all’idea di un luogo di istruzione. La facciata e gli ambienti interni partecipavano a questa dichiarazione, con riferimenti alla natura e alla conoscenza. È utile ricordare che un museo non coincide con ciò che espone: dietro le sale esistono classificazione, conservazione e studio. Per chi ascolta dall’esterno, il palazzo può quindi diventare una domanda sul rapporto tra scienza e società. Chi decide che cosa raccogliere, come ordinarlo e quali storie raccontare attraverso gli oggetti?",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.nhm-wien.ac.at/en/museum/history__architecture/architecture",
+            "https://nhm-wien.ac.at/en/press_/about_the_museum/history"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 6,
+        "distanceMeters": 116,
+        "nearestPosition": {
+          "latitude": 48.20596449557486,
+          "longitude": 16.360923651695728,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "kunsthistorisches-museum",
+      "name": "Kunsthistorisches Museum",
+      "category": "Musei",
+      "location": {
+        "latitude": 48.2037371,
+        "longitude": 16.3617795,
+        "source": "https://www.openstreetmap.org/relation/20165",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Kunsthistorisches Museum venne inaugurato nel 1891 per accogliere importanti raccolte d’arte degli Asburgo.",
+      "access": "Deviazione a piedi su Maria-Theresien-Platz. Distinto dal museo di storia naturale che gli sta di fronte.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Kunsthistorisches Museum · storia e architettura",
+          "url": "https://www.khm.at/en/museum"
+        },
+        {
+          "title": "Ministero della cultura · collezioni KHM",
+          "url": "https://www.bmwkms.gv.at/themen/kunst-und-kultur/kulturinstitutionen-des-bundes/bundesmuseen/khm.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Kunsthistorisches Museum venne inaugurato nel 1891 per accogliere importanti raccolte d’arte degli Asburgo. Il progetto di Gottfried Semper e Carl Hasenauer lo lega al museo di storia naturale che gli sta di fronte. I due edifici condividono il disegno monumentale della piazza, ma custodiscono patrimoni diversi. Qui il viaggio attraversa opere dall’antichità alla pittura europea, insieme a oggetti della Kunstkammer. Il museo richiede una visita autonoma a piedi: il racconto sulla mappa ne offre un’introduzione, senza presumere l’ingresso nelle sale.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.khm.at/en/museum"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Collezionare arte, rappresentare il potere",
+          "text": "Un museo d’arte racconta sia le opere sia le persone che le hanno raccolte. Nel caso del Kunsthistorisches Museum, le collezioni dinastiche divennero parte di un’istituzione pubblica in un edificio pensato per celebrarne il valore. Il percorso monumentale d’ingresso, con scalone e sala della cupola, contribuisce a costruire questa esperienza. La scultura di Teseo e il centauro di Canova, trasferita dal Volksgarten, collega idealmente il museo a un altro punto dell’audioguida. È un esempio di come gli oggetti possano cambiare contesto e significato. La visita può concentrarsi su epoche e raccolte differenti, senza cercare di vedere tutto in una volta. Prima ancora delle singole opere, il palazzo invita a interrogarsi sul rapporto tra patrimonio artistico, prestigio e accesso alla conoscenza.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.khm.at/en/museum",
+            "https://www.bmwkms.gv.at/themen/kunst-und-kultur/kulturinstitutionen-des-bundes/bundesmuseen/khm.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 6,
+        "distanceMeters": 115,
+        "nearestPosition": {
+          "latitude": 48.20440647214377,
+          "longitude": 16.362962323615562,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "museumsquartier",
+      "name": "MuseumsQuartier",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2031936,
+        "longitude": 16.3586023,
+        "source": "https://www.openstreetmap.org/way/335982323",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il MuseumsQuartier trasforma un antico complesso di scuderie imperiali in un quartiere culturale.",
+      "access": "Qui vicino: deviazione a piedi oltre Maria-Theresien-Platz verso Museumsplatz. Il pin indica il complesso, non l’ingresso di un singolo museo.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "MuseumsQuartier · storia",
+          "url": "https://www.mqw.at/en/the-mq/mq-history/"
+        },
+        {
+          "title": "WienTourismus · trasformazione del MuseumsQuartier",
+          "url": "https://b2b.wien.info/en/newsroom/25-years-of-museumsquartier-wien-1124488"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il MuseumsQuartier trasforma un antico complesso di scuderie imperiali in un quartiere culturale. Il progetto delle scuderie risale al Settecento e alla famiglia di architetti Fischer von Erlach; il nuovo centro culturale aprì nel 2001. Edifici storici, architetture contemporanee e corti condivise costruiscono un insieme che non coincide con un solo museo. È una deviazione a piedi rispetto al Ring, da scegliere con tempo a disposizione. Il pin rappresenta il complesso: per una mostra o un’istituzione specifica occorre cercare il relativo accesso.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.mqw.at/en/the-mq/mq-history/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Dalle scuderie alla cultura contemporanea",
+          "text": "Prima di diventare un luogo per l’arte, questo complesso serviva alla mobilità e alla rappresentazione della corte: cavalli, carrozze, lavoro e cerimonie. Dopo la fine della monarchia fu utilizzato per fiere ed esposizioni. La trasformazione in MuseumsQuartier non cancellò tutte queste stratificazioni, ma introdusse nuove architetture e nuovi usi all’interno del tessuto storico. Il progetto culturale, inaugurato nel 2001, nacque attraverso dibattiti e revisioni. La sua storia aiuta a capire che il riuso non è un processo automatico: richiede decisioni su ciò che si conserva, ciò che si aggiunge e il pubblico a cui ci si rivolge. Le corti diventano così parte dell’esperienza, accanto alle sale espositive. Un ascolto autonomo può preparare una visita dedicata, senza comprimere il quartiere in una semplice tappa del tram.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.mqw.at/en/the-mq/mq-history/",
+            "https://b2b.wien.info/en/newsroom/25-years-of-museumsquartier-wien-1124488"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 6,
+        "distanceMeters": 333,
+        "nearestPosition": {
+          "latitude": 48.205190081296465,
+          "longitude": 16.361960540304246,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "hofburg",
+      "name": "Hofburg, Heldenplatz e Neue Burg",
+      "category": "Istituzioni",
+      "location": {
+        "latitude": 48.2060921,
+        "longitude": 16.3640091,
+        "source": "https://www.openstreetmap.org/node/276645373",
+        "kind": "punto cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "La Hofburg è un complesso cresciuto attraverso secoli, non un unico edificio.",
+      "access": "Qui vicino: entrare a piedi da Burgtor verso Heldenplatz. Il riferimento è la piazza davanti alla Neue Burg, non l’intera Hofburg né un ingresso museale.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Burghauptmannschaft · Heldenplatz",
+          "url": "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Heldenplatz.html"
+        },
+        {
+          "title": "Haus der Geschichte Österreich · Heldenplatz",
+          "url": "https://hdgoe.at/standort_heldenplatz"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Hofburg è un complesso cresciuto attraverso secoli, non un unico edificio. Per orientare il racconto scegliamo Heldenplatz, davanti alla Neue Burg. La piazza e l’ala monumentale appartengono a una storia che intreccia potere imperiale, progetti incompiuti e memoria politica. Nel marzo del 1938 Hitler annunciò dal balcone della Neue Burg l’annessione dell’Austria al Reich nazista. Questo passato rende il luogo anche uno spazio di riflessione critica. Dal Ring si raggiunge a piedi; il pin è un riferimento nella piazza, non un ingresso.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Heldenplatz.html"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una piazza e le fratture della storia",
+          "text": "Heldenplatz mostra come uno spazio pubblico possa ricevere significati molto diversi nel tempo. Le statue equestri celebrano figure della storia militare asburgica, mentre la Neue Burg appartiene al progetto monumentale del foro imperiale, rimasto incompiuto. Il ricordo del 1938 impedisce però di leggere l’insieme soltanto come scenografia dinastica. Il luogo è entrato nella memoria del nazionalsocialismo e nella successiva elaborazione pubblica della storia austriaca. Anche manifestazioni e commemorazioni della repubblica hanno contribuito a ridefinirlo. Usare Heldenplatz come riferimento per la Hofburg è una scelta pratica e narrativa: offre un punto riconoscibile, senza ridurre a una sola coordinata l’intero complesso. La visita può poi proseguire verso istituzioni e corti differenti, ciascuna con accessi e modalità proprie.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Heldenplatz.html",
+            "https://hdgoe.at/standort_heldenplatz"
+          ]
+        }
+      ],
+      "referenceNote": "Heldenplatz davanti alla Neue Burg: riferimento motivato per il vasto complesso della Hofburg.",
+      "routeContext": {
+        "pathIndex": 6,
+        "distanceMeters": 180,
+        "nearestPosition": {
+          "latitude": 48.205041609803615,
+          "longitude": 16.36215281628136,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.205041609803615,
+          "longitude": 16.36215281628136,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "burggarten",
+      "name": "Burggarten",
+      "category": "Parchi",
+      "location": {
+        "latitude": 48.204389,
+        "longitude": 16.3657948,
+        "source": "https://www.openstreetmap.org/way/8063831",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Burggarten nacque nella sua forma ottocentesca come giardino privato dell’imperatore Francesco primo.",
+      "access": "Qui vicino: entrare a piedi nel parco dagli accessi segnalati. Il centro del giardino non coincide con un cancello; verificare aperture sul posto.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Burghauptmannschaft · Burggarten",
+          "url": "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Burggarten.html"
+        },
+        {
+          "title": "Bundesgärten · Burggarten",
+          "url": "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Burggarten nacque nella sua forma ottocentesca come giardino privato dell’imperatore Francesco primo. Le sistemazioni seguirono le trasformazioni delle fortificazioni e della Hofburg. Nel 1919 il giardino divenne accessibile al pubblico, segnando un cambiamento nel rapporto tra la città e uno spazio prima riservato alla corte. Il monumento a Mozart e il Palmenhaus sono due presenze distinte al suo interno. Il pin identifica il parco nel suo insieme. Per visitarlo occorre una passeggiata attraverso i cancelli aperti, senza considerarlo una semplice continuazione del marciapiede.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Burggarten.html"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Da giardino privato a spazio condiviso",
+          "text": "La storia di un giardino dipende anche da chi può entrarvi. Il Burggarten fu progettato come spazio privato della corte e venne modificato più volte durante l’Ottocento. La costruzione della Neue Burg ne ridusse una parte, mostrando quanto architettura e paesaggio fossero legati nelle trasformazioni imperiali. L’apertura pubblica del 1919 cambiò la funzione sociale dell’area, pur conservandone la storia. Questa differenza lo rende un confronto utile con il Volksgarten, destinato alla popolazione già nell’Ottocento. Non si tratta soltanto di due spazi verdi vicini, ma di due modi diversi di regolare l’accesso. Il racconto del Burggarten può quindi essere ascoltato come storia di una soglia: un confine tra uso riservato e condivisione urbana che nel tempo si sposta.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Burggarten.html",
+            "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+          ]
+        }
+      ],
+      "referenceNote": "Centro dell’area verde: riferimento per il parco, non per un suo ingresso.",
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 131,
+        "nearestPosition": {
+          "latitude": 48.20327393743562,
+          "longitude": 16.365239505095907,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.20327393743562,
+          "longitude": 16.365239505095907,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "mozart",
+      "name": "Monumento a Mozart",
+      "category": "Monumenti",
+      "location": {
+        "latitude": 48.204085,
+        "longitude": 16.364761,
+        "source": "https://www.openstreetmap.org/node/293489784",
+        "kind": "punto cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il monumento a Wolfgang Amadeus Mozart nel Burggarten è opera di Viktor Tilgner e risale al 1896.",
+      "access": "Qui vicino: dentro il Burggarten, raggiungibile a piedi dal Ring attraverso un accesso aperto al parco.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Bundesgärten · Burggarten",
+          "url": "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+        },
+        {
+          "title": "Burghauptmannschaft · Burggarten",
+          "url": "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Burggarten.html"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il monumento a Wolfgang Amadeus Mozart nel Burggarten è opera di Viktor Tilgner e risale al 1896. Non nacque però in questo giardino: venne collocato inizialmente ad Albertinaplatz e trasferito qui nel 1953. Questa vicenda ricorda che anche i monumenti hanno una storia di spostamenti. Il luogo in cui li incontriamo può essere diverso da quello pensato all’origine. Per raggiungere la statua occorre entrare a piedi nel parco. La sua posizione è distinta sia dal centro del Burggarten sia dall’ingresso del giardino.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Anche i monumenti si spostano",
+          "text": "Siamo abituati a pensare che una statua appartenga da sempre al punto in cui si trova. Il monumento viennese a Mozart offre un esempio diverso. Realizzato da Viktor Tilgner in marmo di Lasa, fu inaugurato nel 1896 in un altro spazio della città e arrivò nel Burggarten nel 1953. Lo spostamento modifica il rapporto tra opera e ambiente: una figura commemorativa entra in un giardino e viene letta attraverso nuovi percorsi e nuove soste. La memoria del compositore non è quindi affidata soltanto alla scultura, ma anche alle scelte con cui Vienna la presenta. Il racconto non richiede di ascoltare musica o osservare un dettaglio preciso. Invita piuttosto a distinguere il Mozart storico dalla sua presenza simbolica nella città.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html",
+            "https://www.burghauptmannschaft.at/Liegenschaften/Liegenschaften/Wien/Hofburg-Wien-/Burggarten.html"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 74,
+        "nearestPosition": {
+          "latitude": 48.20362941553946,
+          "longitude": 16.36403109324602,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.20362941553946,
+          "longitude": 16.36403109324602,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "palmenhaus",
+      "name": "Palmenhaus e Schmetterlinghaus",
+      "category": "Architettura",
+      "location": {
+        "latitude": 48.2049542,
+        "longitude": 16.3669821,
+        "source": "https://www.openstreetmap.org/way/28798683",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Palmenhaus del Burggarten è una grande struttura di vetro e ferro progettata da Friedrich Ohmann all’inizio del Novecento.",
+      "access": "Qui vicino: passeggiata nel Burggarten verso il Palmenhaus. Casa delle farfalle e caffè hanno accessi e condizioni distinti; consultare i rispettivi siti.",
+      "nearbyLabel": true,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Bundesgärten · Burggarten",
+          "url": "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+        },
+        {
+          "title": "Schmetterlinghaus · casa delle farfalle",
+          "url": "https://www.schmetterlinghaus.at/"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Palmenhaus del Burggarten è una grande struttura di vetro e ferro progettata da Friedrich Ohmann all’inizio del Novecento. La sua storia lega architettura e coltivazione di piante che richiedono protezione dal clima viennese. Una parte ospita lo Schmetterlinghaus, dedicato alle farfalle in ambiente tropicale; il settore centrale ha una funzione di caffè e ristorante. Sono esperienze diverse nello stesso edificio. Per raggiungerlo si entra a piedi nel parco. La scheda introduce il complesso senza presumere una visita agli spazi interni.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Ferro e vetro per un altro clima",
+          "text": "Una serra è un’architettura che costruisce condizioni ambientali. La trasparenza del vetro permette alla luce di entrare, mentre la struttura sostiene uno spazio pensato per proteggere la vegetazione. Nel Palmenhaus questa funzione pratica incontra il linguaggio di Friedrich Ohmann e la storia del giardino imperiale. L’edificio ha assunto usi differenti: coltivazione, ospitalità e visita naturalistica convivono in parti distinte. Lo Schmetterlinghaus propone un ambiente dedicato a farfalle e piante tropicali, con condizioni d’accesso proprie. È utile non confondere la possibilità di avvicinarsi alla serra con l’ingresso a tutte le sue sezioni. Il racconto può accompagnare una passeggiata esterna oppure preparare una visita successiva, senza legare le informazioni a ciò che in un dato momento è visibile dietro i vetri.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.bundesgaerten.at/hofburggaerten/Burggarten.html",
+            "https://www.schmetterlinghaus.at/"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 218,
+        "nearestPosition": {
+          "latitude": 48.203101430697515,
+          "longitude": 16.3660067836006,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      },
+      "suggestion": {
+        "location": {
+          "latitude": 48.203101430697515,
+          "longitude": 16.3660067836006,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "enterMeters": 75,
+        "exitMeters": 150,
+        "relevance": -15,
+        "note": "Proposta dal tratto vicino; il luogo si raggiunge a piedi. Punto calcolato sul tracciato, distinto dalla posizione del luogo."
+      }
+    },
+    {
+      "id": "opera",
+      "name": "Opera di Stato",
+      "category": "Cultura",
+      "location": {
+        "latitude": 48.2032731,
+        "longitude": 16.3692106,
+        "source": "https://www.openstreetmap.org/way/8097595",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "L’Opera di Stato di Vienna aprì nel 1869 con il Don Giovanni di Mozart, eseguito in tedesco.",
+      "access": "Punto di arrivo del tratto sul Ring presso Oper/Karlsplatz. Proseguire a piedi verso Albertinaplatz; verificare gli attraversamenti sul posto.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Wiener Staatsoper · storia",
+          "url": "https://www.wiener-staatsoper.at/en/history/"
+        },
+        {
+          "title": "Wiener Staatsoper · archivio",
+          "url": "https://archiv.wiener-staatsoper.at/"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "L’Opera di Stato di Vienna aprì nel 1869 con il Don Giovanni di Mozart, eseguito in tedesco. Il teatro del Ring diventò uno dei luoghi simbolici della vita musicale cittadina. La sua storia comprende però anche distruzione e ricostruzione: dopo i danni della seconda guerra mondiale, riaprì nel 1955 con il Fidelio di Beethoven. Le due inaugurazioni raccontano epoche diverse, quella della capitale imperiale e quella della repubblica del dopoguerra. Dal nostro percorso l’Opera segna il passaggio dal tram alla passeggiata finale.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wiener-staatsoper.at/en/history/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Due inaugurazioni, due epoche",
+          "text": "Un teatro d’opera vive attraverso una continua successione di serate, interpreti e opere. L’edificio offre una sede riconoscibile, ma la sua storia non si riduce alle date di costruzione. Per la Staatsoper, il debutto del 1869 e la riapertura del 1955 sono due momenti che aiutano a leggere il rapporto tra musica e identità pubblica. Il Don Giovanni inaugurale appartiene alla stagione del Ring; il Fidelio della ricostruzione assume il valore di un nuovo inizio. Tra queste date si collocano cambiamenti politici e ferite profonde. L’archivio del teatro permette di seguire anche la storia concreta delle rappresentazioni, oltre le immagini celebrative. Ascoltare dall’esterno può essere un primo passo; spettacoli e visite guidate richiedono una scelta autonoma e informazioni aggiornate dal teatro.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wiener-staatsoper.at/en/history/",
+            "https://archiv.wiener-staatsoper.at/"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 97,
+        "nearestPosition": {
+          "latitude": 48.202453444665096,
+          "longitude": 16.3687791251861,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "memoriale",
+      "name": "Memoriale contro la guerra e il fascismo",
+      "category": "Memoria",
+      "location": {
+        "latitude": 48.2045961,
+        "longitude": 16.3689872,
+        "source": "https://www.openstreetmap.org/way/566224843",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "Il Memoriale contro la guerra e il fascismo di Alfred Hrdlicka si trova ad Albertinaplatz.",
+      "access": "A piedi ad Albertinaplatz, tra l’Opera e l’Albertina. L’opera comprende più elementi distribuiti nello spazio; avvicinarsi con rispetto.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "WienTourismus · memoriale",
+          "url": "https://www.wien.info/de/mahnmal-gegen-krieg-und-faschismus-von-alfred-hrdlicka-123904"
+        },
+        {
+          "title": "Memorial Museums · memoriale di Hrdlicka",
+          "url": "https://www.memorialmuseums.org/memorialmuseum/mahnmal-gegen-krieg-und-faschismus?locale=de"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Memoriale contro la guerra e il fascismo di Alfred Hrdlicka si trova ad Albertinaplatz. Inaugurato nel 1988 e completato successivamente, mette in relazione violenza, persecuzione e memoria pubblica. È un insieme di elementi, non una sola statua. Richiama le vittime della guerra e del nazionalsocialismo e affronta anche l’umiliazione antisemita. Il luogo chiede una sosta rispettosa. Si raggiunge a piedi nel tratto finale verso l’Albertina; il racconto rimane disponibile anche a distanza, senza richiedere di osservare immagini di sofferenza.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/mahnmal-gegen-krieg-und-faschismus-von-alfred-hrdlicka-123904"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Ricordare senza semplificare",
+          "text": "Un memoriale non risolve il rapporto con il passato, ma può rendere possibile una discussione pubblica. L’opera di Hrdlicka riunisce riferimenti a esperienze differenti della violenza: persecuzioni, guerra, prigionia e ricostruzione politica. La figura dell’ebreo costretto a pulire la strada richiama le umiliazioni antisemite del 1938. È essenziale leggerla come denuncia della persecuzione, non come rappresentazione neutra di un’attività quotidiana. L’insieme fu inaugurato nel 1988 e completato nel 1991, attraverso un percorso che mostra quanto la memoria possa essere discussa e contestata. Chi ascolta può dedicare attenzione al modo in cui una città sceglie di ricordare le vittime e riconoscere le responsabilità. Una visita non richiede fotografie né una lettura affrettata: anche il tempo della sosta fa parte dell’esperienza.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.info/de/mahnmal-gegen-krieg-und-faschismus-von-alfred-hrdlicka-123904",
+            "https://www.memorialmuseums.org/memorialmuseum/mahnmal-gegen-krieg-und-faschismus?locale=de"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 230,
+        "nearestPosition": {
+          "latitude": 48.202644886375786,
+          "longitude": 16.36796006151931,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "albertina",
+      "name": "Albertina",
+      "category": "Musei",
+      "location": {
+        "latitude": 48.2046365,
+        "longitude": 16.3682605,
+        "source": "https://www.openstreetmap.org/node/60438337",
+        "kind": "punto cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "L’Albertina custodisce una grande raccolta di disegni e stampe, legata alla fondazione del duca Alberto di Sassonia-Teschen e di Maria Cristina nel 1776.",
+      "access": "Arrivo a piedi ad Albertinaplatz 1. Il pin è il museo; per ascensore, terrazza e ingresso seguire le indicazioni ufficiali sul posto.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Albertina · storia della collezione grafica",
+          "url": "https://www.albertina.at/en/research/drawing-print/history/"
+        },
+        {
+          "title": "Albertina · profilo del museo",
+          "url": "https://www.albertina.at/en/organization/profile/"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "L’Albertina custodisce una grande raccolta di disegni e stampe, legata alla fondazione del duca Alberto di Sassonia-Teschen e di Maria Cristina nel 1776. La collezione permette di attraversare secoli di storia dell’arte attraverso opere su carta, accanto ad altre raccolte e mostre. La sede nel palazzo storico collega esperienza museale e memoria della residenza. È l’arrivo della nostra passeggiata dall’Opera. Il racconto introduce il museo senza presumere l’accesso alle sale o la presenza in mostra di una specifica opera.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.albertina.at/en/research/drawing-print/history/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "La forza di un foglio",
+          "text": "Un disegno può sembrare più intimo di una grande tela, ma racconta processi decisivi: studio, invenzione, esercizio e scelta. Le stampe aggiungono un’altra dimensione, quella della circolazione delle immagini. La raccolta grafica dell’Albertina nacque con un’ambizione ampia e un orientamento educativo, collegati alla cultura illuminista dei fondatori. Non è quindi soltanto un insieme di capolavori isolati. È anche uno strumento per mettere in relazione tecniche, epoche e modi di pensare l’arte. La sede conserva inoltre ambienti storici che ricordano la funzione residenziale del palazzo. Per una visita conviene controllare il programma ufficiale e scegliere un percorso, senza dare per scontato che tutti i fogli celebri siano esposti. L’audioguida resta un’introduzione autonoma, utilizzabile prima o dopo l’ingresso nel museo.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.albertina.at/en/research/drawing-print/history/",
+            "https://www.albertina.at/en/organization/profile/"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 216,
+        "nearestPosition": {
+          "latitude": 48.202800556923194,
+          "longitude": 16.367294041095068,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    },
+    {
+      "id": "augustinerkirche",
+      "name": "Augustinerkirche",
+      "category": "Chiese",
+      "location": {
+        "latitude": 48.2058783,
+        "longitude": 16.3676053,
+        "source": "https://www.openstreetmap.org/node/13975372224",
+        "kind": "punto cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Ingresso puntuale non documentato: seguire gli accessi segnalati sul posto.",
+      "summary": "L’Augustinerkirche appartiene al complesso storico della Hofburg e unisce spazio religioso e memoria dinastica.",
+      "access": "Deviazione finale a piedi verso Josefsplatz, accanto al complesso dell’Albertina e della Hofburg. Per chiesa e cappelle seguire le indicazioni della parrocchia.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "yppengasse-albertina"
+      ],
+      "sources": [
+        {
+          "title": "Augustinerkirche · percorso nella chiesa",
+          "url": "https://augustinerkirche.augustiner.at/augustinerkirche/rundgang-durch-die-kirche/"
+        }
+      ],
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "L’Augustinerkirche appartiene al complesso storico della Hofburg e unisce spazio religioso e memoria dinastica. La chiesa conserva la cappella di Loreto, legata alla cripta dei cuori degli Asburgo. Questo elemento non va confuso con la Cripta dei Cappuccini, che è un altro luogo della città. La tradizione delle sepolture distribuite mostra come il ricordo dei sovrani potesse essere affidato a spazi diversi. Per raggiungere la chiesa dall’Albertina occorre proseguire a piedi verso Josefsplatz, verificando accessi e modalità di visita.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://augustinerkirche.augustiner.at/augustinerkirche/rundgang-durch-die-kirche/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "La memoria dinastica prende forme diverse",
+          "text": "La memoria di una dinastia non si concentra necessariamente in un solo sepolcro. Per gli Asburgo, la distribuzione di parti del corpo tra luoghi religiosi diversi appartiene a una tradizione funeraria storica. La cripta dei cuori collegata alla cappella di Loreto, nell’Augustinerkirche, è una di queste sedi; altre sepolture si trovano presso i Cappuccini e nel duomo di Santo Stefano. È importante distinguere i luoghi per non trasformare una tradizione complessa in una leggenda confusa. La chiesa rimane inoltre uno spazio di culto, non soltanto una testimonianza della corte. Un ascolto rispettoso può fermarsi al significato della memoria e dei suoi rituali, senza cercare dettagli macabri. Per visitare cappelle o ambienti particolari occorre informarsi separatamente presso la comunità religiosa.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://augustinerkirche.augustiner.at/augustinerkirche/rundgang-durch-die-kirche/"
+          ]
+        }
+      ],
+      "routeContext": {
+        "pathIndex": 7,
+        "distanceMeters": 331,
+        "nearestPosition": {
+          "latitude": 48.20307297077017,
+          "longitude": 16.366128546472247,
+          "source": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip"
+        },
+        "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
+      }
+    }
+  ]
+}

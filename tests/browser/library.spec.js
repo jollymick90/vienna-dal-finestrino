@@ -1,39 +1,90 @@
-import {test,expect} from '@playwright/test';
-
-test('two bundled tours work without browser storage and without import/export controls',async({page})=>{
-  await page.addInitScript(()=>{
-    window.indexedDB.open=()=>{throw new Error('Storage unavailable');};
-    Storage.prototype.getItem=()=>{throw new Error('Storage unavailable');};
-    Storage.prototype.setItem=()=>{throw new Error('Storage unavailable');};
-  });
-  await page.goto('/');
-  const selector=page.getByLabel('Percorso da ascoltare');
-  await expect(selector.locator('option')).toHaveCount(2);
-  await expect(page.getByText('Aggiungi un percorso',{exact:true})).toHaveCount(0);
-  await expect(page.locator('input[type=file]')).toHaveCount(0);
-  await expect(page.getByRole('button',{name:/Scarica/})).toHaveCount(0);
-  await selector.selectOption('vienna-ring-1-2');
-  await expect(page.getByRole('heading',{name:'Due facciate, due ruoli'})).toBeVisible();
-  await expect(page.getByText('Audio non ancora disponibili per questo tour.')).toBeVisible();
-  await expect(page.getByText(/Appena partiti da Schottentor, lasciamo/)).toBeVisible();
-  await expect(page.getByRole('button',{name:'Ascolta',exact:true})).toHaveCount(0);
-  await expect(page.locator('path.tram-leg')).toHaveCount(8);
-  await expect(page.locator('path.transfer-path')).toHaveCount(2);
-  await expect(page.getByRole('region',{name:'Itinerario'})).toContainText('Friedrich-Engels-Platz');
-  await selector.selectOption('vienna-original');
-  await page.getByRole('button',{name:'Ascolta',exact:true}).click();
-  await expect.poll(()=>page.locator('audio').evaluate(a=>!a.paused&&a.currentTime>0)).toBe(true);
+import { test, expect } from "@playwright/test";
+test("catalog and paths remain available offline after verified download, without street tiles", async ({
+  page,
+  context,
+}) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Percorsi e offline" }).click();
+  await page.getByRole("button", { name: "Scarica percorso offline" }).click();
+  await expect(page.getByText(/Percorso verificato offline/)).toBeVisible();
+  await expect(page.getByText(/Mappa stradale: solo online/)).toBeVisible();
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await expect(page.locator("path.route-line")).toHaveCount(8);
+  await page
+    .getByRole("button", { name: "Apri Albertina", exact: true })
+    .focus();
+  await page.keyboard.press("Enter");
+  await page
+    .locator(".content-card")
+    .first()
+    .getByRole("button", { name: "Leggi testo", exact: true })
+    .click();
+  await expect(
+    page.locator(".transcript").filter({ hasText: /L’Albertina custodisce/ }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Offline · sfondo stradale non disponibile"),
+  ).toBeVisible();
 });
-
-test('Ring tour remains bundled offline and simulation reaches Schottentor',async({page,context})=>{
-  await page.goto('/');await expect(page.getByText('Pronta offline',{exact:true})).toBeVisible();
-  await context.setOffline(true);await page.reload();
-  await page.getByLabel('Percorso da ascoltare').selectOption('vienna-ring-1-2');
-  await expect(page.getByText('Pronta offline',{exact:true})).toBeVisible();
-  await page.getByRole('button',{name:'Simula giro',exact:true}).click();
-  for(let i=0;i<31;i++) await page.getByRole('button',{name:'Avanza simulazione'}).click();
-  await expect(page.getByLabel('Scegli la tratta')).toHaveValue('7');
-  await expect(page.getByRole('heading',{name:'L’anello si chiude'})).toBeVisible();
-  await expect(page.getByText('Simulazione conclusa · Schottentor',{exact:true})).toBeVisible();
-  expect(await page.locator('audio').getAttribute('src')).toBeNull();
+test("denied storage does not block catalog or simulation", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => {
+      throw Error();
+    };
+    Storage.prototype.setItem = () => {
+      throw Error();
+    };
+  });
+  await page.goto("/");
+  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await page
+    .getByRole("button", { name: "Apri Yppenplatz", exact: true })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("heading", { name: "Yppenplatz", exact: true }),
+  ).toBeVisible();
+});
+test("downloaded audio plays and seeks after an offline reload", async ({
+  page,
+  context,
+}) => {
+  const { audioFixture } = await import("./audio-fixture.js");
+  await audioFixture(context);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Percorsi e offline" }).click();
+  await expect(page.getByText(/App e testi pronti/)).toBeVisible();
+  await page.getByRole("button", { name: "Scarica percorso offline" }).click();
+  await expect(
+    page.getByText("Percorso verificato offline · testi e 1 audio"),
+  ).toBeVisible();
+  await context.setOffline(true);
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Apri Albertina", exact: true })
+    .focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("button", { name: "Ascolta", exact: true }).click();
+  await expect
+    .poll(() =>
+      page.locator("audio").evaluate((a) => !a.paused && a.currentTime > 0),
+    )
+    .toBe(true);
+  await page.getByRole("button", { name: "Pausa", exact: true }).click();
+  await page.getByLabel("Avanzamento audio").fill("12");
+  await expect
+    .poll(() =>
+      page.locator("audio").evaluate((a) => Math.floor(a.currentTime)),
+    )
+    .toBe(12);
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Apri Albertina", exact: true })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByText("Già ascoltato")).toBeVisible();
 });

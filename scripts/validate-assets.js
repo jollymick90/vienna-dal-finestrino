@@ -30,3 +30,10 @@ for (const tour of builtinTours) {
   }
 }
 console.log('Verificati entrambi i tour inclusi: originale con MP3, Ring con testi e geometrie.');
+
+const { validatePoiAssets } = await import('./validate-poi.js');
+const poiCatalog = JSON.parse(await readFile('public/catalog.json','utf8'));
+const poiManifest = JSON.parse(await readFile('public/audio/poi-manifest.json','utf8'));
+const counts = await validatePoiAssets(poiCatalog, poiManifest, url => readFile(`public${url}`));
+assert.equal(counts.places, 28);
+console.log(`Catalogo POI verificato: ${counts.places} luoghi, ${counts.contents} testi e ${counts.audio} audio coerenti.`);

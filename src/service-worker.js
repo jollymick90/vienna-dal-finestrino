@@ -46,11 +46,15 @@ self.addEventListener("fetch", (event) => {
     return;
   event.respondWith(
     (async () => {
+      if (request.headers.get("X-Vienna-Refresh") === "1")
+        return fetch(request);
       const cache = await caches.open(CACHE_NAME);
-      const cached = await cache.match(request, {
-        ignoreSearch: request.mode === "navigate",
-        ignoreVary: true,
-      });
+      const routeCache = await caches.open("vienna-poi-downloads-v1");
+      const cached =
+        (await cache.match(request, {
+          ignoreSearch: request.mode === "navigate",
+          ignoreVary: true,
+        })) || (await routeCache.match(request, { ignoreVary: true }));
       if (cached) {
         const range = request.headers.get("Range");
         return range ? rangeResponse(cached, range) : cached;

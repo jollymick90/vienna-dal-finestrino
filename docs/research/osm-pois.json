@@ -1,0 +1,3416 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-05T19:33:45Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 60091642,
+      "lat": 48.2114691,
+      "lon": 16.3391937,
+      "tags": {
+        "exit:carriages:forward": "no|no|no|no|no|no|stairs;lift|no|no|no|no|no",
+        "level": "1",
+        "local_ref": "1",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4622",
+        "side": "right",
+        "subway": "yes",
+        "uic_name": "Wien Josefstädter Straße (U6)",
+        "uic_ref": "8170021",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 60438337,
+      "lat": 48.2046365,
+      "lon": 16.3682605,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1",
+        "addr:postcode": "1010",
+        "addr:street": "Albertinaplatz",
+        "amenity": "arts_centre",
+        "changing_table": "yes",
+        "changing_table:location": "wheelchair_toilet",
+        "description:en": "One of Vienna's premier museums. Originated as a collection of art presented a Habsburg family to in 1776. (Source: Wikipedia:en)",
+        "email": "info@albertina.at",
+        "fee": "yes",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "museum": "art",
+        "name": "Albertina",
+        "name:bg": "Албертина",
+        "name:de": "Albertina",
+        "name:en": "Albertina",
+        "name:es": "Albertina",
+        "name:fr": "Albertina",
+        "name:ja": "アルベルティーナ",
+        "name:ko": "알베르티나 미술관",
+        "name:ru": "Альбертина",
+        "name:uk": "Альбертіна",
+        "name:zh": "阿尔贝提纳博物馆",
+        "old_name": "Palais Erzherzog Albrecht",
+        "opening_hours": "PH,Th,Sa-Tu 10:00-18:00; We,Fr 10:00-21:00",
+        "phone": "+43 1 534 83 0",
+        "ref:at:bda": "13757",
+        "toilets:wheelchair": "yes",
+        "tourism": "museum",
+        "website": "https://www.albertina.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q371908",
+        "wikipedia": "de:Albertina (Wien)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 76518712,
+      "lat": 48.2050544,
+      "lon": 16.3667974,
+      "tags": {
+        "amenity": "restaurant",
+        "contact:phone": "+43 1 533 1033",
+        "cuisine": "breakfast;regional;international",
+        "indoor_seating": "yes",
+        "name": "Palmenhaus",
+        "opening_hours": "Mo-Fr 10:00-23:00; Sa, Su 09:00-23:00",
+        "outdoor_seating": "yes",
+        "toilets:wheelchair": "no",
+        "website": "https://www.palmenhaus.at/impressum/",
+        "wheelchair": "no",
+        "wheelchair:description": "3 Stufen am Eingang, WC mehr als 20 Stufen in den Keller",
+        "wikimedia_commons": "Category:Palmenhaus (Burggarten)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 276645373,
+      "lat": 48.2060921,
+      "lon": 16.3640091,
+      "tags": {
+        "description:en": "\"Heroes Square\" - Public space in front of Hofburg Palace. Many important actions and events took place here, most notably Adolf Hitler's ceremonial announcement of the Austrian Anschluss to Nazi Germany on 15 March 1938. (Source: wikipedia:en)",
+        "name": "Heldenplatz",
+        "name:ko": "헬덴(영웅)광장",
+        "name:ml": "ഹൈഡൻപ്ലാറ്റ്സ്",
+        "name:ru": "Площадь Героев",
+        "name:uk": "Гельденплац",
+        "name:zh": "英雄廣場",
+        "place": "square",
+        "tourism": "attraction",
+        "wheelchair": "yes",
+        "wikidata": "Q700128",
+        "wikipedia": "en:Heldenplatz"
+      }
+    },
+    {
+      "type": "node",
+      "id": 293489784,
+      "lat": 48.204085,
+      "lon": 16.364761,
+      "tags": {
+        "artist:wikidata": "Q326777",
+        "artist_name": "Viktor Tilgner",
+        "description:en": "(1756-1791) World-famous composer.",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "memorial",
+        "material": "marble",
+        "memorial": "statue",
+        "name": "Mozart-Denkmal",
+        "name:bg": "Вофганг Амадеус Моцарт",
+        "name:de": "Mozart-Denkmal",
+        "name:en": "Wolfgang Amadeus Mozart Statue",
+        "name:es": "Estatua de Wolfang Amadeus Mozart",
+        "name:ja": "モーツァルト記念像",
+        "name:ru": "Памятник Моцарту",
+        "name:zh": "莫扎特雕像",
+        "ref:at:bda": "20137",
+        "ref:wien:kultur": "47982",
+        "start_date": "1896",
+        "subject:wikidata": "Q254",
+        "subject:wikipedia": "de:Wolfgang Amadeus Mozart",
+        "wheelchair": "yes",
+        "wikidata": "Q18346455",
+        "wikimedia_commons": "Category:Mozart monument, Vienna"
+      }
+    },
+    {
+      "type": "node",
+      "id": 314318412,
+      "lat": 48.2111149,
+      "lon": 16.3357349,
+      "tags": {
+        "capacity:tram": "1",
+        "name": "Brunnenmarkt",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "248",
+        "tram": "yes",
+        "wikidata": "Q132177192"
+      }
+    },
+    {
+      "type": "node",
+      "id": 317641598,
+      "lat": 48.211397,
+      "lon": 16.3388476,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "458",
+        "tram": "yes",
+        "wikidata": "Q132177116"
+      }
+    },
+    {
+      "type": "node",
+      "id": 394053170,
+      "lat": 48.2054592,
+      "lon": 16.3664449,
+      "tags": {
+        "contact:phone": "+43 1 533 857-0",
+        "contact:website": "http://www.schmetterlinghaus.at",
+        "fee": "yes",
+        "name": "Schmetterlinghaus",
+        "name:de": "Schmetterlinghaus",
+        "name:en": "Butterfly House",
+        "name:hu": "Lepkeház",
+        "name:tr": "Kelebek evi",
+        "opening_hours": "Apr-Oct: Mo-Su 10:00-17:45; Nov-Mar: Mo-Su 10:00-15:45",
+        "operator": "Stephen Fried GesmbH",
+        "toilets:wheelchair": "no",
+        "tourism": "zoo",
+        "wheelchair": "yes",
+        "zoo": "butterfly"
+      }
+    },
+    {
+      "type": "node",
+      "id": 948462303,
+      "lat": 48.2039403,
+      "lon": 16.3718277,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "11",
+        "addr:postcode": "1010",
+        "addr:street": "Krugerstraße",
+        "description": "Willkommen im Hotel Zur Wiener Staatsoper – Ihre Adresse für einen Aufenthalt inmitten von Wien. Das Hotel, das sich im 1. Bezirk befindet, ist nicht nur ein Ort zum Übernachten, sondern ein Erlebnis, das Wien in seiner ganzen Pracht offenbart.",
+        "email": "info@hotel-staatsoper.at",
+        "name": "Hotel Zur Wiener Staatsoper",
+        "tourism": "hotel",
+        "website": "https://www.hotel-staatsoper.at/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1014014654,
+      "lat": 48.2117392,
+      "lon": 16.3713008,
+      "tags": {
+        "building": "public",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Altes Rathaus",
+        "ref:at:bda": "22474",
+        "wikidata": "Q439480",
+        "wikipedia": "de:Altes Rathaus (Wien)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1391371069,
+      "lat": 48.2114726,
+      "lon": 16.3391346,
+      "tags": {
+        "exit:carriages:forward": "no|no|no|no|no|stairs;lift|no|no|no|no|no|no",
+        "level": "1",
+        "local_ref": "2",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4607",
+        "side": "right",
+        "subway": "yes",
+        "uic_name": "Wien Josefstädter Straße (U6)",
+        "uic_ref": "8170021",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1599466231,
+      "lat": 48.2116954,
+      "lon": 16.339518,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "365",
+        "tram": "yes",
+        "wikidata": "Q132177116"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1625876754,
+      "lat": 48.2102933,
+      "lon": 16.3606822,
+      "tags": {
+        "capacity:tram": "2",
+        "name": "Rathausplatz, Burgtheater",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "17",
+        "tram": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q132177236"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1625876768,
+      "lat": 48.2107546,
+      "lon": 16.3606653,
+      "tags": {
+        "bench": "yes",
+        "capacity:tram": "2",
+        "name": "Rathausplatz, Burgtheater",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "47",
+        "tram": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q132177236"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1764282543,
+      "lat": 48.2095169,
+      "lon": 16.36001,
+      "tags": {
+        "amenity": "bicycle_rental",
+        "bicycle_rental": "docking_station",
+        "brand": "WienMobil Rad",
+        "brand:wikidata": "Q111794110",
+        "capacity": "37",
+        "fee": "yes",
+        "name": "Rathausplatz / Burgtheater",
+        "network": "WienMobil Rad",
+        "network:wikidata": "Q111794110",
+        "operator": "Nextbike",
+        "operator:wikidata": "Q2351279",
+        "ref": "32070",
+        "start_date": "2003-09-19",
+        "website": "https://www.wienerlinien.at/wienmobil/rad",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1785315520,
+      "lat": 48.2067764,
+      "lon": 16.361078,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:postcode": "1010",
+        "addr:street": "Heldenplatz",
+        "amenity": "nightclub",
+        "contact:facebook": "https://www.facebook.com/dervolksgarten/",
+        "contact:instagram": "https://www.instagram.com/volksgarten/",
+        "email": "office@volksgarten.at",
+        "level": "0",
+        "loc_name": "Voga",
+        "min_age": "21",
+        "name": "Diskothek Volksgarten",
+        "opening_hours": "Th-Sa 23:00-06:00",
+        "ref:vatin": "ATU41713106",
+        "smoking": "outside",
+        "toilets:wheelchair": "yes",
+        "website": "https://volksgarten.at/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1844601179,
+      "lat": 48.2065417,
+      "lon": 16.3604994,
+      "tags": {
+        "amenity": "bicycle_rental",
+        "bicycle_rental": "docking_station",
+        "brand": "WienMobil Rad",
+        "brand:wikidata": "Q111794110",
+        "capacity": "15",
+        "fee": "yes",
+        "name": "Volksgarten",
+        "network": "WienMobil Rad",
+        "network:wikidata": "Q111794110",
+        "operator": "Nextbike",
+        "operator:type": "private",
+        "operator:wikidata": "Q2351279",
+        "operator:wikipedia": "en:Nextbike",
+        "phone": "+43 1 385 01 89",
+        "ref": "32003",
+        "website": "https://www.wienerlinien.at/wienmobil/rad"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1916813668,
+      "lat": 48.2116692,
+      "lon": 16.3714215,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Altes Rathaus",
+        "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-22:00; PH off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2006335300,
+      "lat": 48.2108254,
+      "lon": 16.3555366,
+      "tags": {
+        "level": "-1",
+        "local_ref": "1",
+        "name": "Rathaus",
+        "network": "VOR",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4205",
+        "subway": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2076499333,
+      "lat": 48.2114613,
+      "lon": 16.3393264,
+      "tags": {
+        "check_date:wheelchair": "2022-02-09",
+        "entrance": "yes",
+        "name": "Josefstädter Straße",
+        "railway": "subway_entrance",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2113489038,
+      "lat": 48.20475,
+      "lon": 16.3681376,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1",
+        "addr:postcode": "1010",
+        "addr:street": "Albertinaplatz",
+        "amenity": "restaurant",
+        "cuisine": "international",
+        "name": "DO&CO Albertina",
+        "opening_hours": "Su,Mo 09:00-18:00; Tu-Sa 09:00-24:00",
+        "phone": "+43 1 532 96 69"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2122487551,
+      "lat": 48.2098183,
+      "lon": 16.3549883,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Cafe Rathaus",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa,Su 08:00-22:00",
+        "website": "https://caferathaus.at"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2216387623,
+      "lat": 48.2098243,
+      "lon": 16.355359,
+      "tags": {
+        "level": "-1",
+        "local_ref": "2",
+        "name": "Rathaus",
+        "network": "VOR",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4210",
+        "subway": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2285866890,
+      "lat": 48.2117505,
+      "lon": 16.3394562,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "tram": "yes",
+        "wikidata": "Q132177116"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2285866895,
+      "lat": 48.2111049,
+      "lon": 16.3393183,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "249",
+        "tram": "yes",
+        "wikidata": "Q132177116"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2285866933,
+      "lat": 48.2110658,
+      "lon": 16.3389449,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "273",
+        "tram": "yes",
+        "wikidata": "Q132177116"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2287892314,
+      "lat": 48.2092342,
+      "lon": 16.3555068,
+      "tags": {
+        "capacity:tram": "1",
+        "name": "Rathaus",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "269",
+        "tram": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q132177238"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2287892316,
+      "lat": 48.2092543,
+      "lon": 16.3538745,
+      "tags": {
+        "capacity:tram": "1",
+        "name": "Rathaus",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "252",
+        "tram": "yes",
+        "wheelchair": "yes",
+        "wikidata": "Q132177238"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2423362002,
+      "lat": 48.2110691,
+      "lon": 16.3362841,
+      "tags": {
+        "capacity:tram": "1",
+        "name": "Brunnenmarkt",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "274",
+        "tram": "yes",
+        "wikidata": "Q132177192"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2693016945,
+      "lat": 48.2093227,
+      "lon": 16.3556163,
+      "tags": {
+        "door": "no",
+        "entrance": "yes",
+        "entrance_marker:subway": "yes",
+        "level": "0",
+        "name": "Josefstädter Straße",
+        "railway": "subway_entrance",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3002129843,
+      "lat": 48.2042645,
+      "lon": 16.367824,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1",
+        "addr:postcode": "1010",
+        "addr:street": "Goethegasse",
+        "check_date": "2024-10-28",
+        "name": "Freunde der Wiener Staatsoper",
+        "office": "yes",
+        "phone": "+43 1 5120171",
+        "website": "https://www.opernfreunde.at/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3630096367,
+      "lat": 48.2112922,
+      "lon": 16.3386784,
+      "tags": {
+        "bus": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "stop_position"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3630096368,
+      "lat": 48.2112884,
+      "lon": 16.3385411,
+      "tags": {
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3630096370,
+      "lat": 48.2113635,
+      "lon": 16.3395786,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "public_transport": "stop_position"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3923955839,
+      "lat": 48.2185783,
+      "lon": 16.353142,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "2-4, Hof 6",
+        "addr:postcode": "1090",
+        "addr:street": "Spitalgasse",
+        "email": "pas@nhm-wien.ac.at",
+        "fee": "yes",
+        "name": "Pathologisch-anatomische Sammlung im Narrenturm",
+        "name:en": "Pathologic-Anatomical Collection",
+        "name:ja": "病理・解剖学博物館",
+        "opening_hours": "We 10:00-18:00; Th-Fr 10:00-15:00; Sa 12:00-18:00",
+        "operator": "Naturhistorisches Museum Wien",
+        "operator:wikidata": "Q688704",
+        "phone": "+43 1 521 77 606",
+        "photography:inside": "no",
+        "source": "http://www.univie.ac.at/Achse/narrenturm/",
+        "toilets:wheelchair": "no",
+        "tourism": "museum",
+        "website": "https://www.nhm-wien.ac.at/forschung/anthropologie/pathologisch-anatomische_sammlung_im_narrenturm",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4104690590,
+      "lat": 48.2102064,
+      "lon": 16.3554084,
+      "tags": {
+        "name": "Rathaus",
+        "network": "VOR",
+        "network:metro": "U-Bahn Wien",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "platforms": "2",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:position": "15.1",
+        "railway:position:exact": "15.141",
+        "railway:ref": "RH",
+        "ref": "1072",
+        "station": "subway",
+        "subway": "yes",
+        "uic_name": "Wien Rathaus",
+        "uic_ref": "8170045",
+        "wheelchair": "yes",
+        "wikidata": "Q1376459",
+        "wikipedia": "de:U-Bahn-Station Rathaus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113617089,
+      "lat": 48.2066861,
+      "lon": 16.3604667,
+      "tags": {
+        "access": "yes",
+        "check_date:wheelchair": "2025-07-04",
+        "entrance": "yes",
+        "entrance_marker:subway": "yes",
+        "level": "0",
+        "name": "Volksgarten",
+        "railway": "subway_entrance",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4185985589,
+      "lat": 48.2195474,
+      "lon": 16.356311,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "25",
+        "addr:postcode": "1090",
+        "addr:street": "Währinger Straße",
+        "check_date": "2023-10-07",
+        "contact:instagram": "josephinum_mhm",
+        "email": "sammlungen@meduniwien.ac.at",
+        "fee": "yes",
+        "name": "Josephinum",
+        "phone": "+43 1 40 160 26 000",
+        "toilets:wheelchair": "yes",
+        "tourism": "museum",
+        "website": "https://www.josephinum.ac.at",
+        "wheelchair": "yes",
+        "wikidata": "Q1466545"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4204923233,
+      "lat": 48.2104165,
+      "lon": 16.3606441,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Rathausplatz, Burgtheater",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "public_transport": "stop_position"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4283722990,
+      "lat": 48.2114707,
+      "lon": 16.3391659,
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "network:metro": "U-Bahn Wien",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "platforms": "2",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:position": "9.7",
+        "railway:position:exact": "9.717",
+        "railway:ref": "JS",
+        "ref": "615",
+        "station": "subway",
+        "subway": "yes",
+        "uic_name": "Wien Josefstädter Straße (U6)",
+        "uic_ref": "8170021",
+        "wheelchair": "yes",
+        "wikidata": "Q2465704",
+        "wikipedia": "de:U-Bahn-Station Josefstädter Straße"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4551006234,
+      "lat": 48.2063708,
+      "lon": 16.3546782,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1-3",
+        "addr:postcode": "1070",
+        "addr:street": "Lerchenfelder Straße",
+        "amenity": "bar",
+        "contact:phone": "+43 1 52151 842",
+        "email": "dachboden.wien@25hours-hotels.com",
+        "level": "8",
+        "name": "Der Dachboden im 25hours Hotel beim MuseumsQuartier",
+        "opening_hours": "Mo-Su 15:00-01:00",
+        "operator": "25hours Hotel",
+        "smoking": "outside",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.25hours-hotels.com/restaurants-bars/wien/dachboden",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4630791640,
+      "lat": 48.2134055,
+      "lon": 16.3364574,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "157",
+        "addr:postcode": "1160",
+        "addr:street": "Brunnenmarkt Stand",
+        "amenity": "bar",
+        "changing_table": "yes",
+        "changing_table:location": "female_toilet",
+        "check_date": "2025-03-29",
+        "name": "Wirr am Brunnenmarkt",
+        "opening_hours": "Mo-Sa 08:00-23:00",
+        "operator": "WIRR GmbH",
+        "outdoor_seating": "yes",
+        "phone": "+43 1 4023098",
+        "toilets:wheelchair": "yes",
+        "website": "https://wirr.at/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5284220038,
+      "lat": 48.2093484,
+      "lon": 16.3787307,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "9",
+        "addr:postcode": "1010",
+        "addr:street": "Postgasse",
+        "amenity": "archive",
+        "check_date": "2025-07-04",
+        "email": "archiv@univie.ac.at",
+        "fax": "+43 1 4277 9172",
+        "name": "Archiv der Universität Wien",
+        "opening_hours": "Mo-We 09:00-15:30; Th 13:00-19:00; Fr 09:00-12:00",
+        "operator": "Universität Wien",
+        "phone": "+43 1 4277 17201",
+        "start_date": "1980",
+        "website": "https://bibliothek.univie.ac.at/archiv/",
+        "wheelchair": "yes",
+        "wikidata": "Q635570",
+        "wikipedia": "de:Archiv der Universität Wien"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5647247295,
+      "lat": 48.2140298,
+      "lon": 16.3362539,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "12",
+        "addr:postcode": "1160",
+        "addr:street": "Payergasse",
+        "amenity": "cafe",
+        "check_date": "2025-07-03",
+        "diet:vegetarian": "yes",
+        "email": "cafe@cay-yppenplatz.at",
+        "name": "CAY (Cafe am Yppenplatz)",
+        "note": "geöffnet bei Schönwetter am Montag 16:00-23:00",
+        "opening_hours": "Tu-Su, PH 09:00-23:00",
+        "outdoor_seating": "yes",
+        "phone": "+43 660 25 366 25",
+        "toilets:wheelchair": "no",
+        "website": "https://www.cay-yppenplatz.at/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7057409734,
+      "lat": 48.212217,
+      "lon": 16.3605036,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Wien Rathaus",
+        "operator": "BigBus",
+        "public_transport": "stop_position"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7276312767,
+      "lat": 48.2012181,
+      "lon": 16.3636326,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:housenumber": "9",
+        "addr:postcode": "1060",
+        "addr:street": "Getreidemarkt",
+        "description": "FSDr - Fachschaft Doktorat der Technischen Universität Wien Getreidemarkt 9 Genius building, ground floor Room number BZ EG 19",
+        "email": "fsdr@fsdr.at",
+        "name": "Fachschaft Doktorat der Technischen Universität Wien",
+        "office": "ngo",
+        "opening_hours:url": "https://www.fsdr.at",
+        "website": "https://fsdr.at"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8695298427,
+      "lat": 48.2076146,
+      "lon": 16.3664654,
+      "tags": {
+        "historic": "memorial",
+        "image": "Plaque Altes Burgtheater, Michaelerplatz.jpg",
+        "inscription": "Hier stand bis zum Jahre 1888 das alte Burgtheater, das 1776 von Kaiser Josef II. als Nationaltheater begründet wurde.",
+        "memorial": "plaque",
+        "name": "Altes Burgtheater",
+        "wikimedia_commons": "Category:Gedenktafel für das alte Burgtheater (Wien, Michaelerplatz)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9642977985,
+      "lat": 48.2103005,
+      "lon": 16.3623262,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:housenumber": "12",
+        "addr:postcode": "1010",
+        "addr:street": "Löwelstraße",
+        "name": "Der Grüne Klub im Parlament",
+        "office": "political_party",
+        "website": "https://gruene.at/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10827489805,
+      "lat": 48.2116272,
+      "lon": 16.3369003,
+      "tags": {
+        "addr:postcode": "1160",
+        "amenity": "veterinary",
+        "check_date": "2024-06-05",
+        "email": "office@tierarzt-brunnenmarkt.at",
+        "name": "Tierarztpraxis am Brunnenmarkt",
+        "name:en": "Veterinary Practice at the Burrunnenmarkt",
+        "opening_hours": "Mo-Fr 10:00-12:00, 17:00-19:00; Sa 10:00-12:00",
+        "phone": "+43 1 4050446",
+        "website": "https://tierarzt-brunnenmarkt.at/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11098199604,
+      "lat": 48.2149753,
+      "lon": 16.3530938,
+      "tags": {
+        "addr:city": "Wien",
+        "addr:housenumber": "4 Hof 1.16",
+        "addr:postcode": "1090",
+        "addr:street": "Alser Straße",
+        "amenity": "language_school",
+        "contact:phone": "+43 1 4277 24101",
+        "contact:website": "https://sprachenzentrum.univie.ac.at/",
+        "language:de": "yes",
+        "name": "Sprachenzentrum der Universität Wien",
+        "opening_hours": "Mo,We,Th,Fr 09:00-13:00; Tu 15:00-18:00",
+        "operator": "Innovationszentrum Universität Wien GmbH",
+        "operator:type": "public"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11698579469,
+      "lat": 48.2054238,
+      "lon": 16.3687788,
+      "tags": {
+        "name": "Zetter - Galerie bei der Albertina",
+        "tourism": "gallery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11799416569,
+      "lat": 48.2079299,
+      "lon": 16.362537,
+      "tags": {
+        "amenity": "cafe",
+        "contact:instagram": "stelldichein.volksgarten",
+        "name": "Café-Meierei Volksgarten",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://www.stelldichein.at/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11846007616,
+      "lat": 48.2098469,
+      "lon": 16.3550823,
+      "tags": {
+        "construction:railway": "station",
+        "name": "Rathaus",
+        "network": "VOR",
+        "network:metro": "U-Bahn Wien",
+        "network:wikidata": "Q2516485",
+        "note": "4. Ausbauphase",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "platforms": "2",
+        "railway:ref": "RH",
+        "station": "subway",
+        "subway": "yes",
+        "uic_name": "Wien Rathaus",
+        "wheelchair": "yes",
+        "wikidata": "Q1376459",
+        "wikipedia": "de:U-Bahn-Station Rathaus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12757639464,
+      "lat": 48.2135449,
+      "lon": 16.3602795,
+      "tags": {
+        "alt_name": "Audi Max Wien",
+        "amenity": "events_venue",
+        "name": "Audimax Universität Wien"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13468918787,
+      "lat": 48.2154683,
+      "lon": 16.3590614,
+      "tags": {
+        "charge": "8 EUR",
+        "fee": "yes",
+        "fixme": "check exact location & name",
+        "name": "Votivkirche",
+        "opening_hours": "Tu-Fr 13:00-15:00; Sa 14:00-17:00",
+        "tourism": "museum"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13789682510,
+      "lat": 48.2101577,
+      "lon": 16.3556452,
+      "tags": {
+        "entrance": "yes",
+        "entrance_marker:subway": "yes",
+        "level": "0",
+        "name": "Rathaus",
+        "railway": "subway_entrance",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13975372224,
+      "lat": 48.2058783,
+      "lon": 16.3676053,
+      "tags": {
+        "amenity": "place_of_worship",
+        "denomination": "roman_catholic",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Augustinerkirche",
+        "name:cs": "Augustiniánský kostel",
+        "name:etymology": "Augustinus von Hippo",
+        "name:etymology:wikidata": "Q8018",
+        "name:uk": "Церква Святого Августина",
+        "old_name": "Hofpfarrkirche hl. Augustin",
+        "ref:at:bda": "77182",
+        "religion": "christian",
+        "start_date": "1339",
+        "website": "http://www.augustinerkirche.at/",
+        "wheelchair": "limited",
+        "wikidata": "Q693869",
+        "wikipedia": "de:Augustinerkirche (Wien)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4583353,
+      "center": {
+        "lat": 48.2092362,
+        "lon": 16.3551587
+      },
+      "tags": {
+        "check_date:cycleway": "2026-07-10",
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "source": "yahoo",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4996504,
+      "center": {
+        "lat": 48.213098,
+        "lon": 16.3353919
+      },
+      "tags": {
+        "bicycle": "yes",
+        "highway": "pedestrian",
+        "lit": "yes",
+        "name": "Yppenplatz",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4997590,
+      "center": {
+        "lat": 48.2052837,
+        "lon": 16.3620944
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Heldenplatz",
+        "sidewalk:both": "separate",
+        "smoothness": "good",
+        "surface": "asphalt",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 8063768,
+      "center": {
+        "lat": 48.2080504,
+        "lon": 16.3617276
+      },
+      "tags": {
+        "architect": "Ludwig Gabriel von Remy;Franz Antoine",
+        "architect:wikidata": "Q1874423;Q114618",
+        "bicycle": "no",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "leisure": "park",
+        "name": "Volksgarten",
+        "name:de": "Volksgarten",
+        "name:en": "People's Garden",
+        "name:uk": "Фольксгартен",
+        "name:zh-Hans": "人民公园",
+        "name:zh-Hant": "人民公園",
+        "opening_hours": "Mar: 07:00-19:00; Apr-Oct 06:00-22:00; Nov-Feb 07:00-17:30",
+        "ref:at:bda": "20120",
+        "start_date": "1823-03-01",
+        "wheelchair": "yes",
+        "wikidata": "Q875751",
+        "wikimedia_commons": "Category:Volksgarten,_Vienna",
+        "wikipedia": "de:Volksgarten (Wien)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 8063831,
+      "center": {
+        "lat": 48.204389,
+        "lon": 16.3657948
+      },
+      "tags": {
+        "bicycle": "no",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "leisure": "park",
+        "name": "Burggarten",
+        "name:ru": "Замковый сад",
+        "name:uk": "Замковий сад",
+        "operator": "Bundesgartenamt",
+        "ref:at:bda": "20117",
+        "start_date": "1819",
+        "wikidata": "Q1014945",
+        "wikimedia_commons": "Category:Burggarten,_Vienna",
+        "wikipedia": "de:Burggarten (Wien)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 8083399,
+      "center": {
+        "lat": 48.2103125,
+        "lon": 16.361481
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "2",
+        "addr:postcode": "1010",
+        "addr:street": "Universitätsring",
+        "amenity": "theatre",
+        "architect": "Carl von Hasenauer;Gottfried Semper",
+        "architect:wikidata": "Q84541;Q61342",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/Burgtheater/",
+        "email": "info@burgtheater.at",
+        "fax": "+43 1 51444-4143",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "yes",
+        "name": "Burgtheater",
+        "name:be": "Бургтэатр",
+        "name:de": "Burgtheater",
+        "name:en": "Austrian National Theatre",
+        "name:es": "Teatro Nacional de Austria",
+        "name:ja": "ブルグ劇場",
+        "name:ko": "부르크 극장",
+        "name:ml": "ബർഗ്തിയേറ്റർ",
+        "name:ru": "Бургтеатр",
+        "name:start_date": "1888",
+        "name:uk": "Бурґтеатр",
+        "name:zh": "宮廷戲院",
+        "phone": "+43 1 51444-4140",
+        "ref:at:bda": "30699",
+        "start_date": "1888-10-14",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.burgtheater.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q308720",
+        "wikimedia_commons": "Category:Burgtheater",
+        "wikipedia": "de:Burgtheater"
+      }
+    },
+    {
+      "type": "way",
+      "id": 8097595,
+      "center": {
+        "lat": 48.2032731,
+        "lon": 16.3692106
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housename": "Oper",
+        "addr:housenumber": "2",
+        "addr:postcode": "1010",
+        "addr:street": "Opernring",
+        "amenity": "theatre",
+        "architect": "August Sicard von Sicardsburg;Eduard van der Nüll",
+        "architect:wikidata": "Q78968;Q78979",
+        "building": "yes",
+        "building:architecture": "neo-renaissance",
+        "description:en": "World-famous opera house in Neo-Renaissance style.",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "yes",
+        "name": "Wiener Staatsoper",
+        "name:cs": "Vídeňská státní opera",
+        "name:de": "Wiener Staatsoper",
+        "name:en": "Vienna State Opera",
+        "name:es": "Ópera Estatal de Viena",
+        "name:it": "Opera di Stato di Vienna",
+        "name:ja": "ウィーン国立歌劇場",
+        "name:ko": "빈오페라하우스",
+        "name:ru": "Венская государственная опера",
+        "name:start_date": "1938;1918;1871",
+        "name:uk": "Віденська державна опера",
+        "name:zh": "国家歌剧院",
+        "operator": "Wiener Staatsoper GmbH",
+        "ref:at:bda": "24428",
+        "start_date": "1869-05-25",
+        "theatre:genre": "opera",
+        "toilets:wheelchair": "yes",
+        "tourism": "attraction",
+        "website": "https://www.wiener-staatsoper.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q209937",
+        "wikimedia_commons": "Category:Exterior of Vienna State Opera House",
+        "wikipedia": "de:Wiener Staatsoper"
+      }
+    },
+    {
+      "type": "way",
+      "id": 9245795,
+      "center": {
+        "lat": 48.208411,
+        "lon": 16.3616876
+      },
+      "tags": {
+        "architect": "Peter von Nobile",
+        "architect:wikidata": "Q330997",
+        "building": "yes",
+        "building:architecture": "neoclassicism",
+        "building:colour": "white",
+        "description:en": "Replica of the ancient Theseion in Athens and housed Antonio Canova's sculpture Theseus group. Used by Kunsthistorisches Museum for exhibitions.",
+        "fee": "no",
+        "height": "10.5",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Theseustempel",
+        "name:de": "Theseustempel",
+        "name:en": "Theseus Temple",
+        "name:etymology": "Theseus besiegt den Kentauren",
+        "name:etymology:wikidata": "Q27031521",
+        "name:ru": "Храм Тесея",
+        "name:uk": "Храм Тесея",
+        "opening_hours": "PH,Mo-Su 11:00-18:00",
+        "operator": "Kunsthistorisches Museum",
+        "ref:at:bda": "20115",
+        "roof:colour": "white",
+        "roof:shape": "gabled",
+        "seasonal": "yes",
+        "start_date": "1823",
+        "subject:wikidata": "Q756824",
+        "tourism": "museum",
+        "website": "https://www.geschichtewiki.wien.gv.at/Theseustempel",
+        "wheelchair": "yes",
+        "wikidata": "Q1491188",
+        "wikipedia": "de:Theseustempel",
+        "year_of_construction": "1820..1823"
+      }
+    },
+    {
+      "type": "way",
+      "id": 9858714,
+      "center": {
+        "lat": 48.2154146,
+        "lon": 16.3591656
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:postcode": "1090",
+        "addr:street": "Rooseveltplatz",
+        "amenity": "place_of_worship",
+        "architect": "Heinrich von Ferstel",
+        "architect:wikidata": "Q78792",
+        "building": "church",
+        "building:architecture": "gothic_revival",
+        "building:colour": "#dddddb",
+        "building:material": "sandstone",
+        "denomination": "roman_catholic",
+        "description:en": "Neo-Gothic church. Built after attempted assassination of Emperor Franz Joseph in 1853at his brother's iniiative to give thanks for sparing his life. (Source: Wikipedia:en)",
+        "diocese": "Erzdiözese Wien",
+        "height": "15",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Votivkirche",
+        "name:cs": "Votivní kostel Božského Spasitele",
+        "name:ja": "ヴォティーフ教会",
+        "name:ko": "보티프 성당",
+        "name:ru": "Вотивкирхе",
+        "name:zh": "感恩教堂",
+        "opening_hours": "Tu-Fr 10:00-16:00; Sa 11:00-19:00; Su 09:00-13:00",
+        "parish": "Katholische Votivkirche zum Göttlichen Heiland",
+        "ref:at:bda": "10741",
+        "religion": "christian",
+        "roof:colour": "#8b9e80",
+        "start_date": "1879-04-24",
+        "tourism": "attraction",
+        "website": "https://www.votivkirche.at/",
+        "wheelchair": "no",
+        "wikidata": "Q254476",
+        "wikimedia_commons": "Category:Votive_Church,_Vienna",
+        "wikipedia": "de:Votivkirche (Wien)",
+        "wikipedia:en": "Votive Church, Vienna",
+        "year_of_construction": "1856-1879"
+      }
+    },
+    {
+      "type": "way",
+      "id": 10615515,
+      "center": {
+        "lat": 48.2193664,
+        "lon": 16.3566862
+      },
+      "tags": {
+        "addr2:city": "Wien",
+        "addr2:country": "AT",
+        "addr2:housenumber": "3",
+        "addr2:postcode": "1090",
+        "addr2:street": "Van-Swieten-Gasse",
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "25",
+        "addr:postcode": "1090",
+        "addr:street": "Währinger Straße",
+        "amenity": "university",
+        "building": "yes",
+        "building:levels": "3",
+        "height": "23",
+        "name": "Josephinum",
+        "operator": "Medizinische Universität Wien",
+        "operator:wikidata": "Q700731",
+        "roof:colour": "#a3331e",
+        "roof:height": "7",
+        "roof:levels": "0",
+        "roof:shape": "hipped",
+        "source": "wien.gv.at",
+        "wheelchair": "yes",
+        "wikidata": "Q1466545",
+        "wikipedia": "de:Josephinum (Wien)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 27657701,
+      "center": {
+        "lat": 48.2141337,
+        "lon": 16.3411576
+      },
+      "tags": {
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Breitenfelder Gasse",
+        "name:etymology": "Breitenfeld",
+        "name:etymology:wikidata": "Q906322",
+        "name:start_date": "1862",
+        "sidewalk": "both",
+        "sidewalk:both:surface": "asphalt",
+        "source": "yahoo",
+        "surface": "asphalt",
+        "wikidata": "Q59395485"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28080758,
+      "center": {
+        "lat": 48.2141655,
+        "lon": 16.3435532
+      },
+      "tags": {
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Breitenfelder Gasse",
+        "name:etymology": "Breitenfeld",
+        "name:etymology:wikidata": "Q906322",
+        "name:start_date": "1862",
+        "oneway": "yes",
+        "oneway:bicycle": "no",
+        "sidewalk": "both",
+        "surface": "asphalt",
+        "wikidata": "Q59395485"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28538646,
+      "center": {
+        "lat": 48.2136208,
+        "lon": 16.3364643
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "71",
+        "addr:postcode": "1160",
+        "addr:street": "Brunnengasse",
+        "amenity": "arts_centre",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date": "2026-10-30",
+        "name": "Brunnenpassage",
+        "roof:levels": "0",
+        "website": "https://www.brunnenpassage.at/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28538680,
+      "center": {
+        "lat": 48.212128,
+        "lon": 16.3402662
+      },
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "church",
+        "building:material": "brick",
+        "check_date": "2024-11-10",
+        "denomination": "catholic",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Breitenfelder Pfarrkirche hl. Franziskus Seraphicus",
+        "name:etymology": "Franz von Assisi",
+        "name:etymology:wikidata": "Q676555",
+        "ref:at:bda": "77033",
+        "religion": "christian",
+        "roof:colour": "#7f7c87",
+        "start_date": "1898",
+        "wikidata": "Q906333",
+        "wikimedia_commons": "Category:Breitenfelder_Pfarrkirche",
+        "wikipedia": "de:Breitenfelder Pfarrkirche"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28798683,
+      "center": {
+        "lat": 48.2049542,
+        "lon": 16.3669821
+      },
+      "tags": {
+        "architect": "Friedrich Ohmann",
+        "architect:wikidata": "Q79113",
+        "building:architecture": "art_nouveau",
+        "building:part": "yes",
+        "height": "11",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Palmenhaus",
+        "ref:at:bda": "13768",
+        "start_date": "1906",
+        "wikidata": "Q2048203",
+        "year_of_construction": "1902..1906"
+      }
+    },
+    {
+      "type": "way",
+      "id": 29065206,
+      "center": {
+        "lat": 48.2071275,
+        "lon": 16.3622595
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "service",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Heldenplatz",
+        "name:uk": "Гельденплац",
+        "service": "parking_aisle",
+        "smoothness": "good",
+        "surface": "asphalt",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 39814130,
+      "center": {
+        "lat": 48.2092334,
+        "lon": 16.3548767
+      },
+      "tags": {
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 50558130,
+      "center": {
+        "lat": 48.2115766,
+        "lon": 16.3391674
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "84",
+        "addr:postcode": "1080",
+        "addr:street": "Josefstädter Straße",
+        "building": "train_station",
+        "building:levels": "2",
+        "height": "6",
+        "name": "Josefstädter Straße",
+        "public_transport": "station",
+        "roof:levels": "0",
+        "roof:shape": "flat",
+        "source": "wien.gv.at"
+      }
+    },
+    {
+      "type": "way",
+      "id": 73313455,
+      "center": {
+        "lat": 48.2068348,
+        "lon": 16.3647112
+      },
+      "tags": {
+        "bicycle": "yes",
+        "highway": "residential",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxspeed": "30",
+        "motor_vehicle": "no",
+        "name": "Heldenplatz",
+        "psv": "yes",
+        "sidewalk:left": "yes",
+        "sidewalk:left:surface": "asphalt",
+        "sidewalk:right": "separate",
+        "smoothness": "good",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 91728120,
+      "center": {
+        "lat": 48.2065236,
+        "lon": 16.3595174
+      },
+      "tags": {
+        "architect": "Theophil Hansen",
+        "architect:wikidata": "Q78638",
+        "building": "yes",
+        "building:architecture": "neo-renaissance",
+        "castle_type": "palace",
+        "height": "26.5",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "castle",
+        "name": "Palais Epstein",
+        "ref:at:bda": "50471",
+        "source": "wien.gv.at",
+        "start_date": "1871",
+        "wikidata": "Q2046959",
+        "wikimedia_commons": "Category:Palais Epstein",
+        "wikipedia": "de:Palais Epstein",
+        "year_of_construction": "1869..1871"
+      }
+    },
+    {
+      "type": "way",
+      "id": 97254680,
+      "center": {
+        "lat": 48.2074957,
+        "lon": 16.3524679
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "13",
+        "addr:postcode": "1080",
+        "addr:street": "Lange Gasse",
+        "building": "yes",
+        "building:levels": "5",
+        "name": "Hotel Rathaus",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 97349393,
+      "center": {
+        "lat": 48.209713,
+        "lon": 16.3483079
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "no",
+        "parking:right": "street_side",
+        "parking:right:orientation": "parallel",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete:plates",
+        "voltage": "600"
+      }
+    },
+    {
+      "type": "way",
+      "id": 126907684,
+      "center": {
+        "lat": 48.2092997,
+        "lon": 16.353427
+      },
+      "tags": {
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 128038430,
+      "center": {
+        "lat": 48.2092334,
+        "lon": 16.3538199
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "timetable",
+        "lit": "yes",
+        "name": "Rathaus",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "no",
+        "tactile_paving": "no",
+        "tram": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 128038432,
+      "center": {
+        "lat": 48.2092567,
+        "lon": 16.3556017
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "realtime",
+        "departures_board:speech_output": "no",
+        "lit": "yes",
+        "name": "Rathaus",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "surface": "paved",
+        "tactile_paving": "no",
+        "tram": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 140066229,
+      "center": {
+        "lat": 48.2201513,
+        "lon": 16.3554857
+      },
+      "tags": {
+        "building": "university",
+        "building:levels": "6",
+        "name": "Universität Wien",
+        "roof:shape": "gabled"
+      }
+    },
+    {
+      "type": "way",
+      "id": 148729664,
+      "center": {
+        "lat": 48.2110905,
+        "lon": 16.3395976
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk:both": "separate",
+        "source": "yahoo",
+        "surface": "concrete"
+      }
+    },
+    {
+      "type": "way",
+      "id": 200338456,
+      "center": {
+        "lat": 48.2189099,
+        "lon": 16.3530417
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "2-4, Hof 13",
+        "addr:postcode": "1090",
+        "addr:street": "Spitalgasse",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Baracken beim Narrenturm",
+        "source": "wien.gv.at"
+      }
+    },
+    {
+      "type": "way",
+      "id": 211634374,
+      "center": {
+        "lat": 48.2110645,
+        "lon": 16.3398288
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete"
+      }
+    },
+    {
+      "type": "way",
+      "id": 211634375,
+      "center": {
+        "lat": 48.2109501,
+        "lon": 16.3409299
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "no",
+        "parking:right": "lane",
+        "parking:right:orientation": "parallel",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 215607030,
+      "center": {
+        "lat": 48.2102618,
+        "lon": 16.3456107
+      },
+      "tags": {
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 219270808,
+      "center": {
+        "lat": 48.2138288,
+        "lon": 16.3352093
+      },
+      "tags": {
+        "bicycle": "yes",
+        "highway": "pedestrian",
+        "lit": "yes",
+        "name": "Yppenplatz",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 219645195,
+      "center": {
+        "lat": 48.2095331,
+        "lon": 16.349587
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:both": "no",
+        "sidewalk": "no",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 219735569,
+      "center": {
+        "lat": 48.2105475,
+        "lon": 16.3442973
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "no",
+        "parking:right": "lane",
+        "parking:right:orientation": "parallel",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 227055069,
+      "center": {
+        "lat": 48.2111346,
+        "lon": 16.3359968
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "landuse": "retail",
+        "name": "Brunnenmarkt",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 06:00-18:00",
+        "website": "https://www.wien.gv.at/freizeit/einkaufen/maerkte/lebensmittel/brunnenmarkt.html",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 242928668,
+      "center": {
+        "lat": 48.2103313,
+        "lon": 16.3343614
+      },
+      "tags": {
+        "building": "apartments",
+        "building:levels": "4",
+        "name": "Residenz Brunnenmarkt",
+        "roof:levels": "1"
+      }
+    },
+    {
+      "type": "way",
+      "id": 247977997,
+      "center": {
+        "lat": 48.209432,
+        "lon": 16.3509813
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:both": "no",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 253330340,
+      "center": {
+        "lat": 48.2111194,
+        "lon": 16.339151
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "realtime",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 253330342,
+      "center": {
+        "lat": 48.2110799,
+        "lon": 16.3363508
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "realtime",
+        "lit": "yes",
+        "name": "Brunnenmarkt",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 253330343,
+      "center": {
+        "lat": 48.2111065,
+        "lon": 16.3356114
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "check_date:lit": "2023-05-06",
+        "departures_board": "realtime",
+        "lit": "yes",
+        "name": "Brunnenmarkt",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 253330344,
+      "center": {
+        "lat": 48.2110488,
+        "lon": 16.3391607
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "realtime",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 260383372,
+      "center": {
+        "lat": 48.2056509,
+        "lon": 16.362697
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxheight": "default",
+        "maxspeed": "30",
+        "name": "Heldenplatz",
+        "sidewalk": "no",
+        "smoothness": "good",
+        "surface": "asphalt",
+        "tunnel": "building_passage",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 260383373,
+      "center": {
+        "lat": 48.2062157,
+        "lon": 16.3636547
+      },
+      "tags": {
+        "check_date:cycleway": "2026-10-08",
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lanes": "2",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Heldenplatz",
+        "name:uk": "Гельденплац",
+        "sidewalk:both": "separate",
+        "smoothness": "intermediate",
+        "surface": "asphalt",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263674443,
+      "center": {
+        "lat": 48.2113981,
+        "lon": 16.3388159
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "no",
+        "bin": "yes",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 264828970,
+      "center": {
+        "lat": 48.2058052,
+        "lon": 16.3640638
+      },
+      "tags": {
+        "access": "private",
+        "amenity": "parking",
+        "name": "Heldenplatz",
+        "name:uk": "Гельденплац",
+        "parking": "surface",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 271497636,
+      "center": {
+        "lat": 48.2101474,
+        "lon": 16.3606695
+      },
+      "tags": {
+        "assistance:visual": "high_contrast",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "lit": "yes",
+        "name": "Rathausplatz, Burgtheater",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "no",
+        "tactile_paving": "no",
+        "toilets:wheelchair": "yes",
+        "tram": "yes",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 271497637,
+      "center": {
+        "lat": 48.2109085,
+        "lon": 16.3606736
+      },
+      "tags": {
+        "assistance:acoustic": "speech_output",
+        "assistance:acoustic:activation": "button",
+        "assistance:visual": "high_contrast",
+        "bench": "yes",
+        "bin": "yes",
+        "departures_board": "realtime",
+        "departures_board:speech_output": "on_button_press",
+        "departures_board:speech_output:de": "on_button_press",
+        "lit": "yes",
+        "name": "Rathausplatz, Burgtheater",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "speech_output": "departures",
+        "tactile_paving": "no",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 304968673,
+      "center": {
+        "lat": 48.211645,
+        "lon": 16.339541
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "no",
+        "bin": "yes",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 335982323,
+      "center": {
+        "lat": 48.2031936,
+        "lon": 16.3586023
+      },
+      "tags": {
+        "alt_name": "Museumsquartier",
+        "landuse": "commercial",
+        "name": "MuseumsQuartier",
+        "short_name": "MQ",
+        "toilets:wheelchair": "yes",
+        "tourism": "attraction",
+        "website": "https://www.mqw.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q699943",
+        "wikipedia": "de:MuseumsQuartier"
+      }
+    },
+    {
+      "type": "way",
+      "id": 339373201,
+      "center": {
+        "lat": 48.2133955,
+        "lon": 16.334755
+      },
+      "tags": {
+        "bicycle": "yes",
+        "cycleway:left": "lane",
+        "cycleway:left:lane": "advisory",
+        "cycleway:left:oneway": "-1",
+        "cycleway:right": "no",
+        "highway": "residential",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Yppenplatz",
+        "oneway": "yes",
+        "oneway:bicycle": "no",
+        "sidewalk": "left",
+        "source:maxspeed": "AT:zone:30",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 408557296,
+      "center": {
+        "lat": 48.2108279,
+        "lon": 16.3554381
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "indoor": "corridor",
+        "level": "-1",
+        "name": "Rathaus",
+        "network": "VOR",
+        "public_transport": "platform",
+        "railway": "platform",
+        "ref": "1",
+        "subway": "yes",
+        "tactile_paving": "yes",
+        "tunnel": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 408572939,
+      "center": {
+        "lat": 48.2098327,
+        "lon": 16.3554593
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "indoor": "corridor",
+        "level": "-1",
+        "name": "Rathaus",
+        "network": "VOR",
+        "public_transport": "platform",
+        "railway": "platform",
+        "ref": "2",
+        "subway": "yes",
+        "tactile_paving": "yes",
+        "tunnel": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 429255633,
+      "center": {
+        "lat": 48.2114632,
+        "lon": 16.3392459
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "level": "1",
+        "lit": "yes",
+        "local_ref": "1",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "subway": "yes",
+        "tactile_paving": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 429255634,
+      "center": {
+        "lat": 48.2114852,
+        "lon": 16.3391225
+      },
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "level": "1",
+        "lit": "yes",
+        "local_ref": "2",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "yes",
+        "subway": "yes",
+        "tactile_paving": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 429255892,
+      "center": {
+        "lat": 48.2117095,
+        "lon": 16.3394799
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "no",
+        "bin": "no",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "platform",
+        "railway": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes",
+        "tram": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 437877428,
+      "center": {
+        "lat": 48.2054665,
+        "lon": 16.3623937
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "highway": "residential",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Heldenplatz",
+        "sidewalk:both": "separate",
+        "smoothness": "excellent",
+        "surface": "asphalt",
+        "wikidata": "Q700128"
+      }
+    },
+    {
+      "type": "way",
+      "id": 474366383,
+      "center": {
+        "lat": 48.2068468,
+        "lon": 16.3596335
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "vor 1",
+        "addr:postcode": "1010",
+        "addr:street": "Dr.-Karl-Renner-Ring",
+        "amenity": "fast_food",
+        "check_date": "2025-10-04",
+        "check_date:diet:gluten_free": "2025-10-04",
+        "check_date:diet:halal": "2025-05-20",
+        "check_date:diet:kosher": "2025-05-20",
+        "cuisine": "regional",
+        "delivery": "no",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegetarian": "no",
+        "drive_through": "no",
+        "indoor_seating": "no",
+        "name": "Würstelstand beim Parlament",
+        "opening_hours": "Mo-Su 06:00-03:00",
+        "operator": "TASKIN GmbH",
+        "outdoor_seating": "no",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "outside",
+        "takeaway": "only",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 478860762,
+      "center": {
+        "lat": 48.2113134,
+        "lon": 16.3396785
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "platform",
+        "lit": "yes",
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 566224843,
+      "center": {
+        "lat": 48.2045961,
+        "lon": 16.3689872
+      },
+      "tags": {
+        "alt_name": "Straßenwaschender Jude",
+        "artist:wikidata": "Q78646",
+        "artist_name": "Alfred Hrdlicka",
+        "building": "yes",
+        "description:en": "4 piece sculpture dedicated to the victims of war & fascism. Erected on th site of Philipphof, a residential building destroyed by a 1945 allied bombing raid, killing about 300 people. (Source: Vien government website)",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "monument",
+        "name": "Mahnmal gegen Krieg und Faschismus",
+        "name:ru": "Монумент против фашизма (еврей моет улицу)",
+        "official_name": "Mahnmal gegen Krieg und Faschismus",
+        "ref:at:bda": "20932",
+        "ref:wien:kultur": "60969",
+        "start_date": "1988",
+        "website": "https://www.geschichtewiki.wien.gv.at/Mahnmal_gegen_Krieg_und_Faschismus",
+        "wheelchair": "yes",
+        "wikidata": "Q1255665",
+        "wikipedia": "de:Mahnmal gegen Krieg und Faschismus"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1016952212,
+      "center": {
+        "lat": 48.2122741,
+        "lon": 16.3606002
+      },
+      "tags": {
+        "area": "yes",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "platform",
+        "lit": "yes",
+        "name": "Wien Rathaus",
+        "operator": "BigBus",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1059244006,
+      "center": {
+        "lat": 48.2110244,
+        "lon": 16.3402183
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1087845887,
+      "center": {
+        "lat": 48.2135647,
+        "lon": 16.3358379
+      },
+      "tags": {
+        "bicycle": "yes",
+        "highway": "pedestrian",
+        "lit": "yes",
+        "name": "Yppenplatz",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1184986409,
+      "center": {
+        "lat": 48.2106748,
+        "lon": 16.3434321
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "lane",
+        "parking:left:orientation": "parallel",
+        "parking:right": "no",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1184986412,
+      "center": {
+        "lat": 48.2103922,
+        "lon": 16.3450125
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1221983113,
+      "center": {
+        "lat": 48.2108228,
+        "lon": 16.3421161
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "lane",
+        "parking:left:orientation": "parallel",
+        "parking:right": "no",
+        "sidewalk": "separate",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1500269791,
+      "center": {
+        "lat": 48.2093878,
+        "lon": 16.351794
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1500269792,
+      "center": {
+        "lat": 48.2094818,
+        "lon": 16.3502187
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "no",
+        "parking:right": "street_side",
+        "parking:right:orientation": "parallel",
+        "sidewalk": "no",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1500269793,
+      "center": {
+        "lat": 48.2096001,
+        "lon": 16.3490421
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "parking:left": "street_side",
+        "parking:left:orientation": "parallel",
+        "parking:right": "no",
+        "sidewalk": "no",
+        "source": "yahoo",
+        "surface": "concrete:plates"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1500269794,
+      "center": {
+        "lat": 48.2100086,
+        "lon": 16.3467954
+      },
+      "tags": {
+        "cycleway:both": "no",
+        "embedded_rails": "tram",
+        "foot": "use_sidepath",
+        "highway": "tertiary",
+        "lane_markings": "no",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Josefstädter Straße",
+        "sidewalk": "separate",
+        "source": "yahoo",
+        "surface": "concrete:plates",
+        "voltage": "600"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1528143071,
+      "center": {
+        "lat": 48.2131197,
+        "lon": 16.3601452
+      },
+      "tags": {
+        "amenity": "university",
+        "education": "university",
+        "landuse": "education",
+        "name": "Universität Wien"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 11101,
+      "center": {
+        "lat": 48.2108418,
+        "lon": 16.3573198
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1",
+        "addr:postcode": "1010",
+        "addr:street": "Rathausplatz",
+        "alt_name": "Wiener Rathaus",
+        "amenity": "townhall",
+        "architect": "Friedrich von Schmidt",
+        "architect:wikidata": "Q77431",
+        "architect:wikipedia": "de:Friedrich von Schmidt",
+        "building": "government",
+        "building:architecture": "gothic_revival",
+        "building:levels": "3",
+        "description:en": "Seat of the mayor and city council of the city of Vienna andgovernor and assembly of the State of Vienna. Neo-gothic building. (Source: Wikipedia:en)",
+        "height": "37",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Rathaus",
+        "name:be": "Ратуша",
+        "name:cs": "Vídeňská radnice",
+        "name:de": "Rathaus",
+        "name:en": "Vienna City Hall",
+        "name:es": "Ayuntamiento de Viena",
+        "name:fr": "Hôtel de Ville",
+        "name:hr": "Bečka gradska vijećnica",
+        "name:ja": "市庁舎",
+        "name:ml": "വിയന്ന സിറ്റി ഹാൾ",
+        "name:ru": "Ратуша",
+        "name:uk": "Віденська ратуша",
+        "ref:at:bda": "50427",
+        "start_date": "1883",
+        "tourism": "attraction",
+        "townhall:type": "city",
+        "type": "multipolygon",
+        "website": "https://www.wien.gv.at/verwaltung/rathaus",
+        "wikidata": "Q686468",
+        "wikimedia_commons": "Category:Vienna_City_Hall",
+        "wikipedia": "de:Wiener Rathaus",
+        "wikipedia:en": "Rathaus, Vienna"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 11187,
+      "center": {
+        "lat": 48.2052686,
+        "lon": 16.3597531
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "7",
+        "addr:postcode": "1010",
+        "addr:street": "Burgring",
+        "architect": "Gottfried Semper;Carl von Hasenauer",
+        "architect:wikidata": "Q61342;Q84541",
+        "building": "museum",
+        "building:levels": "4",
+        "description:en": "39 exhibit halls include the world’s largest and oldest public collection of meteorites, a new permanent anthropological exhibition on the origins and development of humans, and a Digital Planetarium. (Source: official website)",
+        "email": "info@nhm-wien.ac.at",
+        "fee": "yes",
+        "fee:icom_member": "no",
+        "height": "30",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Naturhistorisches Museum",
+        "name:be": "Музей прыродазнаўства",
+        "name:cs": "Přírodovědné muzeum",
+        "name:de": "Naturhistorisches Museum",
+        "name:en": "Natural History Museum Vienna",
+        "name:es": "Museo de Historia Natural de Viena",
+        "name:fr": "Muséum d'Histoire Naturelle",
+        "name:ja": "自然史博物館",
+        "name:ko": "빈 자연사 박물관",
+        "name:ml": "പ്രകൃതി ചരിത്ര മ്യൂസിയം",
+        "name:ru": "Музей Естествознания",
+        "name:zh": "自然历史博物馆",
+        "official_name": "Naturhistorisches Museum Wien",
+        "opening_hours": "Th-Mo 09:00-18:30; We 09:00-21:00",
+        "operator": "Republik Österreich",
+        "phone": "+43 1 52177-0",
+        "ref:at:bda": "13766",
+        "roof:shape": "many",
+        "short_name": "nhm",
+        "start_date": "1889-08-10",
+        "tourism": "museum",
+        "type": "multipolygon",
+        "website": "https://www.nhm-wien.ac.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q688704",
+        "wikipedia": "de:Naturhistorisches Museum Wien"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 20165,
+      "center": {
+        "lat": 48.2037371,
+        "lon": 16.3617795
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "5",
+        "addr:postcode": "1010",
+        "addr:street": "Burgring",
+        "architect": "Carl von Hasenauer;Gottfried Semper",
+        "architect:wikidata": "Q84541;Q61342",
+        "building": "museum",
+        "building:levels": "4",
+        "check_date": "2024-05-19",
+        "description:en": "Museum of art history main collections: classic western paintings, scuplture, coins, egytptian, greek/roman.",
+        "fee": "yes",
+        "fee:conditional": "no @ (age < 19)",
+        "fee:icom_member": "no",
+        "height": "30",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "museum": "art",
+        "name": "Kunsthistorisches Museum",
+        "name:cs": "Uměleckohistorické muzeum",
+        "name:de": "Kunsthistorisches Museum",
+        "name:en": "Museum of Art History",
+        "name:es": "Museo de Historia del Arte",
+        "name:fr": "Musée des Beaux Arts",
+        "name:ja": "美術史博物館",
+        "name:ko": "빈 미술사 박물관",
+        "name:ru": "Художественно-исторический музей",
+        "name:sr": "Музеј историје уметности",
+        "name:zh": "艺术历史博物馆",
+        "opening_hours": "Tu-We, Fr-Su 10:00-18:00; Th 10:00-21:00",
+        "operator": "Republik Österreich",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+43 1 52524-4025",
+        "ref:at:bda": "13763",
+        "roof:shape": "many",
+        "start_date": "1891-10-17",
+        "tourism": "museum",
+        "type": "multipolygon",
+        "website": "https://www.khm.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q95569",
+        "wikipedia": "de:Kunsthistorisches Museum Wien"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 20875,
+      "center": {
+        "lat": 48.2165436,
+        "lon": 16.3537539
+      },
+      "tags": {
+        "building": "university",
+        "height": "16",
+        "name": "Altes AKH",
+        "note": "Teil des Uni-Campus",
+        "roof:colour": "#a3331e",
+        "roof:height": "6",
+        "roof:shape": "hipped",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 33319,
+      "center": {
+        "lat": 48.2011474,
+        "lon": 16.4357944
+      },
+      "tags": {
+        "amenity": "university",
+        "int_name": "Vienna University of Technology",
+        "name": "Technische Universität Wien",
+        "name:de": "Technische Universität Wien",
+        "name:en": "Vienna University of Technology",
+        "name:es": "Universidad Técnica de Viena",
+        "name:ja": "ウィーン工科大学",
+        "short_name": "TU Wien",
+        "type": "site",
+        "url": "https://www.tuwien.ac.at",
+        "wikidata": "Q689400",
+        "wikipedia": "de:Technische Universität Wien"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 54286,
+      "center": {
+        "lat": 48.208089,
+        "lon": 16.3584467
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "3",
+        "addr:postcode": "1010",
+        "addr:street": "Dr.-Karl-Renner-Ring",
+        "alt_name": "Parlamentsgebäude",
+        "architect": "Theophil Hansen",
+        "architect:wikidata": "Q78638",
+        "building": "government",
+        "building:architecture": "greek_revival",
+        "building:levels": "4",
+        "contact:postcode": "1017",
+        "description": "Austrian national parliament building. Neoclassical style. (Source: Wikipedia:de)",
+        "email": "services@parlament.gv.at",
+        "government": "parliament",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "yes",
+        "image": "https://commons.wikimedia.org/wiki/File:Wien_Parlament-01.jpg",
+        "name": "Parlament",
+        "name:be": "Парламент",
+        "name:de": "Parlament",
+        "name:en": "Austrian Parliament Building",
+        "name:es": "Parlamento Austriaco",
+        "name:ja": "国会議事堂",
+        "name:ru": "Австрийский Парламент",
+        "name:uk": "Австрійський Парламент",
+        "name:zh": "奥地利国会大厦",
+        "office": "government",
+        "operator": "Republik Österreich",
+        "phone": "+43 1 401 10-0",
+        "ref:at:bda": "30708",
+        "start_date": "1883",
+        "toilets:wheelchair": "yes",
+        "tourism": "attraction",
+        "type": "multipolygon",
+        "website": "https://www.parlament.gv.at/",
+        "wheelchair": "yes",
+        "wikidata": "Q702121",
+        "wikimedia_commons": "Category:Exterior of the Austrian Parliament Building",
+        "wikipedia": "de:Parlamentsgebäude (Wien)"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 58548,
+      "center": {
+        "lat": 48.2185827,
+        "lon": 16.3531815
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "2-4, Hof 6",
+        "addr:postcode": "1090",
+        "addr:street": "Spitalgasse",
+        "building": "hospital",
+        "building:levels": "5",
+        "building:use": "museum",
+        "description:en": "Continental Europe's oldest building for the accommodation of mental patients. Now home to the Federal Pathologic-Anatomical Museum Vienna",
+        "fee": "yes",
+        "height": "16",
+        "name": "Narrenturm",
+        "roof:colour": "#a3331e",
+        "roof:height": "4",
+        "roof:shape": "hipped",
+        "source": "http://www.univie.ac.at/Achse/narrenturm/",
+        "source:description": "wikipedia:en",
+        "start_date": "1784",
+        "type": "multipolygon",
+        "website": "https://www.nhm-wien.ac.at/narrenturm",
+        "wikidata": "Q873715",
+        "wikipedia": "de:Narrenturm",
+        "wikipedia:en": "Narrenturm (hospital)"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 1392664,
+      "center": {
+        "lat": 48.2136239,
+        "lon": 16.3521071
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "8",
+        "addr:postcode": "1080",
+        "addr:street": "Laudongasse",
+        "building": "hotel",
+        "building:levels": "4",
+        "name": "The Levante Rathaus",
+        "roof:levels": "1",
+        "tourism": "hotel",
+        "type": "multipolygon",
+        "website": "https://www.thelevante-rathaus.com/"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 1421276,
+      "center": {
+        "lat": 48.2087397,
+        "lon": 16.3540067
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "4-6",
+        "addr:postcode": "1080",
+        "addr:street": "Josefsgasse",
+        "building": "hotel",
+        "building:levels": "5",
+        "check_date": "2024-04-28",
+        "email": "office@josefshof.com",
+        "fax": "+43 1 40419-150",
+        "internet_access": "wlan",
+        "name": "Hotel Mercure Josefshof Wien Am Rathaus",
+        "operator": "Accor",
+        "phone": "+43 1 40419",
+        "roof:levels": "1",
+        "rooms": "170",
+        "tourism": "hotel",
+        "type": "multipolygon",
+        "website": "https://www.josefshof.com/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 1441683,
+      "center": {
+        "lat": 48.2131131,
+        "lon": 16.3601557
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "1",
+        "addr:postcode": "1010",
+        "addr:street": "Universitätsring",
+        "alt_name": "Uni Wien",
+        "architect": "Heinrich von Ferstel",
+        "architect:wikidata": "Q78792",
+        "building": "university",
+        "building:levels": "2",
+        "description": "Hauptgebäude",
+        "height": "33",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "name": "Universität Wien",
+        "name:de": "Universität Wien",
+        "name:en": "University of Vienna",
+        "name:es": "Universidad de Viena",
+        "name:hr": "Sveučilište u Beču",
+        "name:ml": "വിയന്ന സർവകലാശാല",
+        "old_name": "Alma Mater Rudolphina Vindobonensis",
+        "operator": "Universität Wien",
+        "operator:wikidata": "Q165980",
+        "ref:at:bda": "30700",
+        "reg_name": "Hauptuni;Hauptuniversität",
+        "short_name": "Uni Wien",
+        "start_date": "1884",
+        "type": "multipolygon",
+        "url": "http://www.univie.ac.at/",
+        "website": "https://www.univie.ac.at/",
+        "wikidata": "Q19971231",
+        "wikipedia": "de:Hauptgebäude der Universität Wien"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 1937535,
+      "center": {
+        "lat": 48.2031936,
+        "lon": 16.3586023
+      },
+      "tags": {
+        "building": "civic",
+        "building:architecture": "baroque",
+        "building:levels": "6",
+        "building:start_date": "1725",
+        "building:wikipedia": "de:Hofstallungen (Wien)",
+        "height": "18",
+        "heritage": "yes",
+        "layer": "2",
+        "name": "MuseumsQuartier",
+        "old_name": "Hofstallungen",
+        "roof:colour": "#a3331e",
+        "roof:height": "7",
+        "roof:shape": "hipped",
+        "start_date": "2001-06..2001-09",
+        "type": "multipolygon",
+        "wikidata": "Q699943",
+        "wikipedia": "de:MuseumsQuartier"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2005424,
+      "center": {
+        "lat": 48.2249318,
+        "lon": 16.3735807
+      },
+      "tags": {
+        "colour": "#C00808",
+        "colour:text": "white",
+        "from": "Hillerstraße",
+        "gtfs:feed": "AT-VOR",
+        "gtfs:route_id": "at:vor:3112:",
+        "gtfs:shape_id": "22-12-j26-1.3.H",
+        "gtfs:trip_id:like": "%22-12-j26-1.3.H",
+        "gtfs:trip_id:sample": "1.T8.22-12-j26-1.3.H",
+        "name": "Tram 12: Hillerstraße => Josefstädter Straße",
+        "network": "VOR",
+        "network:wikidata": "Q2516485",
+        "operator": "Wiener Linien",
+        "operator:short": "WL",
+        "operator:wikidata": "Q668849",
+        "public_transport:version": "2",
+        "ref": "12",
+        "route": "tram",
+        "to": "Josefstädter Straße",
+        "type": "route",
+        "wikidata": "Q136039113"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 3898177,
+      "center": {
+        "lat": 48.2053771,
+        "lon": 16.364974
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:postcode": "1010",
+        "addr:street": "Heldenplatz",
+        "architect": "Gottfried Semper",
+        "architect:wikidata": "Q61342",
+        "building:architecture": "neoclassicism",
+        "building:part": "yes",
+        "fee": "yes",
+        "heritage": "2",
+        "heritage:operator": "bda",
+        "historic": "heritage",
+        "name": "Neue Burg",
+        "name:ru": "Новый Хофбург",
+        "ref:at:bda": "13767",
+        "type": "multipolygon",
+        "website": "https://www.khm.at/",
+        "wikidata": "Q1674603",
+        "wikimedia_commons": "Category:Neue_Burg",
+        "wikipedia": "de:Neue Burg"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 6115519,
+      "center": {
+        "lat": 48.2103318,
+        "lon": 16.3553793
+      },
+      "tags": {
+        "name": "Rathaus",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_area",
+        "type": "public_transport",
+        "uic_name": "Wien Rathaus",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 6386602,
+      "center": {
+        "lat": 48.2114721,
+        "lon": 16.3391716
+      },
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "stop_area",
+        "type": "public_transport",
+        "uic_name": "Wien Josefstädter Straße"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 7496959,
+      "center": {
+        "lat": 48.2105306,
+        "lon": 16.3606736
+      },
+      "tags": {
+        "name": "Rathausplatz, Burgtheater",
+        "operator": "VOR",
+        "public_transport": "stop_area",
+        "type": "public_transport"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 7501982,
+      "center": {
+        "lat": 48.2110926,
+        "lon": 16.3359667
+      },
+      "tags": {
+        "name": "Brunnenmarkt",
+        "network": "VOR",
+        "public_transport": "stop_area",
+        "type": "public_transport"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 7822129,
+      "center": {
+        "lat": 48.213847,
+        "lon": 16.3577192
+      },
+      "tags": {
+        "name": "Neues Institutsgebäude der Universität Wien",
+        "type": "building"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 8959065,
+      "center": {
+        "lat": 48.2181758,
+        "lon": 16.3497857
+      },
+      "tags": {
+        "addr:city": "Wien",
+        "addr:country": "AT",
+        "addr:housenumber": "23",
+        "addr:postcode": "1090",
+        "addr:street": "Spitalgasse",
+        "amenity": "university",
+        "internet_access": "yes",
+        "internet_access:ssid": "eduroam",
+        "name": "Medizinische Universität Wien",
+        "type": "site",
+        "website": "https://www.meduniwien.ac.at/",
+        "wikidata": "Q700731",
+        "wikipedia": "en:Medical University of Vienna"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10925149,
+      "center": {
+        "lat": 48.2101648,
+        "lon": 16.3473718
+      },
+      "tags": {
+        "distance": "1.190",
+        "name": "Josefstädter Straße",
+        "route": "road",
+        "type": "route",
+        "wikidata": "Q88901788",
+        "wikipedia": "de:Josefstädter Straße"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 19726848,
+      "center": {
+        "lat": 48.2098468,
+        "lon": 16.3550829
+      },
+      "tags": {
+        "name": "Rathaus",
+        "network": "VOR",
+        "opening_date": "2030",
+        "public_transport": "stop_area",
+        "type": "public_transport",
+        "uic_name": "Wien Rathaus"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 19726849,
+      "center": {
+        "lat": 48.2092428,
+        "lon": 16.3547242
+      },
+      "tags": {
+        "name": "Rathaus",
+        "network": "VOR",
+        "operator": "Wiener Linien",
+        "operator:wikidata": "Q668849",
+        "public_transport": "stop_area",
+        "type": "public_transport",
+        "uic_name": "Wien Rathaus"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 19727120,
+      "center": {
+        "lat": 48.2114722,
+        "lon": 16.3391195
+      },
+      "tags": {
+        "name": "Josefstädter Straße",
+        "network": "VOR",
+        "public_transport": "stop_area",
+        "type": "public_transport"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 21143222,
+      "center": {
+        "lat": 48.2171438,
+        "lon": 16.3537728
+      },
+      "tags": {
+        "name": "Campus der Universität Wien",
+        "type": "boundary",
+        "wikidata": "Q37863450",
+        "wikipedia": "de:Campus der Universität Wien"
+      }
+    }
+  ]
+}

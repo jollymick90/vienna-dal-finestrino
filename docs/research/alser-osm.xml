@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.1 (417138 spike-06.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="361523303" visible="true" version="8" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171524" lon="16.3418847"/>
+ <node id="361523304" visible="true" version="8" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170374" lon="16.3418255"/>
+ <node id="361523306" visible="true" version="8" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170503" lon="16.3417714"/>
+ <node id="361523308" visible="true" version="6" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2166364" lon="16.3415482"/>
+ <node id="361523309" visible="true" version="6" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2166236" lon="16.3416022"/>
+ <node id="361523310" visible="true" version="6" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165060" lon="16.3415349"/>
+ <node id="361523311" visible="true" version="7" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164501" lon="16.3417721"/>
+ <node id="361523313" visible="true" version="7" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165731" lon="16.3418338"/>
+ <node id="361523315" visible="true" version="6" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165602" lon="16.3418887"/>
+ <node id="361523317" visible="true" version="7" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2169694" lon="16.3421058"/>
+ <node id="361523319" visible="true" version="7" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2169819" lon="16.3420533"/>
+ <node id="361523320" visible="true" version="6" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170953" lon="16.3421174"/>
+ <node id="1606872486" visible="true" version="2" changeset="14253895" timestamp="2012-12-12T21:25:01Z" user="evod" uid="298560" lat="48.2164945" lon="16.3415958"/>
+ <node id="2063822324" visible="true" version="5" changeset="182134323" timestamp="2026-05-02T20:27:10Z" user="FDMS4" uid="20648717" lat="48.2167657" lon="16.3419939">
+  <tag k="entrance" v="yes"/>
+  <tag k="name" v="Lazarettgasse, Kinderspitalgasse"/>
+  <tag k="railway" v="subway_entrance"/>
+  <tag k="wheelchair" v="no"/>
+ </node>
+ <node id="2063822325" visible="true" version="5" changeset="182134323" timestamp="2026-05-02T20:27:10Z" user="FDMS4" uid="20648717" lat="48.2168460" lon="16.3416641">
+  <tag k="entrance" v="yes"/>
+  <tag k="name" v="Hernalser Hauptstraße, Jörgerstraße"/>
+  <tag k="railway" v="subway_entrance"/>
+  <tag k="wheelchair" v="yes"/>
+ </node>
+ <node id="6833409155" visible="true" version="1" changeset="75050347" timestamp="2019-09-28T22:56:02Z" user="korridor" uid="2464030" lat="48.2170566" lon="16.3420933">
+  <tag k="entrance" v="yes"/>
+ </node>
+ <node id="6833409156" visible="true" version="1" changeset="75050347" timestamp="2019-09-28T22:56:02Z" user="korridor" uid="2464030" lat="48.2171084" lon="16.3418648">
+  <tag k="entrance" v="yes"/>
+ </node>
+ <node id="9434570937" visible="true" version="1" changeset="116399252" timestamp="2022-01-20T19:26:58Z" user="mapperich" uid="8772934" lat="48.2164698" lon="16.3417002"/>
+ <node id="9434570938" visible="true" version="1" changeset="116399252" timestamp="2022-01-20T19:26:58Z" user="mapperich" uid="8772934" lat="48.2171095" lon="16.3420493"/>
+ <node id="9434570939" visible="true" version="1" changeset="116399252" timestamp="2022-01-20T19:26:58Z" user="mapperich" uid="8772934" lat="48.2171298" lon="16.3419665"/>
+ <node id="9434570940" visible="true" version="1" changeset="116399252" timestamp="2022-01-20T19:26:58Z" user="mapperich" uid="8772934" lat="48.2164901" lon="16.3416146"/>
+ <node id="9434570941" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170636" lon="16.3420971"/>
+ <node id="9434570943" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171041" lon="16.3420708"/>
+ <node id="9434570944" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171389" lon="16.3419295"/>
+ <node id="9434570946" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171192" lon="16.3418711"/>
+ <node id="9434570947" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164832" lon="16.3417862"/>
+ <node id="9434570948" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164636" lon="16.3417278"/>
+ <node id="9434570951" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164950" lon="16.3415810"/>
+ <node id="9434570952" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165373" lon="16.3415563"/>
+ <node id="9434570955" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165920" lon="16.3419013"/>
+ <node id="9434570957" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2166664" lon="16.3415681"/>
+ <node id="9434570960" visible="true" version="2" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170185" lon="16.3417586"/>
+ <node id="9442689082" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171167" lon="16.3418696"/>
+ <node id="9442689104" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164610" lon="16.3417264"/>
+ <node id="9442689105" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164824" lon="16.3417896"/>
+ <node id="9442689106" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2164976" lon="16.3415823"/>
+ <node id="9442689107" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165383" lon="16.3415522"/>
+ <node id="9442689108" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2166671" lon="16.3415645"/>
+ <node id="9442689110" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170194" lon="16.3417548"/>
+ <node id="9442689111" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171415" lon="16.3419309"/>
+ <node id="9442689112" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171200" lon="16.3418675"/>
+ <node id="9442689113" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2171061" lon="16.3420719"/>
+ <node id="9442689114" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2170630" lon="16.3421001"/>
+ <node id="9442689115" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2169393" lon="16.3420864"/>
+ <node id="9442689116" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2169386" lon="16.3420893"/>
+ <node id="9442719517" visible="true" version="1" changeset="116509504" timestamp="2022-01-23T17:54:38Z" user="mapperich" uid="8772934" lat="48.2165912" lon="16.3419050"/>
+ <node id="9509253445" visible="true" version="1" changeset="117453122" timestamp="2022-02-15T22:04:06Z" user="mapperich" uid="8772934" lat="48.2168729" lon="16.3416788"/>
+ <way id="32239306" visible="true" version="15" changeset="168861373" timestamp="2025-07-13T07:22:02Z" user="hlfan" uid="1848175">
+  <nd ref="361523303"/>
+  <nd ref="9442689112"/>
+  <nd ref="9434570946"/>
+  <nd ref="9442689082"/>
+  <nd ref="6833409156"/>
+  <nd ref="361523304"/>
+  <nd ref="361523306"/>
+  <nd ref="9442689110"/>
+  <nd ref="9434570960"/>
+  <nd ref="9509253445"/>
+  <nd ref="2063822325"/>
+  <nd ref="9434570957"/>
+  <nd ref="9442689108"/>
+  <nd ref="361523308"/>
+  <nd ref="361523309"/>
+  <nd ref="9434570952"/>
+  <nd ref="9442689107"/>
+  <nd ref="361523310"/>
+  <nd ref="9434570951"/>
+  <nd ref="9442689106"/>
+  <nd ref="1606872486"/>
+  <nd ref="9434570940"/>
+  <nd ref="9434570937"/>
+  <nd ref="9434570948"/>
+  <nd ref="9442689104"/>
+  <nd ref="361523311"/>
+  <nd ref="9442689105"/>
+  <nd ref="9434570947"/>
+  <nd ref="361523313"/>
+  <nd ref="361523315"/>
+  <nd ref="9442719517"/>
+  <nd ref="9434570955"/>
+  <nd ref="2063822324"/>
+  <nd ref="9442689115"/>
+  <nd ref="9442689116"/>
+  <nd ref="361523317"/>
+  <nd ref="361523319"/>
+  <nd ref="6833409155"/>
+  <nd ref="9434570941"/>
+  <nd ref="9442689114"/>
+  <nd ref="361523320"/>
+  <nd ref="9442689113"/>
+  <nd ref="9434570943"/>
+  <nd ref="9434570938"/>
+  <nd ref="9434570939"/>
+  <nd ref="9434570944"/>
+  <nd ref="9442689111"/>
+  <nd ref="361523303"/>
+  <tag k="addr:city" v="Wien"/>
+  <tag k="addr:housenumber" v="88"/>
+  <tag k="addr:place" v="Stadtbahnbogen"/>
+  <tag k="addr:postcode" v="1090"/>
+  <tag k="building" v="train_station"/>
+  <tag k="building:levels" v="3"/>
+  <tag k="height" v="10"/>
+  <tag k="name" v="Alser Straße"/>
+  <tag k="public_transport" v="station"/>
+  <tag k="roof:levels" v="0"/>
+  <tag k="roof:shape" v="flat"/>
+  <tag k="source" v="wien.gv.at"/>
+ </way>
+</osm>
