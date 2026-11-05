@@ -1,10 +1,14 @@
 import L from "leaflet";
-import { paths } from "./route-data.js";
-import tour from "./tour.json";
+import { builtinTour } from "./builtin-tour.js";
 
-const colors = ["#c83732", "#152d40"];
-
-export function createRouteMap(container, onTileError) {
+export function createRouteMap(container, onTileError, data = builtinTour) {
+  const paths = data.paths;
+  const tour = data.legs;
+  const textNode = (text) => {
+    const node = document.createElement("span");
+    node.textContent = text;
+    return node;
+  };
   const map = L.map(container, { scrollWheelZoom: false, zoomControl: false });
   // Above stop icons (600), below tooltips/popups (650/700).
   map.createPane("tourPosition").style.zIndex = "625";
@@ -12,9 +16,7 @@ export function createRouteMap(container, onTileError) {
   L.control
     .zoom({ zoomInTitle: "Ingrandisci", zoomOutTitle: "Riduci" })
     .addTo(map);
-  map.attributionControl.addAttribution(
-    "Tracciati © Stadt Wien – Wiener Linien, CC BY 4.0",
-  );
+  map.attributionControl.addAttribution(textNode(data.attribution).innerHTML);
   const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution:
@@ -29,39 +31,46 @@ export function createRouteMap(container, onTileError) {
 
   const legs = paths.map((points, index) =>
     L.polyline(points, {
-      color: colors[index < 4 ? 0 : 1],
+      color: tour[index].color,
       weight: 4,
       opacity: 0.85,
       className: `tram-leg tram-leg-${index}`,
     })
-      .bindTooltip(`${tour[index].segment} · ${tour[index].line}`)
+      .bindTooltip(textNode(`${tour[index].segment} · ${tour[index].line}`))
       .addTo(map),
   );
 
-  // The two tram stops at Schottentor are distinct; don't join them as tram track.
-  L.polyline([paths[3].at(-1), paths[4][0]], {
-    color: "#607280",
-    weight: 3,
-    dashArray: "4 6",
-    className: "transfer-path",
-  })
-    .bindTooltip("Cambio a piedi a Schottentor")
-    .addTo(map);
+  tour.forEach((leg, index) => {
+    if (!leg.transferBefore || !index) return;
+    L.polyline([paths[index - 1].at(-1), paths[index][0]], {
+      color: "#607280",
+      weight: 3,
+      dashArray: "4 6",
+      className: "transfer-path",
+    })
+      .bindTooltip(textNode(`Cambio a piedi a ${leg.from}`))
+      .addTo(map);
+  });
 
   const stops = paths.map((points, index) => ({
     point: points[0],
-    label: tour[index].segment.split(" → ")[0],
+    label: tour[index].from,
     index,
   }));
-  stops.push({ point: paths[7].at(-1), label: "Oper, Karlsplatz", index: 8 });
+  stops.push({
+    point: paths.at(-1).at(-1),
+    label: tour.at(-1).to,
+    index: tour.length,
+  });
   for (const { point, label, index } of stops) {
-    const transfer = index === 4;
+    const leg = tour[Math.min(index, tour.length - 1)];
+    const transfer = index < tour.length && leg.transferBefore;
     const name = transfer
-      ? "Cambio a Schottentor: tram 1 verso Reumannplatz"
+      ? `Cambio a ${label}: tram ${leg.lineNumber} verso ${leg.direction}`
       : `${index + 1}. ${label}`;
     const icon = L.divIcon({
-      className: `tour-stop ${index < 4 ? "line-44" : "line-1"}`,
-      html: `<span>${transfer ? "⇄" : index + 1}</span>`,
+      className: "tour-stop",
+      html: `<span style="color:${leg.color}">${transfer ? "⇄" : index + 1}</span>`,
       iconSize: [26, 26],
       iconAnchor: [13, 13],
     });
@@ -77,8 +86,8 @@ export function createRouteMap(container, onTileError) {
     marker.addTo(map);
     const popup = document.createElement("div");
     popup.textContent = transfer
-      ? "Schottentor: scendi dal 44 e prendi il tram 1 verso Reumannplatz."
-      : `${label}${index === 8 ? " · Scendi qui: fine del tour." : ""}`;
+      ? `${label}: scendi dal ${tour[index - 1].lineNumber} e prendi il tram ${leg.lineNumber} verso ${leg.direction}.`
+      : `${label}${index === tour.length ? " · Scendi qui: fine del tour." : ""}`;
     marker.bindPopup(popup);
   }
 
@@ -86,10 +95,15 @@ export function createRouteMap(container, onTileError) {
   let accuracyCircle;
   let following = true;
   let firstFix = true;
-  map.on("dragstart", () => { following = false; });
+  map.on("dragstart", () => {
+    following = false;
+  });
   function center() {
     following = true;
-    if (positionMarker) map.setView(positionMarker.getLatLng(), Math.max(map.getZoom(), 16), {animate: false});
+    if (positionMarker)
+      map.setView(positionMarker.getLatLng(), Math.max(map.getZoom(), 16), {
+        animate: false,
+      });
   }
   function fit() {
     following = false;
@@ -134,16 +148,22 @@ export function createRouteMap(container, onTileError) {
           fillOpacity: 1,
           className: "tour-position",
         }).addTo(map);
-        positionMarker.bindTooltip("", {permanent: true, direction: "top", offset: [0, -12], className: "position-label"});
+        positionMarker.bindTooltip("", {
+          permanent: true,
+          direction: "top",
+          offset: [0, -12],
+          className: "position-label",
+        });
       }
       positionMarker
         .setLatLng(latlng)
-        .setTooltipContent(
-          simulated ? "Posizione simulata" : "Sei qui",
-        )
+        .setTooltipContent(simulated ? "Posizione simulata" : "Sei qui")
         .bringToFront();
       accuracyCircle.setLatLng(latlng).setRadius(position.accuracy);
-      if (firstFix) { following = true; firstFix = false; }
+      if (firstFix) {
+        following = true;
+        firstFix = false;
+      }
       if (following) center();
     },
     online(online) {

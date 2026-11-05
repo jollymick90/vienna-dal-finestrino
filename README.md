@@ -1,6 +1,6 @@
 # Vienna dal finestrino
 
-PWA mobile in italiano, Svelte 5 + Vite, senza backend. Otto racconti MP3 locali per **Yppengasse → Schottentor (tram 44) → Oper, Karlsplatz (tram 1)**.
+PWA mobile in italiano, Svelte 5 + Vite, senza backend, con libreria di percorsi importabili. Il giro incluso contiene otto racconti (circa 3 minuti di audio su 3,7 km) per **Yppengasse → Schottentor (tram 44) → Oper, Karlsplatz (tram 1)**.
 
 A Schottentor cambia sul **tram 1 in direzione Reumannplatz**. Scendi a **Oper, Karlsplatz**. Percorsi e destinazioni sono quelli del servizio programmato per il **5 novembre 2026** forniti nel kit; l’app non consulta variazioni del servizio in tempo reale.
 
@@ -43,9 +43,39 @@ Non servono variabili d’ambiente, chiavi API o backend. Il deploy è lasciato 
 
 Per installare: usa la voce di installazione del browser su Android; in Safari su iPhone, Condividi → Aggiungi alla schermata Home. Tieni **pagina in primo piano e schermo acceso**: il browser può sospendere GPS o audio in background. La disponibilità dell’installazione dipende dal browser.
 
+## Aggiungere nuovi percorsi e audio generati dall’AI
+
+Il giro incluso è breve. Puoi aggiungere altri percorsi senza modificare codice o ripubblicare l’app, e selezionarli dal menu **Percorso da ascoltare**. La durata mostrata è quella effettiva degli MP3: non comprende viaggio, attese o soste.
+
+1. Apri **Aggiungi un percorso**. Scarica **modello JSON** e **prompt per AI**. Il modello esporta le geometrie del percorso selezionato; il prompt chiede linea, direzione, fermate e durata desiderata.
+2. Dai all’AI il modello e **il tracciato reale del nuovo tram**, ad esempio da GTFS/GPX/GeoJSON, con fonte e licenza. Chiedi racconti più estesi con durata compatibile con ciascuna tratta. Non basta cambiare il numero della linea sul tracciato del modello.
+3. Genera un MP3 per ogni racconto, con il nome indicato nel JSON. Puoi usare il servizio AI/TTS che preferisci: l’app non richiede API o account.
+4. Nel campo **File del percorso e audio MP3**, seleziona insieme il JSON e tutti gli MP3. L’app verifica geometrie, file mancanti e riproducibilità prima del salvataggio.
+5. Il nuovo percorso viene selezionato automaticamente: prova **Simula giro**, ascolta un audio, attendi **Pronta offline** e prova la ricarica in modalità aereo.
+
+Copie del kit sono disponibili anche nel repository: [modello JSON](docs/modello-percorso.json) e [prompt per l’AI](docs/PROMPT_NUOVO_PERCORSO.txt). Il modello usa le geometrie reali del giro incluso come esempio di formato, non costituisce un nuovo itinerario giornaliero.
+
+### Formato dei percorsi
+
+Il JSON contiene `version: 1`, `id` univoco (minuscole, numeri, trattini), `title`, `description`, `attribution` (fonte/licenza dei tracciati), e `legs` in ordine di viaggio. Ogni tratta contiene:
+
+- `line`: numero o nome del tram, come stringa; `direction`: destinazione esposta dal tram.
+- `from`, `to`: fermate iniziale e finale; `title`, `transcript`: racconto completo in italiano.
+- `audio`: nome locale del file, ad esempio `ring-01.mp3`; nessun URL o percorso di cartelle.
+- `path`: punti `[latitudine, longitudine]` nel senso di marcia. GeoJSON usa invece l’ordine inverso: convertirlo prima dell’importazione.
+- `transferBefore: true`: se si deve cambiare mezzo prima della tratta. Anche un cambio di linea/direzione viene evidenziato automaticamente. Ai cambi il GPS esclude inoltre i 35 metri attorno alla fermata d’arrivo del tram precedente, per non anticipare il nuovo racconto quando i tracciati si sovrappongono.
+
+Sono supportate da 1 a 500 tratte, non solo otto. Ogni geometria deve essere più lunga di 53 metri per consentire i margini del matcher. Limiti per importazione: 250 MB di audio, JSON di 10 MB, massimo 100.000 punti totali. Un identificativo già presente viene rifiutato: usa un nuovo `id` per una nuova versione. Il contenuto importato viene visualizzato come testo, mai HTML.
+
+### Salvataggio e offline
+
+I percorsi importati e gli MP3 sono salvati insieme in **IndexedDB sul dispositivo**, separatamente dalla cache versionata dell’app. Non vengono caricati su server e non si sincronizzano con altri telefoni o browser. L’ultima selezione viene ripristinata alla riapertura. La riproduzione usa Blob locali, disponibili offline.
+
+Un’importazione fallita lascia intatta la libreria. **Elimina questo percorso** richiede conferma e rimuove solo il tour selezionato e i suoi audio; il giro incluso rimane sempre disponibile. Conserva i JSON e gli MP3 originali: cancellazione dei dati del sito, navigazione privata o pulizia dello spazio del browser possono eliminare l’archivio. Per usare il giro su un altro telefono, importa lì gli stessi file.
+
 ## Mappa del percorso
 
-La mappa Leaflet mostra le otto polilinee GTFS: tram **44 in rosso** e **1 in blu**, con la tratta corrente più spessa. Tocca i punti numerati per leggere le fermate; il simbolo **⇄** indica il cambio a Schottentor. Il tratto tratteggiato collega le due fermate del cambio, non rappresenta un binario. Puoi spostare e ingrandire la mappa; **Intero percorso** ripristina la vista completa.
+La mappa Leaflet mostra le polilinee del percorso selezionato e i cambi di mezzo, con la tratta corrente più spessa. Nel giro incluso: tram **44 in rosso** e **1 in blu**. Tocca i punti numerati per leggere le fermate; il simbolo **⇄** indica il cambio a Schottentor. Il tratto tratteggiato collega le due fermate del cambio, non rappresenta un binario. Puoi spostare e ingrandire la mappa; **Intero percorso** ripristina la vista completa.
 
 Premi **La mia posizione** sotto la mappa e consenti il GPS: il punto azzurro **Sei qui** viene mostrato sopra le fermate e la mappa si centra su di te, anche fuori dal tracciato. La vista segue i nuovi fix; trascinare la mappa o premere **Intero percorso** interrompe il centraggio automatico. **La mia posizione** lo riattiva. In simulazione il pulsante diventa **Centra simulazione** e il punto è indicato come simulato. Viene rimosso quando il GPS viene disattivato, il fix è impreciso/scaduto o si esce dalla simulazione. La mappa non apre un secondo watch GPS.
 
@@ -57,7 +87,7 @@ Leaflet, tracciati e fermate sono inclusi nella cache dell’app e restano utili
 - Il matcher proietta solo sulla tratta attesa o immediatamente successiva: corridoio **40 m**, almeno **35 m** dopo la partenza e **18 m** prima dell’arrivo. Accetta accuratezza fino a **45 m** e fix di età massima **15 s**. Il cursore non torna indietro automaticamente.
 - Un unico elemento audio è preparato nello stesso gesto che avvia il GPS. Una tratta risulta ascoltata solo dopo che `play()` è riuscito. Un rifiuto rende disponibile il pulsante esplicito; nessuna sovrapposizione o ripetizione automatica. Richieste audio ancora in attesa vengono invalidate quando cambia la posizione; i racconti già iniziati finiscono.
 - A fine racconto viene rivalutata la posizione più recente e la sua età. Un fix assente, impreciso, vecchio o fuori percorso impedisce l’avvio automatico successivo.
-- Scegliere una tratta disattiva il GPS e passa al manuale. **Risincronizza GPS da questa tratta** riparte dalla selezione, anche dopo un lungo buco di segnale. Disattivazione, uscita dalla pagina e smontaggio dell’app rimuovono il watch. Posizione e cronologia di ascolto rimangono in memoria nel browser; si azzerano alla ricarica.
+- Scegliere una tratta disattiva il GPS e passa al manuale. **Risincronizza GPS da questa tratta** riparte dalla selezione, anche dopo un lungo buco di segnale. Disattivazione, uscita dalla pagina e smontaggio dell’app rimuovono il watch. Posizione e cronologia di ascolto rimangono in memoria nel browser; si azzerano alla ricarica. Percorsi importati e ultima selezione vengono invece conservati localmente.
 - Il service worker viene generato dalla build con tutti i file effettivi di `dist`, inclusi i dati incorporati nel bundle. **Pronta offline** compare solo dopo una verifica di presenza di ogni asset nella cache attiva; la verifica si ripete al ritorno sulla pagina e periodicamente. Le richieste Range ricevono risposte **206**, oppure **416** se non valide, dai file MP3 completi in cache. Se il browser elimina la cache, l’offline non è più garantito.
 
 Il kit originale resta in `vienna-tram-astra/`; la versione precedente è conservata in `legacy/`. I file JavaScript originali nella radice non vengono caricati dalla SPA.
@@ -74,7 +104,9 @@ npm run test:e2e
 
 Verificati in Chromium desktop con viewport mobile:
 
-- Giro simulato su tutte le otto tratte e attesa al cambio.
+- Giro simulato su tutte le otto tratte incluse e attesa al cambio.
+- Importazione di un percorso da dieci tratte, riproduzione degli MP3 importati, selezione persistente e ricarica offline; cambio e rimozione del percorso.
+- Errori di importazione (audio mancante, MP3 corrotto, coordinate non valide, ID duplicato), download del kit AI e testo importato non eseguibile.
 - Mappa Leaflet con le due linee, selezione evidenziata, popup delle fermate, indicatore della simulazione e percorsi accessibili dopo ricarica offline.
 - Preparazione audio nel gesto utente; GPS controllato per qualità, risincronizzazione e cancellazione del watch.
 - Riproduzione degli MP3 reali, player unico, pausa, riascolto e trascrizione.

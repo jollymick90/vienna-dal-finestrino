@@ -1,13 +1,26 @@
 <script>
   import { onMount } from 'svelte';
   import RouteMap from './components/RouteMap.svelte';
-  import tour from './lib/tour.json';
+  import TourLibrary from './components/TourLibrary.svelte';
+  import { builtinTour } from './lib/builtin-tour.js';
+  import { audioDurationLabel, lineColors } from './lib/tour-package.js';
+  import { listTours, getTour, materializeTour, rememberedTour, rememberTour } from './lib/tour-storage.js';
   import { TourPlayer } from './lib/player.js';
-  import { pointAt, trackLength, validFix, matchLeg } from './lib/route.js';
+  import { createRouteMatcher, validFix } from './lib/route.js';
   import { monitorOffline } from './lib/offline.js';
 
   let audio;
   let player;
+  let activeTour = $state.raw(builtinTour);
+  const tour = $derived(activeTour.legs);
+  let matcher = createRouteMatcher(builtinTour.paths, builtinTour.groups.slice(1).map(group=>group.start));
+  let library = $state.raw([{id:builtinTour.id,title:builtinTour.title}]);
+  let libraryBusy = $state(true);
+  let libraryError = $state('');
+  let releaseAudio = () => {};
+  let switchVersion = 0;
+  const durationLabel = $derived(audioDurationLabel(tour.reduce((sum,leg)=>sum+(leg.durationSeconds || 0),0)));
+  const distanceLabel = $derived.by(() => {const routes=createRouteMatcher(activeTour.paths);return (activeTour.paths.reduce((sum,_,index)=>sum+routes.trackLength(index),0)/1000).toLocaleString('it-IT',{maximumFractionDigits:1});});
   let state = $state({selected: 0, cursor: 0, active: null, phase: 'idle', listened: [], elapsed: 0, duration: 0});
   let mode = $state('manual');
   let mapPosition = $state(null);
@@ -55,7 +68,7 @@
       }
       mapPosition = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
       lastFixTime = position.timestamp;
-      const matched = matchLeg(position.coords, state.cursor);
+      const matched = matcher.matchLeg(position.coords, state.cursor);
       locationMessage = matched === null ? 'In attesa della partenza o del percorso.' : 'GPS agganciato al percorso';
     }, error => {
       if (mode !== 'gps') return;
@@ -80,18 +93,18 @@
   function feedSimulation() {
     const index = Math.floor(simulationStep / 4);
     const fraction = [0, 0.25, 0.65, 1][simulationStep % 4];
-    mapPosition = {...pointAt(index, trackLength(index) * fraction), accuracy: 5};
+    mapPosition = {...matcher.pointAt(index, matcher.trackLength(index) * fraction), accuracy: 5};
     player.feed({coords: mapPosition, timestamp: Date.now()});
-    locationMessage = simulationStep === 16 ? 'Alla fermata di Schottentor' : `Simulazione · ${tour[index].segment}`;
-    if (simulationStep === 31) {
+    locationMessage = simulationStep % 4 === 0 && tour[index].transferBefore ? `Alla fermata di ${tour[index].from}` : `Simulazione · ${tour[index].segment}`;
+    if (simulationStep === tour.length * 4 - 1) {
       clearInterval(simulationTimer);
       simulationDone = true;
-      locationMessage = 'Simulazione conclusa · Oper, Karlsplatz';
+      locationMessage = `Simulazione conclusa · ${tour.at(-1).to}`;
     }
   }
   function advanceSimulation(manual = false) {
     if (manual) clearInterval(simulationTimer);
-    if (simulationStep < 31) { simulationStep++; feedSimulation(); }
+    if (simulationStep < tour.length * 4 - 1) { simulationStep++; feedSimulation(); }
   }
   function startSimulation() {
     stopSource();
@@ -103,8 +116,45 @@
     feedSimulation();
     simulationTimer = setInterval(() => advanceSimulation(), 8000);
   }
+  function applyTour(next, release = () => {}) {
+    stopSource();
+    player?.dispose();
+    audio.removeAttribute('src'); audio.load();
+    releaseAudio();
+    activeTour = next;
+    releaseAudio = release;
+    matcher = createRouteMatcher(next.paths, next.groups.slice(1).map(group=>group.start));
+    player = new TourPlayer(audio, value => state = value, Date.now, {tour:next.legs,matcher});
+    state = player.snapshot();
+    started = false;
+    locationMessage = `Sali sul ${next.legs[0].lineNumber}, poi avvia il GPS.`;
+    rememberTour(next.id);
+  }
+  async function selectTour(id) {
+    const version=++switchVersion;
+    libraryBusy=true;libraryError='';
+    stopSource();player?.pause();
+    try {
+      const loaded=id===builtinTour.id ? {tour:builtinTour,release:()=>{}} : materializeTour(await getTour(id));
+      if(version!==switchVersion) {loaded.release();return;}
+      applyTour(loaded.tour,loaded.release);
+    } catch(error) {if(version===switchVersion) libraryError=error.message || 'Percorso non disponibile: importalo di nuovo.';}
+    finally {if(version===switchVersion) libraryBusy=false;}
+  }
+  async function refreshLibrary(id) {
+    library=[{id:builtinTour.id,title:builtinTour.title},...await listTours()];
+    await selectTour(id);
+  }
   onMount(() => {
-    player = new TourPlayer(audio, value => state = value);
+    player = new TourPlayer(audio, value => state = value, Date.now, {tour:activeTour.legs,matcher});
+    const remembered=rememberedTour();
+    const initialVersion=switchVersion;
+    listTours().then(async saved => {
+      if(initialVersion!==switchVersion) return;
+      library=[{id:builtinTour.id,title:builtinTour.title},...saved];
+      if(remembered && saved.some(item=>item.id===remembered)) await selectTour(remembered);
+      else libraryBusy=false;
+    }).catch(()=>{if(initialVersion===switchVersion){libraryBusy=false;libraryError='Archivio locale non disponibile. Puoi usare il percorso incluso.';}});
     const stopOffline = monitorOffline(value => offline = value);
     const onExit = () => { stopSource(); player.pause(); };
     window.addEventListener('pagehide', onExit);
@@ -115,7 +165,7 @@
       }
     }, 5000);
     return () => {
-      stopSource(); player.dispose(); stopOffline(); clearInterval(freshnessTimer);
+      ++switchVersion; stopSource(); player.dispose(); releaseAudio(); stopOffline(); clearInterval(freshnessTimer);
       window.removeEventListener('pagehide', onExit);
     };
   });
@@ -126,17 +176,20 @@
 <main>
   <header>
     <div class="topline">
-      <span class="city-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v12H5V6a2 2 0 0 1 2-2ZM8 1h8M12 1v3M8 18l-2 4m10-4 2 4M5 12h14M9 4v8"/><path d="M8 15h1m6 0h1"/></svg> Una città, due tram</span>
-      <span class:ready={offline.ready} class="offline" role="status"><span class="dot"></span>{offline.ready ? 'Pronta offline' : offline.error ? 'Offline non disponibile' : 'Preparo l’offline…'}</span>
+      <span class="city-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v12H5V6a2 2 0 0 1 2-2ZM8 1h8M12 1v3M8 18l-2 4m10-4 2 4M5 12h14M9 4v8"/><path d="M8 15h1m6 0h1"/></svg> Una città, tanti racconti</span>
+      <span class:ready={offline.ready && !libraryBusy} class="offline" role="status"><span class="dot"></span>{offline.ready && !libraryBusy ? 'Pronta offline' : offline.error ? 'Offline non disponibile' : 'Preparo l’offline…'}</span>
     </div>
     <h1>Vienna dal<br />finestrino</h1>
-    <p class="intro">Otto racconti, dal mercato all’Opera.</p>
+    <p class="intro">{tour.length} racconti · {durationLabel} di audio · {distanceLabel} km</p>
   </header>
 
+  <TourLibrary tours={library} active={activeTour} busy={libraryBusy} error={libraryError} onselect={selectTour} onimport={refreshLibrary} onremove={() => refreshLibrary(builtinTour.id)} />
+
   <section class="journey" aria-label="Itinerario">
-    <div><span class="line-badge">44</span><span>Da Yppengasse<strong>verso Schottentor</strong></span></div>
-    <div class="interchange"><span aria-hidden="true">⇄</span> A Schottentor cambia tram</div>
-    <div><span class="line-badge blue">1</span><span>Direzione <strong class="inline">Reumannplatz</strong><strong>Scendi a Oper, Karlsplatz</strong></span></div>
+    {#each activeTour.groups as group, index}
+      {#if index > 0}<div class="interchange"><span aria-hidden="true">⇄</span> A {group.from} cambia tram</div>{/if}
+      <div><span class="line-badge" style:background={lineColors[index % lineColors.length]}>{group.line}</span><span>Da {group.from}<strong>verso {group.direction}</strong><strong>Scendi a {group.to}</strong></span></div>
+    {/each}
   </section>
 
   <section class="start-area" aria-label="Posizione e avvio">
@@ -149,13 +202,13 @@
         <button class="primary" disabled={simulationDone} onclick={() => advanceSimulation(true)}>Avanza simulazione</button>
       </div>
     {:else}
-      <button class="primary start" onclick={() => startGPS()}><span aria-hidden="true">⌖</span>{started ? 'Attiva GPS' : 'Inizia il tour'}</button>
+      <button class="primary start" disabled={libraryBusy} onclick={() => startGPS()}><span aria-hidden="true">⌖</span>{started ? 'Attiva GPS' : 'Inizia il tour'}</button>
     {/if}
     <p class="location" role="status">{locationMessage}</p>
   </section>
 
   <section id="player" class="player" aria-label="Player audio">
-    <div class="player-top"><span class="line-label">{leg.line}</span><span class="count">{state.selected + 1} / 8</span></div>
+    <div class="player-top"><span class="line-label">{leg.line}</span><span class="count">{state.selected + 1} / {tour.length}</span></div>
     <p class="segment">{leg.segment}</p>
     <h2>{leg.title}</h2>
     {#if state.active !== null && state.active !== state.selected}
@@ -168,24 +221,26 @@
     {/if}
     <div class="audio-progress"><progress max="100" value={progress} aria-label="Progresso audio"></progress><span>{clock(state.elapsed)} / {clock(state.duration)}</span></div>
     <div class="playback-controls">
-      <button class="play" onclick={toggleAudio}><span aria-hidden="true">{isBusy ? 'Ⅱ' : '▶'}</span>{state.phase === 'blocked' ? 'Tocca per ascoltare' : isBusy ? 'Pausa' : state.phase === 'paused' ? 'Riprendi' : 'Ascolta'}</button>
-      <button class="replay" onclick={() => player.play(state.selected)}><span aria-hidden="true">↺</span>Riascolta</button>
+      <button class="play" disabled={libraryBusy} onclick={toggleAudio}><span aria-hidden="true">{isBusy ? 'Ⅱ' : '▶'}</span>{state.phase === 'blocked' ? 'Tocca per ascoltare' : isBusy ? 'Pausa' : state.phase === 'paused' ? 'Riprendi' : 'Ascolta'}</button>
+      <button class="replay" disabled={libraryBusy} onclick={() => player.play(state.selected)}><span aria-hidden="true">↺</span>Riascolta</button>
     </div>
     <details><summary>Leggi la trascrizione</summary><p class="transcript">{leg.transcript}</p></details>
   </section>
 
-  <RouteMap selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} locating={mode === 'gps'} onlocate={() => startGPS()} />
+  {#key activeTour.id}
+  <RouteMap tour={activeTour} selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} locating={mode === 'gps'} onlocate={() => {if(!libraryBusy) startGPS();}} />
+  {/key}
 
   <section class="manual" aria-label="Controlli manuali">
     <label for="leg">Scegli la tratta</label>
-    <select id="leg" value={state.selected} onchange={event => selectLeg(event.currentTarget.value)}>
+    <select id="leg" disabled={libraryBusy} value={state.selected} onchange={event => selectLeg(event.currentTarget.value)}>
       {#each tour as item, index}<option value={index}>{index + 1}. {item.segment}</option>{/each}
     </select>
-    <button class="secondary resync" onclick={() => startGPS(true)}>Risincronizza GPS da questa tratta</button>
+    <button class="secondary resync" disabled={libraryBusy} onclick={() => startGPS(true)}>Risincronizza GPS da questa tratta</button>
   </section>
 
   <section class="tour-progress" aria-label="Progresso tour">
-    <div class="progress-label"><span>Il vostro giro</span><span>{state.listened.length} di 8 ascoltate</span></div>
+    <div class="progress-label"><span>Il vostro giro</span><span>{state.listened.length} di {tour.length} ascoltate</span></div>
     <div class="stops" aria-hidden="true">
       {#each tour as _, index}<span class:heard={state.listened.includes(index)} class:current={state.selected === index}>{index + 1}</span>{/each}
     </div>
@@ -194,8 +249,8 @@
   <footer>
     <p>Tieni la pagina in primo piano<br />e lo schermo acceso.</p>
     <p class="privacy">La posizione resta nel tuo browser.</p>
-    {#if mode !== 'simulation'}<button class="text-button" onclick={startSimulation}>Simula giro</button>{/if}
-    <small>5 novembre 2026 · Vienna</small>
+    {#if mode !== 'simulation'}<button class="text-button" disabled={libraryBusy} onclick={startSimulation}>Simula giro</button>{/if}
+    <small>{activeTour.title}</small>
   </footer>
   <audio bind:this={audio} preload="auto" aria-label="Audio del tour"></audio>
 </main>

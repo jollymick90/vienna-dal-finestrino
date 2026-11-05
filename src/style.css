@@ -350,6 +350,8 @@ select {
 }
 .stops {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   position: relative;
   isolation: isolate;
@@ -366,6 +368,7 @@ select {
 .stops span {
   width: 27px;
   height: 27px;
+  flex-shrink: 0;
   border-radius: 50%;
   display: grid;
   place-items: center;
