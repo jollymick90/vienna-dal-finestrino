@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import RouteMap from './components/RouteMap.svelte';
   import tour from './lib/tour.json';
   import { TourPlayer } from './lib/player.js';
   import { pointAt, trackLength, validFix, matchLeg } from './lib/route.js';
@@ -9,6 +10,7 @@
   let player;
   let state = $state({selected: 0, cursor: 0, active: null, phase: 'idle', listened: [], elapsed: 0, duration: 0});
   let mode = $state('manual');
+  let mapPosition = $state(null);
   let started = $state(false);
   let locationMessage = $state('Sali sul 44, poi avvia il GPS.');
   let offline = $state({ready: false, error: false});
@@ -29,6 +31,7 @@
     clearInterval(simulationTimer);
     player?.stopTracking();
     mode = 'manual';
+    mapPosition = null;
   }
   function startGPS(resync = false) {
     stopSource();
@@ -46,15 +49,18 @@
       if (mode !== 'gps') return;
       player.feed(position);
       if (!validFix(position)) {
+        mapPosition = null;
         locationMessage = 'Segnale impreciso. Aspetto una posizione migliore.';
         return;
       }
-      lastFixTime = Date.now();
+      mapPosition = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+      lastFixTime = position.timestamp;
       const matched = matchLeg(position.coords, state.cursor);
       locationMessage = matched === null ? 'In attesa della partenza o del percorso.' : 'GPS agganciato al percorso';
     }, error => {
       if (mode !== 'gps') return;
       player.stopTracking();
+      mapPosition = null;
       if (error.code === 1) {
         stopSource();
         locationMessage = 'Posizione non autorizzata. Puoi ascoltare a mano.';
@@ -74,7 +80,8 @@
   function feedSimulation() {
     const index = Math.floor(simulationStep / 4);
     const fraction = [0, 0.25, 0.65, 1][simulationStep % 4];
-    player.feed({coords: {...pointAt(index, trackLength(index) * fraction), accuracy: 5}, timestamp: Date.now()});
+    mapPosition = {...pointAt(index, trackLength(index) * fraction), accuracy: 5};
+    player.feed({coords: mapPosition, timestamp: Date.now()});
     locationMessage = simulationStep === 16 ? 'Alla fermata di Schottentor' : `Simulazione · ${tour[index].segment}`;
     if (simulationStep === 31) {
       clearInterval(simulationTimer);
@@ -103,6 +110,7 @@
     window.addEventListener('pagehide', onExit);
     const freshnessTimer = setInterval(() => {
       if (mode === 'gps' && Date.now() - lastFixTime > 15000) {
+        mapPosition = null;
         locationMessage = 'Segnale GPS assente. Puoi scegliere la tratta a mano.';
       }
     }, 5000);
@@ -165,6 +173,8 @@
     </div>
     <details><summary>Leggi la trascrizione</summary><p class="transcript">{leg.transcript}</p></details>
   </section>
+
+  <RouteMap selected={state.selected} position={mapPosition} simulated={mode === 'simulation'} />
 
   <section class="manual" aria-label="Controlli manuali">
     <label for="leg">Scegli la tratta</label>

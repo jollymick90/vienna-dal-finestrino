@@ -12,6 +12,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "svelte": "^5.57.3"
   },
   "devDependencies": {

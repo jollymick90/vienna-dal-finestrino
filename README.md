@@ -43,6 +43,14 @@ Non servono variabili d’ambiente, chiavi API o backend. Il deploy è lasciato 
 
 Per installare: usa la voce di installazione del browser su Android; in Safari su iPhone, Condividi → Aggiungi alla schermata Home. Tieni **pagina in primo piano e schermo acceso**: il browser può sospendere GPS o audio in background. La disponibilità dell’installazione dipende dal browser.
 
+## Mappa del percorso
+
+La mappa Leaflet mostra le otto polilinee GTFS: tram **44 in rosso** e **1 in blu**, con la tratta corrente più spessa. Tocca i punti numerati per leggere le fermate; il simbolo **⇄** indica il cambio a Schottentor. Il tratto tratteggiato collega le due fermate del cambio, non rappresenta un binario. Puoi spostare e ingrandire la mappa; **Intero percorso** ripristina la vista completa.
+
+Il punto azzurro segue la posizione GPS valida o la simulazione. Viene rimosso quando il GPS viene disattivato, il fix è impreciso/scaduto o si esce dalla simulazione. La mappa non apre un secondo watch GPS.
+
+Leaflet, tracciati e fermate sono inclusi nella cache dell’app e restano utilizzabili offline. Lo **sfondo stradale OpenStreetMap richiede una connessione** ed è escluso dal precaricamento; il badge **Pronta offline** riguarda l’app, i percorsi e gli audio. Le tessere sono richieste direttamente a OpenStreetMap per l’area visualizzata, secondo la sua [policy](https://operations.osmfoundation.org/policies/tiles/); i fix GPS non vengono inviati dal codice dell’app.
+
 ## Comportamento
 
 - `src/lib/tour.json` mantiene ordine, testi e collegamenti `/audio/01.mp3` … `/audio/08.mp3` del kit; `src/lib/route-data.js` mantiene le otto polilinee originali. La build controlla numero, associazione e identità dei file MP3 rispetto agli originali.
@@ -67,11 +75,14 @@ npm run test:e2e
 Verificati in Chromium desktop con viewport mobile:
 
 - Giro simulato su tutte le otto tratte e attesa al cambio.
+- Mappa Leaflet con le due linee, selezione evidenziata, popup delle fermate, indicatore della simulazione e percorsi accessibili dopo ricarica offline.
 - Preparazione audio nel gesto utente; GPS controllato per qualità, risincronizzazione e cancellazione del watch.
 - Riproduzione degli MP3 reali, player unico, pausa, riascolto e trascrizione.
 - Rifiuto del permesso GPS e di `play()`, con fallback manuale.
 - Ricarica con rete disattivata, Range per tutti gli MP3 e riproduzione reale di tutte le otto tracce offline.
 - Rimozione di un audio dalla cache: il badge **Pronta offline** scompare.
+
+Se la porta 4173 è già occupata, esegui `PLAYWRIGHT_PORT=4174 npm run test:e2e`.
 
 I test unitari coprono inoltre margini e monotonia del matcher, coda pertinente, fine audio, fix scaduti e risoluzioni tardive di `play()`. Per i casi di rifiuto e ritardo usano un doppio del media element; i test browser usano audio reali, sostituendo soltanto gli errori e i fix GPS da simulare.
 
