@@ -1,1 +1,15 @@
-{"version":1,"entries":{}}
+{
+  "version": 1,
+  "entries": {
+    "albertina:scopri": {
+      "audio": "/audio/poi/albertina-scopri-790b4afc87ce79dc.wav",
+      "durationSeconds": 38.04,
+      "textHash": "8ab0f75a60d5f0a8b6ed26b37c403540355b8d08109fbbbbcf9bf7445f7e41ba",
+      "audioHash": "1b7ac32ff09389764e8c9dd892e9c85d5d15ba14a67012ced8fc311f3a205e24",
+      "fingerprint": "790b4afc87ce79dcfd8041600788767918eed3a6a0c9bbe0fbc6ebb5baec426e",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-05T21:14:35.892Z"
+    }
+  }
+}
