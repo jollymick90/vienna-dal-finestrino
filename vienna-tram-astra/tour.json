@@ -1,0 +1,58 @@
+[
+  {
+    "line": "44 · direzione Schottentor",
+    "title": "La Vienna del mercato",
+    "segment": "Yppengasse → Hernalser Gürtel",
+    "transcript": "Ora siamo sulla tratta da Yppengasse a Hernalser Gürtel. Appena partiti da Yppengasse, salutiamo Ottakring. Qui il Brunnenmarkt e Yppenplatz sono luoghi da vivere a piedi, tra banchi, caffè e terrazze. Il nostro giro comincia dalla Vienna della spesa e dei pranzi, prima di arrivare alla Vienna dei grandi palazzi.",
+    "audio": "/audio/01.mp3"
+  },
+  {
+    "line": "44 · direzione Schottentor",
+    "title": "La cintura della città",
+    "segment": "Hernalser Gürtel → Brünnlbadgasse",
+    "transcript": "Ora siamo sulla tratta da Hernalser Gürtel a Brünnlbadgasse. Il Gürtel è la grande cintura che abbiamo appena attraversato. Qui passa anche la metropolitana U sei, su un tratto della vecchia ferrovia urbana viennese. Pensate a quanta città si riesce a leggere guardando dove passano i binari.",
+    "audio": "/audio/02.mp3"
+  },
+  {
+    "line": "44 · direzione Schottentor",
+    "title": "Una città a due velocità",
+    "segment": "Brünnlbadgasse → Skodagasse",
+    "transcript": "Ora siamo sulla tratta da Brünnlbadgasse a Skodagasse. Guardate le porte e le finestre al piano terra. Sul tram i palazzi si vedono interi, ma i dettagli più interessanti sono spesso quelli che vedreste andando a piedi. Scegliete un portone a testa. Vince quello in cui sareste più curiosi di entrare.",
+    "audio": "/audio/03.mp3"
+  },
+  {
+    "line": "44 · direzione Schottentor",
+    "title": "Verso il Ring",
+    "segment": "Skodagasse → Schottentor",
+    "transcript": "Ora siamo sulla tratta da Skodagasse a Schottentor. Restate a bordo a Lange Gasse e Landesgerichtsstraße. Il nostro capolinea è Schottentor, vicino all’Università di Vienna. Qui cambiamo tram e imbocchiamo il Ring, il grande viale costruito dove un tempo correvano le fortificazioni. Quando scendete, cercate la linea uno verso Reumannplatz.",
+    "audio": "/audio/04.mp3"
+  },
+  {
+    "line": "1 · direzione Reumannplatz",
+    "title": "Il teatro e il municipio",
+    "segment": "Schottentor → Rathausplatz, Burgtheater",
+    "transcript": "Ora siamo sulla tratta da Schottentor a Rathausplatz, Burgtheater. Ora il Ring fa da palcoscenico. Da una parte c’è il municipio, con la sua torre neogotica. Dall’altra, il Burgtheater. Basta attraversare il viale per passare dalla Vienna delle cerimonie civiche a quella degli attori e del pubblico.",
+    "audio": "/audio/05.mp3"
+  },
+  {
+    "line": "1 · direzione Reumannplatz",
+    "title": "Un tempio per il Parlamento",
+    "segment": "Rathausplatz, Burgtheater → Parlament",
+    "transcript": "Ora siamo sulla tratta da Rathausplatz, Burgtheater a Parlament. Cercate un colonnato che sembra arrivare dall’antica Grecia. È il Parlamento austriaco. Davanti al palazzo c’è la fontana di Atena. Tra i palazzi del Ring, qui l’architettura cambia registro: dalle guglie del municipio alle colonne e alle statue del mondo classico.",
+    "audio": "/audio/06.mp3"
+  },
+  {
+    "line": "1 · direzione Reumannplatz",
+    "title": "La Vienna imperiale",
+    "segment": "Parlament → Burgring",
+    "transcript": "Ora siamo sulla tratta da Parlament a Burgring. Passiamo da Ring, Volkstheater e restiamo a bordo fino a Burgring. Da qui ci si può avvicinare alla Hofburg e a Heldenplatz. Dall’altro lato del Ring, i musei di storia naturale e di storia dell’arte si fronteggiano. Sembrano due palazzi gemelli: cercate di capire quale vorreste visitare per primo.",
+    "audio": "/audio/07.mp3"
+  },
+  {
+    "line": "1 · direzione Reumannplatz",
+    "title": "Ultima fermata, l’Opera",
+    "segment": "Burgring → Oper, Karlsplatz",
+    "transcript": "Ora siamo sulla tratta da Burgring a Oper, Karlsplatz. Il nostro giro finisce all’Opera. All’apertura, nel mille ottocento sessantanove, andò in scena il Don Giovanni di Mozart. Tra poco scendiamo a Oper, Karlsplatz. Potete chiudere il giro guardando la facciata da fuori, e decidere quale angolo di Vienna vi è rimasto in mente.",
+    "audio": "/audio/08.mp3"
+  }
+]

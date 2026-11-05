@@ -1,0 +1,72 @@
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vienna dal finestrino</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5eddd;color:#272720;font:16px system-ui}main{max-width:580px;margin:auto;padding:32px 20px}header small,.line{font-weight:750;letter-spacing:.12em;text-transform:uppercase}header small{color:#942e27}h1,h2{font-family:Georgia,serif;margin:.25em 0}h1{font-size:clamp(46px,12vw,76px);line-height:.95}h2{font-size:32px}.ticket{margin:26px 0 18px;padding:22px;background:#fffaf0;border:1px solid #d4c8b3;border-radius:16px;box-shadow:0 5px #e5d9c6}.line{color:#8a3029;font-size:12px}button{font:inherit;font-weight:700;padding:13px 16px;border-radius:10px;border:1px solid #aa9c83;background:#fffaf0;color:#272720;cursor:pointer}#play{width:100%;background:#8f2822;color:white;border:none;margin:8px 0}button:disabled{opacity:.42;cursor:default}nav{display:flex;justify-content:space-between;gap:8px}details{margin:12px 0 0}summary{cursor:pointer}p{line-height:1.55}a{color:#812822}select{width:100%;font:inherit;padding:10px;background:#fffaf0;border-radius:8px}footer{font-size:14px;margin:20px 0}
+</style>
+<main><header><small>Un giro per due · Vienna</small><h1>Vienna dal<br>finestrino</h1><p>Da Yppengasse all’Opera, con un cambio a Schottentor. Attiva il GPS quando sei a bordo. I racconti partono lungo il percorso.</p></header>
+<button id="gps" aria-pressed="false">Attiva GPS</button><p id="gps-status" role="status">Modalità manuale</p><label for="jump">Scegli una tratta</label><select id="jump"></select>
+<section class="ticket" aria-labelledby="title"><div id="line" class="line"></div><h2 id="title"></h2><p id="cue"></p><button id="play">▶ Ascolta</button><div id="status" role="status"></div><details id="details"><summary>Leggi il racconto</summary><p id="story"></p></details></section>
+<nav><button id="prev">← Indietro</button><button id="next">Avanti →</button></nav>
+<footer><a href="https://maps.app.goo.gl/Nv9JNx2GC2qAgXto8">Partenza su Maps</a> · <a href="https://www.wienerlinien.at/betriebsinfo">Servizio Wiener Linien</a><p>La voce italiana è quella del dispositivo. Tieni aperta la pagina e lo schermo acceso. La posizione resta nel browser.</p></footer></main>
+<script src="stories.js"></script><script src="route-data.js"></script><script src="route.js"></script><script>
+const el=id=>document.getElementById(id);
+const synth=window.speechSynthesis;
+const played=new Set();
+let index=0, active=null;
+for(const [i,leg] of legs.entries()) el('jump').add(new Option((i+1)+' · '+leg[1],i));
+function stop(){active=null;synth?.cancel();el('play').textContent='▶ Ascolta';el('status').textContent=''}
+function show(i){stop();index=i;const [line,title,cue,story]=legs[i];el('jump').value=i;el('line').textContent=line+' · '+(i+1)+'/'+legs.length;el('title').textContent=title;el('cue').textContent=cue;el('story').textContent=story;el('details').open=false;el('prev').disabled=i===0;el('next').disabled=i===legs.length-1}
+function fallback(){stop();el('status').textContent='Voce non disponibile. Puoi leggere il racconto qui sotto.';el('details').open=true}
+function speak(intro=false,automatic=false){if(!synth){fallback();return}const speech=new SpeechSynthesisUtterance(intro?'Guida GPS attiva. I racconti iniziano lungo il tragitto.':automatic?'Ora siamo sulla tratta da '+legs[index][2].replace(' → ',' a ')+'. '+legs[index][3]:legs[index][3]);speech.lang='it-IT';const voice=synth.getVoices().find(v=>v.lang.toLowerCase().startsWith('it'));if(voice)speech.voice=voice;speech.rate=.95;active=speech;el('play').textContent='■ Ferma';speech.onend=()=>{if(active===speech)stop()};speech.onerror=()=>{if(active===speech){if(watchId!==null)disableGps('Audio automatico non disponibile. Usa Ascolta.');fallback()}};const speakingIndex=index;speech.onstart=()=>{if(!intro && active===speech)played.add(speakingIndex)};synth.speak(speech)}
+el('play').onclick=()=>active?stop():speak();
+let watchId=null, cursor=0, pending=null, lastMatch=-1;
+const status=el('gps-status');
+function disableGps(message='Modalità manuale'){
+  if(watchId!==null) navigator.geolocation.clearWatch(watchId);
+  watchId=null; pending=null;
+  el('gps').textContent='Attiva GPS';
+  el('gps').setAttribute('aria-pressed','false');
+  status.textContent=message;
+}
+function fix({coords,timestamp}){
+  if(Date.now()-timestamp>12000 || coords.accuracy>45){
+    status.textContent='GPS poco preciso. Avvicinati al finestrino o usa Ascolta.';
+    return;
+  }
+  const match=matchLeg(coords,cursor);
+  if(match!==null && match>=lastMatch){
+    lastMatch=match;
+    cursor=match;
+    if(!played.has(match))pending=match;
+  }
+  if(pending!==null && pending===match && !active){
+    const next=pending;
+    pending=null;
+    show(next);
+    speak(false,true);
+  }
+  status.textContent=match===null?'GPS attivo · in attesa della prossima tratta':'GPS attivo · '+legs[match][2];
+}
+el('gps').onclick=()=>{
+  if(watchId!==null){disableGps();return}
+  if(!navigator.geolocation || !window.isSecureContext){
+    disableGps('Apri la guida via HTTPS per usare il GPS.');return;
+  }
+  if(!synth){fallback();return}
+  // Prova la voce durante il tap, prima di affidarsi ai callback del GPS.
+  if(!active)speak(true);
+  cursor=index;lastMatch=index-1;pending=null;
+  watchId=navigator.geolocation.watchPosition(fix,error=>{
+    if(error.code===1)disableGps('Posizione negata. Puoi continuare con Ascolta.');
+    else status.textContent='GPS in attesa. Puoi continuare con Ascolta.';
+  },{enableHighAccuracy:true,maximumAge:3000,timeout:15000});
+  el('gps').textContent='Disattiva GPS';
+  el('gps').setAttribute('aria-pressed','true');
+  status.textContent='Ricerca della posizione…';
+};
+function choose(i){
+  if(watchId!==null)disableGps('Tappa scelta a mano. Riattiva il GPS per riprendere.');
+  show(i);
+}
+window.addEventListener('pagehide',()=>{disableGps();stop()});
+el('prev').onclick=()=>choose(index-1);el('next').onclick=()=>choose(index+1);el('jump').onchange=e=>choose(Number(e.target.value));show(0);
+</script></html>
