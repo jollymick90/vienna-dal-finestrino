@@ -1,6 +1,6 @@
 # Vienna dal finestrino
 
-Audioguida italiana per punti di interesse, Svelte 5 + Vite + Leaflet, senza backend. La mappa è la schermata principale: **28 luoghi e 56 testi** per il percorso **Da Yppengasse all’Albertina**. I luoghi si esplorano anche da lontano e senza GPS. I 56 contenuti dispongono di audio Gemini pre-generati: circa 46.4 minuti, 21.3 MiB di MP3 mono a 64 kbps. Non sono stati riutilizzati gli audio delle vecchie tratte.
+Audioguida italiana per punti di interesse, Svelte 5 + Vite + Leaflet, senza backend. La mappa è la schermata principale: **34 luoghi e 68 testi**, divisi fra **Da Yppengasse all’Albertina** e **Naschmarkt, Karlsplatz e Stadtpark**. I luoghi si esplorano anche da lontano e senza GPS. I 68 contenuti dispongono di audio Gemini pre-generati: circa 56,6 minuti, 25,9 MiB di MP3 mono a 64 kbps. Non sono stati riutilizzati gli audio delle vecchie tratte.
 
 ## Avvio
 
@@ -20,7 +20,7 @@ npm run preview
 
 Aprire `http://localhost:4173`. Il deploy su Vercel rimane al proprietario: preset Vite, build `npm run build`, output `dist`, root del repository. L'app presume la radice del dominio. Nessuna chiave API deve essere configurata nel frontend o in Vercel per riprodurre gli asset.
 
-I 56 MP3 POI sono serviti direttamente da MinIO sulla VPS, nel bucket dedicato `vienna-audio`, tramite `https://media-hidrospace.jm90dev.cloud/vienna-audio/poi/`. La build verifica hash, formato e durata dei file pubblicati e richiede quindi la rete, anche quando gli MP3 sono disponibili localmente. I file POI non entrano in `dist` né nell'upload CLI di Vercel; un checkout senza MP3 locali può essere compilato. Gli otto piccoli MP3 legacy restano locali per compatibilità.
+I 68 MP3 POI sono serviti direttamente da MinIO sulla VPS, nel bucket dedicato `vienna-audio`, tramite `https://media-hidrospace.jm90dev.cloud/vienna-audio/poi/`. La build verifica hash, formato e durata dei file pubblicati e richiede quindi la rete, anche quando gli MP3 sono disponibili localmente. I file POI non entrano in `dist` né nell'upload CLI di Vercel; un checkout senza MP3 locali può essere compilato. Gli otto piccoli MP3 legacy restano locali per compatibilità.
 
 ## Uso
 
@@ -31,11 +31,13 @@ I 56 MP3 POI sono serviti direttamente da MinIO sulla VPS, nel bucket dedicato `
 - Gli ascolti avviati con successo vengono salvati localmente con ID del luogo e del contenuto; **Riascolta** rimane disponibile. Se la memoria è negata, la cronologia resta nella sessione e il player lo segnala.
 - In **Percorsi e offline → Prova senza muoverti → Simula percorso**, una posizione ogni quattro secondi attraversa avvicinamento, geometria GTFS e arrivo a piedi. **Avanza simulazione** passa al fix seguente e ferma l'avanzamento temporizzato. È lo stesso flusso del GPS, con gli stessi cooldown.
 
-## Catalogo, percorso e fonti
+## Catalogo, percorsi e fonti
 
 `public/catalog.json` contiene ID stabili, categoria, posizione del luogo, ingresso opzionale separato, descrizione, accesso, fonti, due contenuti e appartenenze ai percorsi. Ogni testo ha le proprie fonti. “Scopri il luogo” comprende 70–100 parole; l'approfondimento 100–150. Date e contenuti non dipendono da ciò che è visibile dal finestrino o dalla posizione di chi ascolta.
 
-Il tragitto riusa gli otto tracciati del repository: 44 da Yppengasse a Schottentor, poi Ring verso Oper/Karlsplatz, con arrivo a piedi all'Albertina. I tracciati rappresentano il servizio programmato del **5 novembre 2026**, non informazioni in tempo reale. Il tratto finale a piedi e le deviazioni sono descritti nelle istruzioni; la linea colorata rappresenta solo i tratti in tram. Prima di partire controllare [Wiener Linien](https://www.wienerlinien.at/fahrplaene) o WienMobil.
+Il percorso originale riusa gli otto tracciati del repository: 44 da Yppengasse a Schottentor, poi Ring verso Oper/Karlsplatz, con arrivo a piedi all'Albertina. I tracciati rappresentano il servizio programmato del **5 novembre 2026**, non informazioni in tempo reale. Il tratto finale a piedi e le deviazioni sono descritti nelle istruzioni; la linea colorata rappresenta solo i tratti in tram. Prima di partire controllare [Wiener Linien](https://www.wienerlinien.at/fahrplaene) o WienMobil.
+
+La vista iniziale mostra **Tutti i luoghi**. In **Percorsi e offline → Scegli un percorso** si può filtrare il gruppo **Naschmarkt, Karlsplatz e Stadtpark**: Naschmarkt, Secession, Karlskirche (Chiesa di San Carlo), Hochstrahlbrunnen, Palais Schwarzenberg e Stadtpark. Include dodici audio nuovi, circa 10,1 minuti / 4,88 MB. È un gruppo da esplorare a piedi: mostra i pin senza tracciare collegamenti pedonali inventati e nasconde tracciato e simulazione del precedente giro in tram. Coordinate, fonti e note di accesso sono nel [resoconto dei nuovi POI](docs/research/naschmarkt-pois-2026-11-06.md).
 
 I dati dei due vecchi tour e gli otto MP3 sono conservati nei moduli originali e in `legacy/` e `vienna-tram-astra/`. Non sono collegati ai nuovi monumenti e non vengono scaricati come audio di questo percorso. I test precedenti dei matcher, del player e delle risposte Range sono conservati. I test browser sono stati adattati al nuovo comportamento con ascolto manuale.
 
@@ -94,7 +96,7 @@ node --env-file=.env.local scripts/generate-all-poi-audio.js --generate
 
 Il file `.env.local` è escluso da Git. La generazione procede in sequenza e salva ogni audio completato: dopo un'interruzione basta ripetere il comando per riprendere. Non si rigenerano i contenuti già validi.
 
-Sono obbligatori entrambi gli ID. `--content approfondimento` seleziona il secondo testo. Modello e voce si cambiano con `--model` e `--voice`; il default è `gemini-3.1-flash-tts-preview`, voce `Kore`. L'accesso al modello dipende dall'account Gemini. `--generate` autorizza la chiamata potenzialmente a pagamento. I 56 audio attuali sono stati generati su autorizzazione del proprietario.
+Sono obbligatori entrambi gli ID. `--content approfondimento` seleziona il secondo testo. Modello e voce si cambiano con `--model` e `--voice`; il default è `gemini-3.1-flash-tts-preview`, voce `Kore`. L'accesso al modello dipende dall'account Gemini. `--generate` autorizza la chiamata potenzialmente a pagamento. I 68 audio attuali sono stati generati su autorizzazione del proprietario.
 
 Il comando crea WAV PCM, misura la durata e aggiorna `public/audio/poi-manifest.json` con hash del testo, dei byte e della configurazione. Un file invariato e integro viene riusato; modificare testo, voce o modello cambia il nome del file. `--force` richiede di rigenerare anche a parità di configurazione. Scritture di file e manifest avvengono tramite file temporanei; una risposta priva di audio non viene pubblicata.
 
@@ -126,9 +128,9 @@ Il nuovo bucket condivide processo MinIO e disco con Hidrospace; nomi e permessi
 
 ## Offline
 
-Il service worker precarica app, catalogo e manifest. Il pulsante **Scarica percorso offline** memorizza e verifica catalogo, manifest e soltanto gli audio dichiarati per il percorso. Mostra progresso, conteggio audio ed eventuale errore. La verifica confronta i byte tramite SHA-256 e rifiuta risposte HTML di fallback. Un nuovo download può riparare file vecchi o incompleti; la cache supporta richieste Range per avanzamento audio. Dopo il download verificato, rimuove i vecchi audio POI non più usati dal catalogo, compresi i WAV precedenti.
+Il service worker precarica app, catalogo e manifest. Il pulsante **Scarica percorso offline** memorizza e verifica catalogo, manifest e soltanto gli audio dichiarati per il percorso. Con **Tutti i luoghi** selezionato scarica entrambi i gruppi; con un gruppo selezionato scarica soltanto i suoi audio. Mostra progresso, conteggio audio ed eventuale errore. La verifica confronta i byte tramite SHA-256 e rifiuta risposte HTML di fallback. Un nuovo download può riparare file vecchi o incompleti; la cache supporta richieste Range per avanzamento audio. Dopo il download verificato, rimuove i vecchi audio POI non più usati dal catalogo, compresi i WAV precedenti.
 
-**Percorso verificato offline** compare dopo la verifica del percorso e della shell. Il catalogo attuale comprende **56 audio** (circa 21.3 MiB), tutti generati e verificati. I file invariati già verificati vengono riusati anche senza rete. Se il browser libera la memoria, occorre scaricare di nuovo.
+**Percorso verificato offline** compare dopo la verifica del percorso e della shell. Il catalogo attuale comprende **68 audio** (circa 25,9 MiB), tutti generati e verificati. I file invariati già verificati vengono riusati anche senza rete. Se il browser libera la memoria, occorre scaricare di nuovo.
 
 Lo sfondo `tile.openstreetmap.org` è **solo online**, secondo la [policy del provider](https://operations.osmfoundation.org/policies/tiles/). Non sono implementati download o prefetch di tessere. Senza rete restano pin, geometrie, testi e audio scaricati. Lo stato dello sfondo è distinto dall'esito del download dei racconti.
 

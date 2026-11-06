@@ -11,7 +11,7 @@ test("catalog and paths remain available offline after verified download, withou
   await expect(page.getByText(/Mappa stradale: solo online/)).toBeVisible();
   await context.setOffline(true);
   await page.reload();
-  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await expect(page.locator(".poi-pin")).toHaveCount(34);
   await expect(page.locator("path.route-line")).toHaveCount(8);
   await page
     .getByRole("button", { name: "Apri Albertina", exact: true })
@@ -41,7 +41,7 @@ test("denied storage does not block catalog or simulation", async ({
     };
   });
   await page.goto("/");
-  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await expect(page.locator(".poi-pin")).toHaveCount(34);
   await page
     .getByRole("button", { name: "Apri Yppenplatz", exact: true })
     .focus();

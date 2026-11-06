@@ -55,6 +55,10 @@ export function createProximity({
     if (previous && fix.timestamp < previous.timestamp) return active;
     const candidates = [];
     for (const place of places) {
+      if (routeId && !place.routeIds.includes(routeId)) {
+        if (active?.id === place.id) active = null;
+        continue;
+      }
       const rule = place.suggestion ?? {};
       const siteDistance = distanceMeters(
         fix.coords,
@@ -92,12 +96,6 @@ export function createProximity({
         m.proposed = false;
         if (active?.id === place.id) active = null;
       }
-      if (
-        active?.id === place.id &&
-        routeId &&
-        !place.routeIds.includes(routeId)
-      )
-        active = null;
       // Do not trigger where the accuracy circle only touches the entrance area.
       if (
         distance + fix.coords.accuracy * 0.5 > entry ||

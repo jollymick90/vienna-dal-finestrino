@@ -98,7 +98,8 @@ export function createPoiMap(
   let position,
     accuracy,
     following = false,
-    selectedId = null;
+    selectedId = null,
+    filteredRoute = null;
   const bounds = () =>
     L.latLngBounds(
       [...markers.values()]
@@ -143,15 +144,23 @@ export function createPoiMap(
           });
       }
     },
-    filter(routeId) {
+    filter(routeId, showTramRoute = true) {
       for (const p of places) {
         const marker = markers.get(p.id);
         if (!routeId || p.routeIds.includes(routeId)) marker.addTo(map);
         else map.removeLayer(marker);
       }
-      lines.forEach((line) =>
-        line.setStyle({ opacity: routeId ? 0.75 : 0.35 }),
-      );
+      for (const line of lines) {
+        if (showTramRoute) {
+          if (!map.hasLayer(line)) line.addTo(map);
+          line.setStyle({ opacity: routeId ? 0.75 : 0.35 });
+        } else map.removeLayer(line);
+      }
+      if (filteredRoute !== routeId) {
+        map.closePopup();
+        fit();
+        filteredRoute = routeId;
+      }
     },
     position(fix, simulated) {
       if (!fix) {

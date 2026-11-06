@@ -15,6 +15,12 @@ const fix = (now, lon = 16.36, accuracy = 5) => ({
   timestamp: now,
   coords: { latitude: 48.21, longitude: lon, accuracy },
 });
+test("selected group excludes nearby places hidden by the route filter", () => {
+  const now = 100000;
+  const p = createProximity({ places: [place("outside", 16.36, ["original"])], now: () => now });
+  assert.equal(p.feed(fix(now), { routeId: "walking" }), null);
+  assert.equal(p.feed(fix(now), { routeId: "" })?.id, "outside");
+});
 test("one nearby proposal, dismissal cooldown and hysteresis prevent edge repeats", () => {
   let now = 100000;
   const p = createProximity({

@@ -37,7 +37,7 @@ test("map pins explore all places without requesting GPS; text-only cards have n
     };
   });
   await page.goto("/");
-  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await expect(page.locator(".poi-pin")).toHaveCount(34);
   await page
     .getByRole("button", { name: "Apri Albertina", exact: true })
     .focus();

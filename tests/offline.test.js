@@ -71,6 +71,11 @@ test("route download includes catalog, manifest and only selected route audio", 
     "/audio/poi-manifest.json",
     "/audio/test.wav",
   ]));
+test("all-places download includes audio from every group, without duplicates", () => {
+  assert.deepEqual(routeAssets(catalog, ""), [
+    "/catalog.json", "/audio/poi-manifest.json", "/audio/test.wav", "/audio/other.wav",
+  ]);
+});
 test("offline validation rejects successful HTML fallback and truncated or missing media", async () => {
   assert.equal(
     await validResponse(

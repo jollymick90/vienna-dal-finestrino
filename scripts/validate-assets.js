@@ -36,5 +36,5 @@ const { validatePoiAssets } = await import('./validate-poi.js');
 const poiCatalog = JSON.parse(await readFile('public/catalog.json','utf8'));
 const poiManifest = JSON.parse(await readFile('public/audio/poi-manifest.json','utf8'));
 const counts = await validatePoiAssets(poiCatalog, poiManifest, url => readAudioAsset(url, { published: true }));
-assert.equal(counts.places, 28);
+assert.equal(counts.places, 34);
 console.log(`Catalogo POI verificato: ${counts.places} luoghi, ${counts.contents} testi e ${counts.audio} audio coerenti.`);

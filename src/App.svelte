@@ -12,7 +12,7 @@
   let catalog = $state.raw(null);
   let loadError = $state('');
   let selectedId = $state(null);
-  let routeId = $state('yppengasse-albertina');
+  let routeId = $state('');
   let showRoutes = $state(false);
   let showList = $state(false);
   let query = $state('');
@@ -38,8 +38,9 @@
   let simulationPoints = $state.raw([]);
   let simulationIndex = $state(0);
   let alive = false;
+  let downloadCheck = 0;
   const selected = $derived(catalog?.places.find(p => p.id === selectedId));
-  const route = $derived(catalog?.routes.find(r => r.id === routeId) ?? catalog?.routes[0]);
+  const route = $derived(catalog?.routes.find(r => r.id === routeId) ?? null);
   const visiblePlaces = $derived(catalog?.places.filter(p => (!routeId || p.routeIds.includes(routeId)) && p.name.toLocaleLowerCase('it').includes(query.toLocaleLowerCase('it'))) ?? []);
   const busy = $derived(['playing', 'loading'].includes(state.phase));
   const duration = $derived(state.duration || state.track?.durationSeconds || 0);
@@ -85,6 +86,8 @@
   }
   function recenter() { centerRequest++; if (mode === 'manual') startGPS(); }
   function simulate() {
+    routeId = 'yppengasse-albertina';
+    selectedId = null;
     stopSource(); mode = 'simulation'; showRoutes = false;
     const matcher = createRouteMatcher(paths);
     simulationPoints = [catalog.places[0].location, ...paths.flatMap((_, i) => Array.from({length: Math.ceil(matcher.trackLength(i) / 100)}, (_, j) => matcher.pointAt(i, j * 100))), ...catalog.places.filter(p => ['memoriale','albertina','augustinerkirche'].includes(p.id)).map(p => p.location)];
@@ -98,17 +101,29 @@
     else { clearInterval(simulationTimer); locationMessage = 'Simulazione conclusa. Puoi ripartire o esplorare i pin.'; }
   }
   function changeRoute() {
-    dismiss(); downloaded = null; downloadError = ''; void checkDownload();
+    if (mode === 'simulation') {
+      stopSource();
+      locationMessage = 'Esplora i luoghi sulla mappa. Il GPS è facoltativo.';
+    }
+    dismiss(); selectedId = null; reader = ''; downloaded = null; downloadError = ''; void checkDownload();
   }
   async function checkDownload() {
-    if (!catalog) return;
-    try { downloaded = await verifyRoute(catalog, routeId || catalog.routes[0].id); } catch { downloaded = null; }
+    if (!catalog || downloading) return;
+    const check = ++downloadCheck;
+    const checkedRoute = routeId;
+    try {
+      const result = await verifyRoute(catalog, checkedRoute);
+      if (check === downloadCheck && routeId === checkedRoute) downloaded = result;
+    } catch {
+      if (check === downloadCheck && routeId === checkedRoute) downloaded = null;
+    }
   }
   async function download() {
+    downloadCheck++;
     downloading = true; downloadError = ''; downloaded = null;
     try {
       if (!offline.ready) throw new Error('L’app si sta preparando per l’offline. Attendi e riprova.');
-      downloaded = await downloadRoute(catalog, routeId || catalog.routes[0].id, progress => downloadProgress = progress);
+      downloaded = await downloadRoute(catalog, routeId, progress => downloadProgress = progress);
     } catch (error) { downloadError = error.message || 'Download non riuscito. Riprova con una connessione.'; }
     finally { downloading = false; }
   }
@@ -141,12 +156,12 @@
   });
 </script>
 
-<svelte:head><title>Vienna dal finestrino · Audioguida</title><meta name="description" content="28 luoghi di Vienna da scoprire sulla mappa, a piedi o in tram. Testi, fonti e audio da ascoltare quando vuoi." /></svelte:head>
+<svelte:head><title>Vienna dal finestrino · Audioguida</title><meta name="description" content="Luoghi di Vienna da scoprire sulla mappa, a piedi o in tram. Testi, fonti e audio da ascoltare quando vuoi." /></svelte:head>
 <a class="skip-link" href="#luoghi">Vai all’elenco dei luoghi</a>
 <audio bind:this={audio} preload="metadata"></audio>
 {#if catalog}
   <main class:has-player={state.active !== null} class:has-overlay={Boolean(selected) || showRoutes || showList}>
-    <PoiMap places={catalog.places} {paths} selected={selectedId} {routeId} {position} simulated={mode === 'simulation'} {online} {centerRequest} onselect={openPlace} onTileError={value => tileError = value} />
+    <PoiMap places={catalog.places} {paths} selected={selectedId} {routeId} showTramRoute={route?.mode !== 'walk'} {position} simulated={mode === 'simulation'} {online} {centerRequest} onselect={openPlace} onTileError={value => tileError = value} />
     <header class="app-header">
       <div class="brand"><span class="brand-symbol" aria-hidden="true">V</span><div><h1>Vienna dal finestrino</h1><p>La città, un luogo alla volta</p></div></div>
       <button class:active={showRoutes} class="route-button" aria-expanded={showRoutes} onclick={() => { showRoutes = !showRoutes; showList = false; }}>Percorsi e offline</button>
@@ -169,8 +184,8 @@
       <section class="utility-panel" aria-label="Percorsi e offline">
         <div class="panel-top"><h2>Il tuo percorso</h2><button class="icon-button" aria-label="Chiudi percorsi" onclick={() => showRoutes = false}>×</button></div>
         <label for="route">Scegli un percorso</label><select id="route" bind:value={routeId} onchange={changeRoute} disabled={downloading}><option value="">Tutti i luoghi</option>{#each catalog.routes as r}<option value={r.id}>{r.title}</option>{/each}</select>
-        <h3>{route.title}</h3><p>{route.description}</p>
-        <details><summary>Come seguire il tragitto</summary><ol>{#each route.directions as direction}<li>{direction}</li>{/each}</ol><p class="small">{route.geometryNote}</p><a href={route.transportSource} target="_blank" rel="noreferrer">Controlla il servizio su Wiener Linien</a></details>
+        <h3>{route?.title ?? 'Tutti i luoghi'}</h3><p>{route?.description ?? 'Esplora tutti i punti sulla mappa oppure scegli un gruppo. Il download comprende gli audio dei luoghi selezionati.'}</p>
+        {#if route}<details><summary>Come seguire il tragitto</summary><ol>{#each route.directions as direction}<li>{direction}</li>{/each}</ol><p class="small">{route.geometryNote}</p>{#if route.transportSource}<a href={route.transportSource} target="_blank" rel="noreferrer">Controlla il servizio su Wiener Linien</a>{/if}</details>{/if}
         <div class="offline-section"><h3>Porta i racconti con te</h3><p>Scarica testi e audio disponibili. Le nuove voci saranno incluse dopo la loro preparazione.</p>
           <button class="primary" disabled={downloading} onclick={download}>{downloading ? 'Download in corso…' : 'Scarica percorso offline'}</button>
           {#if downloading}<progress max={downloadProgress.total || 1} value={downloadProgress.complete}></progress><p role="status">{downloadProgress.complete} di {downloadProgress.total} file verificati</p>{/if}
@@ -178,7 +193,7 @@
           {#if downloadError}<p class="error" role="alert">{downloadError}</p>{/if}
           <p class="small">Mappa stradale: solo online. Offline restano pin, tracciato e contenuti scaricati. La memoria del browser può essere liberata dal dispositivo.</p>
         </div>
-        <details><summary>Prova senza muoverti</summary><p>La simulazione invia una posizione ogni 4 secondi allo stesso sistema del GPS. Rispetta gli stessi intervalli tra proposte.</p><button class="secondary" onclick={simulate}>Simula percorso</button></details>
+        {#if route?.mode !== 'walk'}<details><summary>Prova senza muoverti</summary><p>La simulazione segue il percorso in tram da Yppengasse all’Albertina. Invia una posizione ogni 4 secondi allo stesso sistema del GPS e rispetta gli stessi intervalli tra proposte.</p><button class="secondary" onclick={simulate}>Simula percorso</button></details>{/if}
       </section>
     {/if}
     {#if showList}
@@ -207,7 +222,7 @@
               </article>
             {/each}
           </div>
-          <details class="sources"><summary>Fonti e posizione del pin</summary><p class="small">Verifica editoriale: 5 novembre 2026. {selected.referenceNote ?? selected.location.kind}. {selected.entranceStatus}</p><ul>{#each selected.sources as source}<li><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>{/each}<li><a href={selected.location.source} target="_blank" rel="noreferrer">Posizione del luogo · OpenStreetMap</a></li>{#if selected.entrance}<li><a href={selected.entrance.source} target="_blank" rel="noreferrer">Ingresso mappato separatamente · OpenStreetMap</a></li>{/if}</ul></details>
+          <details class="sources"><summary>Fonti e posizione del pin</summary><p class="small">Verifica editoriale: {new Date(selected.verifiedAt ?? catalog.verifiedAt).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}. {selected.referenceNote ?? selected.location.kind}. {selected.entranceStatus}</p><ul>{#each selected.sources as source}<li><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a></li>{/each}<li><a href={selected.location.source} target="_blank" rel="noreferrer">Posizione del luogo · OpenStreetMap</a></li>{#if selected.entrance}<li><a href={selected.entrance.source} target="_blank" rel="noreferrer">Ingresso mappato separatamente · OpenStreetMap</a></li>{/if}</ul></details>
         </div>
       </aside>
     {/if}

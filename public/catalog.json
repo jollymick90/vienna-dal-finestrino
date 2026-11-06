@@ -17,6 +17,19 @@
       "transportSource": "https://www.wienerlinien.at/fahrplaene",
       "geometrySource": "https://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip",
       "geometryNote": "Tracciati GTFS già presenti nel repository; servizio programmato del 5 novembre 2026, non navigazione né verifica in tempo reale."
+    },
+    {
+      "id": "naschmarkt-stadtpark",
+      "title": "Naschmarkt, Karlsplatz e Stadtpark",
+      "mode": "walk",
+      "description": "Sei luoghi da esplorare a piedi fra mercato, arte, piazze e parco. Stadtpark è la tappa più distante: scegli liberamente l’ordine e quanto camminare.",
+      "directions": [
+        "Comincia dal Naschmarkt e raggiungi la Secession su Friedrichstraße.",
+        "Prosegui verso Karlsplatz per osservare la Karlskirche.",
+        "Schwarzenbergplatz ospita la Hochstrahlbrunnen; il Palais Schwarzenberg si osserva dall’esterno verso Rennweg.",
+        "Stadtpark è più a est e richiede una passeggiata ulteriore. Usa gli attraversamenti e gli accessi segnalati."
+      ],
+      "geometryNote": "Gruppo di luoghi con riferimenti cartografici verificati. L’ordine è una proposta editoriale; la mappa mostra i pin e non un itinerario pedonale navigabile."
     }
   ],
   "places": [
@@ -1844,6 +1857,348 @@
         },
         "method": "Proiezione geometrica sul tracciato GTFS del repository; distanza in linea d’aria, non cammino pedonale."
       }
+    },
+    {
+      "id": "naschmarkt",
+      "name": "Naschmarkt",
+      "category": "Mercati",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.198347,
+        "longitude": 16.3625791,
+        "source": "https://www.openstreetmap.org/way/29320733",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "Bancarelle, cucine e incontri sopra il corso coperto del fiume Wien.",
+      "access": "Esplorazione a piedi lungo le corsie del mercato. Il pin indica la parte centrale: le estremità sono più lontane. Aperture dei singoli banchi e ristoranti possono variare.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "Stadt Wien · Storia del Naschmarkt",
+          "url": "https://www.wien.gv.at/en/leisure/naschmarkt-history"
+        },
+        {
+          "title": "WienTourismus · Naschmarkt",
+          "url": "https://www.wien.info/en/dine-drink/markets/naschmarkt-353536"
+        }
+      ],
+      "referenceNote": "Riferimento centrale di un luogo esteso, non punto di ingresso.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Naschmarkt è una Vienna da annusare prima ancora che da fotografare: spezie, formaggi, frutta e cucine diverse si incontrano fra banchi e piccoli locali. C’è però un protagonista che non vedete: il fiume Wien, coperto sotto questa parte della città. Il mercato si è esteso sopra il suo corso dopo i lavori di sistemazione del fiume. Guardate la successione dei padiglioni e i passaggi fra le bancarelle: raccontano come uno spazio dedicato alla spesa quotidiana sia diventato anche un luogo dove fermarsi e mangiare.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/en/leisure/naschmarkt-history",
+            "https://www.wien.info/en/dine-drink/markets/naschmarkt-353536"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Il mercato con un fiume sotto i piedi",
+          "text": "Il nome Naschmarkt sembra promettere assaggi golosi: in tedesco naschen significa mangiucchiare dolci. La sua origine, però, non è così sicura. Prima circolava il nome Aschenmarkt, forse legato alle ceneri di un’antica discarica oppure agli Asch, recipienti di legno usati per il latte. La forma Naschmarkt si diffuse nell’Ottocento e divenne ufficiale nel 1905. Anche la posizione cambiò: il mercato originario era più vicino all’attuale Karlsplatz e si allungò sulla copertura del Wien. I padiglioni uniformi risalgono alla trasformazione dei primi decenni del Novecento. Passeggiando, provate a distinguere le strutture permanenti dalle merci esposte: sotto l’apparente disordine dei colori c’è una precisa architettura urbana, nata per organizzare gli scambi e rimasta capace di accogliere abitudini nuove.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/en/leisure/naschmarkt-history",
+            "https://www.wien.info/en/dine-drink/markets/naschmarkt-353536"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secession",
+      "name": "Secession",
+      "category": "Arte e architettura",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.2004956,
+        "longitude": 16.3657826,
+        "source": "https://www.openstreetmap.org/way/25371168",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "La cupola dorata annuncia una rivoluzione nell’arte viennese di fine Ottocento.",
+      "access": "La facciata si osserva dagli spazi pubblici di Friedrichstraße. Fregio di Beethoven e mostre richiedono l’accesso espositivo: verificare biglietti e aperture sul sito della Secession.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "Secession · Edificio e storia",
+          "url": "https://secession.at/en/building"
+        },
+        {
+          "title": "Secession · Fregio di Beethoven",
+          "url": "https://secession.at/en/beethovenfries"
+        }
+      ],
+      "referenceNote": "Centro cartografico dell’edificio o della vasca, da osservare dagli spazi pubblici esterni.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Secession si riconosce subito: pareti chiare, forme geometriche e una cupola dorata che sembra trasformare un edificio in un manifesto. Joseph Maria Olbrich la progettò per l’associazione di artisti della Secessione viennese e il padiglione fu completato nel 1898. Il gruppo cercava uno spazio autonomo per esporre e discutere l’arte del proprio tempo. Prima di entrare, guardate il contrasto fra i volumi semplici e la decorazione: la novità nasce proprio dall’incontro fra una costruzione essenziale e un simbolo impossibile da ignorare.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://secession.at/en/building",
+            "https://secession.at/en/beethovenfries"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un edificio nato per rompere le regole",
+          "text": "Quando fu costruita, la Secession non piacque affatto a tutti. Il progetto incontrò opposizioni, cambiò sede e ottenne inizialmente il permesso come padiglione provvisorio, per non più di dieci anni. Quel luogo temporaneo è diventato uno dei simboli più riconoscibili di Vienna. L’edificio era stato pensato per rendere possibili mostre diverse: una grande sala, luce dall’alto e spazi capaci di cambiare con le opere. Questa vocazione continua con le esposizioni contemporanee. Nel piano sotterraneo è conservato anche il Fregio di Beethoven di Gustav Klimt, legato alla celebre mostra del 1902. L’esterno e l’interno raccontano così due aspetti dello stesso progetto: dare una forma riconoscibile alla libertà artistica e lasciare agli artisti la possibilità di trasformare lo spazio.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://secession.at/en/building",
+            "https://secession.at/en/beethovenfries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "karlskirche",
+      "name": "Karlskirche (Chiesa di San Carlo)",
+      "category": "Chiese",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.1982797,
+        "longitude": 16.3717985,
+        "source": "https://www.openstreetmap.org/way/8097149",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "Un voto contro la peste diventato una delle grandi scenografie barocche di Vienna.",
+      "access": "Osservazione esterna da Karlsplatz. Per la visita dell’interno consultare biglietti, funzioni e accessibilità sul sito della chiesa; il pin indica il corpo dell’edificio.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "Karlskirche · Storia e architettura",
+          "url": "https://www.karlskirche.at/geschichte/"
+        },
+        {
+          "title": "Karlskirche · Informazioni ufficiali",
+          "url": "https://www.karlskirche.at/"
+        }
+      ],
+      "referenceNote": "Centro cartografico dell’edificio o della vasca, da osservare dagli spazi pubblici esterni.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "La Karlskirche, la chiesa di San Carlo, nasce da una promessa. Durante la peste del 1713 l’imperatore Carlo sesto fece voto di costruire una chiesa dedicata a san Carlo Borromeo. La prima pietra fu posata nel 1716 e la consacrazione arrivò nel 1737. Davanti alla facciata si incontrano un portico da tempio antico, due grandi colonne scolpite e una cupola barocca. Prendetevi un momento per guardare l’insieme: più che scegliere un solo linguaggio, questo edificio mette in scena molte epoche dell’architettura.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.karlskirche.at/geschichte/",
+            "https://www.karlskirche.at/"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una promessa imperiale raccontata nella pietra",
+          "text": "Le due colonne davanti alla Karlskirche non sono semplici sostegni decorativi: i loro rilievi raccontano la vita e l’opera di Carlo Borromeo, il santo al quale la chiesa è dedicata. Il progetto di Johann Bernhard Fischer von Erlach accosta elementi dell’antichità e forme barocche per costruire un’immagine solenne. Dopo la morte dell’architetto nel 1723, suo figlio Joseph Emanuel proseguì i lavori, modificando anche parti del progetto. All’interno, l’affresco della cupola di Johann Michael Rottmayr mostra il santo che intercede per la fine della peste. Il racconto attraversa quindi l’intero edificio: fuori si legge nella pietra, dentro diventa pittura e luce. Anche restando in piazza potete seguire il passaggio dal portico alle colonne e poi alla cupola, come una scena che si sviluppa verso l’alto.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.karlskirche.at/geschichte/",
+            "https://www.karlskirche.at/"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hochstrahlbrunnen",
+      "name": "Hochstrahlbrunnen",
+      "category": "Fontane",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.1983801,
+        "longitude": 16.3761125,
+        "source": "https://www.openstreetmap.org/way/12990452",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "La fontana che celebra l’arrivo dell’acqua alpina nella Vienna dell’Ottocento.",
+      "access": "Osservazione dal bordo pedonale di Schwarzenbergplatz, rispettando attraversamenti e recinzioni. Funzionamento stagionale: in novembre i getti possono essere spenti. La vasca non è una fontanella potabile.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "Stadt Wien · Storia e restauro della fontana",
+          "url": "https://presse.wien.gv.at/presse/2026/02/18/wiener-hochstrahlbrunnen-wird-ab-ende-2027-saniert"
+        },
+        {
+          "title": "Stadt Wien · 150 anni di Wiener Wasser",
+          "url": "https://presse.wien.gv.at/presse/2023/10/24/150-jahre-wiener-wasser-bundespraesident-alexander-van-der-bellen-und-buergermeister-michael-ludwig-eroeffnen-jubilaeumsbrunnen"
+        },
+        {
+          "title": "WienTourismus · Acqua di Vienna",
+          "url": "https://www.wien.info/de/lebenswertes-wien/wasser-in-wien/wiener-wasser-434182"
+        }
+      ],
+      "referenceNote": "Centro cartografico dell’edificio o della vasca, da osservare dagli spazi pubblici esterni.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il nome Hochstrahlbrunnen significa fontana dall’alto getto. Ma la sua storia riguarda qualcosa di molto più importante di uno spettacolo d’acqua. Fu inaugurata nel 1873 insieme alla prima grande condotta che portava a Vienna acqua dalle sorgenti alpine. La fontana rendeva visibile un cambiamento concreto nella vita della città: una nuova disponibilità di acqua di qualità. Se i getti sono spenti per la stagione, il monumento mantiene il suo significato. Questa vasca celebra un’infrastruttura che normalmente rimane nascosta sotto strade, case e marciapiedi.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://presse.wien.gv.at/presse/2026/02/18/wiener-hochstrahlbrunnen-wird-ab-ende-2027-saniert",
+            "https://presse.wien.gv.at/presse/2023/10/24/150-jahre-wiener-wasser-bundespraesident-alexander-van-der-bellen-und-buergermeister-michael-ludwig-eroeffnen-jubilaeumsbrunnen",
+            "https://www.wien.info/de/lebenswertes-wien/wasser-in-wien/wiener-wasser-434182"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un monumento a qualcosa che esce dal rubinetto",
+          "text": "Nelle fotografie di Vienna l’acqua sembra spesso soltanto una decorazione. Qui, invece, è il soggetto del monumento. La Hochstrahlbrunnen fu realizzata da Antonio Gabrielli, l’imprenditore coinvolto nella costruzione della prima condotta delle sorgenti alpine. La sua apertura segnò un passaggio nella storia dell’approvvigionamento idrico cittadino. L’acqua di montagna non era più soltanto una risorsa lontana: raggiungeva la capitale e diventava parte della vita quotidiana. Guardate la posizione della fontana nel grande spazio di Schwarzenbergplatz: un’opera pubblica essenziale riceve una presenza monumentale, visibile a chi attraversa la piazza. Il funzionamento della fontana è stagionale e non va confuso con quello delle fontanelle da bere. Il racconto più interessante, anche senza getti, resta quello del legame fra una città e il paesaggio che la rifornisce.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://presse.wien.gv.at/presse/2026/02/18/wiener-hochstrahlbrunnen-wird-ab-ende-2027-saniert",
+            "https://presse.wien.gv.at/presse/2023/10/24/150-jahre-wiener-wasser-bundespraesident-alexander-van-der-bellen-und-buergermeister-michael-ludwig-eroeffnen-jubilaeumsbrunnen",
+            "https://www.wien.info/de/lebenswertes-wien/wasser-in-wien/wiener-wasser-434182"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "palais-schwarzenberg",
+      "name": "Palais Schwarzenberg",
+      "category": "Palazzi",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.1969026,
+        "longitude": 16.3769307,
+        "source": "https://www.openstreetmap.org/relation/5541555",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "Un palazzo con giardino racconta la Vienna aristocratica appena fuori dall’antica città.",
+      "access": "Osservare il complesso dagli spazi pubblici di Schwarzenbergplatz e Rennweg. Palazzo, cortile e giardino non sono presentati come liberamente visitabili: rispettare cancelli e indicazioni sul posto.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "TU Wien · Ricerca storica sul Palais Schwarzenberg",
+          "url": "https://repositum.tuwien.at/handle/20.500.12708/9139"
+        },
+        {
+          "title": "Palais Schwarzenberg · Comunicato storico dei responsabili",
+          "url": "https://www.ots.at/presseaussendung/OTS_20040719_OTS0050/hotel-im-palais-schwarzenberg-investitionen-in-die-zukunft"
+        }
+      ],
+      "referenceNote": "Centro cartografico dell’edificio o della vasca, da osservare dagli spazi pubblici esterni.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Il Palais Schwarzenberg è un palazzo barocco pensato insieme al suo giardino. La costruzione iniziò nel 1697 come residenza Mansfeld-Fondi e la sua storia si lega agli architetti Johann Lucas von Hildebrandt e Johann Bernhard Fischer von Erlach. Davanti a questo complesso si può immaginare una Vienna in cui le famiglie aristocratiche cercavano spazio e rappresentanza oltre il nucleo più fitto della città. Osservatelo dall’esterno: le parti visitabili dipendono dagli accessi autorizzati e il giardino non va considerato automaticamente un parco pubblico.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://repositum.tuwien.at/handle/20.500.12708/9139",
+            "https://www.ots.at/presseaussendung/OTS_20040719_OTS0050/hotel-im-palais-schwarzenberg-investitionen-in-die-zukunft"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Un palazzo, molti autori e più vite",
+          "text": "Un palazzo antico può sembrare il risultato di un’unica decisione, ma il Palais Schwarzenberg conserva il lavoro di generazioni diverse. La ricerca della Technische Universität Wien ricostruisce la sua trasformazione attraverso progetti e documenti d’archivio: alla prima costruzione seguirono modifiche, interventi sui giardini e cambiamenti importanti nel Novecento. I danni subiti alla fine della seconda guerra mondiale e i successivi recuperi fanno parte di questa storia tanto quanto la fase barocca. Anche l’acqua aveva un ruolo nella rappresentazione aristocratica: gli impianti delle fontane del giardino erano parte di un sistema tecnico studiato con cura. Il complesso invita quindi a guardare oltre la facciata e a pensare insieme architettura, paesaggio e manutenzione. Dallo spazio pubblico possiamo leggerne il carattere senza presumere che cortili e giardini siano aperti.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://repositum.tuwien.at/handle/20.500.12708/9139",
+            "https://www.ots.at/presseaussendung/OTS_20040719_OTS0050/hotel-im-palais-schwarzenberg-investitionen-in-die-zukunft"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stadtpark",
+      "name": "Stadtpark",
+      "category": "Parchi",
+      "verifiedAt": "2026-11-06",
+      "location": {
+        "latitude": 48.2047644,
+        "longitude": 16.379574,
+        "source": "https://www.openstreetmap.org/way/551031461",
+        "kind": "centro cartografico"
+      },
+      "entrance": null,
+      "entranceStatus": "Il pin è un riferimento cartografico del luogo; non certifica un ingresso accessibile. Seguire gli accessi segnalati sul posto.",
+      "summary": "Un parco pubblico dell’Ottocento fra paesaggio, musica e memoria della città.",
+      "access": "Esplorazione a piedi dai varchi del parco. Il pin è un riferimento centrale nell’area verde, non il monumento a Strauss né l’omonima stazione della metropolitana. Distanza dal Naschmarkt maggiore rispetto agli altri luoghi del gruppo.",
+      "nearbyLabel": false,
+      "routeIds": [
+        "naschmarkt-stadtpark"
+      ],
+      "sources": [
+        {
+          "title": "Stadt Wien · Stadtpark",
+          "url": "https://www.wien.gv.at/freizeit/stadtpark"
+        },
+        {
+          "title": "WienTourismus · Parchi del centro",
+          "url": "https://www.wien.info/en/livable-vienna/parks-green-spaces/parks-gardens-center-354980"
+        },
+        {
+          "title": "WienTourismus · Monumento a Johann Strauss",
+          "url": "https://www.wien.info/de/kunst-kultur/musik-buehne/strauss-denkmal-360240"
+        }
+      ],
+      "referenceNote": "Riferimento centrale di un luogo esteso, non punto di ingresso.",
+      "contents": [
+        {
+          "id": "scopri",
+          "title": "Scopri il luogo",
+          "text": "Lo Stadtpark aprì nel 1862, durante la trasformazione di Vienna che seguì la demolizione delle antiche mura. Fu il primo parco comunale della città. Fra prati, alberi e sentieri si incontrano monumenti dedicati ad artisti e musicisti: il più celebre è la figura dorata di Johann Strauss figlio. Il parco offre un cambio di ritmo rispetto alle grandi strade del centro. Non occorre cercare subito una statua: cominciate osservando come i percorsi, le aperture nel verde e gli scorci invitano a camminare senza seguire una linea retta.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/stadtpark",
+            "https://www.wien.info/en/livable-vienna/parks-green-spaces/parks-gardens-center-354980",
+            "https://www.wien.info/de/kunst-kultur/musik-buehne/strauss-denkmal-360240"
+          ]
+        },
+        {
+          "id": "approfondimento",
+          "title": "Una natura progettata e una città in musica",
+          "text": "Un parco dall’aspetto naturale può essere il risultato di un progetto molto preciso. Lo Stadtpark nacque dalle idee del pittore paesaggista Joseph Selleny e dal lavoro del giardiniere Rudolf Siebeck. Il linguaggio era quello del giardino paesaggistico: percorsi curvi, acqua, vegetazione e punti di vista alternati. Alla passeggiata si aggiunse una geografia della memoria. Il monumento dorato a Johann Strauss figlio, inaugurato nel 1921 e opera di Edmund Hellmer, lega il luogo all’immagine musicale di Vienna. Intorno, altri monumenti ricordano compositori e figure della vita cittadina. Provate a leggere queste due trame insieme: una costruisce il paesaggio, l’altra sceglie chi ricordare. Il fiume Wien e le architetture dei suoi accessi aggiungono un ulteriore strato alla storia di questo spazio pubblico.",
+          "audio": null,
+          "durationSeconds": null,
+          "sources": [
+            "https://www.wien.gv.at/freizeit/stadtpark",
+            "https://www.wien.info/en/livable-vienna/parks-green-spaces/parks-gardens-center-354980",
+            "https://www.wien.info/de/kunst-kultur/musik-buehne/strauss-denkmal-360240"
+          ]
+        }
+      ]
     }
   ]
 }

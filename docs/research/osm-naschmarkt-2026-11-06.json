@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-11-06",
+  "provider": "OpenStreetMap / Overpass API",
+  "endpoint": "https://overpass-api.de/api/interpreter",
+  "note": "Estratto dei sei oggetti e dei rispettivi centri restituiti dalla prima query Overpass di ricerca; non è la risposta grezza completa. Le successive richieste di snapshot hanno restituito HTTP 502 o timeout.",
+  "attribution": "© OpenStreetMap contributors, ODbL",
+  "elements": [
+    {
+      "id": "naschmarkt",
+      "osm": "https://www.openstreetmap.org/way/29320733",
+      "latitude": 48.198347,
+      "longitude": 16.3625791,
+      "kind": "centro cartografico"
+    },
+    {
+      "id": "secession",
+      "osm": "https://www.openstreetmap.org/way/25371168",
+      "latitude": 48.2004956,
+      "longitude": 16.3657826,
+      "kind": "centro cartografico"
+    },
+    {
+      "id": "karlskirche",
+      "osm": "https://www.openstreetmap.org/way/8097149",
+      "latitude": 48.1982797,
+      "longitude": 16.3717985,
+      "kind": "centro cartografico"
+    },
+    {
+      "id": "hochstrahlbrunnen",
+      "osm": "https://www.openstreetmap.org/way/12990452",
+      "latitude": 48.1983801,
+      "longitude": 16.3761125,
+      "kind": "centro cartografico"
+    },
+    {
+      "id": "palais-schwarzenberg",
+      "osm": "https://www.openstreetmap.org/relation/5541555",
+      "latitude": 48.1969026,
+      "longitude": 16.3769307,
+      "kind": "centro cartografico"
+    },
+    {
+      "id": "stadtpark",
+      "osm": "https://www.openstreetmap.org/way/551031461",
+      "latitude": 48.2047644,
+      "longitude": 16.379574,
+      "kind": "centro cartografico"
+    }
+  ]
+}

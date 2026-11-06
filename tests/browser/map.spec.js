@@ -35,7 +35,7 @@ test("desktop has a side panel and GPS denial never blocks manual exploration", 
   expect(box.x).toBeGreaterThan(800);
   expect(box.width).toBeLessThan(500);
   await page.getByRole("button", { name: "Chiudi scheda" }).click();
-  await expect(page.locator(".poi-pin")).toHaveCount(28);
+  await expect(page.locator(".poi-pin")).toHaveCount(34);
 });
 test("overlapping map pins offer a touch choice of nearby places", async ({
   page,

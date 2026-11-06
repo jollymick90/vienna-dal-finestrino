@@ -1,14 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-test("catalog has 28 independently usable places, documented coordinates and two spoken texts", async () => {
+test("catalog has 34 independently usable places, documented coordinates and two spoken texts", async () => {
   const catalog = JSON.parse(await readFile("public/catalog.json", "utf8"));
-  assert.equal(catalog.places.length, 28);
-  assert.equal(new Set(catalog.places.map((p) => p.id)).size, 28);
+  assert.equal(catalog.places.length, 34);
+  assert.equal(new Set(catalog.places.map((p) => p.id)).size, 34);
   for (const p of catalog.places) {
     assert.ok(p.location.latitude > 48.19 && p.location.latitude < 48.23, p.id);
     assert.ok(
-      p.location.longitude > 16.32 && p.location.longitude < 16.38,
+      p.location.longitude > 16.32 && p.location.longitude < 16.39,
       p.id,
     );
     assert.match(p.location.source, /openstreetmap.org/);
@@ -27,6 +27,21 @@ test("catalog has 28 independently usable places, documented coordinates and two
       assert.equal(c.audio, null);
     }
   }
+});
+test("Naschmarkt walking group contains exactly the requested six independent sites", async () => {
+  const catalog = JSON.parse(await readFile("public/catalog.json", "utf8"));
+  const group = catalog.routes.find(route => route.id === "naschmarkt-stadtpark");
+  assert.equal(group?.mode, "walk");
+  const places = catalog.places.filter(place => place.routeIds.includes(group.id));
+  assert.deepEqual(places.map(place => place.id).sort(), ["hochstrahlbrunnen", "karlskirche", "naschmarkt", "palais-schwarzenberg", "secession", "stadtpark"]);
+  for (const place of places) {
+    assert.equal(place.verifiedAt, "2026-11-06");
+    assert.equal(place.suggestion?.tram, undefined);
+    assert.equal(place.suggestion?.location, undefined);
+    assert.equal(place.routeContext, undefined);
+    assert.equal(place.contents.length, 2);
+  }
+  assert.equal(catalog.places.filter(place => place.routeIds.includes("yppengasse-albertina")).length, 28);
 });
 test("build validation rejects stale text, missing files and invalid audio payloads", async () => {
   const { validatePoiAssets } = await import("../scripts/validate-poi.js");

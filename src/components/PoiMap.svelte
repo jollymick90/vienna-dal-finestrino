@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import 'leaflet/dist/leaflet.css';
   import { createPoiMap } from '../lib/poi-map.js';
-  let { places, paths, selected, routeId, position, simulated, online, centerRequest, onselect, onTileError } = $props();
+  let { places, paths, selected, routeId, showTramRoute = true, position, simulated, online, centerRequest, onselect, onTileError } = $props();
   let container;
   let controller = $state.raw(null);
   onMount(() => {
@@ -10,7 +10,7 @@
     return () => controller.destroy();
   });
   $effect(() => controller?.select(selected));
-  $effect(() => controller?.filter(routeId));
+  $effect(() => controller?.filter(routeId, showTramRoute));
   $effect(() => controller?.position(position, simulated));
   $effect(() => controller?.online(online));
   $effect(() => { if (centerRequest) controller?.center(); });

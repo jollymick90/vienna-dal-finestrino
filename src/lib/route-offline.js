@@ -8,7 +8,7 @@ export function routeAssets(catalog, routeId) {
     MANIFEST,
     ...new Set(
       catalog.places
-        .filter((p) => p.routeIds.includes(routeId))
+        .filter((p) => !routeId || p.routeIds.includes(routeId))
         .flatMap((p) => p.contents.filter((c) => c.audio).map((c) => c.audio)),
     ),
   ];

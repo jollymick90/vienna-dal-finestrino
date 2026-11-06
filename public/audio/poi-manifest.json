@@ -1120,6 +1120,246 @@
         "sourceFingerprint": "d350204a08d1a139c1415e2ca3efbb7e8c2bc8ce59c22092ef6ba0bc438c2661",
         "archive": "audio-masters/poi/augustinerkirche-approfondimento-d350204a08d1a139-68058e672477c746.wav"
       }
+    },
+    "naschmarkt:scopri": {
+      "audio": "/audio/poi/naschmarkt-scopri-ff9566dd6e9a31ef-64k-bab2d9510e951ac0.mp3",
+      "durationSeconds": 38.76,
+      "textHash": "99cef3a103ab7675ba092e1a3aa9baeac243b07586fb06621ac34460531e680a",
+      "audioHash": "bab2d9510e951ac0feeacd8f3ff6db6f4d7bd8862044308f98200442146f623c",
+      "fingerprint": "ff9566dd6e9a31efe87a0047a05d2804ac9bf724a71e046fcc1d3914ebcb9698",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:20:14.545Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/naschmarkt-scopri-ff9566dd6e9a31ef.wav",
+        "sourceAudioHash": "d6f0e6e2115c64d3132f451f45f1f98c3c06d3ad43945341188dee425387fe7a",
+        "sourceFingerprint": "ff9566dd6e9a31efe87a0047a05d2804ac9bf724a71e046fcc1d3914ebcb9698",
+        "archive": "audio-masters/poi/naschmarkt-scopri-ff9566dd6e9a31ef-d6f0e6e2115c64d3.wav"
+      }
+    },
+    "naschmarkt:approfondimento": {
+      "audio": "/audio/poi/naschmarkt-approfondimento-89011b70d2a59941-64k-d1647728b6322dd9.mp3",
+      "durationSeconds": 59.68,
+      "textHash": "d8766795a999ffec064da93badb4412a0a02803dbcea5cd552abca5715a83865",
+      "audioHash": "d1647728b6322dd93c63162103c9f741287bfd3a012cb65bbe25f257204c27a8",
+      "fingerprint": "89011b70d2a5994175bfe88aa380b8167ec228d5a805821e12435c2741be870b",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:20:36.731Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/naschmarkt-approfondimento-89011b70d2a59941.wav",
+        "sourceAudioHash": "e9f33c13859c1ab4a83fb56c095461711721bddcf9bd943b8a06e909936622fc",
+        "sourceFingerprint": "89011b70d2a5994175bfe88aa380b8167ec228d5a805821e12435c2741be870b",
+        "archive": "audio-masters/poi/naschmarkt-approfondimento-89011b70d2a59941-e9f33c13859c1ab4.wav"
+      }
+    },
+    "secession:scopri": {
+      "audio": "/audio/poi/secession-scopri-3530a166da4d71b8-64k-0597f7fcce074ee4.mp3",
+      "durationSeconds": 41.24,
+      "textHash": "58b02fe9fe49fe1b4e4c67c2d1b52ca976da720dabc5ca174cf6f743bbbf53e6",
+      "audioHash": "0597f7fcce074ee4c7c48ccd583d8bd71ef6a9c48bd994cd75e76b741024b407",
+      "fingerprint": "3530a166da4d71b83c51bbc8f067990b252246e2c231ec97a3a15326232ca79f",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:20:51.469Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/secession-scopri-3530a166da4d71b8.wav",
+        "sourceAudioHash": "3dd1fdda1186dd547d55c7f031269d8cf03eb4c59bd367fbaf9d1abce177f22a",
+        "sourceFingerprint": "3530a166da4d71b83c51bbc8f067990b252246e2c231ec97a3a15326232ca79f",
+        "archive": "audio-masters/poi/secession-scopri-3530a166da4d71b8-3dd1fdda1186dd54.wav"
+      }
+    },
+    "secession:approfondimento": {
+      "audio": "/audio/poi/secession-approfondimento-af058dea0abefc11-64k-5867326ab6dd93ec.mp3",
+      "durationSeconds": 59.64,
+      "textHash": "c59666ebc34f5a14b30754bd34aa4537424cd2fbf8d9295cecad4071bc413947",
+      "audioHash": "5867326ab6dd93eca20d60ddcdb1eb9e52ee7951160e3e8709ce6b50cb96e7a3",
+      "fingerprint": "af058dea0abefc113407758b47d05b1a4200a05507405488363b16a482942278",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:21:13.656Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/secession-approfondimento-af058dea0abefc11.wav",
+        "sourceAudioHash": "60b38594fddac3c9f22ab72f626026571f4e5750beb9b12375c6ea0b3f14bf7e",
+        "sourceFingerprint": "af058dea0abefc113407758b47d05b1a4200a05507405488363b16a482942278",
+        "archive": "audio-masters/poi/secession-approfondimento-af058dea0abefc11-60b38594fddac3c9.wav"
+      }
+    },
+    "karlskirche:scopri": {
+      "audio": "/audio/poi/karlskirche-scopri-df08467369026a92-64k-002303e25ca790be.mp3",
+      "durationSeconds": 40.52,
+      "textHash": "5524ff72285ec622083330d79e9fdbd9f3aa1cfceb740a294299c447190cdfdd",
+      "audioHash": "002303e25ca790be2687eea0f61c01752565c4e4c2784e59555fec98fe0f7d3f",
+      "fingerprint": "df08467369026a92bdb55cdbffadb7c87144a6ee94685be55b1bc18f42c98bb3",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:21:29.306Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/karlskirche-scopri-df08467369026a92.wav",
+        "sourceAudioHash": "2af61d42daa8a24d7b662a6c32d3cacb92aefe40703e7dd83b493be85e803497",
+        "sourceFingerprint": "df08467369026a92bdb55cdbffadb7c87144a6ee94685be55b1bc18f42c98bb3",
+        "archive": "audio-masters/poi/karlskirche-scopri-df08467369026a92-2af61d42daa8a24d.wav"
+      }
+    },
+    "karlskirche:approfondimento": {
+      "audio": "/audio/poi/karlskirche-approfondimento-f4012f5aaaa176af-64k-f5f3b00ccefaa2c4.mp3",
+      "durationSeconds": 56.92,
+      "textHash": "505e60b26b4027a3a701e6c3a3c6e2fda36d853396d9b87b378e82faf8133c5d",
+      "audioHash": "f5f3b00ccefaa2c4beff75218d59a2c908abb69fb0edf09d500da58a2754d6b1",
+      "fingerprint": "f4012f5aaaa176af089a3a04864c8d46c2f4a0c9c70c92919ad44c682b2df03e",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:21:49.606Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/karlskirche-approfondimento-f4012f5aaaa176af.wav",
+        "sourceAudioHash": "ad8314d2e469481a621993df8331194a86160fa949f5560526d991e364d23769",
+        "sourceFingerprint": "f4012f5aaaa176af089a3a04864c8d46c2f4a0c9c70c92919ad44c682b2df03e",
+        "archive": "audio-masters/poi/karlskirche-approfondimento-f4012f5aaaa176af-ad8314d2e469481a.wav"
+      }
+    },
+    "hochstrahlbrunnen:scopri": {
+      "audio": "/audio/poi/hochstrahlbrunnen-scopri-c5cf6b25ce284430-64k-d88561a371160cca.mp3",
+      "durationSeconds": 41.48,
+      "textHash": "6cc326b5fcf9598de85f6a8194465b46adde636edafe89a5c2e78b2ec1213ce2",
+      "audioHash": "d88561a371160ccaf48c3e2a4438932cbff058e1993407af907ecacb1bb11c0d",
+      "fingerprint": "c5cf6b25ce284430f0c67468b09367cb1e718c36c163242382b7ae9f71fe868d",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:22:05.730Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/hochstrahlbrunnen-scopri-c5cf6b25ce284430.wav",
+        "sourceAudioHash": "ce38ad69282956191efe92ebd326e79b82a4afcfc77d755a816d7bd7f6a8e7f4",
+        "sourceFingerprint": "c5cf6b25ce284430f0c67468b09367cb1e718c36c163242382b7ae9f71fe868d",
+        "archive": "audio-masters/poi/hochstrahlbrunnen-scopri-c5cf6b25ce284430-ce38ad6928295619.wav"
+      }
+    },
+    "hochstrahlbrunnen:approfondimento": {
+      "audio": "/audio/poi/hochstrahlbrunnen-approfondimento-17ca96272e5285bf-64k-46ae665207d606fe.mp3",
+      "durationSeconds": 60.72,
+      "textHash": "3c82be8707b73335ac937ce9987524b02a1ee292ce482317eb126c5e32abdc6b",
+      "audioHash": "46ae665207d606fe92a29b06b4120ca73d537e44eae47fdb8aa600274615a52b",
+      "fingerprint": "17ca96272e5285bfe6dd05b75a52cd3fbb594a06a6b58045368be7898cf99264",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:22:27.478Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/hochstrahlbrunnen-approfondimento-17ca96272e5285bf.wav",
+        "sourceAudioHash": "c0d823fc8f08dcfd164cdfc857c33c7a1580bbad4f7c6f0c3d8cd8b7f1b04ee6",
+        "sourceFingerprint": "17ca96272e5285bfe6dd05b75a52cd3fbb594a06a6b58045368be7898cf99264",
+        "archive": "audio-masters/poi/hochstrahlbrunnen-approfondimento-17ca96272e5285bf-c0d823fc8f08dcfd.wav"
+      }
+    },
+    "palais-schwarzenberg:scopri": {
+      "audio": "/audio/poi/palais-schwarzenberg-scopri-2b3b4cb5a16706ce-64k-ad65a907446306b0.mp3",
+      "durationSeconds": 43.44,
+      "textHash": "457e3b4142d273fd5e5748035ede5ba2992f74539e46d1c42035f79f60284195",
+      "audioHash": "ad65a907446306b00df8f252ff0b3d320fb87a59102f0ce0b742525eb4d522ec",
+      "fingerprint": "2b3b4cb5a16706ce62735f58318887396c51abedd4476fc23fac693a9ffb496c",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:22:43.285Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palais-schwarzenberg-scopri-2b3b4cb5a16706ce.wav",
+        "sourceAudioHash": "53f4cd405974ecadf1489450ddab2bd17c285be36161c029b45928072e771f83",
+        "sourceFingerprint": "2b3b4cb5a16706ce62735f58318887396c51abedd4476fc23fac693a9ffb496c",
+        "archive": "audio-masters/poi/palais-schwarzenberg-scopri-2b3b4cb5a16706ce-53f4cd405974ecad.wav"
+      }
+    },
+    "palais-schwarzenberg:approfondimento": {
+      "audio": "/audio/poi/palais-schwarzenberg-approfondimento-a0dbe4f77d9fe746-64k-91c64c49bb9a3b76.mp3",
+      "durationSeconds": 62.56,
+      "textHash": "c5ecafb3db4e62b79feeff038dc371fae4870f90fa17e598b686b92b34690d75",
+      "audioHash": "91c64c49bb9a3b76f1bf2168d74dbbf6b29a8a7976f6292ae5ab0db33ac90235",
+      "fingerprint": "a0dbe4f77d9fe7467bd317fde6126f06b30d093fbbccee62db95bd75421f815a",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:23:05.391Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palais-schwarzenberg-approfondimento-a0dbe4f77d9fe746.wav",
+        "sourceAudioHash": "41b4ce005617fe144e427946801bfd05e72bfef09af686e1e93aa124ea54893e",
+        "sourceFingerprint": "a0dbe4f77d9fe7467bd317fde6126f06b30d093fbbccee62db95bd75421f815a",
+        "archive": "audio-masters/poi/palais-schwarzenberg-approfondimento-a0dbe4f77d9fe746-41b4ce005617fe14.wav"
+      }
+    },
+    "stadtpark:scopri": {
+      "audio": "/audio/poi/stadtpark-scopri-c1d4bae2a096ae76-64k-fad91a42974005a6.mp3",
+      "durationSeconds": 40.08,
+      "textHash": "9aced054fb4616dc73bd3b77d4f44a1bb59063cd1a298d39b69cdf63bed49c0e",
+      "audioHash": "fad91a42974005a6a8d5e4126275dfbc2722c1e650ce5a732513cc5cc1437aab",
+      "fingerprint": "c1d4bae2a096ae7668cc6868417e979fc4a2ccec1a2a12b89ccde1f42be3f2f7",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:23:21.145Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/stadtpark-scopri-c1d4bae2a096ae76.wav",
+        "sourceAudioHash": "b773a2c6103a569a643f7e09d6bb135a066adaf387d80003e90196c512ef77e7",
+        "sourceFingerprint": "c1d4bae2a096ae7668cc6868417e979fc4a2ccec1a2a12b89ccde1f42be3f2f7",
+        "archive": "audio-masters/poi/stadtpark-scopri-c1d4bae2a096ae76-b773a2c6103a569a.wav"
+      }
+    },
+    "stadtpark:approfondimento": {
+      "audio": "/audio/poi/stadtpark-approfondimento-f65cf0258eaec73e-64k-109b039cd281db51.mp3",
+      "durationSeconds": 63.88,
+      "textHash": "d3c6a6134c69b18154a27f6dfc9882bf884c950ae998183c07591a9a2e95d4fa",
+      "audioHash": "109b039cd281db51c80ba9976a31d8ca69ff8a8423639d45d018215a55e10e00",
+      "fingerprint": "f65cf0258eaec73e5b984f54e685cc30ad5eec5919be0030a7c243338d2b5890",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T07:23:44.185Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/stadtpark-approfondimento-f65cf0258eaec73e.wav",
+        "sourceAudioHash": "fe6ec3bb276333fb13d5e7da3b830d498f5bb3d99aa9276d9b3e048ae187ee33",
+        "sourceFingerprint": "f65cf0258eaec73e5b984f54e685cc30ad5eec5919be0030a7c243338d2b5890",
+        "archive": "audio-masters/poi/stadtpark-approfondimento-f65cf0258eaec73e-fe6ec3bb276333fb.wav"
+      }
     }
   }
 }
