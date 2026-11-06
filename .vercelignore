@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.git/
+.superpowers/
+.env*
+audio-masters/
+public/audio/poi/
+playwright-report/
+test-results/

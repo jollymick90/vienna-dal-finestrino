@@ -1,3 +1,4 @@
+import { mp3Duration } from "./mp3-metadata.js";
 import { createHash } from "node:crypto";
 import { readFile, writeFile, mkdir, rename } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
@@ -92,13 +93,20 @@ async function readManifest(root) {
 }
 export async function reusableAsset(root, plan, manifest) {
   const asset = manifest.entries[plan.key];
-  if (asset?.fingerprint !== plan.fingerprint || asset.audio !== plan.audio)
-    return false;
+  if (asset?.fingerprint !== plan.fingerprint) return false;
+  const compressed =
+    /^\/audio\/poi\/[a-z0-9-]+\.mp3$/.test(asset.audio) &&
+    asset.compression?.sourceFingerprint === plan.fingerprint &&
+    asset.compression?.sourceAudio === plan.audio;
+  if (asset.audio !== plan.audio && !compressed) return false;
   try {
     const bytes = await readFile(resolve(root, `public${asset.audio}`));
     return (
       sha(bytes) === asset.audioHash &&
-      Math.abs(wavDuration(bytes) - asset.durationSeconds) < 0.01
+      Math.abs(
+        (compressed ? mp3Duration(bytes) : wavDuration(bytes)) -
+          asset.durationSeconds,
+      ) < (compressed ? 0.15 : 0.01)
     );
   } catch {
     return false;
@@ -214,7 +222,7 @@ async function main() {
   const manifest = await readManifest(".");
   const reuse = !force && (await reusableAsset(".", plan, manifest));
   console.log(
-    `${generate ? "Generazione autorizzata" : "dry-run · nessuna chiamata API"} · ${plan.key}\nModello: ${plan.model}, voce: ${plan.voice}\nAsset: ${plan.audio}\n${reuse ? "File invariato: riuso disponibile." : "Asset da generare."}`,
+    `${generate ? "Generazione autorizzata" : "dry-run · nessuna chiamata API"} · ${plan.key}\nModello: ${plan.model}, voce: ${plan.voice}\nAsset: ${reuse ? manifest.entries[plan.key].audio : plan.audio}\n${reuse ? "File invariato: riuso disponibile." : "Asset da generare."}`,
   );
   if (!generate) return;
   const result = await generateAudio({

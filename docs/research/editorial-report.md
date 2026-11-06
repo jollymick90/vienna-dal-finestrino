@@ -48,3 +48,7 @@ Gli otto MP3 originali narrano tratte, non i nuovi contenuti dei singoli luoghi.
 - Revisione indipendente e controllo visivo dei layout mobile/desktop completati; nessun problema importante residuo segnalato.
 
 Le prove browser di audio usano una fixture isolata; non certificano qualità o pronuncia di voci Gemini non ancora generate.
+
+## Aggiornamento audio · 6 novembre 2026
+
+Generazione dei 56 audio completata su autorizzazione dell’utente, dopo attivazione della fatturazione Gemini. Dettagli, durate e dimensioni nel [resoconto audio](audio-generation-2026-11-06.md). Gli esiti della prima implementazione riportati sopra rimangono storici. Deploy non eseguito.

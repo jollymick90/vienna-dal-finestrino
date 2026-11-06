@@ -1,3 +1,5 @@
+import { isRemoteAudioUrl } from "./audio-storage.js";
+
 export const ROUTE_CACHE = "vienna-poi-downloads-v1";
 const MANIFEST = "/audio/poi-manifest.json";
 export function routeAssets(catalog, routeId) {
@@ -125,5 +127,22 @@ export async function downloadRoute(catalog, routeId, notify = () => {}) {
   const result = await verifyRoute(catalog, routeId);
   if (!result.ready)
     throw new Error("Verifica offline incompleta. Riprova il download.");
+  // Only prune superseded POI files after all requested assets are verified.
+  const appBase = globalThis.location?.href || "https://guide.test/";
+  const appOrigin = new URL(appBase).origin;
+  const currentAudio = new Set(
+    catalog.places.flatMap((place) =>
+      place.contents
+        .filter((content) => content.audio)
+        .map((content) => new URL(content.audio, appBase).href),
+    ),
+  );
+  for (const request of await cache.keys()) {
+    const url = new URL(request.url);
+    const managed = (url.origin === appOrigin && url.pathname.startsWith("/audio/poi/")) ||
+      isRemoteAudioUrl(url.href);
+    if (managed && !currentAudio.has(url.href))
+      await cache.delete(request);
+  }
   return result;
 }

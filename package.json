@@ -10,7 +10,10 @@
     "check": "svelte-check --fail-on-warnings",
     "test": "node --test tests/*.test.js",
     "test:e2e": "playwright test",
-    "tts": "node scripts/generate-poi-audio.js"
+    "tts": "node scripts/generate-poi-audio.js",
+    "tts:all": "node scripts/generate-all-poi-audio.js",
+    "audio:compress": "node scripts/compress-poi-audio.js",
+    "audio:publish": "node --env-file=.env.storage scripts/publish-audio.js"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

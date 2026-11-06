@@ -27,6 +27,7 @@ const feed = (page, p, accuracy = 5, age = 0) =>
 test("map pins explore all places without requesting GPS; text-only cards have no listen action", async ({
   page,
 }) => {
+  await page.route("**/audio/poi-manifest.json", route => route.fulfill({json: {version: 1, entries: {}}}));
   let gps = 0;
   await page.exposeFunction("requestedGPS", () => gps++);
   await page.addInitScript(() => {

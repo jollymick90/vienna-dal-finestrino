@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import { mp3Duration } from "./mp3-metadata.js";
 import { wavDuration } from "./generate-poi-audio.js";
 const sha = (value) => createHash("sha256").update(value).digest("hex");
 export async function validatePoiAssets(catalog, manifest, readAsset) {
@@ -66,12 +67,16 @@ export async function validatePoiAssets(catalog, manifest, readAsset) {
       sha(content.text),
       `Audio non coerente con il testo: ${key}`,
     );
-    assert.match(asset.audio, /^\/audio\/poi\/[a-z0-9-]+\.wav$/);
+    assert.match(asset.audio, /^\/audio\/poi\/[a-z0-9-]+\.(wav|mp3)$/);
     const bytes = await readAsset(asset.audio);
     assert.ok(bytes.length > 1000, `Asset audio vuoto: ${key}`);
     assert.equal(sha(bytes), asset.audioHash, `Hash audio errato: ${key}`);
     assert.ok(
-      Math.abs(wavDuration(bytes) - asset.durationSeconds) < 0.01,
+      Math.abs(
+        (asset.audio.endsWith(".mp3")
+          ? mp3Duration(bytes)
+          : wavDuration(bytes)) - asset.durationSeconds,
+      ) < (asset.audio.endsWith(".mp3") ? 0.15 : 0.01),
       `Durata audio errata: ${key}`,
     );
   }

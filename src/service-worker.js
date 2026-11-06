@@ -1,4 +1,4 @@
-// CACHE_NAME, ASSETS and rangeResponse are injected by scripts/build-sw.js.
+// CACHE_NAME, ASSETS, audio storage helpers and rangeResponse are injected by scripts/build-sw.js.
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -41,7 +41,7 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (
     request.method !== "GET" ||
-    new URL(request.url).origin !== self.location.origin
+    (new URL(request.url).origin !== self.location.origin && !isRemoteAudioUrl(request.url))
   )
     return;
   event.respondWith(

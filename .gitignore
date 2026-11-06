@@ -4,3 +4,13 @@ dist/
 playwright-report/
 test-results/
 .superpowers/
+
+.env
+
+.env.local
+
+/audio-masters/
+
+# POI binaries are published to MinIO; keep the source manifest in Git.
+/public/audio/poi/
+.env.storage

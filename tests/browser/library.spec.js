@@ -3,10 +3,11 @@ test("catalog and paths remain available offline after verified download, withou
   page,
   context,
 }) => {
+  test.setTimeout(120000);
   await page.goto("/");
   await page.getByRole("button", { name: "Percorsi e offline" }).click();
   await page.getByRole("button", { name: "Scarica percorso offline" }).click();
-  await expect(page.getByText(/Percorso verificato offline/)).toBeVisible();
+  await expect(page.getByText(/Percorso verificato offline/)).toBeVisible({ timeout: 90000 });
   await expect(page.getByText(/Mappa stradale: solo online/)).toBeVisible();
   await context.setOffline(true);
   await page.reload();

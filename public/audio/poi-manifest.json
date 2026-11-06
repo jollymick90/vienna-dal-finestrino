@@ -2,14 +2,1124 @@
   "version": 1,
   "entries": {
     "albertina:scopri": {
-      "audio": "/audio/poi/albertina-scopri-790b4afc87ce79dc.wav",
+      "audio": "/audio/poi/albertina-scopri-790b4afc87ce79dc-64k-b6ccb632e36f008c.mp3",
       "durationSeconds": 38.04,
       "textHash": "8ab0f75a60d5f0a8b6ed26b37c403540355b8d08109fbbbbcf9bf7445f7e41ba",
-      "audioHash": "1b7ac32ff09389764e8c9dd892e9c85d5d15ba14a67012ced8fc311f3a205e24",
+      "audioHash": "b6ccb632e36f008c15c242c95ae3fb7e4cb3d160d699371ff49876ae200121e6",
       "fingerprint": "790b4afc87ce79dcfd8041600788767918eed3a6a0c9bbe0fbc6ebb5baec426e",
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Kore",
-      "generatedAt": "2026-11-05T21:14:35.892Z"
+      "generatedAt": "2026-11-05T21:14:35.892Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/albertina-scopri-790b4afc87ce79dc.wav",
+        "sourceAudioHash": "1b7ac32ff09389764e8c9dd892e9c85d5d15ba14a67012ced8fc311f3a205e24",
+        "sourceFingerprint": "790b4afc87ce79dcfd8041600788767918eed3a6a0c9bbe0fbc6ebb5baec426e",
+        "archive": "audio-masters/poi/albertina-scopri-790b4afc87ce79dc-1b7ac32ff0938976.wav"
+      }
+    },
+    "yppenplatz:scopri": {
+      "audio": "/audio/poi/yppenplatz-scopri-5664f2f9ff70ced8-64k-510c91f949aef719.mp3",
+      "durationSeconds": 34.48,
+      "textHash": "e4afa2738af4b2629e30a92c7c77ea33e70e2a51ef00cb241256abc2d2ff4048",
+      "audioHash": "510c91f949aef719188dbc12631731205525d71dd90b515fcc24435faa621711",
+      "fingerprint": "5664f2f9ff70ced8794116a956f457790aec4e64279db284f910cc76c05b81cf",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:36:11.209Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/yppenplatz-scopri-5664f2f9ff70ced8.wav",
+        "sourceAudioHash": "5daaf929d415b11d6793771b284efa6e14e0966aed8465f0009b9e9289827d59",
+        "sourceFingerprint": "5664f2f9ff70ced8794116a956f457790aec4e64279db284f910cc76c05b81cf",
+        "archive": "audio-masters/poi/yppenplatz-scopri-5664f2f9ff70ced8-5daaf929d415b11d.wav"
+      }
+    },
+    "yppenplatz:approfondimento": {
+      "audio": "/audio/poi/yppenplatz-approfondimento-e47b1f893d688509-64k-7895e8f61079a321.mp3",
+      "durationSeconds": 49.72,
+      "textHash": "7196ed3503a44233e9fc6c71bb9e716e06300b9ae2edeb18a367de085e3bf092",
+      "audioHash": "7895e8f61079a321cc1d80f2d81ed1d945960ac445658e41a4b5adbc15c587c2",
+      "fingerprint": "e47b1f893d6885093bb2042cae9c2db20183b9f3d3e730586cea57c6b817014a",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:36:28.244Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/yppenplatz-approfondimento-e47b1f893d688509.wav",
+        "sourceAudioHash": "9f9a570f6ed22b99239672ea452df13ac15c7d59e29f957e2c9bc29858ef0a9b",
+        "sourceFingerprint": "e47b1f893d6885093bb2042cae9c2db20183b9f3d3e730586cea57c6b817014a",
+        "archive": "audio-masters/poi/yppenplatz-approfondimento-e47b1f893d688509-9f9a570f6ed22b99.wav"
+      }
+    },
+    "brunnenmarkt:scopri": {
+      "audio": "/audio/poi/brunnenmarkt-scopri-ad59cb6fd992cd7a-64k-d9fdaebda8ba3f08.mp3",
+      "durationSeconds": 36.8,
+      "textHash": "d83cce574647056ac29abe47feefc4d96b8d4ff48081cc9a896e912c3d47bf3b",
+      "audioHash": "d9fdaebda8ba3f08a7d813d0d0a552f6472a18a8fd55d30ff7d82e0952d6646a",
+      "fingerprint": "ad59cb6fd992cd7a013a6b98351dfa90d7e32a4698eb724465be8901fcb1a233",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:36:42.576Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/brunnenmarkt-scopri-ad59cb6fd992cd7a.wav",
+        "sourceAudioHash": "5417a1fe4ab58faa60d0e4f07368badfec533796b1a660329920c93d812d09df",
+        "sourceFingerprint": "ad59cb6fd992cd7a013a6b98351dfa90d7e32a4698eb724465be8901fcb1a233",
+        "archive": "audio-masters/poi/brunnenmarkt-scopri-ad59cb6fd992cd7a-5417a1fe4ab58faa.wav"
+      }
+    },
+    "brunnenmarkt:approfondimento": {
+      "audio": "/audio/poi/brunnenmarkt-approfondimento-5357172d7ba78d43-64k-27fff974e5ae9430.mp3",
+      "durationSeconds": 53.44,
+      "textHash": "e6199f26c0727da11a6eeac9fa28f9292aa26d9e9172555c4d521f24b20663a0",
+      "audioHash": "27fff974e5ae9430a8af8d3391ccf3198ecdeba9f73fc9d9ea4bcaf046fcdf80",
+      "fingerprint": "5357172d7ba78d43353356449e0c7a2aa85401d0441fc6c5845b0d112a82ae66",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:37:01.263Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/brunnenmarkt-approfondimento-5357172d7ba78d43.wav",
+        "sourceAudioHash": "1e5af07eb13843797068be5b1702251f8fa51d17a729310b2a2305e804143c9c",
+        "sourceFingerprint": "5357172d7ba78d43353356449e0c7a2aa85401d0441fc6c5845b0d112a82ae66",
+        "archive": "audio-masters/poi/brunnenmarkt-approfondimento-5357172d7ba78d43-1e5af07eb1384379.wav"
+      }
+    },
+    "brunnenpassage:scopri": {
+      "audio": "/audio/poi/brunnenpassage-scopri-b1a94bd2c8426536-64k-0323229148422d07.mp3",
+      "durationSeconds": 41.08,
+      "textHash": "53c8f9924c432ec23c9345871e19485b0251f65d65e37da0d5c58c25b0f45261",
+      "audioHash": "0323229148422d07f308779a09b37d5ee0bad82e69b014fe973941a1c4842c5b",
+      "fingerprint": "b1a94bd2c842653661374ab38a5c55ea2b49216734dc44d8e41801dd9f4242cc",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:37:16.959Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/brunnenpassage-scopri-b1a94bd2c8426536.wav",
+        "sourceAudioHash": "39af163ae9fc06374cbc100bc67a1c8d30d0365780d5945cadaa7e139110665a",
+        "sourceFingerprint": "b1a94bd2c842653661374ab38a5c55ea2b49216734dc44d8e41801dd9f4242cc",
+        "archive": "audio-masters/poi/brunnenpassage-scopri-b1a94bd2c8426536-39af163ae9fc0637.wav"
+      }
+    },
+    "brunnenpassage:approfondimento": {
+      "audio": "/audio/poi/brunnenpassage-approfondimento-49dd67b6fa7a7937-64k-52233652703f902e.mp3",
+      "durationSeconds": 57.48,
+      "textHash": "493f7d64e470f20d0e34873162c2e9ba678b429091fab1d84d0adec031247687",
+      "audioHash": "52233652703f902ec4fe2582133a72ed2fd11520d3c064201d37a1bc2ba96ed1",
+      "fingerprint": "49dd67b6fa7a7937f4658cf063a782cf4895964f8362cfcd12b37c8377e17c61",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:37:37.702Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/brunnenpassage-approfondimento-49dd67b6fa7a7937.wav",
+        "sourceAudioHash": "8ce15dd52e802fb8816ee602f0e41a7fed3b58648b91c9b57e4d53b092cdb3f7",
+        "sourceFingerprint": "49dd67b6fa7a7937f4658cf063a782cf4895964f8362cfcd12b37c8377e17c61",
+        "archive": "audio-masters/poi/brunnenpassage-approfondimento-49dd67b6fa7a7937-8ce15dd52e802fb8.wav"
+      }
+    },
+    "guertel:scopri": {
+      "audio": "/audio/poi/guertel-scopri-388dfca7503204c1-64k-37fbd1551e8ee561.mp3",
+      "durationSeconds": 39.2,
+      "textHash": "d50c36b6a05934061a77a76685431c3e6b0662dbee7cf604a59747b960e9490f",
+      "audioHash": "37fbd1551e8ee561c2adb3e6cc0c9bc12de2cdaf3ec3e41ec81102f85880e7c5",
+      "fingerprint": "388dfca7503204c1a02454a6b9e7c9a7295f735bfc627983cf45b4a8289d2af9",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:37:53.260Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/guertel-scopri-388dfca7503204c1.wav",
+        "sourceAudioHash": "1a4ffbcf970de88179b3081e9b9f2980d3944e5aebc3238534735a941e04a239",
+        "sourceFingerprint": "388dfca7503204c1a02454a6b9e7c9a7295f735bfc627983cf45b4a8289d2af9",
+        "archive": "audio-masters/poi/guertel-scopri-388dfca7503204c1-1a4ffbcf970de881.wav"
+      }
+    },
+    "guertel:approfondimento": {
+      "audio": "/audio/poi/guertel-approfondimento-a44c492f064cfcf5-64k-d80cdad5b88c92e6.mp3",
+      "durationSeconds": 57.84,
+      "textHash": "1aca49c1ebe774f740bef8d9de0bbe71262547466a883d4361d1651345f8a9be",
+      "audioHash": "d80cdad5b88c92e663db7c99ac3f82a384b5fbf2cca96a45add16b4a964a119e",
+      "fingerprint": "a44c492f064cfcf5ad86b6b78716796ddf6b243871472f162a2355fbb1005abd",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:38:13.538Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/guertel-approfondimento-a44c492f064cfcf5.wav",
+        "sourceAudioHash": "2fdb9f19e8940c5f8ce6b93a3744549c5e47051893750ab50fa234005d5c5cd1",
+        "sourceFingerprint": "a44c492f064cfcf5ad86b6b78716796ddf6b243871472f162a2355fbb1005abd",
+        "archive": "audio-masters/poi/guertel-approfondimento-a44c492f064cfcf5-2fdb9f19e8940c5f.wav"
+      }
+    },
+    "breitenfelder-kirche:scopri": {
+      "audio": "/audio/poi/breitenfelder-kirche-scopri-10f516d835e2a46e-64k-29a7d37bcdf9f819.mp3",
+      "durationSeconds": 40.04,
+      "textHash": "512f7d21dc462bc95c07265f3238dcd2d316136942471d264f4699ff077b55d5",
+      "audioHash": "29a7d37bcdf9f819a28dc17fb636c70ea34d8ba17d0f1f8a40a5bfcb26bbd5e7",
+      "fingerprint": "10f516d835e2a46ec29bfe43919796a17033e57a543f23097acfc715a1a550a9",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:38:29.019Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/breitenfelder-kirche-scopri-10f516d835e2a46e.wav",
+        "sourceAudioHash": "c083208cc011dc2882ece336af0a662fe06c1f7517801335e0a9443dc7c9bd00",
+        "sourceFingerprint": "10f516d835e2a46ec29bfe43919796a17033e57a543f23097acfc715a1a550a9",
+        "archive": "audio-masters/poi/breitenfelder-kirche-scopri-10f516d835e2a46e-c083208cc011dc28.wav"
+      }
+    },
+    "breitenfelder-kirche:approfondimento": {
+      "audio": "/audio/poi/breitenfelder-kirche-approfondimento-9dad7b0a4f3c0dba-64k-5d258a672fb893a4.mp3",
+      "durationSeconds": 56.6,
+      "textHash": "c77a122b226e146692b75f5bbf8b66db3451edbdf79d410039deac4c57ec1ec4",
+      "audioHash": "5d258a672fb893a4fd4508d3a3da57aa8078822801f00106341992a46eef28b7",
+      "fingerprint": "9dad7b0a4f3c0dba26fe5467ad93261f3a25e058facbfb7974614da4e46f67c5",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:38:49.048Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/breitenfelder-kirche-approfondimento-9dad7b0a4f3c0dba.wav",
+        "sourceAudioHash": "da5f9287515fb54e0d2c13de5f5555248a35adc60536a9ecf104f9c779e862eb",
+        "sourceFingerprint": "9dad7b0a4f3c0dba26fe5467ad93261f3a25e058facbfb7974614da4e46f67c5",
+        "archive": "audio-masters/poi/breitenfelder-kirche-approfondimento-9dad7b0a4f3c0dba-da5f9287515fb54e.wav"
+      }
+    },
+    "altes-akh:scopri": {
+      "audio": "/audio/poi/altes-akh-scopri-1e216b5fa3eaf8e1-64k-e7032e2def08932f.mp3",
+      "durationSeconds": 39.44,
+      "textHash": "17e6b29e4a48cb0205278dcd4b8073ba220479a51b24a0eda452999273110875",
+      "audioHash": "e7032e2def08932fa3912ec2954f2e1abf494541e991b050af271a5d2f27e788",
+      "fingerprint": "1e216b5fa3eaf8e187a1e3f27df748125b04ca23078dee657fa2f0048787453c",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:49:15.797Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/altes-akh-scopri-1e216b5fa3eaf8e1.wav",
+        "sourceAudioHash": "3889efdaeb77779263ac80a50e0fcb58c667012277f738053175fc6b2fadd485",
+        "sourceFingerprint": "1e216b5fa3eaf8e187a1e3f27df748125b04ca23078dee657fa2f0048787453c",
+        "archive": "audio-masters/poi/altes-akh-scopri-1e216b5fa3eaf8e1-3889efdaeb777792.wav"
+      }
+    },
+    "altes-akh:approfondimento": {
+      "audio": "/audio/poi/altes-akh-approfondimento-61395f6e6da8ec86-64k-9b8065c5e02da328.mp3",
+      "durationSeconds": 56.04,
+      "textHash": "924a5f549c037618f8e43b925ba84fdfe4639add591aba2a24cd0c217210f111",
+      "audioHash": "9b8065c5e02da3287e705dce7b07704cdca2b808b0ec3a48cb20eda1a4241762",
+      "fingerprint": "61395f6e6da8ec8681c756642a74ccb66e1b52cebe708debe6111fe48fed3ca6",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:49:36.172Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/altes-akh-approfondimento-61395f6e6da8ec86.wav",
+        "sourceAudioHash": "45c32a033e66df1d6f03e71bf1434c53d7d9a694a68a1e9e0ffdd94f32855ebf",
+        "sourceFingerprint": "61395f6e6da8ec8681c756642a74ccb66e1b52cebe708debe6111fe48fed3ca6",
+        "archive": "audio-masters/poi/altes-akh-approfondimento-61395f6e6da8ec86-45c32a033e66df1d.wav"
+      }
+    },
+    "narrenturm:scopri": {
+      "audio": "/audio/poi/narrenturm-scopri-e06ee06894de80de-64k-f505f1b153f7cda8.mp3",
+      "durationSeconds": 41.32,
+      "textHash": "8f9008c5f469ff55722635603dd659bdebbae9d5ba3160cf6df9b3bb2945adbe",
+      "audioHash": "f505f1b153f7cda8267f46979a0a396f216d590ff95dff6edaf82e846c127556",
+      "fingerprint": "e06ee06894de80de585c60d26add3eb14cc4f31878aee1414d3312a727fd534c",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:49:52.394Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/narrenturm-scopri-e06ee06894de80de.wav",
+        "sourceAudioHash": "d3fff82cecfbbf16b185ae7fc65f4d0bbfab5655ad5658a9e7fd720f46b1d69d",
+        "sourceFingerprint": "e06ee06894de80de585c60d26add3eb14cc4f31878aee1414d3312a727fd534c",
+        "archive": "audio-masters/poi/narrenturm-scopri-e06ee06894de80de-d3fff82cecfbbf16.wav"
+      }
+    },
+    "narrenturm:approfondimento": {
+      "audio": "/audio/poi/narrenturm-approfondimento-21dfe149bf3855a2-64k-1dc96e890608d2b0.mp3",
+      "durationSeconds": 57.52,
+      "textHash": "2328555d17e83a035367298d5040244d91e25b0933f33e34ba8cc8e914f5880d",
+      "audioHash": "1dc96e890608d2b06bac5ead5a517290feec35140e26628a2ae7742b1a555c96",
+      "fingerprint": "21dfe149bf3855a282f3e467f3f12d5d6fa2ac252c55938d7e28743c2f7b591d",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:50:12.903Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/narrenturm-approfondimento-21dfe149bf3855a2.wav",
+        "sourceAudioHash": "6c64fd1ea531e0cf7e22e6564b218571504e8d32a85fd213dc78820010d8c68e",
+        "sourceFingerprint": "21dfe149bf3855a282f3e467f3f12d5d6fa2ac252c55938d7e28743c2f7b591d",
+        "archive": "audio-masters/poi/narrenturm-approfondimento-21dfe149bf3855a2-6c64fd1ea531e0cf.wav"
+      }
+    },
+    "josephinum:scopri": {
+      "audio": "/audio/poi/josephinum-scopri-d73d7d85ce673588-64k-04c4b5b23c42f6e7.mp3",
+      "durationSeconds": 43.52,
+      "textHash": "ad3351984dddbd44511c080c09dd9609b121d70851a258ed9c075c4b53b7445d",
+      "audioHash": "04c4b5b23c42f6e76f841a2f255aa3194d9a6f792aa8117c95ae55cac52c9f14",
+      "fingerprint": "d73d7d85ce673588ee6e2d0b6d3c9e5bfc2b80bb6a484498a168125056b85695",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:50:27.897Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/josephinum-scopri-d73d7d85ce673588.wav",
+        "sourceAudioHash": "9254068f9ce49edb4b312a5491637322e892ac1a36eaea12928695ad879412db",
+        "sourceFingerprint": "d73d7d85ce673588ee6e2d0b6d3c9e5bfc2b80bb6a484498a168125056b85695",
+        "archive": "audio-masters/poi/josephinum-scopri-d73d7d85ce673588-9254068f9ce49edb.wav"
+      }
+    },
+    "josephinum:approfondimento": {
+      "audio": "/audio/poi/josephinum-approfondimento-866a5ab2a18b667a-64k-1716212368d99e3d.mp3",
+      "durationSeconds": 63.6,
+      "textHash": "5f96e895173dcbd082270a743627aa2f4416410193a566c59035f103a1e62261",
+      "audioHash": "1716212368d99e3d056d684827c5071314fcf698afb27884881bfad2e5249f17",
+      "fingerprint": "866a5ab2a18b667adf539ab3f3e949482297d02525c4b0e6d4bbdf96525c7097",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:50:50.424Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/josephinum-approfondimento-866a5ab2a18b667a.wav",
+        "sourceAudioHash": "b0c4c4bbab457299e7a1e736b62924aa599d7d88634c358b78346327c72e4b28",
+        "sourceFingerprint": "866a5ab2a18b667adf539ab3f3e949482297d02525c4b0e6d4bbdf96525c7097",
+        "archive": "audio-masters/poi/josephinum-approfondimento-866a5ab2a18b667a-b0c4c4bbab457299.wav"
+      }
+    },
+    "votivkirche:scopri": {
+      "audio": "/audio/poi/votivkirche-scopri-b811d602477ec383-64k-6262106b4882f347.mp3",
+      "durationSeconds": 41.08,
+      "textHash": "c0fed8823042bd06c9fc62e54b06caa07b56eafdbfee36f4dcbe86b11e4ebeca",
+      "audioHash": "6262106b4882f3479c94392a16ce4380daee7fd732afd7ac427ffc18b5930522",
+      "fingerprint": "b811d602477ec38388ca6fb48b2889ec97f3b5fa1bf8683d4bb77d88d7890878",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:51:05.720Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/votivkirche-scopri-b811d602477ec383.wav",
+        "sourceAudioHash": "c40c909f119f2ceacf3f025ce048bb4cffc349240fa6488e6cc5d9ac68c3c521",
+        "sourceFingerprint": "b811d602477ec38388ca6fb48b2889ec97f3b5fa1bf8683d4bb77d88d7890878",
+        "archive": "audio-masters/poi/votivkirche-scopri-b811d602477ec383-c40c909f119f2cea.wav"
+      }
+    },
+    "votivkirche:approfondimento": {
+      "audio": "/audio/poi/votivkirche-approfondimento-835144362247856c-64k-7e2d9c24a530ff22.mp3",
+      "durationSeconds": 57.72,
+      "textHash": "c654e899a81ec5a273ed392b3b50be2d1802bd913ec337bb232c56d27a132fc9",
+      "audioHash": "7e2d9c24a530ff229970c270cb9c1a7d4eb3f0fb60705e2bca3cc4304286e1c9",
+      "fingerprint": "835144362247856c58c568565fc6c25eaacf5946292f594fb2f92024902d081d",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:51:26.268Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/votivkirche-approfondimento-835144362247856c.wav",
+        "sourceAudioHash": "c9ea41cf2719411b42657a6165c37672c011fa90ad0bee0c2c15a1a014b47040",
+        "sourceFingerprint": "835144362247856c58c568565fc6c25eaacf5946292f594fb2f92024902d081d",
+        "archive": "audio-masters/poi/votivkirche-approfondimento-835144362247856c-c9ea41cf2719411b.wav"
+      }
+    },
+    "universita-vienna:scopri": {
+      "audio": "/audio/poi/universita-vienna-scopri-43ee7c467560c4b9-64k-6c28a787dc2b3fe1.mp3",
+      "durationSeconds": 45.36,
+      "textHash": "716408c78be5d05b0ec7479885a6d18e0534215a1ad665f44a9402e55ada7272",
+      "audioHash": "6c28a787dc2b3fe10ec540cd8a1f435cfc4314c8cba5fc6c44263e28bba10ef0",
+      "fingerprint": "43ee7c467560c4b98892b02485eb265a82266ee1f1c4ae91dc4bb24747127f35",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:51:42.843Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/universita-vienna-scopri-43ee7c467560c4b9.wav",
+        "sourceAudioHash": "1ed1f1bad1c18610014bc5b587dc893d4b24161743721fecaeb58bfbb96fa1a4",
+        "sourceFingerprint": "43ee7c467560c4b98892b02485eb265a82266ee1f1c4ae91dc4bb24747127f35",
+        "archive": "audio-masters/poi/universita-vienna-scopri-43ee7c467560c4b9-1ed1f1bad1c18610.wav"
+      }
+    },
+    "universita-vienna:approfondimento": {
+      "audio": "/audio/poi/universita-vienna-approfondimento-4aee98f96d77e139-64k-fa7d3f001f2d2b62.mp3",
+      "durationSeconds": 62.32,
+      "textHash": "f3d55c85b7f3dbb8d8058d7bfb3994bf7f93e1699371decfe5c2063d59942ac7",
+      "audioHash": "fa7d3f001f2d2b62e983b8d76942026b6ed903e034842a37aaa0741786a57c91",
+      "fingerprint": "4aee98f96d77e139eb362b903209bc2c613fded943729a4e76bd7f43b2331c65",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:52:04.470Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/universita-vienna-approfondimento-4aee98f96d77e139.wav",
+        "sourceAudioHash": "3186d24273cbb342679731f32a46aa50b54e4ae09623ca40fa8f5e10cce22131",
+        "sourceFingerprint": "4aee98f96d77e139eb362b903209bc2c613fded943729a4e76bd7f43b2331c65",
+        "archive": "audio-masters/poi/universita-vienna-approfondimento-4aee98f96d77e139-3186d24273cbb342.wav"
+      }
+    },
+    "rathaus:scopri": {
+      "audio": "/audio/poi/rathaus-scopri-35c23c473eecaa6a-64k-4b0a98405e88ccb3.mp3",
+      "durationSeconds": 38.96,
+      "textHash": "d818c60f07409819530270d73c2f2982d34d8e63a636e440bf67ac232b2d8c22",
+      "audioHash": "4b0a98405e88ccb3e2aa08ae24bdf8756ffefe804b13e7c05d3086d9c0f44b3a",
+      "fingerprint": "35c23c473eecaa6a1ec258ed3698067e1d863ef2e160290709c7fe45a24f471c",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:52:19.613Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/rathaus-scopri-35c23c473eecaa6a.wav",
+        "sourceAudioHash": "6f14a2d37498d1f5a0d9eff0f36892e213a463b03373dc8247df313cc87d4eb5",
+        "sourceFingerprint": "35c23c473eecaa6a1ec258ed3698067e1d863ef2e160290709c7fe45a24f471c",
+        "archive": "audio-masters/poi/rathaus-scopri-35c23c473eecaa6a-6f14a2d37498d1f5.wav"
+      }
+    },
+    "rathaus:approfondimento": {
+      "audio": "/audio/poi/rathaus-approfondimento-158bafcd162695af-64k-f16f0f89e4cc26de.mp3",
+      "durationSeconds": 59.56,
+      "textHash": "8dce7d7118f94f97d95fd37f9cef2f87b801957a9b02bd2257b4aa9f65805751",
+      "audioHash": "f16f0f89e4cc26de035850d825108c900ccb7d034b3bdb12764fac9867bc78d5",
+      "fingerprint": "158bafcd162695af6f5c2ab6c8b74e73ff4c04c0a768a7c57a33b0df7de327ce",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:53:50.829Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/rathaus-approfondimento-158bafcd162695af.wav",
+        "sourceAudioHash": "bc1dadc5a821aeee47bd24d5b5db0a898a3a654563a5f9017402821c32123216",
+        "sourceFingerprint": "158bafcd162695af6f5c2ab6c8b74e73ff4c04c0a768a7c57a33b0df7de327ce",
+        "archive": "audio-masters/poi/rathaus-approfondimento-158bafcd162695af-bc1dadc5a821aeee.wav"
+      }
+    },
+    "burgtheater:scopri": {
+      "audio": "/audio/poi/burgtheater-scopri-fde0cfed324441d7-64k-e760cf38667aefdf.mp3",
+      "durationSeconds": 40.4,
+      "textHash": "2ad22a78b88775715710555189288b76a72e23aa54e6b29102c763f3d4f54ed0",
+      "audioHash": "e760cf38667aefdfb18e331d84b8b2a58e55885d02a784f9a65cc78c463b0e84",
+      "fingerprint": "fde0cfed324441d7fa1a403bc9c0188fbe47ad43f39a282042afa0dd1f230cbf",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:57:04.215Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/burgtheater-scopri-fde0cfed324441d7.wav",
+        "sourceAudioHash": "df483d80039c4cb948efa938f344a670fd70b04feebe45e030795149c0205ae7",
+        "sourceFingerprint": "fde0cfed324441d7fa1a403bc9c0188fbe47ad43f39a282042afa0dd1f230cbf",
+        "archive": "audio-masters/poi/burgtheater-scopri-fde0cfed324441d7-df483d80039c4cb9.wav"
+      }
+    },
+    "burgtheater:approfondimento": {
+      "audio": "/audio/poi/burgtheater-approfondimento-8f7152e073ecd6d2-64k-93eefc04a35b3df0.mp3",
+      "durationSeconds": 60.36,
+      "textHash": "342550b8cd64ad4e8c0c3820952170e4be4f4156a49a539081f1b19a0d6640cd",
+      "audioHash": "93eefc04a35b3df04701ba49f850142ab652cfb3fdf4f27a5f8544eddeee46a0",
+      "fingerprint": "8f7152e073ecd6d2c7902c2c245eaadf3a08fd1cb7e9c6ac59828f3bd9c9b7ff",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:57:25.413Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/burgtheater-approfondimento-8f7152e073ecd6d2.wav",
+        "sourceAudioHash": "89f2e3765450a45367d8311131e71144e0e76034eb117542ef829bbf1fcc146b",
+        "sourceFingerprint": "8f7152e073ecd6d2c7902c2c245eaadf3a08fd1cb7e9c6ac59828f3bd9c9b7ff",
+        "archive": "audio-masters/poi/burgtheater-approfondimento-8f7152e073ecd6d2-89f2e3765450a453.wav"
+      }
+    },
+    "volksgarten:scopri": {
+      "audio": "/audio/poi/volksgarten-scopri-b843e436918b84f1-64k-590cf13b19adbe4b.mp3",
+      "durationSeconds": 39.24,
+      "textHash": "7295989edbdd86f2b0517c758f8f3258dee9076dfb80c0a91b3966f4a31f041f",
+      "audioHash": "590cf13b19adbe4b7e3085c11721ff7cb43da853f9c9de1748b9fec047d0466e",
+      "fingerprint": "b843e436918b84f13d8bbef66112c1783f6a734e29fcf2c4ce9621b9fab15cdb",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:57:40.627Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/volksgarten-scopri-b843e436918b84f1.wav",
+        "sourceAudioHash": "f1aad52f8bba54d32196e51668a6b31d5a5be11a1f404e20ea3c972dca7e3c1b",
+        "sourceFingerprint": "b843e436918b84f13d8bbef66112c1783f6a734e29fcf2c4ce9621b9fab15cdb",
+        "archive": "audio-masters/poi/volksgarten-scopri-b843e436918b84f1-f1aad52f8bba54d3.wav"
+      }
+    },
+    "volksgarten:approfondimento": {
+      "audio": "/audio/poi/volksgarten-approfondimento-69420174f72647ab-64k-38c34b83a79561f2.mp3",
+      "durationSeconds": 61.92,
+      "textHash": "2455716c0347826c688d013b24dcabee40ceb30845ae97a87b2d326d0c6baaf1",
+      "audioHash": "38c34b83a79561f250baa074594add938416f9273ba7125fe7cb9c047393c2b2",
+      "fingerprint": "69420174f72647ab2044bf6a6a53ae46dc3d2a8c49533c5abc6776876a70b75b",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:58:02.140Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/volksgarten-approfondimento-69420174f72647ab.wav",
+        "sourceAudioHash": "b00368be989e60ad7cb1dbd4669400a2286f1919837e079387f64fdb9eb3b580",
+        "sourceFingerprint": "69420174f72647ab2044bf6a6a53ae46dc3d2a8c49533c5abc6776876a70b75b",
+        "archive": "audio-masters/poi/volksgarten-approfondimento-69420174f72647ab-b00368be989e60ad.wav"
+      }
+    },
+    "theseustempel:scopri": {
+      "audio": "/audio/poi/theseustempel-scopri-fd389b7374827245-64k-8a075dbf9cdfb14c.mp3",
+      "durationSeconds": 40.4,
+      "textHash": "1e09447c410f4dfa456cc97958f2f4393d0a4b48535ce5c59f18fd5257a2ed0d",
+      "audioHash": "8a075dbf9cdfb14c670621755fe1521cb30040dd0bae051c3e977c19648d9893",
+      "fingerprint": "fd389b7374827245b8d558282f791a505e1437aa94aae6ab97902d5a74e40ae1",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:58:17.468Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/theseustempel-scopri-fd389b7374827245.wav",
+        "sourceAudioHash": "546ba116f02dbb6c2aadd63a1dd5918ded7985f42bab98e9ddfeedceef68557e",
+        "sourceFingerprint": "fd389b7374827245b8d558282f791a505e1437aa94aae6ab97902d5a74e40ae1",
+        "archive": "audio-masters/poi/theseustempel-scopri-fd389b7374827245-546ba116f02dbb6c.wav"
+      }
+    },
+    "theseustempel:approfondimento": {
+      "audio": "/audio/poi/theseustempel-approfondimento-6ba1e99cfa1cdf75-64k-0d09cf861dfdc9ee.mp3",
+      "durationSeconds": 53.56,
+      "textHash": "bd328ed42327181334069408eb7cd25cfc025b0a95489913f9674c4f901b5f4a",
+      "audioHash": "0d09cf861dfdc9eec51619eb34e49f4a55edba752fcdc123ce6bde2bf5e51bc6",
+      "fingerprint": "6ba1e99cfa1cdf75c617c7bf0c32f28ef88e7ecc760e0080f7f4971e41edd747",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:58:35.998Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/theseustempel-approfondimento-6ba1e99cfa1cdf75.wav",
+        "sourceAudioHash": "e8a3cc76278d59854ba6bacbbefc6060ecf6eb2ec65ae353ae9024d98eec59ea",
+        "sourceFingerprint": "6ba1e99cfa1cdf75c617c7bf0c32f28ef88e7ecc760e0080f7f4971e41edd747",
+        "archive": "audio-masters/poi/theseustempel-approfondimento-6ba1e99cfa1cdf75-e8a3cc76278d5985.wav"
+      }
+    },
+    "sisi:scopri": {
+      "audio": "/audio/poi/sisi-scopri-7c24b35b25300083-64k-802243b7f1569847.mp3",
+      "durationSeconds": 40.92,
+      "textHash": "1fb8f700930fdcde5dd56e24c12c2f7b7efe041dbde97b10a482e8f889fba8c5",
+      "audioHash": "802243b7f1569847842555b2f391ee1e6567f9bfe74dedcb304d77f879c5b5da",
+      "fingerprint": "7c24b35b253000832eb5bc115ab6fdb2b62ccf994b06b2d744f8e2182981a6d3",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:58:51.383Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/sisi-scopri-7c24b35b25300083.wav",
+        "sourceAudioHash": "80410d51ef305f631378e8f08d9eb54b96e7aa123171b34172467c44f75a5c78",
+        "sourceFingerprint": "7c24b35b253000832eb5bc115ab6fdb2b62ccf994b06b2d744f8e2182981a6d3",
+        "archive": "audio-masters/poi/sisi-scopri-7c24b35b25300083-80410d51ef305f63.wav"
+      }
+    },
+    "sisi:approfondimento": {
+      "audio": "/audio/poi/sisi-approfondimento-53d0135cd67100b7-64k-cabee01313adb336.mp3",
+      "durationSeconds": 58.72,
+      "textHash": "7b5058c372f79c9307cdeae223e435a863b28fc9657e1f7cb420dd0540900a38",
+      "audioHash": "cabee01313adb3362df5a56e1a27b353863aa701af97cd2069280f7159084d54",
+      "fingerprint": "53d0135cd67100b7586290e07978388f221f84704f972c05afcdc95577beccab",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:59:12.141Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/sisi-approfondimento-53d0135cd67100b7.wav",
+        "sourceAudioHash": "bbf1be98413cea20b9929158fd6cb2037297c831dcf813af25f190f587661b07",
+        "sourceFingerprint": "53d0135cd67100b7586290e07978388f221f84704f972c05afcdc95577beccab",
+        "archive": "audio-masters/poi/sisi-approfondimento-53d0135cd67100b7-bbf1be98413cea20.wav"
+      }
+    },
+    "parlamento:scopri": {
+      "audio": "/audio/poi/parlamento-scopri-efbe95e538bef558-64k-4798fe6252f36893.mp3",
+      "durationSeconds": 42.12,
+      "textHash": "578d60726daf6c1fe566b2282e0b1c2122fc0f49f7fcbc9f85cee415cbfcf4f6",
+      "audioHash": "4798fe6252f368932d11af876b28c2eed0016f1223758be1b5c9618eac492c7f",
+      "fingerprint": "efbe95e538bef558fab05200f5f68333606cd63fd04695364459182fc8ba58e6",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:59:27.772Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/parlamento-scopri-efbe95e538bef558.wav",
+        "sourceAudioHash": "2c4268ad755e9133bdf86b1488e7b3b551ee71b6b4169d5c5bdc3cd6cfc3ad5d",
+        "sourceFingerprint": "efbe95e538bef558fab05200f5f68333606cd63fd04695364459182fc8ba58e6",
+        "archive": "audio-masters/poi/parlamento-scopri-efbe95e538bef558-2c4268ad755e9133.wav"
+      }
+    },
+    "parlamento:approfondimento": {
+      "audio": "/audio/poi/parlamento-approfondimento-7046197b10ee474b-64k-9867f50249ed997d.mp3",
+      "durationSeconds": 56.48,
+      "textHash": "50cfc2e6647fe1f21d33170451ef049b1dd943ca45d5f46284f68c95d6ed97d9",
+      "audioHash": "9867f50249ed997d44ddd63de86ff8d8e461c436412901af0c29d3a04334449b",
+      "fingerprint": "7046197b10ee474b09a5fb74122fa537eebbbc280e91bea4ad09701a76686af4",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T05:59:47.494Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/parlamento-approfondimento-7046197b10ee474b.wav",
+        "sourceAudioHash": "8280d41d524754decc946d4d42702891d80ed7e00166ae59cac40986f4abc804",
+        "sourceFingerprint": "7046197b10ee474b09a5fb74122fa537eebbbc280e91bea4ad09701a76686af4",
+        "archive": "audio-masters/poi/parlamento-approfondimento-7046197b10ee474b-8280d41d524754de.wav"
+      }
+    },
+    "palais-epstein:scopri": {
+      "audio": "/audio/poi/palais-epstein-scopri-8a3ab01384c33d64-64k-76c8651be5e5a452.mp3",
+      "durationSeconds": 43.32,
+      "textHash": "113bb09176fe22d3f54606da8c1d5b3bd57f7de04ebead8d898dd63eb2cb2a49",
+      "audioHash": "76c8651be5e5a4524ddebc95ebde0547a7d874807efb22ceeb2949a3f50d5914",
+      "fingerprint": "8a3ab01384c33d647e2433258c8c43f1e326d2b8a4fbe89253ac7ac3f8563d70",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:00:02.740Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palais-epstein-scopri-8a3ab01384c33d64.wav",
+        "sourceAudioHash": "0b3cf4869c071ded838378e1df60eecb672369870fbab54b5befbf8e74cf2d77",
+        "sourceFingerprint": "8a3ab01384c33d647e2433258c8c43f1e326d2b8a4fbe89253ac7ac3f8563d70",
+        "archive": "audio-masters/poi/palais-epstein-scopri-8a3ab01384c33d64-0b3cf4869c071ded.wav"
+      }
+    },
+    "palais-epstein:approfondimento": {
+      "audio": "/audio/poi/palais-epstein-approfondimento-8c4156d90015582f-64k-77fdb8a344019815.mp3",
+      "durationSeconds": 59.48,
+      "textHash": "2a1ca62f936dccc9eb6da28b8a749e83760c94e289820c3558d94eec7d385885",
+      "audioHash": "77fdb8a344019815aa2b1a0f646762938a116d1a6f014b3d0c08ddfbbdb1ced8",
+      "fingerprint": "8c4156d90015582fcc13fa8684582ccefbe5812c52da38bfa98548b01ca15c3a",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:00:23.161Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palais-epstein-approfondimento-8c4156d90015582f.wav",
+        "sourceAudioHash": "37b838bb87249741e85c864732057d46548fe6d481eba710318fb91b10ce9d94",
+        "sourceFingerprint": "8c4156d90015582fcc13fa8684582ccefbe5812c52da38bfa98548b01ca15c3a",
+        "archive": "audio-masters/poi/palais-epstein-approfondimento-8c4156d90015582f-37b838bb87249741.wav"
+      }
+    },
+    "naturhistorisches-museum:scopri": {
+      "audio": "/audio/poi/naturhistorisches-museum-scopri-aeeb64398dfe1fe4-64k-fcc88dbed98ca631.mp3",
+      "durationSeconds": 40.84,
+      "textHash": "f1b91ce7e8b7aa798715a8632cdae78269ec86b08b98e3ef063c86d6a0d49c06",
+      "audioHash": "fcc88dbed98ca631f7a50b94583087d02c2199d834db9cdc8ee4ff9c6f0f5c55",
+      "fingerprint": "aeeb64398dfe1fe428b94863a75c0902f41444afa62e2ba6f5c460fd3e6f30d8",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:00:37.650Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/naturhistorisches-museum-scopri-aeeb64398dfe1fe4.wav",
+        "sourceAudioHash": "87f603bdd638b6193717db3020e603ec5072871eceb1c449d346f3d14e23215e",
+        "sourceFingerprint": "aeeb64398dfe1fe428b94863a75c0902f41444afa62e2ba6f5c460fd3e6f30d8",
+        "archive": "audio-masters/poi/naturhistorisches-museum-scopri-aeeb64398dfe1fe4-87f603bdd638b619.wav"
+      }
+    },
+    "naturhistorisches-museum:approfondimento": {
+      "audio": "/audio/poi/naturhistorisches-museum-approfondimento-eb62f3d57c817a74-64k-94ed938bfedc9975.mp3",
+      "durationSeconds": 56.92,
+      "textHash": "95f629d837d20399a8a7196d686784a68431ebd3202c9414250aeb9e76ae218d",
+      "audioHash": "94ed938bfedc99759df7633bf7d5a0fc6a5fa68c8ac9e30a4bb1df27082bc707",
+      "fingerprint": "eb62f3d57c817a74c74a41a40b667643ba648aafdb7cd5f1a25990458eb7fddb",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:00:57.819Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/naturhistorisches-museum-approfondimento-eb62f3d57c817a74.wav",
+        "sourceAudioHash": "980159d5db9c84bc46d2adc8a47adff19d81bd6089660f0f1273f8ec4376d1fe",
+        "sourceFingerprint": "eb62f3d57c817a74c74a41a40b667643ba648aafdb7cd5f1a25990458eb7fddb",
+        "archive": "audio-masters/poi/naturhistorisches-museum-approfondimento-eb62f3d57c817a74-980159d5db9c84bc.wav"
+      }
+    },
+    "kunsthistorisches-museum:scopri": {
+      "audio": "/audio/poi/kunsthistorisches-museum-scopri-7896fa82ab6ead6a-64k-7cb1d0620c624790.mp3",
+      "durationSeconds": 41.2,
+      "textHash": "2aa97259552a6fa1a276a4edfed01762f68620aaece73bc8d53d75f1d328a139",
+      "audioHash": "7cb1d0620c624790af2b71577a1ec6969fb3aa8d7daec6932b900de2db4009c6",
+      "fingerprint": "7896fa82ab6ead6aaf2c8bdce21a5d524095778e6f27218ab8b3972d9d20ef67",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:01:13.348Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/kunsthistorisches-museum-scopri-7896fa82ab6ead6a.wav",
+        "sourceAudioHash": "bab04645642312c45a9e686a39f0521ece23d016742798df5c3ef79d1da0fb9c",
+        "sourceFingerprint": "7896fa82ab6ead6aaf2c8bdce21a5d524095778e6f27218ab8b3972d9d20ef67",
+        "archive": "audio-masters/poi/kunsthistorisches-museum-scopri-7896fa82ab6ead6a-bab04645642312c4.wav"
+      }
+    },
+    "kunsthistorisches-museum:approfondimento": {
+      "audio": "/audio/poi/kunsthistorisches-museum-approfondimento-2e66f7148b2eee73-64k-9cd065b1ee4cd9f8.mp3",
+      "durationSeconds": 57.64,
+      "textHash": "e2040186b0d5b81bb823f163a4c0069b03a84b9ab336cd4454fbad36ba6eb6dc",
+      "audioHash": "9cd065b1ee4cd9f8089685a711a2b9d52be723426bd00afa31d7e2d0298b01bf",
+      "fingerprint": "2e66f7148b2eee7321e8069d6edd39edea9389fac7c4e9f675ef0b84ce01a277",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:01:33.261Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/kunsthistorisches-museum-approfondimento-2e66f7148b2eee73.wav",
+        "sourceAudioHash": "b908f4d85a3a1a16078fb1ab0c1c6d1747e897fd8c9331cc9af15e8ab18dfcd9",
+        "sourceFingerprint": "2e66f7148b2eee7321e8069d6edd39edea9389fac7c4e9f675ef0b84ce01a277",
+        "archive": "audio-masters/poi/kunsthistorisches-museum-approfondimento-2e66f7148b2eee73-b908f4d85a3a1a16.wav"
+      }
+    },
+    "museumsquartier:scopri": {
+      "audio": "/audio/poi/museumsquartier-scopri-3a8632af86c3a150-64k-912bc4d12b752454.mp3",
+      "durationSeconds": 40.24,
+      "textHash": "5b19557cee60734fa0f67e567d0b1cc53163b5fb47bed45fba58df6ef198c6ff",
+      "audioHash": "912bc4d12b752454fdc6417c03a101f234d8bdc17ddc8a577b48ab95c3d1e400",
+      "fingerprint": "3a8632af86c3a15023138986af1f42d20f11f8fe71a9750bdd0198a1a85ff032",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:01:49.004Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/museumsquartier-scopri-3a8632af86c3a150.wav",
+        "sourceAudioHash": "ba7a2045a66666dd644e2eb15884de7c34967653dab375d6fb49cb629b01cbaf",
+        "sourceFingerprint": "3a8632af86c3a15023138986af1f42d20f11f8fe71a9750bdd0198a1a85ff032",
+        "archive": "audio-masters/poi/museumsquartier-scopri-3a8632af86c3a150-ba7a2045a66666dd.wav"
+      }
+    },
+    "museumsquartier:approfondimento": {
+      "audio": "/audio/poi/museumsquartier-approfondimento-d4b7862290eb7e31-64k-2f0db2f33aa7bebd.mp3",
+      "durationSeconds": 64.16,
+      "textHash": "d34fc93ba3c45dcbc1d1a8b988c9c096dfc5263f77995520e89fece92ba7478f",
+      "audioHash": "2f0db2f33aa7bebdc70ea61d34efbfa50a9cfc0c424bbeb6a7c81955d8f3d35d",
+      "fingerprint": "d4b7862290eb7e31a80df1676a99a3012bd4fb88ec9f5f1d164672a895550cea",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:02:11.098Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/museumsquartier-approfondimento-d4b7862290eb7e31.wav",
+        "sourceAudioHash": "8bb1202e9557004876c0a0317bd9f549cfd476d754476a81e6d5f5aa0c6fc724",
+        "sourceFingerprint": "d4b7862290eb7e31a80df1676a99a3012bd4fb88ec9f5f1d164672a895550cea",
+        "archive": "audio-masters/poi/museumsquartier-approfondimento-d4b7862290eb7e31-8bb1202e95570048.wav"
+      }
+    },
+    "hofburg:scopri": {
+      "audio": "/audio/poi/hofburg-scopri-3a21239ae1060d9e-64k-be8218ab38b9168e.mp3",
+      "durationSeconds": 43.36,
+      "textHash": "7b8753c59428868daff219558a9fadb0579e4a3779ad5def247a9f8d97f28426",
+      "audioHash": "be8218ab38b9168e4cc55f751e987aee39631aa6b784dd6e07758d56a0ef650e",
+      "fingerprint": "3a21239ae1060d9e7748bcd940a65ec9172daf9258b366f6a25a7f21d2b95380",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:02:25.970Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/hofburg-scopri-3a21239ae1060d9e.wav",
+        "sourceAudioHash": "41b4cf8798e6a6342dbec8630d8e13f809e315bcd709fc0d7c7928404d1d0f86",
+        "sourceFingerprint": "3a21239ae1060d9e7748bcd940a65ec9172daf9258b366f6a25a7f21d2b95380",
+        "archive": "audio-masters/poi/hofburg-scopri-3a21239ae1060d9e-41b4cf8798e6a634.wav"
+      }
+    },
+    "hofburg:approfondimento": {
+      "audio": "/audio/poi/hofburg-approfondimento-040da944d1778044-64k-55e469dc453d1a3d.mp3",
+      "durationSeconds": 61.24,
+      "textHash": "9dd1696e0e92c7948664c279a95654fc95a03431dc9b995dfedd0c30115099c5",
+      "audioHash": "55e469dc453d1a3d72dacedf1b5c6a83630234b9799d48ba212ea0f1f4bd2256",
+      "fingerprint": "040da944d1778044ab31223911598a459418dda73b233bfae5bd58d33a809fc7",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:02:48.269Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/hofburg-approfondimento-040da944d1778044.wav",
+        "sourceAudioHash": "1f4a6865e7ee42abc2ae27862bb6c483e7bba19408e354b7b8f7ec126feb88b3",
+        "sourceFingerprint": "040da944d1778044ab31223911598a459418dda73b233bfae5bd58d33a809fc7",
+        "archive": "audio-masters/poi/hofburg-approfondimento-040da944d1778044-1f4a6865e7ee42ab.wav"
+      }
+    },
+    "burggarten:scopri": {
+      "audio": "/audio/poi/burggarten-scopri-7694a7bc077b6697-64k-09fccc4db300a45a.mp3",
+      "durationSeconds": 44.08,
+      "textHash": "2e31363b4403cb01da57be3d9379085dd2f59c944b0aac9104dbfb2c331c2b58",
+      "audioHash": "09fccc4db300a45a9d1fe8963200ab26aa5fd9c428fd67f4ff7a5c54b9ed877c",
+      "fingerprint": "7694a7bc077b66978ae26513ad8f3916508bffd803a6ba27a86486ab55483426",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:03:04.184Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/burggarten-scopri-7694a7bc077b6697.wav",
+        "sourceAudioHash": "2548295e5244a662b3ef7f9c9b73664520d73a9eef203b317ca6a6cbaf7ed77f",
+        "sourceFingerprint": "7694a7bc077b66978ae26513ad8f3916508bffd803a6ba27a86486ab55483426",
+        "archive": "audio-masters/poi/burggarten-scopri-7694a7bc077b6697-2548295e5244a662.wav"
+      }
+    },
+    "burggarten:approfondimento": {
+      "audio": "/audio/poi/burggarten-approfondimento-cf9e3d1783de96c7-64k-13f7b8bb972fceee.mp3",
+      "durationSeconds": 54.96,
+      "textHash": "fef2e295be6bf4d7edb2844264ff87fa246e735bc89025f2b8b8e21088e9ae96",
+      "audioHash": "13f7b8bb972fceeee74be5b7c9887beef37743c892fb9bd7bbea79a5f1452d61",
+      "fingerprint": "cf9e3d1783de96c7c24df2c25363ee16c9b16384016eb10e45d80a64eac526ba",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:03:23.579Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/burggarten-approfondimento-cf9e3d1783de96c7.wav",
+        "sourceAudioHash": "2a8b5b79dde6df8964676cbf09b0084ebac2263b43f3665155352523ae1f2b6c",
+        "sourceFingerprint": "cf9e3d1783de96c7c24df2c25363ee16c9b16384016eb10e45d80a64eac526ba",
+        "archive": "audio-masters/poi/burggarten-approfondimento-cf9e3d1783de96c7-2a8b5b79dde6df89.wav"
+      }
+    },
+    "mozart:scopri": {
+      "audio": "/audio/poi/mozart-scopri-676fbda52fdb2e20-64k-a2ebfbc203e1a1f1.mp3",
+      "durationSeconds": 42.08,
+      "textHash": "2b5b281169b1cb3b068a05b22a2d94ac30d136308029eb1fd4f479f04e15fb89",
+      "audioHash": "a2ebfbc203e1a1f1ecbd709e212933fbf298e7c607b98b86cf7da49e29c7b088",
+      "fingerprint": "676fbda52fdb2e208d5c297c887c894ced514d07df190e62b8984d5d5ca949bd",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:03:39.216Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/mozart-scopri-676fbda52fdb2e20.wav",
+        "sourceAudioHash": "313d7eb2aba5692f5c937bd981a40fe4d95bc16cb9b12a834f0b29c6ec68c9df",
+        "sourceFingerprint": "676fbda52fdb2e208d5c297c887c894ced514d07df190e62b8984d5d5ca949bd",
+        "archive": "audio-masters/poi/mozart-scopri-676fbda52fdb2e20-313d7eb2aba5692f.wav"
+      }
+    },
+    "mozart:approfondimento": {
+      "audio": "/audio/poi/mozart-approfondimento-2aedc7e267af7d37-64k-220f4dc9a7b1ee37.mp3",
+      "durationSeconds": 54.52,
+      "textHash": "1bd61b9a58c97a586bfbbaa863432507c140953fd4a050d5836c6dca8b70d7ce",
+      "audioHash": "220f4dc9a7b1ee37dfa8e293ef65c23e25838a0d5e64e1ec153a0e5498b8e357",
+      "fingerprint": "2aedc7e267af7d372dd391b29a3f2b620a863c64cd76a1d0dde1dc4e5224c97a",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:03:58.425Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/mozart-approfondimento-2aedc7e267af7d37.wav",
+        "sourceAudioHash": "1452c6717116b11c107e8599019ff0c2e1a1bb62cad0dfcb278ff71de3f5c2a7",
+        "sourceFingerprint": "2aedc7e267af7d372dd391b29a3f2b620a863c64cd76a1d0dde1dc4e5224c97a",
+        "archive": "audio-masters/poi/mozart-approfondimento-2aedc7e267af7d37-1452c6717116b11c.wav"
+      }
+    },
+    "palmenhaus:scopri": {
+      "audio": "/audio/poi/palmenhaus-scopri-02b84b5bb4874c8b-64k-8656c01537eb7502.mp3",
+      "durationSeconds": 40.04,
+      "textHash": "058cef663b4dc7e6d1923ed4ac7fe3d32219f48b8083fa0cf53f4d4e5a76b71e",
+      "audioHash": "8656c01537eb7502bfb2bc1f26f6b8f1a766841d7720955f1a7ea1f3248a7814",
+      "fingerprint": "02b84b5bb4874c8b1bef6a441a39c595734ff7400a8caa1fe608927ccc6036cd",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:04:13.098Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palmenhaus-scopri-02b84b5bb4874c8b.wav",
+        "sourceAudioHash": "0c2da562bb7e1074fa125c7d39be91bbdde9bc33f059cf329fac91126d83937c",
+        "sourceFingerprint": "02b84b5bb4874c8b1bef6a441a39c595734ff7400a8caa1fe608927ccc6036cd",
+        "archive": "audio-masters/poi/palmenhaus-scopri-02b84b5bb4874c8b-0c2da562bb7e1074.wav"
+      }
+    },
+    "palmenhaus:approfondimento": {
+      "audio": "/audio/poi/palmenhaus-approfondimento-f9a57f100d4b5bd5-64k-1baa75f76223c80e.mp3",
+      "durationSeconds": 62.6,
+      "textHash": "63e699b35a80d73268c31fd7c9d093cbadf6db971168bd9e68536c4ce552f4b0",
+      "audioHash": "1baa75f76223c80e60e357c261852c6705c62b3324203e7693be342fca90cced",
+      "fingerprint": "f9a57f100d4b5bd5cf08a6e3ae8d746197bde263def2b573af29fa74a1da6f6c",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:04:35.513Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/palmenhaus-approfondimento-f9a57f100d4b5bd5.wav",
+        "sourceAudioHash": "31737344a56929a00c84a3dcb2ee5da8455bbae68e010049ef51325185cec2a1",
+        "sourceFingerprint": "f9a57f100d4b5bd5cf08a6e3ae8d746197bde263def2b573af29fa74a1da6f6c",
+        "archive": "audio-masters/poi/palmenhaus-approfondimento-f9a57f100d4b5bd5-31737344a56929a0.wav"
+      }
+    },
+    "opera:scopri": {
+      "audio": "/audio/poi/opera-scopri-99c95065aa66a5e4-64k-6d73c9656bd7616a.mp3",
+      "durationSeconds": 44.2,
+      "textHash": "76ac3548ca5aaba2b6180cecd5292ccced7d9f728dbd57958853144ffd0be4f8",
+      "audioHash": "6d73c9656bd7616acec2e7b8716c7f9d33722561bee0c892a3230335d516772f",
+      "fingerprint": "99c95065aa66a5e4c44d6a312a21374e4a6beb2e42684a68c3e1acf860dbe173",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:04:51.094Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/opera-scopri-99c95065aa66a5e4.wav",
+        "sourceAudioHash": "8db1ee118b8680dfa5b2c29da75bb1a10bcc2403a6c1dd431bea1fc010398db9",
+        "sourceFingerprint": "99c95065aa66a5e4c44d6a312a21374e4a6beb2e42684a68c3e1acf860dbe173",
+        "archive": "audio-masters/poi/opera-scopri-99c95065aa66a5e4-8db1ee118b8680df.wav"
+      }
+    },
+    "opera:approfondimento": {
+      "audio": "/audio/poi/opera-approfondimento-38a37640236fdd77-64k-881c8a32de05c78f.mp3",
+      "durationSeconds": 64.08,
+      "textHash": "ef8da66fe3603ba72088ad50b676b4831cc7e7f4110a3eb8733c39e5742761bd",
+      "audioHash": "881c8a32de05c78f6bbcd3f34083699701d30babf6700fdfcd9dd908d787f266",
+      "fingerprint": "38a37640236fdd778dd4a10a32995011dbbc36f142cc381e61e4e1e4aa6244c4",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:05:13.090Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/opera-approfondimento-38a37640236fdd77.wav",
+        "sourceAudioHash": "fc8c838013c4fe71b60ea9fc319d01b40b12d4d2caee92a5c542ef54248bf129",
+        "sourceFingerprint": "38a37640236fdd778dd4a10a32995011dbbc36f142cc381e61e4e1e4aa6244c4",
+        "archive": "audio-masters/poi/opera-approfondimento-38a37640236fdd77-fc8c838013c4fe71.wav"
+      }
+    },
+    "memoriale:scopri": {
+      "audio": "/audio/poi/memoriale-scopri-677a9726dccc700b-64k-35c40626b01676c0.mp3",
+      "durationSeconds": 42.84,
+      "textHash": "a036a807238b0fc7965ed8fe5ee4481bcc55b9cd181d7584f95bf67753cdd53f",
+      "audioHash": "35c40626b01676c04ac5f07ac37e997b5608a6101526781b93e1c8599b59d10e",
+      "fingerprint": "677a9726dccc700b6b4edf680ee8d2b226cb363aeb397c9891d66bb9ba4848ca",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:05:29.406Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/memoriale-scopri-677a9726dccc700b.wav",
+        "sourceAudioHash": "11b10adfce8c23d95c6b24c9a7891bf4ab27be688a93779ae1d76c51cbd62d2a",
+        "sourceFingerprint": "677a9726dccc700b6b4edf680ee8d2b226cb363aeb397c9891d66bb9ba4848ca",
+        "archive": "audio-masters/poi/memoriale-scopri-677a9726dccc700b-11b10adfce8c23d9.wav"
+      }
+    },
+    "memoriale:approfondimento": {
+      "audio": "/audio/poi/memoriale-approfondimento-1f078a204e7044ea-64k-91da8d37651a03bc.mp3",
+      "durationSeconds": 65.64,
+      "textHash": "e9846539f6545523b693048589b5431f5b0dc40cc9e1e0aa4b25f979bbf8cf7a",
+      "audioHash": "91da8d37651a03bc824fe072b9d58b00205a4ebc4ed382a823e83d4db9ab2dd0",
+      "fingerprint": "1f078a204e7044eacfefbceb9f3379c5c16f3b8de11659e047e09bca5437c770",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:05:51.328Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/memoriale-approfondimento-1f078a204e7044ea.wav",
+        "sourceAudioHash": "195fac062d5455659730e92a262d05e31729b07f8ee5bb386151bbb4946a3f79",
+        "sourceFingerprint": "1f078a204e7044eacfefbceb9f3379c5c16f3b8de11659e047e09bca5437c770",
+        "archive": "audio-masters/poi/memoriale-approfondimento-1f078a204e7044ea-195fac062d545565.wav"
+      }
+    },
+    "albertina:approfondimento": {
+      "audio": "/audio/poi/albertina-approfondimento-94255bde6d8af8e2-64k-63db7a35e36cc537.mp3",
+      "durationSeconds": 62.36,
+      "textHash": "c8cc1c37ce9226873bca18af1f57aa1af7d83cbe10b7644b482502f6081824f9",
+      "audioHash": "63db7a35e36cc537ed3098886f2e1feb018170cdba3ebd0c4de7f92069db6b95",
+      "fingerprint": "94255bde6d8af8e2ad822ed504cb369068e267f78f1695e23b18665c3366fbf9",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:06:13.792Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/albertina-approfondimento-94255bde6d8af8e2.wav",
+        "sourceAudioHash": "743d5d18e1ee275fc6ae096fd0b7dceba7a35b4471a8332b6760b521b97a8b8e",
+        "sourceFingerprint": "94255bde6d8af8e2ad822ed504cb369068e267f78f1695e23b18665c3366fbf9",
+        "archive": "audio-masters/poi/albertina-approfondimento-94255bde6d8af8e2-743d5d18e1ee275f.wav"
+      }
+    },
+    "augustinerkirche:scopri": {
+      "audio": "/audio/poi/augustinerkirche-scopri-0959fa2bc6bd8421-64k-8d836d6c7189edfd.mp3",
+      "durationSeconds": 39.76,
+      "textHash": "54e6abade91eb9e67e6166a88700950ec2b411faa7a17ea49f2b874eb861c80c",
+      "audioHash": "8d836d6c7189edfd77d40668a446f32267aa0a683f6228c6d221c5c549eacbf4",
+      "fingerprint": "0959fa2bc6bd8421371640446ac51697798259ded80594667fece27ab99f801b",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:06:29.345Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/augustinerkirche-scopri-0959fa2bc6bd8421.wav",
+        "sourceAudioHash": "1a704fcc1dc10aa88a033981c71645af0008f5affd4565d77e23aa07845a4336",
+        "sourceFingerprint": "0959fa2bc6bd8421371640446ac51697798259ded80594667fece27ab99f801b",
+        "archive": "audio-masters/poi/augustinerkirche-scopri-0959fa2bc6bd8421-1a704fcc1dc10aa8.wav"
+      }
+    },
+    "augustinerkirche:approfondimento": {
+      "audio": "/audio/poi/augustinerkirche-approfondimento-d350204a08d1a139-64k-acb72eef0fb3fc1a.mp3",
+      "durationSeconds": 54.52,
+      "textHash": "d7d8fcf7e4a1565d5813386a5d80fbd63b1596135dfdde5e6b8344d0eb41e353",
+      "audioHash": "acb72eef0fb3fc1a2c65e3e4a6cb812de341b0df5ff2d94ebdef785abf4acaea",
+      "fingerprint": "d350204a08d1a139c1415e2ca3efbb7e8c2bc8ce59c22092ef6ba0bc438c2661",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "generatedAt": "2026-11-06T06:06:48.751Z",
+      "compression": {
+        "format": "mp3",
+        "bitrate": 64000,
+        "channels": 1,
+        "sampleRate": 24000,
+        "sourceAudio": "/audio/poi/augustinerkirche-approfondimento-d350204a08d1a139.wav",
+        "sourceAudioHash": "68058e672477c746d08b33cdae4f9ab3baa1120df73b142a90ecff3e284cef7d",
+        "sourceFingerprint": "d350204a08d1a139c1415e2ca3efbb7e8c2bc8ce59c22092ef6ba0bc438c2661",
+        "archive": "audio-masters/poi/augustinerkirche-approfondimento-d350204a08d1a139-68058e672477c746.wav"
+      }
     }
   }
 }

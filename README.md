@@ -1,6 +1,6 @@
 # Vienna dal finestrino
 
-Audioguida italiana per punti di interesse, Svelte 5 + Vite + Leaflet, senza backend. La mappa è la schermata principale: **28 luoghi e 56 testi** per il percorso **Da Yppengasse all’Albertina**. I luoghi si esplorano anche da lontano e senza GPS. Le voci dei nuovi contenuti vanno generate separatamente: non sono stati riutilizzati gli audio delle vecchie tratte.
+Audioguida italiana per punti di interesse, Svelte 5 + Vite + Leaflet, senza backend. La mappa è la schermata principale: **28 luoghi e 56 testi** per il percorso **Da Yppengasse all’Albertina**. I luoghi si esplorano anche da lontano e senza GPS. I 56 contenuti dispongono di audio Gemini pre-generati: circa 46.4 minuti, 21.3 MiB di MP3 mono a 64 kbps. Non sono stati riutilizzati gli audio delle vecchie tratte.
 
 ## Avvio
 
@@ -19,6 +19,8 @@ npm run preview
 ```
 
 Aprire `http://localhost:4173`. Il deploy su Vercel rimane al proprietario: preset Vite, build `npm run build`, output `dist`, root del repository. L'app presume la radice del dominio. Nessuna chiave API deve essere configurata nel frontend o in Vercel per riprodurre gli asset.
+
+I 56 MP3 POI sono serviti direttamente da MinIO sulla VPS, nel bucket dedicato `vienna-audio`, tramite `https://media-hidrospace.jm90dev.cloud/vienna-audio/poi/`. La build verifica hash, formato e durata dei file pubblicati e richiede quindi la rete, anche quando gli MP3 sono disponibili localmente. I file POI non entrano in `dist` né nell'upload CLI di Vercel; un checkout senza MP3 locali può essere compilato. Gli otto piccoli MP3 legacy restano locali per compatibilità.
 
 ## Uso
 
@@ -77,17 +79,56 @@ Per generare **un solo audio di prova**, impostare `GEMINI_API_KEY` nel proprio 
 npm run tts -- --place albertina --content scopri --generate
 ```
 
-Sono obbligatori entrambi gli ID. `--content approfondimento` seleziona il secondo testo. Modello e voce si cambiano con `--model` e `--voice`; il default è `gemini-3.1-flash-tts-preview`, voce `Kore`. L'accesso al modello dipende dall'account Gemini. `--generate` autorizza la chiamata potenzialmente a pagamento; non è stato eseguito in questa modifica.
+Per generare tutti i contenuti mancanti, mantenendo la stessa voce e riutilizzando i file validi:
+
+```sh
+npm run tts:all -- --dry-run
+npm run tts:all -- --generate
+```
+
+Se la chiave è salvata nel file locale `.env.local` (`GEMINI_API_KEY=...`), il comando completo è:
+
+```sh
+node --env-file=.env.local scripts/generate-all-poi-audio.js --generate
+```
+
+Il file `.env.local` è escluso da Git. La generazione procede in sequenza e salva ogni audio completato: dopo un'interruzione basta ripetere il comando per riprendere. Non si rigenerano i contenuti già validi.
+
+Sono obbligatori entrambi gli ID. `--content approfondimento` seleziona il secondo testo. Modello e voce si cambiano con `--model` e `--voice`; il default è `gemini-3.1-flash-tts-preview`, voce `Kore`. L'accesso al modello dipende dall'account Gemini. `--generate` autorizza la chiamata potenzialmente a pagamento. I 56 audio attuali sono stati generati su autorizzazione del proprietario.
 
 Il comando crea WAV PCM, misura la durata e aggiorna `public/audio/poi-manifest.json` con hash del testo, dei byte e della configurazione. Un file invariato e integro viene riusato; modificare testo, voce o modello cambia il nome del file. `--force` richiede di rigenerare anche a parità di configurazione. Scritture di file e manifest avvengono tramite file temporanei; una risposta priva di audio non viene pubblicata.
 
-Dopo la generazione, ascoltare il campione per pronuncia e fedeltà, poi eseguire `npm run build`. La build controlla esistenza, hash, formato WAV e durata degli asset; il runtime espone **Ascolta** soltanto se il manifest corrisponde al testo. Nessun MP3 di una vecchia tratta è associato automaticamente a un POI.
+Dopo la generazione, ascoltare il campione per pronuncia e fedeltà, poi eseguire `npm run build`. La build controlla esistenza, hash, formato WAV/MP3 e durata degli asset; il runtime espone **Ascolta** soltanto se il manifest corrisponde al testo. Nessun MP3 di una vecchia tratta è associato automaticamente a un POI.
+
+## Compressione locale
+
+Gli audio distribuiti sono MP3 mono a 64 kbps: circa 83% in meno rispetto ai WAV. I master originali restano in `audio-masters/`, cartella locale esclusa da Git e dalla build. Manifest, durate e hash sono aggiornati; il generatore TTS riutilizza anche gli MP3 invariati.
+
+Per comprimere eventuali nuovi WAV dopo la generazione (richiede FFmpeg locale, nessuna chiamata API):
+
+```sh
+npm run audio:compress
+npm run audio:publish
+npm run build
+```
+
+Gli MP3 già validi vengono riusati. La build controlla entrambi i formati senza richiedere FFmpeg sul server. Dettagli e dimensioni nel [resoconto di compressione](docs/research/audio-compression-2026-11-06.md).
+
+## Pubblicazione audio sulla VPS
+
+`npm run audio:publish` legge le credenziali dedicate da `.env.storage`, file locale ignorato da Git e Vercel (modello: `.env.storage.example`). Una copia privata è conservata sulla VPS in `~/.config/vienna-audio/publisher.env`. Non usare le credenziali root MinIO e non configurare chiavi nel frontend o su Vercel.
+
+Il publisher verifica tutti gli MP3 locali prima di iniziare; carica soltanto nel bucket Vienna e verifica ogni file remoto tramite SHA-256. I file già presenti e identici vengono riusati. Non elimina oggetti e non sostituisce file remoti che hanno un hash diverso. I nomi includono l'hash dei byte e vengono serviti come `audio/mpeg` con cache immutabile per un anno.
+
+Dopo generazione e compressione, pubblicare gli MP3 **prima** di distribuire il nuovo manifest. Il manifest sorgente conserva i percorsi locali per permettere il riuso TTS; l'app li risolve verso MinIO e il service worker gestisce esclusivamente quel percorso remoto, mantenendo download, verifica e avanzamento offline. Gli originali WAV restano in `audio-masters/` sul computer che li ha generati.
+
+Il nuovo bucket condivide processo MinIO e disco con Hidrospace; nomi e permessi sono separati. Nessuna configurazione Docker, Caddy o dei bucket Hidrospace è stata modificata. Misure e verifica nel [resoconto storage](docs/research/audio-storage-2026-11-06.md).
 
 ## Offline
 
-Il service worker precarica app, catalogo e manifest. Il pulsante **Scarica percorso offline** memorizza e verifica catalogo, manifest e soltanto gli audio dichiarati per il percorso. Mostra progresso, conteggio audio ed eventuale errore. La verifica confronta i byte tramite SHA-256 e rifiuta risposte HTML di fallback. Un nuovo download può riparare file vecchi o incompleti; la cache supporta richieste Range per avanzamento audio.
+Il service worker precarica app, catalogo e manifest. Il pulsante **Scarica percorso offline** memorizza e verifica catalogo, manifest e soltanto gli audio dichiarati per il percorso. Mostra progresso, conteggio audio ed eventuale errore. La verifica confronta i byte tramite SHA-256 e rifiuta risposte HTML di fallback. Un nuovo download può riparare file vecchi o incompleti; la cache supporta richieste Range per avanzamento audio. Dopo il download verificato, rimuove i vecchi audio POI non più usati dal catalogo, compresi i WAV precedenti.
 
-**Percorso verificato offline** compare dopo la verifica del percorso e della shell. Con il catalogo iniziale segnala correttamente **0 audio**: i testi sono pronti, le voci devono essere generate. I file invariati già verificati vengono riusati anche senza rete. Se il browser libera la memoria, occorre scaricare di nuovo.
+**Percorso verificato offline** compare dopo la verifica del percorso e della shell. Il catalogo attuale comprende **56 audio** (circa 21.3 MiB), tutti generati e verificati. I file invariati già verificati vengono riusati anche senza rete. Se il browser libera la memoria, occorre scaricare di nuovo.
 
 Lo sfondo `tile.openstreetmap.org` è **solo online**, secondo la [policy del provider](https://operations.osmfoundation.org/policies/tiles/). Non sono implementati download o prefetch di tessere. Senza rete restano pin, geometrie, testi e audio scaricati. Lo stato dello sfondo è distinto dall'esito del download dei racconti.
 
@@ -104,4 +145,4 @@ I test coprono schema e lunghezza dei testi, coerenza degli asset, fix obsoleti/
 
 La fixture audio dei test usa un MP3 esistente **soltanto nel contesto di test**, per verificare il player e la cache senza generare una voce a pagamento. Il catalogo di produzione resta privo di quell'associazione.
 
-Da verificare sul posto: cancelli e itinerari pedonali, ingressi accessibili, precisione GPS nel tram, soglie di prossimità, servizio effettivo e cambi, Safari/iOS, sospensione in background e qualità delle voci che verranno generate. Nessuna posizione del finestrino è stata certificata. Tenere la pagina in primo piano durante l'uso GPS.
+Da verificare sul posto: cancelli e itinerari pedonali, ingressi accessibili, precisione GPS nel tram, soglie di prossimità, servizio effettivo e cambi, Safari/iOS, sospensione in background e qualità e pronuncia delle voci generate. Nessuna posizione del finestrino è stata certificata. Tenere la pagina in primo piano durante l'uso GPS.

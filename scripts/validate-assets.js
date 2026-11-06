@@ -2,6 +2,7 @@ import { readFile, stat } from "node:fs/promises";
 import assert from "node:assert/strict";
 import tour from "../src/lib/tour.json" with { type: "json" };
 import { paths } from "../src/lib/route-data.js";
+import { readAudioAsset } from "./audio-assets.js";
 assert.equal(tour.length, 8);
 assert.equal(paths.length, 8);
 for (const [i, leg] of tour.entries()) {
@@ -34,6 +35,6 @@ console.log('Verificati entrambi i tour inclusi: originale con MP3, Ring con tes
 const { validatePoiAssets } = await import('./validate-poi.js');
 const poiCatalog = JSON.parse(await readFile('public/catalog.json','utf8'));
 const poiManifest = JSON.parse(await readFile('public/audio/poi-manifest.json','utf8'));
-const counts = await validatePoiAssets(poiCatalog, poiManifest, url => readFile(`public${url}`));
+const counts = await validatePoiAssets(poiCatalog, poiManifest, url => readAudioAsset(url, { published: true }));
 assert.equal(counts.places, 28);
 console.log(`Catalogo POI verificato: ${counts.places} luoghi, ${counts.contents} testi e ${counts.audio} audio coerenti.`);

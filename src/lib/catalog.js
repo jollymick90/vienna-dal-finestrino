@@ -1,3 +1,5 @@
+import { audioUrl } from "./audio-storage.js";
+
 export async function textHash(text) {
   const bytes = await crypto.subtle.digest(
     "SHA-256",
@@ -33,13 +35,12 @@ export async function loadCatalog() {
         c.durationSeconds = null;
         if (
           asset &&
-          /^\/audio\/[^?#]+\.(wav|mp3)$/.test(asset.audio) &&
-          !asset.audio.includes("..") &&
+          audioUrl(asset.audio) &&
           asset.durationSeconds > 0 &&
           asset.textHash === (await textHash(c.text))
         ) {
           Object.assign(c, {
-            audio: asset.audio,
+            audio: audioUrl(asset.audio),
             durationSeconds: asset.durationSeconds,
             audioHash: asset.audioHash,
           });
